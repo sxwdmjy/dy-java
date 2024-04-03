@@ -5,8 +5,14 @@ import com.dtflys.forest.annotation.Body;
 import com.dtflys.forest.annotation.Post;
 import com.dyj.common.client.BaseClient;
 import com.dyj.common.domain.DyResult;
-import com.dyj.web.domain.query.DyAccessTokenQuery;
-import com.dyj.web.domain.vo.DyAccessTokenVo;
+import com.dyj.web.domain.query.AccessTokenQuery;
+import com.dyj.web.domain.query.ClientTokenQuery;
+import com.dyj.web.domain.query.RefreshTokenQuery;
+import com.dyj.web.domain.query.RefreshAccessTokenQuery;
+import com.dyj.web.domain.vo.AccessTokenVo;
+import com.dyj.web.domain.vo.ClientTokenVo;
+import com.dyj.web.domain.vo.RefreshAccessTokenVo;
+import com.dyj.web.domain.vo.RefreshTokenVo;
 import com.dyj.web.interceptor.AuthInterceptor;
 
 /**
@@ -14,10 +20,23 @@ import com.dyj.web.interceptor.AuthInterceptor;
  * @date 2024-04-03 11:03
  **/
 
-@BaseRequest(baseURL = "${domain}", interceptor = AuthInterceptor.class, contentType = "application/json")
+@BaseRequest(baseURL = "${domain}", contentType = "application/json")
 public interface AuthClient extends BaseClient {
 
 
-    @Post("${oauthAccessToken}")
-    DyResult<DyAccessTokenVo> getAccessToken(@Body DyAccessTokenQuery query);
+    /** 获取accessToken */
+    @Post(value = "${oauthAccessToken}",interceptor = AuthInterceptor.class)
+    DyResult<AccessTokenVo> getAccessToken(@Body AccessTokenQuery query);
+
+    /** 刷新 refresh_token */
+    @Post(value = "${oauthRefreshToken}",interceptor = AuthInterceptor.class)
+    DyResult<RefreshTokenVo> refreshToken(@Body RefreshTokenQuery query);
+
+    /** 获取client_token */
+    @Post(value = "${oauthClientToken}",interceptor = AuthInterceptor.class)
+    DyResult<ClientTokenVo> getClientToken(@Body ClientTokenQuery query);
+
+    /** 刷新 access_token */
+    @Post(value = "${accessTokenRefresh}",interceptor = AuthInterceptor.class)
+    DyResult<RefreshAccessTokenVo> refreshAccessToken(@Body RefreshAccessTokenQuery query);
 }

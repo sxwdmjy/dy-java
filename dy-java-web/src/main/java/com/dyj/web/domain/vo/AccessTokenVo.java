@@ -4,7 +4,7 @@ package com.dyj.web.domain.vo;
  * @author danmo
  * @date 2024-04-03 11:25
  **/
-public class DyAccessTokenVo {
+public class AccessTokenVo {
 
     /**
      * 描述

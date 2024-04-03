@@ -15,17 +15,17 @@ public enum DyConfigEnum {
     /**
      * 刷新 access_token
      */
-    REFRESH_ACCESS_TOKEN("oauthRefreshToken","/oauth/renew_refresh_token"),
+    REFRESH_TOKEN("oauthRefreshToken","/oauth/renew_refresh_token"),
 
     /**
-     * 获取 client_access_token
+     * 获取 client_token
      */
-    CLIENT_ACCESS_TOKEN("clientRefreshToken","/oauth/client_token"),
+    CLIENT_TOKEN("oauthClientToken","/oauth/client_token"),
 
     /**
-     * 刷新 client_access_token
+     * 刷新 access_token
      */
-    REFRESH_CLIENT_ACCESS_TOKEN("clientRefreshToken","/oauth/refresh_token"),
+    REFRESH_ACCESS_TOKEN("accessTokenRefresh","/oauth/refresh_token"),
 
 
 

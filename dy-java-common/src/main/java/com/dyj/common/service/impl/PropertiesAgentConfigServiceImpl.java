@@ -1,17 +1,19 @@
 package com.dyj.common.service.impl;
 
-import com.dyj.common.config.DyConfiguration;
 import com.dyj.common.config.AgentConfiguration;
+import com.dyj.common.config.DyConfiguration;
 import com.dyj.common.exception.AgentNotFoundException;
 import com.dyj.common.service.IAgentConfigService;
-import org.springframework.stereotype.Component;
+import org.springframework.util.CollectionUtils;
+
+import java.util.List;
 
 /**
  * 从配置文件获取agent配置
+ *
  * @author danmo
  * @date 2024-04-02 18:55
  **/
-@Component
 public class PropertiesAgentConfigServiceImpl implements IAgentConfigService {
 
     private final DyConfiguration dyConfiguration;
@@ -21,7 +23,11 @@ public class PropertiesAgentConfigServiceImpl implements IAgentConfigService {
     }
 
     @Override
-    public AgentConfiguration loadAgentByTenantId(Integer tenantId) throws AgentNotFoundException {
-        return dyConfiguration.getAgentByTenantId(tenantId);
+    public List<AgentConfiguration> loadAgentByTenantId(Integer tenantId) throws AgentNotFoundException {
+        List<AgentConfiguration> agentConfiguration = dyConfiguration.getAgentByTenantId(tenantId);
+        if (!CollectionUtils.isEmpty(agentConfiguration)) {
+            throw new AgentNotFoundException("租户未配置应用信息");
+        }
+        return agentConfiguration;
     }
 }

@@ -20,6 +20,8 @@ public class AgentConfiguration {
      */
     private String clientSecret;
 
+    private String refreshToken;
+
     public Integer getTenantId() {
         return tenantId;
     }
@@ -42,5 +44,13 @@ public class AgentConfiguration {
 
     public void setClientSecret(String clientSecret) {
         this.clientSecret = clientSecret;
+    }
+
+    public String getRefreshToken() {
+        return refreshToken;
+    }
+
+    public void setRefreshToken(String refreshToken) {
+        this.refreshToken = refreshToken;
     }
 }

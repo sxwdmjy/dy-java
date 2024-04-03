@@ -1,11 +1,10 @@
 package com.dyj.examples.controller;
 
-import com.dyj.common.config.DyConfiguration;
 import com.dyj.common.domain.DyResult;
+import com.dyj.web.DyWebClient;
+import com.dyj.common.config.DyConfiguration;
 import com.dyj.web.client.AuthClient;
-import com.dyj.web.domain.query.DyAccessTokenQuery;
-import com.dyj.web.domain.vo.DyAccessTokenVo;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.dyj.web.domain.vo.AccessTokenVo;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,9 +25,12 @@ public class TestController {
     @Resource
     private AuthClient authClient;
 
+
     @RequestMapping("/test")
     public String test() {
-        DyResult<DyAccessTokenVo> accessToken = authClient.getAccessToken(new DyAccessTokenQuery());
+        //DyResult<AccessTokenVo> accessToken1 = new AccessTokenService(authClient).getAccessToken("123");
+        //DyResult<AccessTokenVo> accessToken = authClient.getAccessToken(new AccessTokenQuery());
+        DyResult<AccessTokenVo> accessTokenVoDyResult = DyWebClient.accessToken("123");
         return dyConfiguration.getBeanId();
     }
 

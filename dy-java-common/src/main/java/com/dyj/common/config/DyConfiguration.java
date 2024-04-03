@@ -1,12 +1,11 @@
 package com.dyj.common.config;
 
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
 
 import java.io.Serializable;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -18,7 +17,7 @@ public class DyConfiguration implements Serializable {
     /**
      * 抖音应用配置缓存
      */
-    private final Map<Integer, AgentConfiguration> AGENT_CACHE = new ConcurrentHashMap<>();
+    private final Map<Integer, List<AgentConfiguration>> AGENT_CACHE = new ConcurrentHashMap<>();
 
 
     private String beanId;
@@ -34,8 +33,18 @@ public class DyConfiguration implements Serializable {
         return configuration;
     }
 
-    public AgentConfiguration getAgentByTenantId(final Integer tenantId) {
+    public List<AgentConfiguration> getAgentByTenantId(final Integer tenantId) {
         return AGENT_CACHE.get(tenantId);
+    }
+
+    public AgentConfiguration getAgentByTenantId(final Integer tenantId, final String clientKey) {
+        if(Objects.isNull(tenantId)){
+           return AGENT_CACHE.values().stream().flatMap(Collection::stream).findFirst().orElse(new AgentConfiguration());
+        }
+        if(StringUtils.hasLength(clientKey)){
+           return Optional.ofNullable(AGENT_CACHE.get(tenantId)).orElseGet(ArrayList::new).stream().findFirst().orElse(new AgentConfiguration());
+        }
+        return Optional.ofNullable(AGENT_CACHE.get(tenantId)).orElseGet(ArrayList::new).stream().filter(agent -> agent.getClientKey().equals(clientKey)).findFirst().orElse(new AgentConfiguration());
     }
 
 
@@ -54,7 +63,8 @@ public class DyConfiguration implements Serializable {
     public void setAgents(List<AgentConfiguration> agents) {
         this.agents = agents;
         if (!CollectionUtils.isEmpty(agents)) {
-            AGENT_CACHE.putAll(agents.stream().collect(Collectors.toConcurrentMap(AgentConfiguration::getTenantId, Function.identity(), (t1, t2) -> t1)));
+            Map<Integer, List<AgentConfiguration>> collect = agents.stream().collect(Collectors.groupingBy(AgentConfiguration::getTenantId));
+            AGENT_CACHE.putAll(collect);
         }
     }
 }

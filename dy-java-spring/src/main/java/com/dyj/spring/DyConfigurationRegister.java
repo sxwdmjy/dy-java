@@ -4,6 +4,7 @@ import com.dtflys.forest.config.ForestConfiguration;
 import com.dtflys.forest.utils.StringUtils;
 import com.dyj.common.config.DyConfiguration;
 import com.dyj.common.enums.DyConfigEnum;
+import com.dyj.common.handler.RequestHandler;
 import com.dyj.spring.properties.DyConfigurationProperties;
 import com.dyj.spring.properties.DyForestConfigurationProperties;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -57,7 +58,7 @@ public class DyConfigurationRegister implements ResourceLoaderAware, BeanPostPro
 
         DyConfiguration configuration = applicationContext.getBean(id, DyConfiguration.class);
         //configuration.setInterceptorFactory(DyInterceptorFactory);
-
+        RequestHandler.getInstance().setDyConfiguration(configuration);
     }
 
     public void setForestProperties() {
