@@ -1,0 +1,2 @@
+com.dyj.spring.config.DyAutoConfiguration
+com.dyj.spring.config.DyScannerConfiguration
