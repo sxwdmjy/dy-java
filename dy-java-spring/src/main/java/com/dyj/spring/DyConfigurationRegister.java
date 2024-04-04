@@ -46,6 +46,7 @@ public class DyConfigurationRegister implements ResourceLoaderAware, BeanPostPro
         }
         beanDefinitionBuilder
                 .addPropertyValue("agents", dyConfigurationProperties.getAgents())
+                .addPropertyValue("defaultId",dyConfigurationProperties.getDefaultId())
                 .setLazyInit(false)
                 .setFactoryMethod("configuration")
                 .addConstructorArgValue(id);

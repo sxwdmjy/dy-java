@@ -22,6 +22,8 @@ public class DyConfiguration implements Serializable {
 
     private String beanId;
 
+    private Integer defaultId;
+
     private List<AgentConfiguration> agents;
 
     public DyConfiguration() {
@@ -37,7 +39,8 @@ public class DyConfiguration implements Serializable {
         return AGENT_CACHE.get(tenantId);
     }
 
-    public AgentConfiguration getAgentByTenantId(final Integer tenantId, final String clientKey) {
+    public AgentConfiguration getAgentByTenantId(Integer tenantId, final String clientKey) {
+        tenantId = Optional.ofNullable(tenantId).orElse(defaultId);
         if(Objects.isNull(tenantId)){
            return AGENT_CACHE.values().stream().flatMap(Collection::stream).findFirst().orElse(new AgentConfiguration());
         }

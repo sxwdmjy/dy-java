@@ -43,12 +43,18 @@ public class AccessTokenHandler {
         return authClient.refreshToken(query);
     }
 
-    public DyResult<ClientTokenVo> getClientToken(ClientTokenQuery query) {
-        return null;
+    public DyResult<ClientTokenVo> getClientToken() {
+        ClientTokenQuery query = new ClientTokenQuery();
+        query.setClient_key(agentConfiguration.getClientKey());
+        query.setClient_secret(agentConfiguration.getClientSecret());
+        return authClient.getClientToken(query);
     }
 
-    public DyResult<RefreshAccessTokenVo> refreshAccessToken(RefreshAccessTokenQuery query) {
-        return null;
+    public DyResult<RefreshAccessTokenVo> refreshAccessToken() {
+        RefreshAccessTokenQuery query = new RefreshAccessTokenQuery();
+        query.setRefresh_token(agentConfiguration.getRefreshToken());
+        query.setClient_key(agentConfiguration.getClientKey());
+        return authClient.refreshAccessToken(query);
     }
 
 

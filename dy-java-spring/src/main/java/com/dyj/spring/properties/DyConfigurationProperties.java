@@ -24,6 +24,11 @@ public class DyConfigurationProperties {
     private String beanId;
 
     /**
+     * 默认租户ID
+     */
+    private Integer defaultId;
+
+    /**
      * 应用配置
      */
     private List<AgentConfiguration> agents;
@@ -57,5 +62,13 @@ public class DyConfigurationProperties {
 
     public void setForest(DyForestConfigurationProperties forest) {
         this.forest = forest;
+    }
+
+    public Integer getDefaultId() {
+        return this.defaultId;
+    }
+
+    public void setDefaultId(Integer defaultId) {
+        this.defaultId = defaultId;
     }
 }
