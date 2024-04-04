@@ -1,6 +1,5 @@
 package com.dyj.web;
 
-import com.dyj.common.config.AgentConfiguration;
 import com.dyj.common.config.DyConfiguration;
 import com.dyj.common.domain.DyResult;
 import com.dyj.common.handler.RequestHandler;
@@ -20,14 +19,14 @@ public abstract class DyWebClient {
 
     private static final AuthClient authClient = SpringUtils.getBean(AuthClient.class);
 
-    public static DyConfiguration configuration(){
+    public static DyConfiguration configuration() {
         return RequestHandler.getInstance().getDyConfiguration();
     }
 
     /**
      * 获取访问令牌。
      *
-     * @param code 用户授权后返回的授权码，用于获取访问令牌。
+     * @param code     用户授权后返回的授权码，用于获取访问令牌。
      * @param tenantId 租户标识，用于区分不同租户的数据。
      * @return 返回一个包含访问令牌信息的结果对象。如果成功，结果对象中包含访问令牌、刷新令牌等信息；如果失败，结果对象中包含错误信息。
      */
@@ -39,24 +38,23 @@ public abstract class DyWebClient {
     /**
      * 通过代码获取访问令牌。
      *
-     * @param code 用户授权后返回的授权码。
+     * @param code     用户授权后返回的授权码。
      * @param tenantId 租户标识，用于指定获取哪个租户的访问令牌。
      * @param clientId 应用标识，用于指定获取哪个应用的访问令牌。
      * @return 返回一个包含访问令牌信息的结果对象。
      */
     public static DyResult<AccessTokenVo> accessToken(String code, Integer tenantId, String clientId) {
-        // 根据租户ID和应用ID获取配置信息
-        AgentConfiguration agentConfiguration = configuration().getAgentByTenantId(tenantId, clientId);
         // 使用配置信息和授权码获取访问令牌
-        return new AccessTokenHandler(authClient,agentConfiguration).getAccessToken(code);
+        return new AccessTokenHandler(authClient, configuration().getAgentByTenantId(tenantId, clientId)).getAccessToken(code);
     }
 
     /**
      * 获取accessToken
      * 主要通过传递code来获取accessToken，code通常为授权后的凭证。
+     *
      * @param code 用户授权后返回的code，用于向服务器换取accessToken。
      * @return 返回一个DyResult对象，包含获取accessToken的结果信息。
-     *         DyResult中的data字段会包含AccessTokenVo类型的accessToken信息。
+     * DyResult中的data字段会包含AccessTokenVo类型的accessToken信息。
      */
     public static DyResult<AccessTokenVo> accessToken(String code) {
         return accessToken(code, null);
@@ -95,10 +93,8 @@ public abstract class DyWebClient {
      * @return 返回一个包含刷新后的访问令牌信息的结果对象。
      */
     public static DyResult<RefreshTokenVo> refreshToken(Integer tenantId, String clientId) {
-        // 根据租户ID和应用ID获取相应的配置信息
-        AgentConfiguration agentConfiguration = configuration().getAgentByTenantId(tenantId, clientId);
         // 利用配置信息和授权码获取新的访问令牌
-        return new AccessTokenHandler(authClient,agentConfiguration).refreshToken();
+        return new AccessTokenHandler(authClient, configuration().getAgentByTenantId(tenantId, clientId)).refreshToken();
     }
 
 
@@ -119,18 +115,20 @@ public abstract class DyWebClient {
 
     /**
      * 根据指定的租户ID和客户端ID获取客户端令牌。
+     *
      * @param tenantId 租户ID，可为空，默认尝试获取系统配置中的租户令牌。
      * @param clientId 客户端ID，可为空，默认尝试获取系统配置中的客户端令牌。
      * @return 返回客户端令牌的结果，包含令牌信息或其他操作结果。
      */
-    public static DyResult<ClientTokenVo> clientToken(Integer tenantId, String clientId){
+    public static DyResult<ClientTokenVo> clientToken(Integer tenantId, String clientId) {
         // 通过AccessTokenHandler处理逻辑，获取指定租户和客户端的令牌
-        return new AccessTokenHandler(authClient,configuration().getAgentByTenantId(tenantId, clientId)).getClientToken();
+        return new AccessTokenHandler(authClient, configuration().getAgentByTenantId(tenantId, clientId)).getClientToken();
     }
 
 
     /**
      * 刷新访问令牌的工具方法。
+     *
      * @return DyResult<RefreshAccessTokenVo> 包含刷新后的访问令牌信息的结果对象。
      */
     public static DyResult<RefreshAccessTokenVo> refreshAccessToken() {
@@ -158,7 +156,7 @@ public abstract class DyWebClient {
      */
     public static DyResult<RefreshAccessTokenVo> refreshAccessToken(Integer tenantId, String clientId) {
         // 通过AccessTokenHandler处理逻辑，获取指定租户和客户端的刷新令牌
-        return new AccessTokenHandler(authClient,configuration().getAgentByTenantId(tenantId, clientId)).refreshAccessToken();
+        return new AccessTokenHandler(authClient, configuration().getAgentByTenantId(tenantId, clientId)).refreshAccessToken();
     }
 
 }
