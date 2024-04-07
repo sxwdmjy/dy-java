@@ -48,6 +48,8 @@ dyjava:
 ```
 
 #### 使用示例
+
+* 移动\网站应用：
 ```java
 //单租户获取AccessToken
 AccessTokenVo accessToken = DyWebClient.getInstance().getData();
