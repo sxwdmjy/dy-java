@@ -5,10 +5,16 @@ import com.dyj.common.config.DyConfiguration;
 import com.dyj.common.domain.DyResult;
 import com.dyj.common.domain.TokenInfo;
 import com.dyj.common.handler.RequestHandler;
+import com.dyj.web.domain.query.CreateImageTextQuery;
+import com.dyj.web.domain.query.CreateVideoQuery;
+import com.dyj.web.domain.query.VideoDataQuery;
 import com.dyj.web.domain.vo.*;
 import com.dyj.web.handler.AccessTokenHandler;
 import com.dyj.web.handler.UserHandler;
+import com.dyj.web.handler.VideoHandler;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.List;
 
 /**
@@ -134,4 +140,150 @@ public class DyWebClient {
         return new UserHandler(agentConfiguration).userRoleCheck(openId, douyinShortId, roleLabels);
     }
 
+    /**
+     * 创建图文消息。
+     *
+     * @param query 创建图文消息的查询参数。
+     * @return DyResult<CreateImageTextVo> 返回一个包含创建图文消息结果的响应对象。
+     */
+    public DyResult<CreateImageTextVo> createImageText(CreateImageTextQuery query){
+        return new VideoHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).createImageText(query);
+    }
+
+    /**
+     * 上传图片。
+     *
+     * @param openId 用户的OpenID，用于标识上传者。
+     * @param file   要上传的图片文件。
+     * @return DyResult<UploadImageVo> 返回一个包含上传图片结果的响应对象。
+     * @throws FileNotFoundException 如果指定的文件不存在，则抛出此异常。
+     */
+    public DyResult<UploadImageVo> uploadImage(String openId, File file) throws FileNotFoundException {
+        return new VideoHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).uploadImage(openId, file);
+    }
+
+    /**
+     * 上传视频。
+     *
+     * @param openId 用户的OpenID，用于标识上传者。
+     * @param file   要上传的视频文件。
+     * @return DyResult<UploadVideoVo> 返回一个包含上传视频结果的响应对象。
+     * @throws FileNotFoundException 如果指定的文件不存在，则抛出此异常。
+     */
+    public DyResult<UploadVideoVo> uploadVideo(String openId, File file) throws FileNotFoundException {
+        return new VideoHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).uploadVideo(openId, file);
+    }
+
+    /**
+     * 创建视频。
+     *
+     * @param query 创建视频的查询参数。
+     * @return DyResult<CreateVideoVo> 返回一个包含创建视频结果的响应对象。
+     */
+    public DyResult<CreateVideoVo> createVideo(CreateVideoQuery query){
+        return new VideoHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).createVideo(query);
+    }
+
+    /**
+     * 分片上传完成。
+     *
+     * @param openId 用户ID。
+     * @param uploadId 分片上传的标记。
+     * @return DyResult<UploadVideoVo>。
+     */
+    public DyResult<UploadVideoVo> completeVideoPartUpdate(String openId, String uploadId) {
+        return new VideoHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).completeVideoPartUpdate(openId, uploadId);
+    }
+
+    /**
+     * 分片上传。
+     *
+     * @param openId 用户ID。
+     * @param uploadId 分片上传的标记。
+     * @param partNumber 分片上传的序号。
+     * @param file 要上传的文件。
+     * @return DyResult<BaseVo>。
+     * @throws FileNotFoundException 如果指定的文件不存在，则抛出此异常。
+     */
+    public DyResult<BaseVo> updateVideoPart(String openId, String uploadId, Integer partNumber, File file) throws FileNotFoundException {
+        return new VideoHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).updateVideoPart(openId, uploadId, partNumber, file);
+    }
+
+    /**
+     * 初始化分片上传。
+     *
+     * @param openId 用户ID。
+     * @return DyResult<InitPartUploadVo>。
+     */
+    public DyResult<InitPartUploadVo> initializeVideoPartUpload(String openId) {
+        return new VideoHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).initializeVideoPartUpload(openId);
+    }
+
+    /**
+     * 查询授权账号视频列表。
+     *
+     * @param openId 用户ID。
+     * @param cursor 分页游标。
+     * @param count 每页数量。
+     * @return DyResult<QueryVideoListVo>。
+     */
+    public DyResult<QueryVideoListVo> queryVideoList(String openId, Integer cursor, Integer count) {
+        return new VideoHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).queryVideoList(openId, cursor, count);
+    }
+
+    /**
+     * 查询特定视频的视频数据。
+     *
+     * @param query 查询参数。
+     * @return DyResult<QueryVideoListVo>。
+     */
+    public DyResult<QueryVideoListVo> queryVideoData(VideoDataQuery query) {
+        return new VideoHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).queryVideoData(query);
+    }
+
+    /**
+     * 查询视频发布结果。
+     *
+     * @param defaultHashtag 默认话题。
+     * @param linkParam 链接参数。
+     * @param needCallback 是否需要回调。
+     * @param sourceStyleId 源样式ID。
+     * @return DyResult<QueryVideoPublishResultVo>。
+     */
+    public DyResult<QueryVideoPublishResultVo> queryVideoPublishResult(String defaultHashtag, String linkParam, Boolean needCallback, String sourceStyleId) {
+        return new VideoHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).queryVideoPublishResult(defaultHashtag, linkParam, needCallback, sourceStyleId);
+    }
+
+    /**
+     * 查询视频携带的地点信息。
+     *
+     * @param count 每页数量。
+     * @param keyword 关键词。
+     * @param city 城市。
+     * @param cursor 分页游标。
+     * @return DyResult<QueryVideoLocationVo>。
+     */
+    public DyResult<QueryVideoLocationVo> queryVideoLocation(Integer count, String keyword, String city, Integer cursor) {
+        return new VideoHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).queryVideoLocation(count, keyword, city, cursor);
+    }
+
+    /**
+     * 查询视频的IFRAME。
+     *
+     * @param videoId 视频ID。
+     * @return DyResult<VideoIframeVo>。
+     */
+    public DyResult<VideoIframeVo> getIframeByVideo(String videoId) {
+        return new VideoHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).getIframeByVideo(videoId);
+    }
+
+    /**
+     * 查询视频的IFRAME。
+     *
+     * @param itemId 视频ID。
+     * @return DyResult<VideoIframeVo>。
+     */
+    public DyResult<VideoIframeVo> getIframeByItem(String itemId) {
+        return new VideoHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).getIframeByItem(itemId);
+    }
 }

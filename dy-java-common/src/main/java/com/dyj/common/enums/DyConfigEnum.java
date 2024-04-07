@@ -49,12 +49,12 @@ public enum DyConfigEnum {
     /**
      * 上传图片
      */
-    UPDATE_IMAGE("updateImage", "/api/douyin/v1/video/upload_image"),
+    UPLOAD_IMAGE("uploadImage", "/api/douyin/v1/video/upload_image"),
 
     /**
      * 上传视频
      */
-    UPDATE_VIDEO("updateVideo", "/api/douyin/v1/video/upload_video"),
+    UPLOAD_VIDEO("uploadVideo", "/api/douyin/v1/video/upload_video"),
 
     /**
      * 创建视频
@@ -64,13 +64,13 @@ public enum DyConfigEnum {
     /**
      * 分片上传完成
      */
-    COMPLETE_VIDEO_PART_UPDATE("completeVideoPartUpdate", "/api/douyin/v1/video/complete_video_part_upload"),
+    COMPLETE_VIDEO_PART_UPLOAD("completeVideoPartUpload", "/api/douyin/v1/video/complete_video_part_upload"),
 
 
     /**
      * 分片上传
      */
-    UPDATE_VIDEO_PART("updateVideoPart", "/api/douyin/v1/video/upload_video_part"),
+    UPLOAD_VIDEO_PART("uploadVideoPart", "/api/douyin/v1/video/upload_video_part"),
 
 
     /**
