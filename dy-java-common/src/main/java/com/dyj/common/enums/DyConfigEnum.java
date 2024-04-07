@@ -5,46 +5,114 @@ public enum DyConfigEnum {
     /**
      * 域名
      */
-    DOMAIN("domain","https://open.douyin.com"),
+    DOMAIN("domain", "https://open.douyin.com"),
 
     /**
      * 获取 access_token
      */
-    OAUTH_ACCESS_TOKEN("oauthAccessToken","/oauth/access_token"),
+    OAUTH_ACCESS_TOKEN("oauthAccessToken", "/oauth/access_token"),
 
     /**
      * 刷新 access_token
      */
-    REFRESH_TOKEN("oauthRefreshToken","/oauth/renew_refresh_token"),
+    REFRESH_TOKEN("oauthRefreshToken", "/oauth/renew_refresh_token"),
 
     /**
      * 获取 client_token
      */
-    CLIENT_TOKEN("oauthClientToken","/oauth/client_token"),
+    CLIENT_TOKEN("oauthClientToken", "/oauth/client_token"),
 
     /**
      * 刷新 access_token
      */
-    REFRESH_ACCESS_TOKEN("accessTokenRefresh","/oauth/refresh_token"),
+    REFRESH_ACCESS_TOKEN("accessTokenRefresh", "/oauth/refresh_token"),
 
     /**
      * 用户信息
      */
-    USER_INFO("userInfo","/oauth/userinfo"),
+    USER_INFO("userInfo", "/oauth/userinfo"),
     /**
      * 粉丝判断
      */
-    FANS_CHECK("checkFans","/fans/check/"),
+    FANS_CHECK("checkFans", "/fans/check/"),
 
     /**
      * 用户经营身份管理
      */
-    USER_ROLE_CHECK("userRoleCheck","/api/douyin/v1/role/check")
+    USER_ROLE_CHECK("userRoleCheck", "/api/douyin/v1/role/check"),
+
+    /**
+     * 创建图文
+     */
+    CREATE_IMAGE_TEXT("createImageText", "/api/douyin/v1/video/create_image_text"),
+
+    /**
+     * 上传图片
+     */
+    UPDATE_IMAGE("updateImage", "/api/douyin/v1/video/upload_image"),
+
+    /**
+     * 上传视频
+     */
+    UPDATE_VIDEO("updateVideo", "/api/douyin/v1/video/upload_video"),
+
+    /**
+     * 创建视频
+     */
+    CREATE_VIDEO("createVideo", "/api/douyin/v1/video/create_video"),
+
+    /**
+     * 分片上传完成
+     */
+    COMPLETE_VIDEO_PART_UPDATE("completeVideoPartUpdate", "/api/douyin/v1/video/complete_video_part_upload"),
+
+
+    /**
+     * 分片上传
+     */
+    UPDATE_VIDEO_PART("updateVideoPart", "/api/douyin/v1/video/upload_video_part"),
+
+
+    /**
+     * 分片上传初始化
+     */
+    Initialize_Video_Part_Upload("initializeVideoPartUpload", "/api/douyin/v1/video/init_video_part_upload"),
+
+
+    /**
+     * 查询授权账号视频列表
+     */
+    QUERY_VIDEO_LIST("queryVideoList", "/api/douyin/v1/video/init_video_part_upload"),
+
+
+    /**
+     * 查询特定视频的视频数据
+     */
+    QUERY_VIDEO_DATA("queryVideoData", "/api/douyin/v1/video/video_data"),
+
+    /**
+     * 查询视频发布结果
+     */
+    QUERY_VIDEO_PUBLISH_RESULT("queryVideoPublishResult", "/share-id"),
+
+    /**
+     * 查询视频携带的地点信息
+     */
+    QUERY_VIDEO_LOCATION("queryVideoLocation", "/poi/search/keyword"),
+
+    /**
+     * 通过VideoID获取IFrame代码
+     */
+    QUERY_VIDEO_IFRAME("queryVideoIframe", "/api/douyin/v1/video/get_iframe_by_video"),
+
+    /**
+     * 通过ItemID获取IFrame代码
+     */
+    QUERY_VIDEO_IFRAME_BY_ITEM("queryVideoIframeByItem", "/api/douyin/v1/video/get_iframe_by_item"),
 
 
 
     ;
-
 
 
     private String key;
@@ -58,15 +126,19 @@ public enum DyConfigEnum {
     public String getKey() {
         return key;
     }
+
     public String getValue() {
         return value;
     }
+
     public void setValue(String value) {
         this.value = value;
     }
+
     public void setKey(String key) {
         this.key = key;
     }
+
     public static String getValueByKey(String key) {
         for (DyConfigEnum e : DyConfigEnum.values()) {
             if (e.getKey().equals(key)) {

@@ -10,11 +10,11 @@ public class BaseQuery {
     /**
      * 租户ID
      */
-    private Integer tenantId;
+    protected Integer tenantId;
     /**
      * 应用Key
      */
-    private String clientKey;
+    protected String clientKey;
 
     public Integer getTenantId() {
         return tenantId;
