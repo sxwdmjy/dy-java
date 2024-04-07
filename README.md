@@ -24,6 +24,10 @@ dyjava:
     - tenantId: 1   #租户名称
       clientKey:  #应用Key
       clientSecret:   #应用秘钥
+  #应用信息加载类，默认读取配置文件 实现IAgentConfigService接口
+  agentSourceClass: com.dyj.common.service.impl.PropertiesAgentConfigServiceImpl
+  #令牌信息加载类，默认读取缓存 实现IAgentTokenService接口
+  tokenSourceClass: com.dyj.common.service.impl.CacheAgentTokenServiceImpl
   forest:
     backend: okhttp3             # 后端HTTP框架httpclient、okhttp3（默认为 okhttp3）
     max-connections: 1000        # 连接池最大连接数（默认为 500）
