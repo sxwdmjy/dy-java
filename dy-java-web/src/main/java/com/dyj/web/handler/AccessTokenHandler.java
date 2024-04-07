@@ -2,6 +2,7 @@ package com.dyj.web.handler;
 
 import com.dyj.common.config.AgentConfiguration;
 import com.dyj.common.domain.DyResult;
+import com.dyj.spring.utils.SpringUtils;
 import com.dyj.web.client.AuthClient;
 import com.dyj.web.domain.query.AccessTokenQuery;
 import com.dyj.web.domain.query.ClientTokenQuery;
@@ -20,11 +21,14 @@ public class AccessTokenHandler {
 
     private final AuthClient authClient;
 
+    {
+        authClient = SpringUtils.getBean(AuthClient.class);
+    }
+
     private final AgentConfiguration agentConfiguration;
 
-    public AccessTokenHandler(AuthClient authClient, AgentConfiguration agentConfiguration) {
+    public AccessTokenHandler(AgentConfiguration agentConfiguration) {
         this.agentConfiguration = agentConfiguration;
-        this.authClient = authClient;
     }
 
     public DyResult<AccessTokenVo> getAccessToken(String code) {

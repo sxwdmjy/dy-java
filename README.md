@@ -42,6 +42,22 @@ dyjava:
     log-response-content: false  # 打开/关闭响应内容日志（默认为 false）
     async-mode: platform         # 异步模式（默认为 platform）
 ```
+
+#### 使用示例
+```java
+//单租户获取AccessToken
+AccessTokenVo accessToken = DyWebClient.getInstance().getData();
+//多租户单应用获取AccessToken
+AccessTokenVo accessToken = DyWebClient.getInstance()
+        .tenantId(1)
+        .accessToken(code).getData();
+//多租户多应用获取AccessToken
+AccessTokenVo accessToken = DyWebClient.getInstance()
+        .tenantId(1)
+        .clientKey("123")
+        .accessToken(code).getData();
+```
+
 #### 开发规划
 ###### 接口接入计划
 1. 网站应用、App(2024-04-15前完成)

@@ -3,6 +3,7 @@ package com.dyj.web.client;
 import com.dtflys.forest.annotation.BaseRequest;
 import com.dtflys.forest.annotation.Body;
 import com.dtflys.forest.annotation.Post;
+import com.dtflys.forest.backend.ContentType;
 import com.dyj.common.client.BaseClient;
 import com.dyj.common.domain.DyResult;
 import com.dyj.web.domain.query.AccessTokenQuery;
@@ -20,7 +21,7 @@ import com.dyj.web.interceptor.NoTokenInterceptor;
  * @date 2024-04-03 11:03
  **/
 
-@BaseRequest(baseURL = "${domain}", contentType = "application/json")
+@BaseRequest(baseURL = "${domain}", contentType = ContentType.APPLICATION_JSON)
 public interface AuthClient extends BaseClient {
 
 

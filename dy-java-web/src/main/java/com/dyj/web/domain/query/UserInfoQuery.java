@@ -6,13 +6,20 @@ package com.dyj.web.domain.query;
  **/
 public class UserInfoQuery extends BaseQuery{
 
-    private String openId;
+    /**
+     * 用户唯一标志
+     */
+    protected String open_id;
 
-    public String getOpenId() {
-        return openId;
+
+
+    public String getOpen_id() {
+        return open_id;
     }
 
-    public void setOpenId(String openId) {
-        this.openId = openId;
+    public void setOpen_id(String open_id) {
+        this.open_id = open_id;
     }
+
+
 }

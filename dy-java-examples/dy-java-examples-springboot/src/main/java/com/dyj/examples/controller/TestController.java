@@ -28,10 +28,8 @@ public class TestController {
 
     @RequestMapping("/test")
     public String test() {
-        //DyResult<AccessTokenVo> accessToken1 = new AccessTokenService(authClient).getAccessToken("123");
-        //DyResult<AccessTokenVo> accessToken = authClient.getAccessToken(new AccessTokenQuery());
-        DyResult<AccessTokenVo> accessTokenVoDyResult = DyWebClient.accessToken("123");
-        return dyConfiguration.getBeanId();
+        DyResult<AccessTokenVo> dyResult = DyWebClient.getInstance().tenantId(1).clientKey("123").accessToken("123");
+        return dyResult.getData().getAccess_token();
     }
 
 
