@@ -27,6 +27,20 @@ public enum DyConfigEnum {
      */
     REFRESH_ACCESS_TOKEN("accessTokenRefresh","/oauth/refresh_token"),
 
+    /**
+     * 用户信息
+     */
+    USER_INFO("userInfo","/oauth/userinfo"),
+    /**
+     * 粉丝判断
+     */
+    FANS_CHECK("checkFans","/fans/check/"),
+
+    /**
+     * 用户经营身份管理
+     */
+    USER_ROLE_CHECK("userRoleCheck","/api/douyin/v1/role/check")
+
 
 
     ;

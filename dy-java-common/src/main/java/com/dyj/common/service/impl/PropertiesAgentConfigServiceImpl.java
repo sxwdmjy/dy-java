@@ -7,6 +7,7 @@ import com.dyj.common.service.IAgentConfigService;
 import org.springframework.util.CollectionUtils;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * 从配置文件获取agent配置
@@ -16,11 +17,8 @@ import java.util.List;
  **/
 public class PropertiesAgentConfigServiceImpl implements IAgentConfigService {
 
-    private final DyConfiguration dyConfiguration;
+    private DyConfiguration dyConfiguration;
 
-    public PropertiesAgentConfigServiceImpl(DyConfiguration dyConfiguration) {
-        this.dyConfiguration = dyConfiguration;
-    }
 
     @Override
     public List<AgentConfiguration> loadAgentByTenantId(Integer tenantId) throws AgentNotFoundException {
@@ -30,4 +28,20 @@ public class PropertiesAgentConfigServiceImpl implements IAgentConfigService {
         }
         return agentConfiguration;
     }
+
+    @Override
+    public AgentConfiguration loadAgentByTenantId(Integer tenantId, String clientKey) throws AgentNotFoundException {
+        AgentConfiguration agentConfiguration = dyConfiguration.getAgentByTenantId(tenantId, clientKey);
+        if (Objects.isNull(agentConfiguration)) {
+            throw new AgentNotFoundException("租户未配置应用信息");
+        }
+        return agentConfiguration;
+    }
+
+    @Override
+    public void setDyConfiguration(DyConfiguration dyConfiguration) {
+        this.dyConfiguration = dyConfiguration;
+    }
+
+
 }

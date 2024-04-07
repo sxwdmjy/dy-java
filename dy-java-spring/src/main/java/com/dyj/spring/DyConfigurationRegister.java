@@ -1,10 +1,11 @@
 package com.dyj.spring;
 
 import com.dtflys.forest.config.ForestConfiguration;
-import com.dtflys.forest.utils.StringUtils;
 import com.dyj.common.config.DyConfiguration;
 import com.dyj.common.enums.DyConfigEnum;
 import com.dyj.common.handler.RequestHandler;
+import com.dyj.common.service.IAgentConfigService;
+import com.dyj.common.service.IAgentTokenService;
 import com.dyj.spring.properties.DyConfigurationProperties;
 import com.dyj.spring.properties.DyForestConfigurationProperties;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -14,6 +15,7 @@ import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.ResourceLoaderAware;
 import org.springframework.core.io.ResourceLoader;
+import org.springframework.util.StringUtils;
 
 import java.util.Objects;
 
@@ -24,7 +26,7 @@ import java.util.Objects;
 public class DyConfigurationRegister implements ResourceLoaderAware, BeanPostProcessor {
 
     private final ConfigurableApplicationContext applicationContext;
-    private DyConfigurationProperties dyConfigurationProperties;
+    private final DyConfigurationProperties dyConfigurationProperties;
 
     private ResourceLoader resourceLoader;
 
@@ -41,12 +43,12 @@ public class DyConfigurationRegister implements ResourceLoaderAware, BeanPostPro
     public void registerDyConfiguration() {
         BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(DyConfiguration.class);
         String id = dyConfigurationProperties.getBeanId();
-        if (StringUtils.isBlank(id)) {
+        if (!StringUtils.hasLength(id)) {
             id = "dyConfiguration";
         }
         beanDefinitionBuilder
                 .addPropertyValue("agents", dyConfigurationProperties.getAgents())
-                .addPropertyValue("defaultId",dyConfigurationProperties.getDefaultId())
+                .addPropertyValue("defaultId", dyConfigurationProperties.getDefaultId())
                 .setLazyInit(false)
                 .setFactoryMethod("configuration")
                 .addConstructorArgValue(id);
@@ -58,6 +60,33 @@ public class DyConfigurationRegister implements ResourceLoaderAware, BeanPostPro
         beanFactory.registerBeanDefinition(id, beanDefinition);
 
         DyConfiguration configuration = applicationContext.getBean(id, DyConfiguration.class);
+        String agentSourceClass = dyConfigurationProperties.getAgentSourceClass();
+        //根据类详细路径获取类对象
+        if (StringUtils.hasLength(agentSourceClass)) {
+            try {
+                Class<?> aClass = Class.forName(agentSourceClass);
+                if (!IAgentConfigService.class.isAssignableFrom(aClass)) {
+                    throw new RuntimeException("property 'agentConfig' must be a class extending from com.dyj.common.service.IAgentConfigService");
+                }
+                IAgentConfigService iAgentConfigService = (IAgentConfigService) aClass.newInstance();
+                configuration.setAgentConfigService(iAgentConfigService);
+            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        String tokenSourceClass = dyConfigurationProperties.getTokenSourceClass();
+        if (StringUtils.hasLength(tokenSourceClass)) {
+            try {
+                Class<?> aClass = Class.forName(tokenSourceClass);
+                if (!IAgentTokenService.class.isAssignableFrom(aClass)) {
+                    throw new RuntimeException("property 'agentToken' must be a class extending from com.dyj.common.service.IAgentTokenService");
+                }
+                IAgentTokenService agentTokenService = (IAgentTokenService) aClass.newInstance();
+                configuration.setAgentTokenService(agentTokenService);
+            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+                throw new RuntimeException(e);
+            }
+        }
         //configuration.setInterceptorFactory(DyInterceptorFactory);
         RequestHandler.getInstance().setDyConfiguration(configuration);
     }

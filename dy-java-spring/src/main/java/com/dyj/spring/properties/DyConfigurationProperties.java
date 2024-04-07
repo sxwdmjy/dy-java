@@ -38,7 +38,15 @@ public class DyConfigurationProperties {
      */
     private DyForestConfigurationProperties forest;
 
+    /**
+     * 应用配置类
+     */
+    private String agentSourceClass = "com.dyj.common.service.impl.PropertiesAgentConfigServiceImpl";
 
+    /**
+     * token配置类
+     */
+    private String tokenSourceClass = "com.dyj.common.service.impl.CacheAgentTokenServiceImpl";
 
     public String getBeanId() {
         return beanId;
@@ -70,5 +78,21 @@ public class DyConfigurationProperties {
 
     public void setDefaultId(Integer defaultId) {
         this.defaultId = defaultId;
+    }
+
+    public String getAgentSourceClass() {
+        return agentSourceClass;
+    }
+
+    public void setAgentSourceClass(String agentSourceClass) {
+        this.agentSourceClass = agentSourceClass;
+    }
+
+    public String getTokenSourceClass() {
+        return tokenSourceClass;
+    }
+
+    public void setTokenSourceClass(String tokenSourceClass) {
+        this.tokenSourceClass = tokenSourceClass;
     }
 }

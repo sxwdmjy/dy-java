@@ -1,5 +1,8 @@
 package com.dyj.common.config;
 
+import com.dyj.common.service.IAgentConfigService;
+import com.dyj.common.service.IAgentTokenService;
+import com.dyj.common.service.impl.PropertiesAgentConfigServiceImpl;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
@@ -25,6 +28,11 @@ public class DyConfiguration implements Serializable {
     private Integer defaultId;
 
     private List<AgentConfiguration> agents;
+
+    private IAgentConfigService agentConfigService;
+
+    private IAgentTokenService agentTokenService;
+
 
     public DyConfiguration() {
     }
@@ -69,5 +77,32 @@ public class DyConfiguration implements Serializable {
             Map<Integer, List<AgentConfiguration>> collect = agents.stream().collect(Collectors.groupingBy(AgentConfiguration::getTenantId));
             AGENT_CACHE.putAll(collect);
         }
+    }
+
+    public Integer getDefaultId() {
+        return defaultId;
+    }
+
+    public void setDefaultId(Integer defaultId) {
+        this.defaultId = defaultId;
+    }
+
+    public IAgentConfigService getAgentConfigService() {
+        return agentConfigService;
+    }
+
+    public void setAgentConfigService(IAgentConfigService iAgentConfigService) {
+        this.agentConfigService = iAgentConfigService;
+        if(iAgentConfigService instanceof PropertiesAgentConfigServiceImpl){
+            this.agentConfigService.setDyConfiguration(this);
+        }
+    }
+
+    public IAgentTokenService getAgentTokenService() {
+        return agentTokenService;
+    }
+
+    public void setAgentTokenService(IAgentTokenService iAgentTokenService) {
+        this.agentTokenService = iAgentTokenService;
     }
 }

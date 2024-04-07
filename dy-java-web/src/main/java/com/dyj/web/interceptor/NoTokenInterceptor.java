@@ -10,11 +10,17 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
+ * 无需access_token拦截器
  * @author danmo
  * @date 2024-04-03 11:07
  **/
-public class AuthInterceptor implements Interceptor<DyResult> {
-    private final Log log = LogFactory.getLog(AuthInterceptor.class);
+public class NoTokenInterceptor implements Interceptor<DyResult> {
+    private final Log log = LogFactory.getLog(NoTokenInterceptor.class);
+
+    @Override
+    public boolean beforeExecute(ForestRequest request) {
+        return true;
+    }
 
     @Override
     public void onSuccess(DyResult data, ForestRequest request, ForestResponse response) {

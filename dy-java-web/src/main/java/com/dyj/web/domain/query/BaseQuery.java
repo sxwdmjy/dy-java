@@ -1,10 +1,11 @@
-package com.dyj.common.config;
+package com.dyj.web.domain.query;
 
 /**
  * @author danmo
- * @date 2024-04-02 14:02
+ * @date 2024-04-07 15:09
  **/
-public class AgentConfiguration {
+public class BaseQuery {
+
 
     /**
      * 租户ID
@@ -14,12 +15,6 @@ public class AgentConfiguration {
      * 应用Key
      */
     private String clientKey;
-
-    /**
-     * 应用秘钥
-     */
-    private String clientSecret;
-
 
     public Integer getTenantId() {
         return tenantId;
@@ -35,13 +30,5 @@ public class AgentConfiguration {
 
     public void setClientKey(String clientKey) {
         this.clientKey = clientKey;
-    }
-
-    public String getClientSecret() {
-        return clientSecret;
-    }
-
-    public void setClientSecret(String clientSecret) {
-        this.clientSecret = clientSecret;
     }
 }

@@ -13,7 +13,7 @@ import com.dyj.web.domain.vo.AccessTokenVo;
 import com.dyj.web.domain.vo.ClientTokenVo;
 import com.dyj.web.domain.vo.RefreshAccessTokenVo;
 import com.dyj.web.domain.vo.RefreshTokenVo;
-import com.dyj.web.interceptor.AuthInterceptor;
+import com.dyj.web.interceptor.NoTokenInterceptor;
 
 /**
  * @author danmo
@@ -25,18 +25,18 @@ public interface AuthClient extends BaseClient {
 
 
     /** 获取accessToken */
-    @Post(value = "${oauthAccessToken}",interceptor = AuthInterceptor.class)
+    @Post(value = "${oauthAccessToken}",interceptor = NoTokenInterceptor.class)
     DyResult<AccessTokenVo> getAccessToken(@Body AccessTokenQuery query);
 
     /** 刷新 refresh_token */
-    @Post(value = "${oauthRefreshToken}",interceptor = AuthInterceptor.class)
+    @Post(value = "${oauthRefreshToken}",interceptor = NoTokenInterceptor.class)
     DyResult<RefreshTokenVo> refreshToken(@Body RefreshTokenQuery query);
 
     /** 获取client_token */
-    @Post(value = "${oauthClientToken}",interceptor = AuthInterceptor.class)
+    @Post(value = "${oauthClientToken}",interceptor = NoTokenInterceptor.class)
     DyResult<ClientTokenVo> getClientToken(@Body ClientTokenQuery query);
 
     /** 刷新 access_token */
-    @Post(value = "${accessTokenRefresh}",interceptor = AuthInterceptor.class)
+    @Post(value = "${accessTokenRefresh}",interceptor = NoTokenInterceptor.class)
     DyResult<RefreshAccessTokenVo> refreshAccessToken(@Body RefreshAccessTokenQuery query);
 }

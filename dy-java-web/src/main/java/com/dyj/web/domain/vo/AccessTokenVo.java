@@ -4,16 +4,8 @@ package com.dyj.web.domain.vo;
  * @author danmo
  * @date 2024-04-03 11:25
  **/
-public class AccessTokenVo {
+public class AccessTokenVo extends BaseVo{
 
-    /**
-     * 描述
-     */
-    private String description;
-    /**
-     * 错误码
-     */
-    private Integer error_code;
 
     /**
      * 接口调用凭证
@@ -50,21 +42,6 @@ public class AccessTokenVo {
     private Integer user_id;
 
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Integer getError_code() {
-        return error_code;
-    }
-
-    public void setError_code(Integer error_code) {
-        this.error_code = error_code;
-    }
 
     public String getAccess_token() {
         return access_token;
@@ -133,8 +110,8 @@ public class AccessTokenVo {
     @Override
     public String toString() {
         return "DyAccessTokenVo{" +
-                "description='" + description + '\'' +
-                ", error_code=" + error_code +
+                "description='" + super.getDescription() + '\'' +
+                ", error_code=" + super.getError_code() +
                 ", access_token='" + access_token + '\'' +
                 ", expires_in=" + expires_in +
                 ", log_id='" + log_id + '\'' +

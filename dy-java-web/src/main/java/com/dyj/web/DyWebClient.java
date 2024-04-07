@@ -1,7 +1,9 @@
 package com.dyj.web;
 
+import com.dyj.common.config.AgentConfiguration;
 import com.dyj.common.config.DyConfiguration;
 import com.dyj.common.domain.DyResult;
+import com.dyj.common.domain.TokenInfo;
 import com.dyj.common.handler.RequestHandler;
 import com.dyj.spring.utils.SpringUtils;
 import com.dyj.web.client.AuthClient;
@@ -21,6 +23,18 @@ public abstract class DyWebClient {
 
     public static DyConfiguration configuration() {
         return RequestHandler.getInstance().getDyConfiguration();
+    }
+
+    /**
+     * 获取accessToken
+     * 主要通过传递code来获取accessToken，code通常为授权后的凭证。
+     *
+     * @param code 用户授权后返回的code，用于向服务器换取accessToken。
+     * @return 返回一个DyResult对象，包含获取accessToken的结果信息。
+     * DyResult中的data字段会包含AccessTokenVo类型的accessToken信息。
+     */
+    public static DyResult<AccessTokenVo> accessToken(String code) {
+        return accessToken(code, null);
     }
 
     /**
@@ -44,20 +58,9 @@ public abstract class DyWebClient {
      * @return 返回一个包含访问令牌信息的结果对象。
      */
     public static DyResult<AccessTokenVo> accessToken(String code, Integer tenantId, String clientId) {
+        AgentConfiguration agentConfiguration = configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientId);
         // 使用配置信息和授权码获取访问令牌
-        return new AccessTokenHandler(authClient, configuration().getAgentByTenantId(tenantId, clientId)).getAccessToken(code);
-    }
-
-    /**
-     * 获取accessToken
-     * 主要通过传递code来获取accessToken，code通常为授权后的凭证。
-     *
-     * @param code 用户授权后返回的code，用于向服务器换取accessToken。
-     * @return 返回一个DyResult对象，包含获取accessToken的结果信息。
-     * DyResult中的data字段会包含AccessTokenVo类型的accessToken信息。
-     */
-    public static DyResult<AccessTokenVo> accessToken(String code) {
-        return accessToken(code, null);
+        return new AccessTokenHandler(authClient, agentConfiguration).getAccessToken(code);
     }
 
 
@@ -93,8 +96,11 @@ public abstract class DyWebClient {
      * @return 返回一个包含刷新后的访问令牌信息的结果对象。
      */
     public static DyResult<RefreshTokenVo> refreshToken(Integer tenantId, String clientId) {
+        DyConfiguration configuration = configuration();
+        AgentConfiguration agentConfiguration = configuration.getAgentConfigService().loadAgentByTenantId(tenantId, clientId);
+        TokenInfo tokenInfo = configuration.getAgentTokenService().getTokenInfo(tenantId, clientId);
         // 利用配置信息和授权码获取新的访问令牌
-        return new AccessTokenHandler(authClient, configuration().getAgentByTenantId(tenantId, clientId)).refreshToken();
+        return new AccessTokenHandler(authClient, agentConfiguration).refreshToken(tokenInfo.getRefreshToken());
     }
 
 
@@ -121,8 +127,9 @@ public abstract class DyWebClient {
      * @return 返回客户端令牌的结果，包含令牌信息或其他操作结果。
      */
     public static DyResult<ClientTokenVo> clientToken(Integer tenantId, String clientId) {
+        AgentConfiguration agentConfiguration = configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientId);
         // 通过AccessTokenHandler处理逻辑，获取指定租户和客户端的令牌
-        return new AccessTokenHandler(authClient, configuration().getAgentByTenantId(tenantId, clientId)).getClientToken();
+        return new AccessTokenHandler(authClient, agentConfiguration).getClientToken();
     }
 
 
@@ -155,8 +162,11 @@ public abstract class DyWebClient {
      * @return DyResult<RefreshAccessTokenVo> 包含刷新后的访问令牌信息的结果对象。
      */
     public static DyResult<RefreshAccessTokenVo> refreshAccessToken(Integer tenantId, String clientId) {
+        DyConfiguration configuration = configuration();
+        AgentConfiguration agentConfiguration = configuration.getAgentConfigService().loadAgentByTenantId(tenantId, clientId);
+        TokenInfo tokenInfo = configuration.getAgentTokenService().getTokenInfo(tenantId, clientId);
         // 通过AccessTokenHandler处理逻辑，获取指定租户和客户端的刷新令牌
-        return new AccessTokenHandler(authClient, configuration().getAgentByTenantId(tenantId, clientId)).refreshAccessToken();
+        return new AccessTokenHandler(authClient, agentConfiguration).refreshAccessToken(tokenInfo.getRefreshToken());
     }
 
 }

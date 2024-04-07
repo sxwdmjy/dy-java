@@ -4,16 +4,7 @@ package com.dyj.web.domain.vo;
  * @author danmo
  * @date 2024-04-03 11:25
  **/
-public class ClientTokenVo {
-
-    /**
-     * 描述
-     */
-    private String description;
-    /**
-     * 错误码
-     */
-    private Integer error_code;
+public class ClientTokenVo  extends BaseVo{
 
     /**
      * client_token 接口调用凭证
@@ -24,22 +15,6 @@ public class ClientTokenVo {
      */
     private Integer expires_in;
 
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Integer getError_code() {
-        return error_code;
-    }
-
-    public void setError_code(Integer error_code) {
-        this.error_code = error_code;
-    }
 
     public String getAccess_token() {
         return access_token;

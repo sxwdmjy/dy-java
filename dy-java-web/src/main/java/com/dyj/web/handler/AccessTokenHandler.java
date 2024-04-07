@@ -2,7 +2,6 @@ package com.dyj.web.handler;
 
 import com.dyj.common.config.AgentConfiguration;
 import com.dyj.common.domain.DyResult;
-import com.dyj.common.handler.RequestHandler;
 import com.dyj.web.client.AuthClient;
 import com.dyj.web.domain.query.AccessTokenQuery;
 import com.dyj.web.domain.query.ClientTokenQuery;
@@ -36,10 +35,10 @@ public class AccessTokenHandler {
         return authClient.getAccessToken(query);
     }
 
-    public DyResult<RefreshTokenVo> refreshToken() {
+    public DyResult<RefreshTokenVo> refreshToken(String refreshToken) {
         RefreshTokenQuery query = new RefreshTokenQuery();
         query.setClient_key(agentConfiguration.getClientKey());
-        query.setRefresh_token(agentConfiguration.getRefreshToken());
+        query.setRefresh_token(refreshToken);
         return authClient.refreshToken(query);
     }
 
@@ -50,9 +49,9 @@ public class AccessTokenHandler {
         return authClient.getClientToken(query);
     }
 
-    public DyResult<RefreshAccessTokenVo> refreshAccessToken() {
+    public DyResult<RefreshAccessTokenVo> refreshAccessToken(String refreshToken) {
         RefreshAccessTokenQuery query = new RefreshAccessTokenQuery();
-        query.setRefresh_token(agentConfiguration.getRefreshToken());
+        query.setRefresh_token(refreshToken);
         query.setClient_key(agentConfiguration.getClientKey());
         return authClient.refreshAccessToken(query);
     }
