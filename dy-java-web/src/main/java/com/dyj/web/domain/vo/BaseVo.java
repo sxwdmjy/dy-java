@@ -30,4 +30,12 @@ public class BaseVo {
     public void setError_code(Integer error_code) {
         this.error_code = error_code;
     }
+
+    @Override
+    public String toString() {
+        return "BaseVo{" +
+                "description='" + description + '\'' +
+                ", error_code=" + error_code +
+                '}';
+    }
 }

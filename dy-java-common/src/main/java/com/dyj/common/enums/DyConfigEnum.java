@@ -111,8 +111,23 @@ public enum DyConfigEnum {
     QUERY_VIDEO_IFRAME_BY_ITEM("queryVideoIframeByItem", "/api/douyin/v1/video/get_iframe_by_item"),
 
 
+    /**
+     * 发送私信消息
+     */
+    SEND_MESSAGE("sendMessage", "/im/send/msg"),
+
+    /**
+     * 查询授权主动私信用户
+     */
+    QUERY_AUTHORIZE_USER_LIST("queryAuthorizeUserList", "/im/authorize/user_list"),
+
+    /**
+     * 私信消息撤回
+     */
+    REVOKE_MESSAGE("revokeMessage", "/im/recall/msg"),
 
     ;
+
 
 
     private String key;

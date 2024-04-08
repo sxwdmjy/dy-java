@@ -5,11 +5,10 @@ import com.dyj.common.config.DyConfiguration;
 import com.dyj.common.domain.DyResult;
 import com.dyj.common.domain.TokenInfo;
 import com.dyj.common.handler.RequestHandler;
-import com.dyj.web.domain.query.CreateImageTextQuery;
-import com.dyj.web.domain.query.CreateVideoQuery;
-import com.dyj.web.domain.query.VideoDataQuery;
+import com.dyj.web.domain.query.*;
 import com.dyj.web.domain.vo.*;
 import com.dyj.web.handler.AccessTokenHandler;
+import com.dyj.web.handler.ChatMsgHandler;
 import com.dyj.web.handler.UserHandler;
 import com.dyj.web.handler.VideoHandler;
 
@@ -286,4 +285,35 @@ public class DyWebClient {
     public DyResult<VideoIframeVo> getIframeByItem(String itemId) {
         return new VideoHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).getIframeByItem(itemId);
     }
+
+    /**
+     * 发送私信消息。
+     * @param query 包含发送消息所需信息的查询对象。
+     * @return 返回操作结果，包括是否成功及可能的错误信息。
+     */
+    public DyResult<BaseVo> sendMessage(SendMsgQuery query) {
+        // 通过租户ID和客户端密钥加载代理配置，并使用该配置创建ChatMsgHandler来处理消息发送
+        return new ChatMsgHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).sendMessage(query);
+    }
+
+    /**
+     * 查询授权主动私信用户。
+     * @param query 包含查询授权用户列表所需信息的查询对象。
+     * @return 返回操作结果，包括授权用户列表及可能的错误信息。
+     */
+    public DyResult<AuthorizeUserListVo> queryAuthorizeUserList(AuthorizeUserListQuery query) {
+        // 通过租户ID和客户端密钥加载代理配置，并使用该配置创建ChatMsgHandler来处理授权用户列表查询
+        return new ChatMsgHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).queryAuthorizeUserList(query);
+    }
+
+    /**
+     * 私信消息撤回。
+     * @param query 包含撤销消息所需信息的查询对象。
+     * @return 返回操作结果，包括是否成功及可能的错误信息。
+     */
+    public DyResult<BaseVo> revokeMessage(RevokeMsgQuery query) {
+        // 通过租户ID和客户端密钥加载代理配置，并使用该配置创建ChatMsgHandler来处理消息撤销
+        return new ChatMsgHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).revokeMessage(query);
+    }
+
 }
