@@ -126,6 +126,47 @@ public enum DyConfigEnum {
      */
     REVOKE_MESSAGE("revokeMessage", "/im/recall/msg"),
 
+    /**
+     * 创建粉丝群
+     */
+    CREATE_FANS_GROUP("createFansGroup","/im/group/fans/create"),
+
+
+    /**
+     * 变更用户入群申请状态
+     */
+    SET_FANS_GROUP_ENTER_STATUS("setFansGroupEnterStatus","/im/group/enter/audit/set"),
+
+
+    /**
+     * 查询粉丝群
+     */
+    QUERY_FANS_GROUP("queryFansGroup","/im/group/fans/list"),
+
+
+    /**
+     * 设置进群问候语&群公告
+     */
+    QUERY_FANS_GROUP_SETTING("queryFansGroupSetting","/im/group/setting/set"),
+
+
+    /**
+     * 取消进群问候语&群公告配置
+     */
+    CANCEL_FANS_GROUP_SETTING("cancelFansGroupSetting","/im/group/setting/disable"),
+
+
+    /**
+     * 查询用户剩余建群额度
+     */
+    QUERY_FANS_GROUP_COUNT("queryFansGroupCount","/im/group/count"),
+
+
+    /**
+     * 查询群主所在群的用户入群申请状态
+     */
+    QUERY_FANS_GROUP_ENTER_STATUS("queryFansGroupEnterStatus","/im/group/enter/audit/get"),
+
     ;
 
 
