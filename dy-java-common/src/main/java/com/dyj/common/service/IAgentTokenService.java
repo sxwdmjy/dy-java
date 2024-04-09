@@ -1,12 +1,17 @@
 package com.dyj.common.service;
 
-import com.dyj.common.domain.TokenInfo;
+import com.dyj.common.domain.ClientTokenInfo;
+import com.dyj.common.domain.UserTokenInfo;
 import com.dyj.common.exception.AuthTokenNotFoundException;
 
 public interface IAgentTokenService {
 
 
-    TokenInfo setTokenInfo(Integer tenantId, String clientKey, String accessToken, Long expiresIn, String refreshToken, Long refreshExpiresIn) throws AuthTokenNotFoundException;
+    void setTokenInfo(Integer tenantId, String clientKey, String accessToken, Long expiresIn, String refreshToken, Long refreshExpiresIn, String openId) throws AuthTokenNotFoundException;
 
-    TokenInfo getTokenInfo(Integer tenantId, String clientKey) throws AuthTokenNotFoundException;
+    UserTokenInfo getTokenInfo(Integer tenantId, String clientKey, String openId) throws AuthTokenNotFoundException;
+
+    void setClientTokenInfo(Integer tenantId, String clientKey, String accessToken, Long expiresIn) throws AuthTokenNotFoundException;
+
+    ClientTokenInfo getClientTokenInfo(Integer tenantId, String clientKey) throws AuthTokenNotFoundException;
 }

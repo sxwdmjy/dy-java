@@ -5,10 +5,11 @@ import com.dtflys.forest.http.ForestRequest;
 import com.dtflys.forest.http.ForestResponse;
 import com.dtflys.forest.interceptor.Interceptor;
 import com.dyj.common.domain.DyResult;
-import com.dyj.common.domain.TokenInfo;
+import com.dyj.common.domain.UserTokenInfo;
 import com.dyj.common.handler.RequestHandler;
 import com.dyj.common.service.IAgentTokenService;
 import com.dyj.web.domain.query.BaseQuery;
+import com.dyj.web.domain.query.UserInfoQuery;
 
 import java.util.Objects;
 
@@ -24,8 +25,13 @@ public class TokenHeaderInterceptor implements Interceptor<DyResult> {
     public boolean beforeExecute(ForestRequest request) {
         Integer tenantId = null;
         String clientKey = "";
+        String openId = "";
         Object[] arguments = request.getArguments();
         for (Object argument : arguments) {
+            if(argument instanceof UserInfoQuery){
+                UserInfoQuery query = (UserInfoQuery) argument;
+                openId = query.getOpen_id();
+            }else
             if (argument instanceof BaseQuery) {
                 BaseQuery query = (BaseQuery) argument;
                 tenantId = query.getTenantId();
@@ -33,11 +39,11 @@ public class TokenHeaderInterceptor implements Interceptor<DyResult> {
             }
         }
         IAgentTokenService agentTokenService = RequestHandler.getInstance().getDyConfiguration().getAgentTokenService();
-        TokenInfo tokenInfo = agentTokenService.getTokenInfo(tenantId, clientKey);
-        if (Objects.isNull(tokenInfo)) {
+        UserTokenInfo userTokenInfo = agentTokenService.getTokenInfo(tenantId, clientKey,openId);
+        if (Objects.isNull(userTokenInfo)) {
             throw new RuntimeException("access_token is null");
         }
-        request.addHeader("access_token", tokenInfo.getAccessToken());
+        request.addHeader("access_token", userTokenInfo.getAccessToken());
         return Interceptor.super.beforeExecute(request);
     }
 

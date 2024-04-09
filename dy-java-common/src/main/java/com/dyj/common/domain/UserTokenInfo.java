@@ -6,7 +6,7 @@ import java.io.Serializable;
  * @author danmo
  * @date 2024-04-07 13:47
  **/
-public class TokenInfo implements Serializable {
+public class UserTokenInfo implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private String accessToken;
@@ -16,6 +16,8 @@ public class TokenInfo implements Serializable {
     private Long expiresIn;
 
     private Long refreshExpiresIn;
+
+    private String openId;
 
     public String getAccessToken() {
         return accessToken;
@@ -47,5 +49,13 @@ public class TokenInfo implements Serializable {
 
     public void setRefreshExpiresIn(Long refreshExpiresIn) {
         this.refreshExpiresIn = refreshExpiresIn;
+    }
+
+    public String getOpenId() {
+        return openId;
+    }
+
+    public void setOpenId(String openId) {
+        this.openId = openId;
     }
 }

@@ -4,7 +4,7 @@ import com.dyj.common.config.AgentConfiguration;
 import com.dyj.common.config.DyConfiguration;
 import com.dyj.common.domain.DyResult;
 import com.dyj.common.domain.DySimpleResult;
-import com.dyj.common.domain.TokenInfo;
+import com.dyj.common.domain.UserTokenInfo;
 import com.dyj.common.handler.RequestHandler;
 import com.dyj.web.domain.query.*;
 import com.dyj.web.domain.vo.*;
@@ -13,7 +13,6 @@ import com.dyj.web.handler.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * @author danmo
@@ -64,12 +63,12 @@ public class DyWebClient {
      *
      * @return 返回一个包含刷新后的访问令牌信息的结果对象。
      */
-    public DyResult<RefreshTokenVo> refreshToken() {
+    public DyResult<RefreshTokenVo> refreshToken(String openId) {
         DyConfiguration configuration = configuration();
         AgentConfiguration agentConfiguration = configuration.getAgentConfigService().loadAgentByTenantId(tenantId, clientKey);
-        TokenInfo tokenInfo = configuration.getAgentTokenService().getTokenInfo(tenantId, clientKey);
+        UserTokenInfo userTokenInfo = configuration.getAgentTokenService().getTokenInfo(tenantId, clientKey,openId);
         // 利用配置信息和授权码获取新的访问令牌
-        return new AccessTokenHandler(agentConfiguration).refreshToken(tokenInfo.getRefreshToken());
+        return new AccessTokenHandler(agentConfiguration).refreshToken(userTokenInfo.getRefreshToken());
     }
 
 
@@ -91,12 +90,12 @@ public class DyWebClient {
      *
      * @return DyResult<RefreshAccessTokenVo> 包含刷新后的访问令牌信息的结果对象。
      */
-    public DyResult<RefreshAccessTokenVo> refreshAccessToken() {
+    public DyResult<RefreshAccessTokenVo> refreshAccessToken(String openId) {
         DyConfiguration configuration = configuration();
         AgentConfiguration agentConfiguration = configuration.getAgentConfigService().loadAgentByTenantId(tenantId, clientKey);
-        TokenInfo tokenInfo = configuration.getAgentTokenService().getTokenInfo(tenantId, clientKey);
+        UserTokenInfo userTokenInfo = configuration.getAgentTokenService().getTokenInfo(tenantId, clientKey,openId);
         // 通过AccessTokenHandler处理逻辑，获取指定租户和客户端的刷新令牌
-        return new AccessTokenHandler(agentConfiguration).refreshAccessToken(tokenInfo.getRefreshToken());
+        return new AccessTokenHandler(agentConfiguration).refreshAccessToken(userTokenInfo.getRefreshToken());
     }
 
     /**
