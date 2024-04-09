@@ -167,6 +167,18 @@ public enum DyConfigEnum {
      */
     QUERY_FANS_GROUP_ENTER_STATUS("queryFansGroupEnterStatus","/im/group/enter/audit/get"),
 
+    /**
+     * 发送群消息
+     */
+    SEND_GROUP_MESSAGE("sendGroupMessage","/im/send/msg/group"),
+
+
+    /**
+     * 撤回群消息
+     */
+    REVOKE_GROUP_MESSAGE("revokeGroupMessage","/im/recall/msg"),
+
+
     ;
 
 
