@@ -101,58 +101,64 @@ public class CreateImageTextQuery extends UserInfoQuery {
         this.poi_id = poi_id;
     }
 
-    public CreateImageTextQuery image_list(List<String> image_list) {
-        this.image_list = image_list;
-        return this;
+    public static CreateImageTextQueryBuilder builder() {
+        return new CreateImageTextQueryBuilder();
     }
 
-    public CreateImageTextQuery text(String text) {
-        this.text = text;
-        return this;
-    }
+    public static class CreateImageTextQueryBuilder {
+        private String openId;
+        private Integer tenantId;
+        private String clientKey;
+        private List<String> imageList;
+        private String text;
+        private List<String> atUsers;
+        private String microAppTitle;
+        private String microAppUrl;
+        private String microAppId;
+        private String poiId;
+        public CreateImageTextQueryBuilder imageList(List<String> imageList) {
+            this.imageList = imageList;
+            return this;
+        }
+        public CreateImageTextQueryBuilder text(String text) {
+            this.text = text;
+            return this;
+        }
+        public CreateImageTextQueryBuilder atUsers(List<String> atUsers) {
+            this.atUsers = atUsers;
+            return this;
+        }
+        public CreateImageTextQueryBuilder microAppTitle(String microAppTitle) {
+            this.microAppTitle = microAppTitle;
+            return this;
+        }
+        public CreateImageTextQueryBuilder microAppUrl(String microAppUrl) {
+            this.microAppUrl = microAppUrl;
+            return this;
+        }
+        public CreateImageTextQueryBuilder microAppId(String microAppId) {
+            this.microAppId = microAppId;
+            return this;
+        }
+        public CreateImageTextQueryBuilder poiId(String poiId) {
+            this.poiId = poiId;
+            return this;
+        }
 
-    public CreateImageTextQuery at_users(List<String> at_users) {
-        this.at_users = at_users;
-        return this;
-    }
-
-    public CreateImageTextQuery micro_app_title(String micro_app_title) {
-        this.micro_app_title = micro_app_title;
-        return this;
-    }
-
-    public CreateImageTextQuery micro_app_url(String micro_app_url) {
-        this.micro_app_url = micro_app_url;
-        return this;
-    }
-
-    public CreateImageTextQuery micro_app_id(String micro_app_id) {
-        this.micro_app_id = micro_app_id;
-        return this;
-    }
-
-    public CreateImageTextQuery poi_id(String poi_id) {
-        this.poi_id = poi_id;
-        return this;
-    }
-
-    public CreateImageTextQuery open_id(String open_id) {
-        super.open_id = open_id;
-        return this;
-    }
-
-    public CreateImageTextQuery tenantId(Integer tenantId) {
-        super.tenantId = tenantId;
-        return this;
-    }
-
-    public CreateImageTextQuery clientKey(String clientKey) {
-        super.clientKey = clientKey;
-        return this;
-    }
-
-    public static CreateImageTextQuery build() {
-        return new CreateImageTextQuery();
+        public CreateImageTextQuery build() {
+            CreateImageTextQuery createImageTextQuery = new CreateImageTextQuery();
+            createImageTextQuery.setImage_list(imageList);
+            createImageTextQuery.setText(text);
+            createImageTextQuery.setAt_users(atUsers);
+            createImageTextQuery.setMicro_app_title(microAppTitle);
+            createImageTextQuery.setMicro_app_url(microAppUrl);
+            createImageTextQuery.setMicro_app_id(microAppId);
+            createImageTextQuery.setPoi_id(poiId);
+            createImageTextQuery.setTenantId(tenantId);
+            createImageTextQuery.setClientKey(clientKey);
+            createImageTextQuery.setOpen_id(openId);
+            return createImageTextQuery;
+        }
     }
 
     @Override

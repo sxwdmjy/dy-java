@@ -19,15 +19,7 @@ public class DyResult<T> {
      */
     private DyExtra extra;
 
-    /**
-     * 消息ID
-     */
-    private String messageId;
 
-    /**
-     * 消息ID列表
-     */
-    private List<String> msgList;
 
     public T getData() {
         return data;
@@ -54,21 +46,6 @@ public class DyResult<T> {
     }
 
 
-    public String getMessageId() {
-        return messageId;
-    }
-
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
-    }
-
-    public List<String> getMsgList() {
-        return msgList;
-    }
-
-    public void setMsgList(List<String> msgList) {
-        this.msgList = msgList;
-    }
 
     @Override
     public String toString() {
@@ -76,8 +53,6 @@ public class DyResult<T> {
                 "data=" + data +
                 ", message='" + message + '\'' +
                 ", extra=" + extra +
-                ", messageId='" + messageId + '\'' +
-                ", msgList=" + msgList +
                 '}';
     }
 }

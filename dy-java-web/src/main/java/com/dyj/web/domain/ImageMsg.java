@@ -1,6 +1,7 @@
 package com.dyj.web.domain;
 
 import com.alibaba.fastjson.JSONObject;
+import com.dyj.common.enums.MediaTypeEnum;
 
 import java.util.Objects;
 
@@ -15,7 +16,7 @@ public class ImageMsg extends MsgContent{
     private JSONObject image;
 
     public ImageMsg() {
-        super.msg_type = 2;
+        super.setMsg_type(MediaTypeEnum.IMAGE);
     }
 
 

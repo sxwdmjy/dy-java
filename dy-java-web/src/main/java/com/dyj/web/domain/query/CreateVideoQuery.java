@@ -57,6 +57,7 @@ public class CreateVideoQuery extends UserInfoQuery{
      */
     private String ent_id;
 
+
     public String getVideo_id() {
         return video_id;
     }
@@ -145,77 +146,101 @@ public class CreateVideoQuery extends UserInfoQuery{
         this.ent_id = ent_id;
     }
 
-    public static CreateVideoQuery build() {
-        return new CreateVideoQuery();
+    public static CreateVideoQueryBuilder builder() {
+        return new CreateVideoQueryBuilder();
     }
+    public static class CreateVideoQueryBuilder {
+        private String videoId;
+        private String text;
+        private List<String> atUsers;
+        private String microAppTitle;
+        private String microAppUrl;
 
-    public CreateVideoQuery video_id(String video_id) {
-        this.video_id = video_id;
-        return this;
-    }
+        private String microAppId;
+        private String poiId;
+        private Double coverTsp;
+        private Boolean poiCommerce;
+        private String customCoverImageUrl;
+        private String entId;
+        private String openId;
+        private Integer tenantId;
+        private String clientKey;
 
-    public CreateVideoQuery text(String text) {
-        this.text = text;
-        return this;
-    }
+        public CreateVideoQueryBuilder videoId(String videoId) {
+            this.videoId = videoId;
+            return this;
+        }
+        public CreateVideoQueryBuilder text(String text) {
+            this.text = text;
+            return this;
+        }
+        public CreateVideoQueryBuilder atUsers(List<String> atUsers) {
+            this.atUsers = atUsers;
+            return this;
+        }
+        public CreateVideoQueryBuilder microAppTitle(String microAppTitle) {
+            this.microAppTitle = microAppTitle;
+            return this;
+        }
+        public CreateVideoQueryBuilder microAppUrl(String microAppUrl) {
+            this.microAppUrl = microAppUrl;
+            return this;
+        }
+        public CreateVideoQueryBuilder microAppId(String microAppId) {
+            this.microAppId = microAppId;
+            return this;
+        }
+        public CreateVideoQueryBuilder poiId(String poiId) {
+            this.poiId = poiId;
+            return this;
+        }
+        public CreateVideoQueryBuilder coverTsp(Double coverTsp) {
+            this.coverTsp = coverTsp;
+            return this;
+        }
+        public CreateVideoQueryBuilder poiCommerce(Boolean poiCommerce) {
+            this.poiCommerce = poiCommerce;
+            return this;
+        }
+        public CreateVideoQueryBuilder customCoverImageUrl(String customCoverImageUrl) {
+            this.customCoverImageUrl = customCoverImageUrl;
+            return this;
+        }
+        public CreateVideoQueryBuilder entId(String entId) {
+            this.entId = entId;
+            return this;
+        }
+        public CreateVideoQueryBuilder openId(String openId) {
+            this.openId = openId;
+            return this;
+        }
+        public CreateVideoQueryBuilder tenantId(Integer tenantId) {
+            this.tenantId = tenantId;
+            return this;
+        }
+        public CreateVideoQueryBuilder clientKey(String clientKey) {
+            this.clientKey = clientKey;
+            return this;
+        }
 
-    public CreateVideoQuery at_users(List<String> at_users) {
-        this.at_users = at_users;
-        return this;
-    }
-
-    public CreateVideoQuery micro_app_title(String micro_app_title) {
-        this.micro_app_title = micro_app_title;
-        return this;
-    }
-
-    public CreateVideoQuery micro_app_url(String micro_app_url) {
-        this.micro_app_url = micro_app_url;
-        return this;
-    }
-
-    public CreateVideoQuery micro_app_id(String micro_app_id) {
-        this.micro_app_id = micro_app_id;
-        return this;
-    }
-
-    public CreateVideoQuery poi_id(String poi_id) {
-        this.poi_id = poi_id;
-        return this;
-    }
-
-    public CreateVideoQuery cover_tsp(Double cover_tsp) {
-        this.cover_tsp = cover_tsp;
-        return this;
-    }
-
-    public CreateVideoQuery poi_commerce(Boolean poi_commerce) {
-        this.poi_commerce = poi_commerce;
-        return this;
-    }
-
-    public CreateVideoQuery custom_cover_image_url(String custom_cover_image_url) {
-        this.custom_cover_image_url = custom_cover_image_url;
-        return this;
-    }
-
-    public CreateVideoQuery ent_id(String ent_id) {
-        this.ent_id = ent_id;
-        return this;
-    }
-    public CreateVideoQuery open_id(String open_id) {
-         super.open_id = open_id;
-         return this;
-    }
-
-    public CreateVideoQuery tenantId(Integer tenantId) {
-         super.tenantId = tenantId;
-         return this;
-    }
-
-    public CreateVideoQuery clientKey(String clientKey) {
-         super.clientKey = clientKey;
-         return this;
+        public CreateVideoQuery build() {
+            CreateVideoQuery createVideoQuery = new CreateVideoQuery();
+            createVideoQuery.setVideo_id(videoId);
+            createVideoQuery.setText(text);
+            createVideoQuery.setAt_users(atUsers);
+            createVideoQuery.setMicro_app_title(microAppTitle);
+            createVideoQuery.setMicro_app_url(microAppUrl);
+            createVideoQuery.setMicro_app_id(microAppId);
+            createVideoQuery.setPoi_id(poiId);
+            createVideoQuery.setCover_tsp(coverTsp);
+            createVideoQuery.setPoi_commerce(poiCommerce);
+            createVideoQuery.setCustom_cover_image_url(customCoverImageUrl);
+            createVideoQuery.setEnt_id(entId);
+            createVideoQuery.setOpen_id(openId);
+            createVideoQuery.setTenantId(tenantId);
+            createVideoQuery.setClientKey(clientKey);
+            return createVideoQuery;
+        }
     }
 
     @Override

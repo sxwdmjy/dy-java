@@ -1,6 +1,7 @@
 package com.dyj.web.domain;
 
 import com.alibaba.fastjson.JSONObject;
+import com.dyj.common.enums.MediaTypeEnum;
 
 import java.util.Objects;
 
@@ -14,7 +15,7 @@ public class TextMsg extends MsgContent{
     private JSONObject text;
 
     public TextMsg() {
-        super.msg_type = 1;
+        super.setMsg_type(MediaTypeEnum.TEXT);
     }
 
     public JSONObject getText() {

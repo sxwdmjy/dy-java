@@ -1,6 +1,7 @@
 package com.dyj.web.domain;
 
 import com.alibaba.fastjson.JSONObject;
+import com.dyj.common.enums.MediaTypeEnum;
 
 import java.util.Objects;
 
@@ -15,7 +16,7 @@ public class CardMsg extends MsgContent {
     private JSONObject retain_consult_card;
 
     public CardMsg() {
-        super.msg_type = 8;
+        super.setMsg_type(MediaTypeEnum.RETAIN_CONSULT_CARD);
     }
 
 

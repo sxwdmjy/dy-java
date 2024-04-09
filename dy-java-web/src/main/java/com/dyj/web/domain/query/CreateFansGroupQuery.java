@@ -164,95 +164,137 @@ public class CreateFansGroupQuery extends UserInfoQuery {
         return new CreateFansGroupQuery();
     }
 
-    public CreateFansGroupQuery avatar_uri(String avatar_uri)
-    {
-        this.avatar_uri = avatar_uri;
-        return this;
+
+    public static class CreateFansGroupQueryBuilder {
+        private Integer tenantId;
+        private String clientKey;
+        private String openId;
+        private String avatarUri;
+        private String groupName;
+        private Integer activeFans;
+        private Integer allowInvite;
+        private Integer fansLimit;
+        private Integer groupType;
+        private Integer liveAutoSync;
+        private Integer itemAutoSync;
+        private Integer openAuditSwitch;
+        private Integer relationType;
+        private Integer showAtProfile;
+        private String description;
+
+        public CreateFansGroupQueryBuilder tenantId(Integer tenantId)
+        {
+            this.tenantId = tenantId;
+            return this;
+        }
+
+        public CreateFansGroupQueryBuilder clientKey(String clientKey)
+        {
+            this.clientKey = clientKey;
+            return this;
+        }
+
+        public CreateFansGroupQueryBuilder openId(String openId)
+        {
+            this.openId = openId;
+            return this;
+        }
+
+        public CreateFansGroupQueryBuilder avatarUri(String avatarUri)
+        {
+            this.avatarUri = avatarUri;
+            return this;
+        }
+
+        public CreateFansGroupQueryBuilder groupName(String groupName)
+        {
+            this.groupName = groupName;
+            return this;
+        }
+
+        public CreateFansGroupQueryBuilder activeFans(Integer activeFans)
+        {
+            this.activeFans = activeFans;
+            return this;
+        }
+
+        public CreateFansGroupQueryBuilder allowInvite(Integer allowInvite)
+        {
+            this.allowInvite = allowInvite;
+            return this;
+        }
+
+        public CreateFansGroupQueryBuilder fansLimit(Integer fansLimit)
+        {
+            this.fansLimit = fansLimit;
+            return this;
+        }
+
+        public CreateFansGroupQueryBuilder groupType(Integer groupType)
+        {
+            this.groupType = groupType;
+            return this;
+        }
+
+        public CreateFansGroupQueryBuilder liveAutoSync(Integer liveAutoSync)
+        {
+            this.liveAutoSync = liveAutoSync;
+            return this;
+        }
+
+        public CreateFansGroupQueryBuilder itemAutoSync(Integer itemAutoSync)
+        {
+            this.itemAutoSync = itemAutoSync;
+            return this;
+        }
+
+        public CreateFansGroupQueryBuilder openAuditSwitch(Integer openAuditSwitch)
+        {
+            this.openAuditSwitch = openAuditSwitch;
+            return this;
+        }
+
+        public CreateFansGroupQueryBuilder relationType(Integer relationType)
+        {
+            this.relationType = relationType;
+            return this;
+        }
+
+        public CreateFansGroupQueryBuilder showAtProfile(Integer showAtProfile)
+        {
+            this.showAtProfile = showAtProfile;
+            return this;
+        }
+
+        public CreateFansGroupQueryBuilder description(String description)
+        {
+            this.description = description;
+            return this;
+        }
+
+        public CreateFansGroupQuery build()
+        {
+            CreateFansGroupQuery createFansGroupQuery = new CreateFansGroupQuery();
+            createFansGroupQuery.setAvatar_uri(avatarUri);
+            createFansGroupQuery.setDescription(description);
+            createFansGroupQuery.setGroup_name(groupName);
+            createFansGroupQuery.setActive_fans(activeFans);
+            createFansGroupQuery.setAllow_invite(allowInvite);
+            createFansGroupQuery.setFans_limit(fansLimit);
+            createFansGroupQuery.setGroup_type(groupType);
+            createFansGroupQuery.setLive_auto_sync(liveAutoSync);
+            createFansGroupQuery.setItem_auto_sync(itemAutoSync);
+            createFansGroupQuery.setOpen_audit_switch(openAuditSwitch);
+            createFansGroupQuery.setRelation_type(relationType);
+            createFansGroupQuery.setShow_at_profile(showAtProfile);
+            createFansGroupQuery.setOpen_id(openId);
+            createFansGroupQuery.setClientKey(clientKey);
+            createFansGroupQuery.setTenantId(tenantId);
+            return createFansGroupQuery;
+        }
     }
 
-    public CreateFansGroupQuery description(String description)
-    {
-        this.description = description;
-        return this;
-    }
 
-    public CreateFansGroupQuery group_name(String group_name)
-    {
-        this.group_name = group_name;
-        return this;
-    }
-
-    public CreateFansGroupQuery active_fans(Integer active_fans)
-    {
-        this.active_fans = active_fans;
-        return this;
-    }
-
-    public CreateFansGroupQuery allow_invite(Integer allow_invite)
-    {
-        this.allow_invite = allow_invite;
-        return this;
-    }
-
-    public CreateFansGroupQuery fans_limit(Integer fans_limit)
-    {
-        this.fans_limit = fans_limit;
-        return this;
-    }
-
-    public CreateFansGroupQuery group_type(Integer group_type)
-    {
-        this.group_type = group_type;
-        return this;
-    }
-
-    public CreateFansGroupQuery live_auto_sync(Integer live_auto_sync)
-    {
-        this.live_auto_sync = live_auto_sync;
-        return this;
-    }
-
-    public CreateFansGroupQuery item_auto_sync(Integer item_auto_sync)
-    {
-        this.item_auto_sync = item_auto_sync;
-        return this;
-    }
-
-    public CreateFansGroupQuery open_audit_switch(Integer open_audit_switch)
-    {
-        this.open_audit_switch = open_audit_switch;
-        return this;
-    }
-
-    public CreateFansGroupQuery relation_type(Integer relation_type)
-    {
-        this.relation_type = relation_type;
-        return this;
-    }
-
-    public CreateFansGroupQuery show_at_profile(Integer show_at_profile)
-    {
-        this.show_at_profile = show_at_profile;
-        return this;
-    }
-
-    public CreateFansGroupQuery tenantId(Integer tenantId)
-    {
-        this.tenantId = tenantId;
-        return this;
-    }
-
-    public CreateFansGroupQuery clientKey(String clientKey)
-    {
-        this.clientKey = clientKey;
-        return this;
-    }
-
-    public CreateFansGroupQuery open_id(String open_id)
-    {
-        this.open_id = open_id;
-        return this;
-    }
 
     @Override
     public String toString() {

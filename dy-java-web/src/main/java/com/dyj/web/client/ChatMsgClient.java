@@ -11,6 +11,7 @@ import com.dyj.web.domain.query.RevokeMsgQuery;
 import com.dyj.web.domain.query.SendMsgQuery;
 import com.dyj.web.domain.vo.AuthorizeUserListVo;
 import com.dyj.web.domain.vo.BaseVo;
+import com.dyj.web.domain.vo.ChatMsgResponseVo;
 import com.dyj.web.interceptor.TokenHeaderInterceptor;
 
 /**
@@ -24,10 +25,10 @@ public interface ChatMsgClient {
      * 发送私信消息
      *
      * @param query
-     * @return DyResult<BaseVo>
+     * @return ChatMsgResponseVo
      */
     @Post(url = "${sendMessage}?open_id=${query.open_id}")
-    DyResult<BaseVo> sendMessage(@JSONBody @Var("query") SendMsgQuery query);
+    ChatMsgResponseVo sendMessage(@JSONBody @Var("query") SendMsgQuery query);
 
     /**
      * 查询授权主动私信用户

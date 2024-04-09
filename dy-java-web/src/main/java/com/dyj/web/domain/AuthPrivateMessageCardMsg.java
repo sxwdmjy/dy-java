@@ -1,6 +1,7 @@
 package com.dyj.web.domain;
 
 import com.alibaba.fastjson.JSONObject;
+import com.dyj.common.enums.MediaTypeEnum;
 
 import java.util.Objects;
 
@@ -14,7 +15,7 @@ public class AuthPrivateMessageCardMsg extends MsgContent{
     private JSONObject auth_private_message_card;
 
     public AuthPrivateMessageCardMsg() {
-        super.msg_type = 12;
+        super.setMsg_type(MediaTypeEnum.auth_private_message_card);
     }
 
 

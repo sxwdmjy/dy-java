@@ -1,17 +1,40 @@
 package com.dyj.web.client;
 
-import com.dtflys.forest.annotation.BaseRequest;
-import com.dtflys.forest.annotation.Body;
-import com.dtflys.forest.annotation.Post;
+import com.dtflys.forest.annotation.*;
 import com.dtflys.forest.backend.ContentType;
 import com.dyj.common.domain.DyResult;
-import com.dyj.web.domain.query.CreateFansGroupQuery;
+import com.dyj.common.domain.DySimpleResult;
+import com.dyj.web.domain.query.*;
+import com.dyj.web.domain.vo.*;
 import com.dyj.web.interceptor.TokenHeaderInterceptor;
 
 @BaseRequest(baseURL = "${domain}", contentType = ContentType.APPLICATION_JSON)
 public interface GroupClient {
 
-    @Post(value = "${createFansGroup}?open_id=${query.openId}", interceptor = TokenHeaderInterceptor.class)
-    DyResult<Object> createFansGroup(@Body CreateFansGroupQuery query);
+    @Post(value = "${createFansGroup}?open_id=${query.open_id}", interceptor = TokenHeaderInterceptor.class)
+    CreateFansGroupVo createFansGroup(@JSONBody @Var("query") CreateFansGroupQuery query);
 
+    @Post(value = "${setFansGroupEnterStatus}?open_id=${query.open_id}", interceptor = TokenHeaderInterceptor.class)
+    SetFansGroupEnterStatusVo setFansGroupEnterStatus(@JSONBody @Var("query") SetFansGroupEnterStatusQuery query);
+
+    @Get(value = "${queryFansGroup}?open_id=${query.open_id}", interceptor = TokenHeaderInterceptor.class)
+    FansGroupVo queryFansGroup(@JSONBody @Var("query") UserInfoQuery query);
+
+    @Post(value = "${queryFansGroupSetting}?open_id=${query.open_id}", interceptor = TokenHeaderInterceptor.class)
+    FansGroupSettingVo queryFansGroupSetting(@JSONBody @Var("query") FansGroupSettingQuery query);
+
+    @Post(value = "${cancelFansGroupSetting}?open_id=${query.open_id}", interceptor = TokenHeaderInterceptor.class)
+    FansGroupSettingVo cancelFansGroupSetting(@JSONBody @Var("query") FansGroupSettingQuery query);
+
+    @Get(value = "${queryFansGroupCount}?open_id=${query.open_id}", interceptor = TokenHeaderInterceptor.class)
+    FansGroupCountVo queryFansGroupCount(@JSONBody @Var("query") UserInfoQuery query);
+
+    @Get(value = "${queryFansGroupEnterStatus}?open_id=${query.open_id}", interceptor = TokenHeaderInterceptor.class)
+    FansGroupEnterStatusVo queryFansGroupEnterStatus(@Var("query") UserInfoQuery query, @Query("count") Integer count, @Query("cursor") Integer cursor);
+
+    @Post(value = "${sendGroupMessage}?open_id=${query.open_id}", interceptor = TokenHeaderInterceptor.class)
+    ChatMsgResponseVo sendGroupMessage(@JSONBody @Var("query") SendGroupMsgQuery query);
+
+    @Post(value = "${revokeGroupMessage}?open_id=${query.open_id}", interceptor = TokenHeaderInterceptor.class)
+    DySimpleResult revokeGroupMessage(@JSONBody @Var("query") RevokeGroupMsgQuery query);
 }

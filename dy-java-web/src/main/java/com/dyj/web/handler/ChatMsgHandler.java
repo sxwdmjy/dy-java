@@ -1,7 +1,5 @@
 package com.dyj.web.handler;
 
-import com.dtflys.forest.annotation.JSONBody;
-import com.dtflys.forest.annotation.Var;
 import com.dyj.common.config.AgentConfiguration;
 import com.dyj.common.domain.DyResult;
 import com.dyj.spring.utils.SpringUtils;
@@ -30,19 +28,19 @@ public class ChatMsgHandler {
         this.agentConfiguration = agentConfiguration;
     }
 
-    public DyResult<BaseVo> sendMessage(SendMsgQuery query){
+    public DyResult<BaseVo> sendMessage(SendMsgQuery query) {
         query.setTenantId(agentConfiguration.getTenantId());
         query.setClientKey(agentConfiguration.getClientKey());
         return chatMsgClient.sendMessage(query);
     }
 
-    public DyResult<AuthorizeUserListVo> queryAuthorizeUserList(AuthorizeUserListQuery query){
+    public DyResult<AuthorizeUserListVo> queryAuthorizeUserList(AuthorizeUserListQuery query) {
         query.setTenantId(agentConfiguration.getTenantId());
         query.setClientKey(agentConfiguration.getClientKey());
         return chatMsgClient.queryAuthorizeUserList(query);
     }
 
-    public DyResult<BaseVo> revokeMessage(RevokeMsgQuery query){
+    public DyResult<BaseVo> revokeMessage(RevokeMsgQuery query) {
         query.setTenantId(agentConfiguration.getTenantId());
         query.setClientKey(agentConfiguration.getClientKey());
         return chatMsgClient.revokeMessage(query);

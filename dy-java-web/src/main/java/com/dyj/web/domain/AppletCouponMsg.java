@@ -1,6 +1,7 @@
 package com.dyj.web.domain;
 
 import com.alibaba.fastjson.JSONObject;
+import com.dyj.common.enums.MediaTypeEnum;
 import org.springframework.util.StringUtils;
 
 import java.util.Objects;
@@ -15,7 +16,7 @@ public class AppletCouponMsg extends MsgContent{
     private JSONObject applet_coupon;
 
     public AppletCouponMsg() {
-        super.msg_type = 11;
+        super.setMsg_type(MediaTypeEnum.APPLET_COUPON);
     }
 
     public JSONObject getApplet_coupon() {

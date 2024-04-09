@@ -46,39 +46,54 @@ public class RevokeMsgQuery extends UserInfoQuery {
         this.msg_id = msg_id;
     }
 
-    public static RevokeMsgQuery build() {
-        return new RevokeMsgQuery();
+    public static RevokeMsgQueryBuilder builder() {
+        return new RevokeMsgQueryBuilder();
     }
 
-    public RevokeMsgQuery conversationId(String conversation_id) {
-        this.conversation_id = conversation_id;
-        return this;
-    }
+    public static class RevokeMsgQueryBuilder {
+        private String conversationId;
+        private Integer conversationType;
+        private String msgId;
+        private String openId;
+        private Integer tenantId;
+        private String clientKey;
 
-    public RevokeMsgQuery conversationType(Integer conversation_type) {
-        this.conversation_type = conversation_type;
-        return this;
-    }
+        public RevokeMsgQueryBuilder conversationId(String conversationId) {
+            this.conversationId = conversationId;
+            return this;
+        }
+        public RevokeMsgQueryBuilder conversationType(Integer conversationType) {
+            this.conversationType = conversationType;
+            return this;
+        }
+        public RevokeMsgQueryBuilder msgId(String msgId) {
+            this.msgId = msgId;
+            return this;
+        }
+        public RevokeMsgQueryBuilder openId(String openId) {
+            this.openId = openId;
+            return this;
+        }
+        public RevokeMsgQueryBuilder tenantId(Integer tenantId) {
+            this.tenantId = tenantId;
+            return this;
+        }
+        public RevokeMsgQueryBuilder clientKey(String clientKey) {
+            this.clientKey = clientKey;
+            return this;
+        }
 
-    public RevokeMsgQuery msgId(String msg_id) {
-        this.msg_id = msg_id;
-        return this;
-    }
-
-    public RevokeMsgQuery openId(String open_id) {
-        this.open_id = open_id;
-        return this;
-    }
-
-    public RevokeMsgQuery tenantId(Integer tenantId) {
-        this.tenantId = tenantId;
-        return this;
-    }
-
-    public RevokeMsgQuery clientKey(String clientKey) {
-        this.clientKey = clientKey;
-        return this;
-    }
+        public RevokeMsgQuery build() {
+            RevokeMsgQuery revokeMsgQuery = new RevokeMsgQuery();
+            revokeMsgQuery.setConversation_id(conversationId);
+            revokeMsgQuery.setConversation_type(conversationType);
+            revokeMsgQuery.setMsg_id(msgId);
+            revokeMsgQuery.setOpen_id(openId);
+            revokeMsgQuery.setTenantId(tenantId);
+            revokeMsgQuery.setClientKey(clientKey);
+            return revokeMsgQuery;
+        }
+}
 
     @Override
     public String toString() {

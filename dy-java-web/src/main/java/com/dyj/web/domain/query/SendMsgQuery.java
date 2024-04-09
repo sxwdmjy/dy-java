@@ -106,53 +106,33 @@ public class SendMsgQuery extends UserInfoQuery {
         this.content_list = content_list;
     }
 
-    public static SendMsgQuery build() {
-        return new SendMsgQuery();
+    public static SendMsgQueryBuilder builder() {
+        return new SendMsgQueryBuilder();
     }
+    public static class SendMsgQueryBuilder {
+        private String msgId;
+        private String conversationId;
+        private String toUserId;
+        private MsgContent content;
+        private String scene;
+        private List<MsgContent> contentList;
 
-    public SendMsgQuery msgId(String msg_id) {
-        this.msg_id = msg_id;
-        return this;
-    }
-
-    public SendMsgQuery conversationId(String conversation_id) {
-        this.conversation_id = conversation_id;
-        return this;
-    }
-
-    public SendMsgQuery toUserId(String to_user_id) {
-        this.to_user_id = to_user_id;
-        return this;
-    }
-
-    public SendMsgQuery content(MsgContent content) {
-        this.content = content;
-        return this;
-    }
-
-    public SendMsgQuery scene(String scene) {
-        this.scene = scene;
-        return this;
-    }
-
-    public SendMsgQuery contentList(List<MsgContent> content_list) {
-        this.content_list = content_list;
-        return this;
-    }
-
-    public SendMsgQuery openId(String open_id) {
-        this.open_id = open_id;
-        return this;
-    }
-
-    public SendMsgQuery tenantId(Integer tenantId) {
-        this.tenantId = tenantId;
-        return this;
-    }
-
-    public SendMsgQuery clientKey(String clientKey) {
-        this.clientKey = clientKey;
-        return this;
+        private Integer tenantId;
+        private String clientKey;
+        private String openId;
+        public SendMsgQuery build() {
+            SendMsgQuery sendMsgQuery = new SendMsgQuery();
+            sendMsgQuery.setMsg_id(msgId);
+            sendMsgQuery.setConversation_id(conversationId);
+            sendMsgQuery.setTo_user_id(toUserId);
+            sendMsgQuery.setContent(content);
+            sendMsgQuery.setScene(scene);
+            sendMsgQuery.setContent_list(contentList);
+            sendMsgQuery.setTenantId(tenantId);
+            sendMsgQuery.setClientKey(clientKey);
+            sendMsgQuery.setOpen_id(openId);
+            return sendMsgQuery;
+        }
     }
 
     @Override
@@ -164,7 +144,7 @@ public class SendMsgQuery extends UserInfoQuery {
                 ", content=" + content +
                 ", scene='" + scene + '\'' +
                 ", content_list=" + content_list +
-                ", open_id='" + open_id + '\'' +
+                ", openId='" + open_id + '\'' +
                 ", tenantId=" + tenantId +
                 ", clientKey='" + clientKey + '\'' +
                 '}';

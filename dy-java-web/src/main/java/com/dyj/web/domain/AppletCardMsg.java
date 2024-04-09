@@ -1,6 +1,7 @@
 package com.dyj.web.domain;
 
 import com.alibaba.fastjson.JSONObject;
+import com.dyj.common.enums.MediaTypeEnum;
 import org.springframework.util.StringUtils;
 
 import java.util.Objects;
@@ -17,7 +18,7 @@ public class AppletCardMsg extends MsgContent {
     private JSONObject applet_card;
 
     public AppletCardMsg() {
-        this.msg_type = 10;
+        super.setMsg_type(MediaTypeEnum.APPLET_CARD);
     }
 
 
@@ -30,7 +31,7 @@ public class AppletCardMsg extends MsgContent {
         this.applet_card = applet_card;
     }
 
-    public void setAppletCard(String cardTemplateId, String path, String query, String appId) {
+    public void setAppletCard(String cardTemplateId, String path, String query, String appId, String schema) {
         if (Objects.isNull(this.applet_card)) {
             this.applet_card = new JSONObject();
         }
@@ -48,6 +49,9 @@ public class AppletCardMsg extends MsgContent {
         if (StringUtils.hasLength(appId)) {
             this.applet_card.put("app_id", appId);
         }
+        if(StringUtils.hasLength(schema)){
+            this.applet_card.put("schema", schema);
+        }
     }
 
 
@@ -56,23 +60,28 @@ public class AppletCardMsg extends MsgContent {
     }
 
     public AppletCardMsg cardTemplateId(String cardTemplateId) {
-        setAppletCard(cardTemplateId, null, null, null);
+        setAppletCard(cardTemplateId, null, null, null, null);
         return this;
     }
 
     public AppletCardMsg path(String path) {
-        setAppletCard(null, path, null, null);
+        setAppletCard(null, path, null, null,null);
         return this;
     }
 
 
     public AppletCardMsg query(String query) {
-        setAppletCard(null, null, query, null);
+        setAppletCard(null, null, query, null,null);
         return this;
     }
 
     public AppletCardMsg appId(String appId) {
-        setAppletCard(null, null, null, appId);
+        setAppletCard(null, null, null, appId,null);
+        return this;
+    }
+
+    public AppletCardMsg schema(String schema) {
+        setAppletCard(null, null, null, null,schema);
         return this;
     }
 

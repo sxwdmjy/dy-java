@@ -4,14 +4,12 @@ package com.dyj.web.domain.query;
  * @author danmo
  * @date 2024-04-07 14:56
  **/
-public class UserInfoQuery extends BaseQuery{
+public class UserInfoQuery extends BaseQuery {
 
     /**
      * 用户唯一标志
      */
     protected String open_id;
-
-
 
     public String getOpen_id() {
         return open_id;
@@ -21,6 +19,12 @@ public class UserInfoQuery extends BaseQuery{
         this.open_id = open_id;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "UserInfoQuery{" +
+                "open_id='" + open_id + '\'' +
+                ", tenantId=" + tenantId +
+                ", clientKey='" + clientKey + '\'' +
+                '}';
+    }
 }

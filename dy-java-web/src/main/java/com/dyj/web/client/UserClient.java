@@ -1,9 +1,6 @@
 package com.dyj.web.client;
 
-import com.dtflys.forest.annotation.BaseRequest;
-import com.dtflys.forest.annotation.Body;
-import com.dtflys.forest.annotation.Get;
-import com.dtflys.forest.annotation.Post;
+import com.dtflys.forest.annotation.*;
 import com.dtflys.forest.backend.ContentType;
 import com.dyj.common.domain.DyResult;
 import com.dyj.web.domain.query.CheckFansQuery;
@@ -26,8 +23,8 @@ public interface UserClient {
     DyResult<UserInfoVo> getUserInfo(@Body UserInfoQuery query);
 
     @Get(url = "${checkFans}", contentType = ContentType.APPLICATION_JSON, interceptor = TokenHeaderInterceptor.class)
-    DyResult<CheckFansVo> checkFans(@Body CheckFansQuery query);
+    DyResult<CheckFansVo> checkFans(@JSONBody CheckFansQuery query);
 
     @Post(url = "${userRoleCheck}", contentType = ContentType.APPLICATION_JSON, interceptor = TokenHeaderInterceptor.class)
-    DyResult<UserRoleCheckVo> userRoleCheck(@Body UserRoleCheckQuery query);
+    DyResult<UserRoleCheckVo> userRoleCheck(@JSONBody UserRoleCheckQuery query);
 }

@@ -54,4 +54,53 @@ public class AccessTokenQuery {
     public String getGrant_type() {
         return grant_type;
     }
+
+
+    public AccessTokenQuery() {
+    }
+
+    private AccessTokenQuery(AccessTokenQueryBuilder builder) {
+        this.client_key = builder.client_key;
+        this.client_secret = builder.client_secret;
+        this.code = builder.code;
+    }
+
+    public static AccessTokenQueryBuilder builder() {
+        return new AccessTokenQueryBuilder();
+    }
+
+    public static class AccessTokenQueryBuilder {
+        private String client_key;
+        private String client_secret;
+        private String code;
+
+        public AccessTokenQueryBuilder clientKey(String clientKey) {
+            this.client_key = clientKey;
+            return this;
+        }
+
+        public AccessTokenQueryBuilder clientSecret(String clientSecret) {
+            this.client_secret = clientSecret;
+            return this;
+        }
+
+        public AccessTokenQueryBuilder code(String code) {
+            this.code = code;
+            return this;
+        }
+
+        public AccessTokenQuery build() {
+            return new AccessTokenQuery(this);
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "AccessTokenQuery{" +
+                "client_key='" + client_key + '\'' +
+                ", client_secret='" + client_secret + '\'' +
+                ", code='" + code + '\'' +
+                ", grant_type='" + grant_type + '\'' +
+                '}';
+    }
 }

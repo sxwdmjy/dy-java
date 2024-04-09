@@ -30,33 +30,46 @@ public class VideoDataQuery extends UserInfoQuery{
         this.video_ids = video_ids;
     }
 
-    public static VideoDataQuery build() {
-        return new VideoDataQuery();
+    public static VideoDataQueryBuilder builder() {
+        return new VideoDataQueryBuilder();
     }
 
-    public VideoDataQuery item_ids(List<String> item_ids) {
-        this.item_ids = item_ids;
-        return this;
-    }
+    public static class VideoDataQueryBuilder {
+        private List<String> itemIds;
+        private List<String> videoIds;
+        private String openId;
+        private Integer tenantId;
+        private String clientKey;
 
-    public VideoDataQuery video_ids(List<String> video_ids) {
-        this.video_ids = video_ids;
-        return this;
-    }
-
-    public VideoDataQuery tenantId(Integer tenantId) {
-        this.tenantId = tenantId;
-        return this;
-    }
-
-    public VideoDataQuery clientKey(String clientKey) {
-        this.clientKey = clientKey;
-        return this;
-    }
-
-    public VideoDataQuery open_id(String open_id) {
-        this.open_id = open_id;
-        return this;
+        public VideoDataQueryBuilder itemIds(List<String> itemIds) {
+            this.itemIds = itemIds;
+            return this;
+        }
+        public VideoDataQueryBuilder videoIds(List<String> videoIds) {
+            this.videoIds = videoIds;
+            return this;
+        }
+        public VideoDataQueryBuilder openId(String openId) {
+            this.openId = openId;
+            return this;
+        }
+        public VideoDataQueryBuilder tenantId(Integer tenantId) {
+            this.tenantId = tenantId;
+            return this;
+        }
+        public VideoDataQueryBuilder clientKey(String clientKey) {
+            this.clientKey = clientKey;
+            return this;
+        }
+        public VideoDataQuery build() {
+            VideoDataQuery videoDataQuery = new VideoDataQuery();
+            videoDataQuery.setItem_ids(itemIds);
+            videoDataQuery.setVideo_ids(videoIds);
+            videoDataQuery.setOpen_id(openId);
+            videoDataQuery.setTenantId(tenantId);
+            videoDataQuery.setClientKey(clientKey);
+            return videoDataQuery;
+        }
     }
 
     @Override

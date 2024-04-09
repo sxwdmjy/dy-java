@@ -1,6 +1,7 @@
 package com.dyj.web.domain;
 
 import com.alibaba.fastjson.JSONObject;
+import com.dyj.common.enums.MediaTypeEnum;
 import org.springframework.util.StringUtils;
 
 import java.util.Objects;
@@ -17,7 +18,7 @@ public class InvitationMsg extends MsgContent{
     private JSONObject group_invitation;
 
     public InvitationMsg() {
-        super.msg_type = 9;
+        super.setMsg_type(MediaTypeEnum.GROUP_INVITATION);
     }
     public JSONObject getGroup_invitation() {
         return group_invitation;

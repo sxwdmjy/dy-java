@@ -42,12 +42,56 @@ public class UserRoleCheckQuery extends UserInfoQuery {
         this.role_labels = role_labels;
     }
 
+    public static UserRoleCheckQueryBuilder builder() {
+        return new UserRoleCheckQueryBuilder();
+    }
+
+    public static class UserRoleCheckQueryBuilder {
+        private String douyinShortId;
+        private List<String> roleLabels;
+        private String openId;
+        private String clientKey;
+        private Integer tenantId;
+
+        public UserRoleCheckQueryBuilder douyinShortId(String douyinShortId) {
+            this.douyinShortId = douyinShortId;
+            return this;
+        }
+        public UserRoleCheckQueryBuilder roleLabels(List<String> roleLabels) {
+            this.roleLabels = roleLabels;
+            return this;
+        }
+        public UserRoleCheckQueryBuilder openId(String openId) {
+            this.openId = openId;
+            return this;
+        }
+        public UserRoleCheckQueryBuilder clientKey(String clientKey) {
+            this.clientKey = clientKey;
+            return this;
+        }
+        public UserRoleCheckQueryBuilder tenantId(Integer tenantId) {
+            this.tenantId = tenantId;
+            return this;
+        }
+        public UserRoleCheckQuery build() {
+            UserRoleCheckQuery userRoleCheckQuery = new UserRoleCheckQuery();
+            userRoleCheckQuery.setDouyin_shortId(douyinShortId);
+            userRoleCheckQuery.setRole_labels(roleLabels);
+            userRoleCheckQuery.setOpen_id(openId);
+            userRoleCheckQuery.setClientKey(clientKey);
+            userRoleCheckQuery.setTenantId(tenantId);
+            return userRoleCheckQuery;
+        }
+    }
+
     @Override
     public String toString() {
         return "UserRoleCheckQuery{" +
                 "douyin_shortId='" + douyin_shortId + '\'' +
                 ", role_labels=" + role_labels +
                 ", open_id='" + open_id + '\'' +
+                ", tenantId=" + tenantId +
+                ", clientKey='" + clientKey + '\'' +
                 '}';
     }
 }

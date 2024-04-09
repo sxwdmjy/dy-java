@@ -3,14 +3,12 @@ package com.dyj.web;
 import com.dyj.common.config.AgentConfiguration;
 import com.dyj.common.config.DyConfiguration;
 import com.dyj.common.domain.DyResult;
+import com.dyj.common.domain.DySimpleResult;
 import com.dyj.common.domain.TokenInfo;
 import com.dyj.common.handler.RequestHandler;
 import com.dyj.web.domain.query.*;
 import com.dyj.web.domain.vo.*;
-import com.dyj.web.handler.AccessTokenHandler;
-import com.dyj.web.handler.ChatMsgHandler;
-import com.dyj.web.handler.UserHandler;
-import com.dyj.web.handler.VideoHandler;
+import com.dyj.web.handler.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -315,5 +313,98 @@ public class DyWebClient {
         // 通过租户ID和客户端密钥加载代理配置，并使用该配置创建ChatMsgHandler来处理消息撤销
         return new ChatMsgHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).revokeMessage(query);
     }
+
+    /**
+     * 创建粉丝群。
+     *
+     * @param query 创建粉丝群组的查询参数，包含创建群组所需的所有信息。
+     * @return 返回创建粉丝群组的结果信息，包括群组的详细信息等。
+     */
+    public CreateFansGroupVo createFansGroup(CreateFansGroupQuery query){
+        return new GroupHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).createFansGroup(query);
+    }
+
+    /**
+     * 变更用户入群申请状态。
+     *
+     * @param query 设置进群权限的查询参数，包含群组ID、进群权限等。
+     * @return 返回设置进群权限的结果信息，包括进群权限的详细信息等。
+     */
+    public SetFansGroupEnterStatusVo setFansGroupEnterStatus(SetFansGroupEnterStatusQuery query){
+        return new GroupHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).setFansGroupEnterStatus(query);
+    }
+
+    /**
+     * 查询粉丝群。
+     *
+     * @param openId 用户的openId。
+     * @return 返回查询查询粉丝群结果。
+     */
+    public FansGroupVo queryFansGroup(String openId){
+        return new GroupHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).queryFansGroup(openId);
+    }
+
+    /**
+     * 发送群消息。
+     *
+     * @param query 发送群聊消息的查询参数，包含群组ID、消息内容等。
+     * @return 返回发送群聊消息的结果信息，包括消息的详细信息等。
+     */
+    public ChatMsgResponseVo sendGroupMessage(SendGroupMsgQuery query){
+        return new GroupHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).sendGroupMessage(query);
+    }
+
+    /**
+     * 撤回群消息。
+     *
+     * @param query 撤回群聊消息的查询参数，包含群组ID、消息ID等。
+     * @return 返回撤回群聊消息的结果信息，包括消息的详细信息等。
+     */
+    public DySimpleResult revokeGroupMessage(RevokeGroupMsgQuery query){
+        return new GroupHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).revokeGroupMessage(query);
+    }
+
+    /**
+     * 设置进群问候语&群公告。
+     *
+     * @param query 查询群设置查询参数，包含群组ID等。
+     * @return 返回设置进群问候语&群公告结果。
+     */
+    public FansGroupSettingVo queryFansGroupSetting(FansGroupSettingQuery query){
+        return new GroupHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).queryFansGroupSetting(query);
+    }
+
+    /**
+     * 查询群主所在群的用户入群申请状态。
+     *
+     * @param openId 用户的openId。
+     * @param count  查询数量。
+     * @param cursor 查询游标。
+     * @return 返回查询群主所在群的用户入群申请状态结果。
+     */
+    public FansGroupEnterStatusVo queryFansGroupEnterStatus(String openId, Integer count, Integer cursor){
+        return new GroupHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).queryFansGroupEnterStatus(openId, count, cursor);
+    }
+
+    /**
+     * 取消进群问候语&群公告配置。
+     *
+     * @param query 查询群设置查询参数，包含群组ID等。
+     * @return 返回取消进群问候语&群公告配置结果。
+     */
+    public FansGroupSettingVo cancelFansGroupSetting(FansGroupSettingQuery query){
+        return new GroupHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).cancelFansGroupSetting(query);
+    }
+
+    /**
+     * 查询用户剩余建群额度。
+     *
+     * @param openId 用户的openId。
+     * @return 返回查询用户剩余建群额度结果。
+     */
+    public FansGroupCountVo queryFansGroupCount(String openId){
+        return new GroupHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).queryFansGroupCount(openId);
+    }
+
 
 }
