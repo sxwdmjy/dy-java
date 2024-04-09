@@ -15,6 +15,7 @@ import com.dyj.web.domain.vo.ChatMsgResponseVo;
 import com.dyj.web.interceptor.TokenHeaderInterceptor;
 
 /**
+ * 私信管理
  * @author danmo
  * @date 2024-04-08 09:36
  **/

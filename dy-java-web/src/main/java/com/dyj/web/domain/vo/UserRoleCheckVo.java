@@ -1,5 +1,7 @@
 package com.dyj.web.domain.vo;
 
+import com.alibaba.fastjson.JSONObject;
+
 import java.util.Map;
 
 /**
@@ -16,7 +18,7 @@ public class UserRoleCheckVo extends BaseVo {
     /**
      * 返回查询集合中，没有身份的信息
      */
-    private Map<String, Boolean> filter_role;
+    private JSONObject filter_role;
 
     private String log_id;
 
@@ -32,11 +34,11 @@ public class UserRoleCheckVo extends BaseVo {
         this.match_result = match_result;
     }
 
-    public Map<String, Boolean> getFilter_role() {
+    public JSONObject getFilter_role() {
         return filter_role;
     }
 
-    public void setFilter_role(Map<String, Boolean> filter_role) {
+    public void setFilter_role(JSONObject filter_role) {
         this.filter_role = filter_role;
     }
 

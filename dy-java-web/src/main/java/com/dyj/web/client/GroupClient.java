@@ -8,6 +8,11 @@ import com.dyj.web.domain.query.*;
 import com.dyj.web.domain.vo.*;
 import com.dyj.web.interceptor.TokenHeaderInterceptor;
 
+/**
+ * 群组管理
+ * @author danmo
+ * @date 2024/04/09 14:08
+ */
 @BaseRequest(baseURL = "${domain}", contentType = ContentType.APPLICATION_JSON)
 public interface GroupClient {
 
@@ -18,7 +23,7 @@ public interface GroupClient {
     SetFansGroupEnterStatusVo setFansGroupEnterStatus(@JSONBody @Var("query") SetFansGroupEnterStatusQuery query);
 
     @Get(value = "${queryFansGroup}?open_id=${query.open_id}", interceptor = TokenHeaderInterceptor.class)
-    FansGroupVo queryFansGroup(@JSONBody @Var("query") UserInfoQuery query);
+    FansGroupVo queryFansGroup(@Var("query") UserInfoQuery query);
 
     @Post(value = "${queryFansGroupSetting}?open_id=${query.open_id}", interceptor = TokenHeaderInterceptor.class)
     FansGroupSettingVo queryFansGroupSetting(@JSONBody @Var("query") FansGroupSettingQuery query);
@@ -27,7 +32,7 @@ public interface GroupClient {
     FansGroupSettingVo cancelFansGroupSetting(@JSONBody @Var("query") FansGroupSettingQuery query);
 
     @Get(value = "${queryFansGroupCount}?open_id=${query.open_id}", interceptor = TokenHeaderInterceptor.class)
-    FansGroupCountVo queryFansGroupCount(@JSONBody @Var("query") UserInfoQuery query);
+    FansGroupCountVo queryFansGroupCount(@Var("query") UserInfoQuery query);
 
     @Get(value = "${queryFansGroupEnterStatus}?open_id=${query.open_id}", interceptor = TokenHeaderInterceptor.class)
     FansGroupEnterStatusVo queryFansGroupEnterStatus(@Var("query") UserInfoQuery query, @Query("count") Integer count, @Query("cursor") Integer cursor);

@@ -13,6 +13,7 @@ import com.dyj.web.handler.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author danmo
@@ -125,7 +126,7 @@ public class DyWebClient {
     }
 
     /**
-     * 根据用户标识和角色标签列表检查用户角色。
+     * 用户经营身份管理。
      *
      * @param openId        用户的开放标识，用于识别用户。
      * @param douyinShortId 抖音短ID，另一种用户标识方式。

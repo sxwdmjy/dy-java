@@ -1,7 +1,9 @@
 package com.dyj.web.handler;
 
 import com.dyj.common.config.AgentConfiguration;
+import com.dyj.common.config.DyConfiguration;
 import com.dyj.common.domain.DyResult;
+import com.dyj.common.handler.RequestHandler;
 import com.dyj.spring.utils.SpringUtils;
 import com.dyj.web.client.AuthClient;
 import com.dyj.web.domain.query.AccessTokenQuery;
@@ -12,6 +14,8 @@ import com.dyj.web.domain.vo.AccessTokenVo;
 import com.dyj.web.domain.vo.ClientTokenVo;
 import com.dyj.web.domain.vo.RefreshAccessTokenVo;
 import com.dyj.web.domain.vo.RefreshTokenVo;
+
+import java.util.Objects;
 
 /**
  * @author danmo
@@ -36,7 +40,12 @@ public class AccessTokenHandler {
         query.setCode(code);
         query.setClient_key(agentConfiguration.getClientKey());
         query.setClient_secret(agentConfiguration.getClientSecret());
-        return authClient.getAccessToken(query);
+        DyResult<AccessTokenVo> dyResult = authClient.getAccessToken(query);
+        if(Objects.nonNull(dyResult) && dyResult.getData().getError_code() == 0){
+            DyConfiguration dyConfiguration = RequestHandler.getInstance().getDyConfiguration();
+            dyConfiguration.getAgentTokenService().setTokenInfo(agentConfiguration.getTenantId(), agentConfiguration.getClientKey(), dyResult.getData().getAccess_token(), dyResult.getData().getExpires_in(), dyResult.getData().getRefresh_token(), dyResult.getData().getRefresh_expires_in());
+        }
+        return dyResult;
     }
 
     public DyResult<RefreshTokenVo> refreshToken(String refreshToken) {

@@ -179,6 +179,21 @@ public enum DyConfigEnum {
     REVOKE_GROUP_MESSAGE("revokeGroupMessage","/im/recall/msg"),
 
 
+    /**
+     * 创建/更新留资卡片
+     */
+    SAVE_RETAIN_CONSULT_CARD("saveRetainConsultCard","/im/save/retain_consult_card"),
+
+    /**
+     * 查询留资卡片
+     */
+    GET_RETAIN_CONSULT_CARD("getRetainConsultCard","/im/get/retain_consult_card"),
+
+    /**
+     * 删除留资卡片
+     */
+    DELETE_RETAIN_CONSULT_CARD("deleteRetainConsultCard","/im/del/retain_consult_card"),
+
     ;
 
 

@@ -9,6 +9,8 @@ import com.dyj.common.domain.TokenInfo;
 import com.dyj.common.handler.RequestHandler;
 import com.dyj.common.service.IAgentTokenService;
 import com.dyj.web.domain.query.BaseQuery;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import java.util.Objects;
 
@@ -20,6 +22,7 @@ import java.util.Objects;
  **/
 public class AccessTokenInterceptor implements Interceptor<DyResult> {
 
+    private final Log log = LogFactory.getLog(AccessTokenInterceptor.class);
     @Override
     public boolean beforeExecute(ForestRequest request) {
         Integer tenantId = null;
@@ -37,13 +40,13 @@ public class AccessTokenInterceptor implements Interceptor<DyResult> {
         if (Objects.isNull(tokenInfo)) {
             throw new RuntimeException("access_token is null");
         }
-        request.replaceOrAddQuery("access_token", tokenInfo.getAccessToken());
+        request.addBody("access_token", tokenInfo.getAccessToken());
         return Interceptor.super.beforeExecute(request);
     }
 
     @Override
     public void onSuccess(DyResult data, ForestRequest request, ForestResponse response) {
-        Interceptor.super.onSuccess(data, request, response);
+        log.info("AccessTokenInterceptor onSuccess:" + data.toString());
     }
 
     @Override
