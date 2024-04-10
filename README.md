@@ -73,5 +73,4 @@ AccessTokenVo accessToken = DyWebClient.getInstance()
 
 ###### 贡献
 如果您发现了任何问题或者有任何建议，欢迎提出 issue 或者提交 pull request。也可以联系下方二维码。
-
-<img alt="输入图片说明" height="100" src="https://gitee.com/sxwdmjy/dy-java/blob/master/image1.png" width="100"/>
+![输入图片说明](image2.png)
