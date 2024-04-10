@@ -52,7 +52,7 @@ dyjava:
 * 移动\网站应用：
 ```java
 //单租户获取AccessToken
-AccessTokenVo accessToken = DyWebClient.getInstance().getData();
+AccessTokenVo accessToken = DyWebClient.getInstance().accessToken(code).getData();
 //多租户单应用获取AccessToken
 AccessTokenVo accessToken = DyWebClient.getInstance()
         .tenantId(1)
