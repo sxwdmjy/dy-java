@@ -28,8 +28,8 @@ public interface ChatMsgClient {
      * @param query
      * @return ChatMsgResponseVo
      */
-    @Post(url = "${sendMessage}?open_id=${query.open_id}")
-    ChatMsgResponseVo sendMessage(@JSONBody @Var("query") SendMsgQuery query);
+    @Post(url = "${sendMessage}")
+    ChatMsgResponseVo sendMessage(@JSONBody SendMsgQuery query);
 
     /**
      * 查询授权主动私信用户
@@ -37,8 +37,8 @@ public interface ChatMsgClient {
      * @param query
      * @return DyResult<AuthorizeUserListVo>
      */
-    @Post(url = "${queryAuthorizeUserList}?open_id=${query.open_id}")
-    DyResult<AuthorizeUserListVo> queryAuthorizeUserList(@JSONBody @Var("query") AuthorizeUserListQuery query);
+    @Post(url = "${queryAuthorizeUserList}")
+    DyResult<AuthorizeUserListVo> queryAuthorizeUserList(@JSONBody AuthorizeUserListQuery query);
 
 
     /**
@@ -47,6 +47,6 @@ public interface ChatMsgClient {
      * @param query 包含消息查询条件的对象，用于指定要撤销的消息。
      * @return 返回一个动态结果对象，其中包含操作的结果信息。
      */
-    @Post(url = "${revokeMessage}?open_id=${query.open_id}")
-    DyResult<BaseVo> revokeMessage(@JSONBody @Var("query") RevokeMsgQuery query);
+    @Post(url = "${revokeMessage}")
+    DyResult<BaseVo> revokeMessage(@JSONBody RevokeMsgQuery query);
 }

@@ -194,6 +194,26 @@ public enum DyConfigEnum {
      */
     DELETE_RETAIN_CONSULT_CARD("deleteRetainConsultCard","/im/del/retain_consult_card"),
 
+    /**
+     * 创建/更新小程序引导卡片模板
+     */
+    SET_APPLET_TEMPLATE("setAppletTemplate","/api/douyin/v1/im/set_applet_template"),
+
+    /**
+     * 查询小程序引导卡片模板
+     */
+    GET_APPLET_TEMPLATE("getAppletTemplate","/api/douyin/v1/im/get_applet_template"),
+
+    /**
+     * 删除小程序引导卡片模板
+     */
+    DEL_APPLET_TEMPLATE("delAppletTemplate","/api/douyin/v1/im/del_applet_template"),
+
+    /**
+     * 图片上传
+     */
+    IMAGE_CLIENT_UPLOAD("imageClientUpload","/tool/imagex/client_upload"),
+
     ;
 
 

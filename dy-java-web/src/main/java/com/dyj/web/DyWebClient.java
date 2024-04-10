@@ -6,12 +6,15 @@ import com.dyj.common.domain.DyResult;
 import com.dyj.common.domain.DySimpleResult;
 import com.dyj.common.domain.UserTokenInfo;
 import com.dyj.common.handler.RequestHandler;
+import com.dyj.common.service.IAgentConfigService;
+import com.dyj.common.utils.DyConfigUtils;
 import com.dyj.web.domain.query.*;
 import com.dyj.web.domain.vo.*;
 import com.dyj.web.handler.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.List;
 
 /**
@@ -42,8 +45,9 @@ public class DyWebClient {
     }
 
     private DyConfiguration configuration() {
-        return RequestHandler.getInstance().getDyConfiguration();
+        return DyConfigUtils.getDyConfig();
     }
+
 
     /**
      * 通过代码获取访问令牌。
@@ -406,5 +410,84 @@ public class DyWebClient {
         return new GroupHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).queryFansGroupCount(openId);
     }
 
+    /**
+     * 创建/更新留资卡片
+     * @param query 保存留资卡片的查询参数
+     * @return 返回创建/更新留资卡片结果
+     */
+    public SaveRetainConsultCardVo saveRetainConsultCard(SaveRetainConsultCardQuery query){
+        return new BusinessHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).saveRetainConsultCard(query);
+    }
 
+    /**
+     * 查询留资卡片
+     * @param openId 用户的openId
+     * @return 返回查询留资卡片结果
+     */
+    public RetainConsultCardVo getRetainConsultCard(String openId){
+        return new BusinessHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).getRetainConsultCard(openId);
+    }
+
+    /**
+     * 删除留资卡片
+     * @param query 删除留资卡片的查询参数
+     * @return 返回删除留资卡片结果
+     */
+    public SaveRetainConsultCardVo deleteRetainConsultCard(SaveRetainConsultCardQuery query){
+        return new BusinessHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).deleteRetainConsultCard(query);
+    }
+
+    /**
+     * 创建/更新小程序引导卡片模板
+     * @param query 创建/更新小程序引导卡片模板的查询参数
+     * @return 返回创建/更新小程序引导卡片模板结果
+     */
+    public DyResult<CreateAppletTemplateVo> setAppletTemplate(CreateAppletTemplateQuery query){
+        return new BusinessHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).setAppletTemplate(query);
+    }
+
+    /**
+     * 查询小程序引导卡片模板
+     * @param query 查询小程序引导卡片模板的查询参数
+     * @return 返回查询小程序引导卡片模板结果
+     */
+    public DyResult<AppletTemplateVo> getAppletTemplate(AppletTemplateQuery query) {
+        return new BusinessHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).getAppletTemplate(query);
+    }
+
+    /**
+     * 删除小程序引导卡片模板
+     * @param query 删除小程序引导卡片模板的查询参数
+     * @return 返回删除小程序引导卡片模板结果
+     */
+    public DyResult<BaseVo> delAppletTemplate(AppletTemplateQuery query) {
+        return new BusinessHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).delAppletTemplate(query);
+    }
+
+    /**
+     * 上传图片
+     * @param file 图片文件
+     * @return 返回上传图片结果
+     */
+    public ImageClientUploadVo imageClientUpload(File file) {
+        return new BusinessHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).imageClientUpload(file);
+    }
+
+    /**
+     * 上传图片
+     * @param inputStream 图片文件流
+     * @return 返回上传图片结果
+     */
+    public ImageClientUploadVo imageClientUpload(InputStream inputStream) {
+        return new BusinessHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).imageClientUpload(inputStream);
+    }
+
+    /**
+     * 上传图片
+     * @param bytes 图片文件字节数组
+     * @return 返回上传图片结果
+     */
+    public ImageClientUploadVo imageClientUpload(Byte[] bytes) {
+        return new BusinessHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).imageClientUpload(bytes);
+    }
 }

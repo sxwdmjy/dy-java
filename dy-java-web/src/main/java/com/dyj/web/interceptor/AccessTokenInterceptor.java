@@ -1,6 +1,8 @@
 package com.dyj.web.interceptor;
 
+import com.alibaba.fastjson.JSONObject;
 import com.dtflys.forest.exceptions.ForestRuntimeException;
+import com.dtflys.forest.http.ForestBody;
 import com.dtflys.forest.http.ForestRequest;
 import com.dtflys.forest.http.ForestResponse;
 import com.dtflys.forest.interceptor.Interceptor;
@@ -34,9 +36,6 @@ public class AccessTokenInterceptor implements Interceptor<DyResult> {
             if(argument instanceof UserInfoQuery){
                 UserInfoQuery query = (UserInfoQuery) argument;
                 openId = query.getOpen_id();
-            }else
-            if (argument instanceof BaseQuery) {
-                BaseQuery query = (BaseQuery) argument;
                 tenantId = query.getTenantId();
                 clientKey = query.getClientKey();
             }
@@ -46,7 +45,7 @@ public class AccessTokenInterceptor implements Interceptor<DyResult> {
         if (Objects.isNull(userTokenInfo)) {
             throw new RuntimeException("access_token is null");
         }
-        request.addBody("access_token", userTokenInfo.getAccessToken());
+        request.addBody("access-token", userTokenInfo.getAccessToken());
         return Interceptor.super.beforeExecute(request);
     }
 
@@ -57,6 +56,18 @@ public class AccessTokenInterceptor implements Interceptor<DyResult> {
 
     @Override
     public void onError(ForestRuntimeException ex, ForestRequest request, ForestResponse response) {
-        Interceptor.super.onError(ex, request, response);
+        StringBuilder sb = new StringBuilder("AccessTokenInterceptor onError ");
+        sb.append("url:");
+        sb.append(request.getUrl());
+        sb.append(", ");
+        sb.append("params:");
+        sb.append(JSONObject.toJSONString(request.getArguments()));
+        sb.append(", ");
+        sb.append("result:");
+        sb.append(response.getContent());
+        sb.append(", ");
+        sb.append("msg:");
+        sb.append(ex.getMessage());
+        log.info("AuthInterceptor onError:" + sb.toString());
     }
 }
