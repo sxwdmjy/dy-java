@@ -72,4 +72,5 @@ AccessTokenVo accessToken = DyWebClient.getInstance()
 4. 抖店(2024-05-30前完成)
 
 ###### 贡献
-如果您发现了任何问题或者有任何建议，欢迎提出 issue 或者提交 pull request。
+如果您发现了任何问题或者有任何建议，欢迎提出 issue 或者提交 pull request。也可以联系下方二维码。
+![输入图片说明](image.png)
