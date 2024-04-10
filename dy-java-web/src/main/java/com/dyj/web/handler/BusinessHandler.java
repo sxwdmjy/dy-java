@@ -14,30 +14,23 @@ import java.io.InputStream;
  * @author danmo
  * @date 2024-04-10 11:23
  **/
-public class BusinessHandler {
+public class BusinessHandler extends AbstractWebHandler{
 
-    private BusinessClient businessClient;
-
-    private final AgentConfiguration agentConfiguration;
-
-    {
-        businessClient = SpringUtils.getBean(BusinessClient.class);
-    }
 
     public BusinessHandler(AgentConfiguration agentConfiguration) {
-        this.agentConfiguration = agentConfiguration;
+        super(agentConfiguration);
     }
 
     public SaveRetainConsultCardVo saveRetainConsultCard(SaveRetainConsultCardQuery query) {
         query.setTenantId(agentConfiguration.getTenantId());
         query.setClientKey(agentConfiguration.getClientKey());
-        return businessClient.saveRetainConsultCard(query);
+        return getBusinessClient().saveRetainConsultCard(query);
     }
 
     public SaveRetainConsultCardVo deleteRetainConsultCard(SaveRetainConsultCardQuery query) {
         query.setTenantId(agentConfiguration.getTenantId());
         query.setClientKey(agentConfiguration.getClientKey());
-        return businessClient.deleteRetainConsultCard(query);
+        return getBusinessClient().deleteRetainConsultCard(query);
     }
 
     public RetainConsultCardVo getRetainConsultCard(String openId) {
@@ -45,46 +38,46 @@ public class BusinessHandler {
         query.setOpen_id(openId);
         query.setTenantId(agentConfiguration.getTenantId());
         query.setClientKey(agentConfiguration.getClientKey());
-        return businessClient.getRetainConsultCard(query);
+        return getBusinessClient().getRetainConsultCard(query);
     }
 
     public DyResult<CreateAppletTemplateVo> setAppletTemplate(CreateAppletTemplateQuery query) {
         query.setTenantId(agentConfiguration.getTenantId());
         query.setClientKey(agentConfiguration.getClientKey());
-        return businessClient.setAppletTemplate(query);
+        return getBusinessClient().setAppletTemplate(query);
     }
 
     public DyResult<AppletTemplateVo> getAppletTemplate(AppletTemplateQuery query) {
         query.setTenantId(agentConfiguration.getTenantId());
         query.setClientKey(agentConfiguration.getClientKey());
-        return businessClient.getAppletTemplate(query);
+        return getBusinessClient().getAppletTemplate(query);
     }
 
     public DyResult<BaseVo> delAppletTemplate(AppletTemplateQuery query) {
         query.setTenantId(agentConfiguration.getTenantId());
         query.setClientKey(agentConfiguration.getClientKey());
-        return businessClient.delAppletTemplate(query);
+        return getBusinessClient().delAppletTemplate(query);
     }
 
     public ImageClientUploadVo imageClientUpload(File file) {
         BaseQuery query = new BaseQuery();
         query.setClientKey(agentConfiguration.getClientKey());
         query.setTenantId(agentConfiguration.getTenantId());
-        return businessClient.imageClientUpload(query, file);
+        return getBusinessClient().imageClientUpload(query, file);
     }
 
     public ImageClientUploadVo imageClientUpload(InputStream inputStream) {
         BaseQuery query = new BaseQuery();
         query.setClientKey(agentConfiguration.getClientKey());
         query.setTenantId(agentConfiguration.getTenantId());
-        return businessClient.imageClientUpload(query, inputStream);
+        return getBusinessClient().imageClientUpload(query, inputStream);
     }
 
     public ImageClientUploadVo imageClientUpload(Byte[] bytes) {
         BaseQuery query = new BaseQuery();
         query.setClientKey(agentConfiguration.getClientKey());
         query.setTenantId(agentConfiguration.getTenantId());
-        return businessClient.imageClientUpload(query, bytes);
+        return getBusinessClient().imageClientUpload(query, bytes);
     }
 
 }

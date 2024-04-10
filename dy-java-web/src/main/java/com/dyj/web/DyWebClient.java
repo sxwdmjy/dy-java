@@ -490,4 +490,14 @@ public class DyWebClient {
     public ImageClientUploadVo imageClientUpload(Byte[] bytes) {
         return new BusinessHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).imageClientUpload(bytes);
     }
+
+    /**
+     * 互动用户记录查询
+     *
+     * @param query 入参
+     * @return DyResult<IntentionLogVo>
+     */
+    public DyResult<IntentionLogVo> intentionLog(IntentionLogQuery query){
+        return new IntentionHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).intentionLog(query);
+    }
 }

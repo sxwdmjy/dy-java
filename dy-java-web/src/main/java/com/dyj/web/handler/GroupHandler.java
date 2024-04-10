@@ -11,30 +11,23 @@ import com.dyj.web.domain.vo.*;
  * @author danmo
  * @date 2024-04-09 11:40
  **/
-public class GroupHandler {
+public class GroupHandler extends AbstractWebHandler{
 
-    private GroupClient groupClient;
-
-    private final AgentConfiguration agentConfiguration;
-
-    {
-        groupClient = SpringUtils.getBean(GroupClient.class);
-    }
 
     public GroupHandler(AgentConfiguration agentConfiguration) {
-        this.agentConfiguration = agentConfiguration;
+        super(agentConfiguration);
     }
 
     public CreateFansGroupVo createFansGroup(CreateFansGroupQuery query) {
         query.setTenantId(agentConfiguration.getTenantId());
         query.setClientKey(agentConfiguration.getClientKey());
-        return groupClient.createFansGroup(query);
+        return getGroupClient().createFansGroup(query);
     }
 
     public SetFansGroupEnterStatusVo setFansGroupEnterStatus(SetFansGroupEnterStatusQuery query) {
         query.setTenantId(agentConfiguration.getTenantId());
         query.setClientKey(agentConfiguration.getClientKey());
-        return groupClient.setFansGroupEnterStatus(query);
+        return getGroupClient().setFansGroupEnterStatus(query);
     }
 
     public FansGroupVo queryFansGroup(String openId) {
@@ -42,19 +35,19 @@ public class GroupHandler {
         query.setOpen_id(openId);
         query.setTenantId(agentConfiguration.getTenantId());
         query.setClientKey(agentConfiguration.getClientKey());
-        return groupClient.queryFansGroup(query);
+        return getGroupClient().queryFansGroup(query);
     }
 
     public FansGroupSettingVo queryFansGroupSetting(FansGroupSettingQuery query) {
         query.setTenantId(agentConfiguration.getTenantId());
         query.setClientKey(agentConfiguration.getClientKey());
-        return groupClient.queryFansGroupSetting(query);
+        return getGroupClient().queryFansGroupSetting(query);
     }
 
     public FansGroupSettingVo cancelFansGroupSetting(FansGroupSettingQuery query) {
         query.setTenantId(agentConfiguration.getTenantId());
         query.setClientKey(agentConfiguration.getClientKey());
-        return groupClient.cancelFansGroupSetting(query);
+        return getGroupClient().cancelFansGroupSetting(query);
     }
 
     public FansGroupCountVo queryFansGroupCount(String openId) {
@@ -62,7 +55,7 @@ public class GroupHandler {
         query.setOpen_id(openId);
         query.setTenantId(agentConfiguration.getTenantId());
         query.setClientKey(agentConfiguration.getClientKey());
-        return groupClient.queryFansGroupCount(query);
+        return getGroupClient().queryFansGroupCount(query);
     }
 
     public FansGroupEnterStatusVo queryFansGroupEnterStatus(String openId, Integer count, Integer cursor) {
@@ -70,19 +63,19 @@ public class GroupHandler {
         query.setOpen_id(openId);
         query.setTenantId(agentConfiguration.getTenantId());
         query.setClientKey(agentConfiguration.getClientKey());
-        return groupClient.queryFansGroupEnterStatus(query, count, cursor);
+        return getGroupClient().queryFansGroupEnterStatus(query, count, cursor);
     }
 
     public ChatMsgResponseVo sendGroupMessage(SendGroupMsgQuery query) {
         query.setTenantId(agentConfiguration.getTenantId());
         query.setClientKey(agentConfiguration.getClientKey());
-        return groupClient.sendGroupMessage(query);
+        return getGroupClient().sendGroupMessage(query);
     }
 
     public DySimpleResult revokeGroupMessage(RevokeGroupMsgQuery query) {
         query.setTenantId(agentConfiguration.getTenantId());
         query.setClientKey(agentConfiguration.getClientKey());
-        return groupClient.revokeGroupMessage(query);
+        return getGroupClient().revokeGroupMessage(query);
     }
 
 }

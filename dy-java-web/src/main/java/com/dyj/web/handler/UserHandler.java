@@ -17,18 +17,11 @@ import java.util.List;
  * @author danmo
  * @date 2024-04-03 13:59
  **/
-public class UserHandler {
+public class UserHandler extends AbstractWebHandler{
 
-    private final UserClient userClient;
-
-    private AgentConfiguration agentConfiguration;
-
-    {
-        userClient = SpringUtils.getBean(UserClient.class);
-    }
 
     public UserHandler(AgentConfiguration agentConfiguration) {
-        this.agentConfiguration = agentConfiguration;
+        super(agentConfiguration);
     }
 
     public DyResult<UserInfoVo> getUserInfo(String openId) {
@@ -36,7 +29,7 @@ public class UserHandler {
         query.setOpen_id(openId);
         query.setTenantId(agentConfiguration.getTenantId());
         query.setClientKey(agentConfiguration.getClientKey());
-        return userClient.getUserInfo(query);
+        return getUserClient().getUserInfo(query);
     }
 
     public DyResult<CheckFansVo> checkFans(String openId, String followerOpenId) {
@@ -45,7 +38,7 @@ public class UserHandler {
         query.setFollower_open_id(followerOpenId);
         query.setTenantId(agentConfiguration.getTenantId());
         query.setClientKey(agentConfiguration.getClientKey());
-        return userClient.checkFans(query);
+        return getUserClient().checkFans(query);
     }
 
     public DyResult<UserRoleCheckVo> userRoleCheck(String openId, String douyinShortId, List<String> roleLabels) {
@@ -55,6 +48,6 @@ public class UserHandler {
         query.setTenantId(agentConfiguration.getTenantId());
         query.setClientKey(agentConfiguration.getClientKey());
         query.setRole_labels(roleLabels);
-        return userClient.userRoleCheck(query);
+        return getUserClient().userRoleCheck(query);
     }
 }

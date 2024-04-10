@@ -214,6 +214,12 @@ public enum DyConfigEnum {
      */
     IMAGE_CLIENT_UPLOAD("imageClientUpload","/tool/imagex/client_upload"),
 
+    /**
+     * 互动用户记录查询
+     */
+    QUERY_INTERACTION_LOG_RECORD("intentionLog","/api/douyin/v1/interactive/intention/log/list"),
+
+
     ;
 
 
