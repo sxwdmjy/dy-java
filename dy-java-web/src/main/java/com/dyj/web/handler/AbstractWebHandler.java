@@ -43,4 +43,8 @@ public abstract class AbstractWebHandler {
     protected IntentionClient getIntentionClient() {
         return SpringUtils.getBean(IntentionClient.class);
     }
+
+    protected CommentClient getCommentClient() {
+        return SpringUtils.getBean(CommentClient.class);
+    }
 }

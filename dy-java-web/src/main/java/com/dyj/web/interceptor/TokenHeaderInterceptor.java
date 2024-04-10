@@ -50,7 +50,8 @@ public class TokenHeaderInterceptor implements Interceptor<DyResult> {
             throw new RuntimeException("access-token is null");
         }
         request.addHeader("access-token", userTokenInfo.getAccessToken());
-        request.addQuery("open_id", openId);
+
+        request.replaceOrAddQuery("open_id", openId);
         return Interceptor.super.beforeExecute(request);
     }
 

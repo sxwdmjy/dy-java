@@ -219,6 +219,28 @@ public enum DyConfigEnum {
      */
     QUERY_INTERACTION_LOG_RECORD("intentionLog","/api/douyin/v1/interactive/intention/log/list"),
 
+    /**
+     * 置顶评论
+     */
+    COMMENT_TOP("commentTop","/item/comment/top"),
+
+    /**
+     * 查询评论列表
+     */
+    QUERY_COMMENT_LIST("queryCommentList","/item/comment/list"),
+
+    /**
+     * 评论回复列表
+     */
+    QUERY_COMMENT_REPLY_LIST("queryCommentReplyList","/item/comment/reply/list"),
+
+
+    /**
+     * 回复视频评论
+     */
+    COMMENT_REPLY("commentReply","/item/comment/reply"),
+
+
 
     ;
 

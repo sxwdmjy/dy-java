@@ -1,5 +1,6 @@
 package com.dyj.web;
 
+import com.dtflys.forest.annotation.JSONBody;
 import com.dyj.common.config.AgentConfiguration;
 import com.dyj.common.config.DyConfiguration;
 import com.dyj.common.domain.DyResult;
@@ -500,4 +501,54 @@ public class DyWebClient {
     public DyResult<IntentionLogVo> intentionLog(IntentionLogQuery query){
         return new IntentionHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).intentionLog(query);
     }
+
+    /**
+     * 评论置顶
+     * @param query
+     * @return
+     */
+    public DyResult<BaseVo> commentTop(@JSONBody CommentQuery query) {
+        return new CommentHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).commentTop(query);
+    }
+
+
+    /**
+     * 查询评论列表。
+     * @param openId 用户标识。
+     * @param itemId 视频id。
+     * @param sortType 列表排序方式，不传默认按推荐序，可选值：time(时间逆序)、time_asc(时间顺序)。
+     * @param count 每页的数量，最大不超过20，最小不低于1
+     * @param cursor 分页游标。
+     * @return 返回评论列表的结果，包含评论信息。
+     */
+    public DyResult<CommentListVo> queryCommentList(String openId, String itemId, String sortType, Integer count, Integer cursor) {
+        // 通过租户ID和客户端密钥加载代理配置，创建评论处理器并查询评论列表
+        return new CommentHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).queryCommentList(openId, itemId, sortType, count, cursor);
+    }
+
+    /**
+     * 查询评论回复列表。
+     * @param openId 用户标识。
+     * @param itemId 视频id。
+     * @param commentId 评论Id。
+     * @param sortType 列表排序方式，不传默认按推荐序，可选值：time(时间逆序)、time_asc(时间顺序)。
+     * @param count 每页的数量，最大不超过20，最小不低于1
+     * @param cursor 分页游标。
+     * @return 返回评论回复列表的结果，包含评论回复信息。
+     */
+    public DyResult<CommentListVo> queryCommentReplyList(String openId, String itemId, String commentId, String sortType, Integer count, Integer cursor) {
+        // 通过租户ID和客户端密钥加载代理配置，创建评论处理器并查询评论回复列表
+        return new CommentHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).queryCommentReplyList(openId, itemId, commentId, sortType, count, cursor);
+    }
+
+    /**
+     * 发表评论回复。
+     * @param query 包含评论信息的查询参数。
+     * @return 返回评论回复的结果，包含评论回复的详细信息。
+     */
+    public DyResult<CommentReplyVo> commentReply(@JSONBody CommentQuery query) {
+        // 通过租户ID和客户端密钥加载代理配置，创建评论处理器并发表评论回复
+        return new CommentHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).commentReply(query);
+    }
+
 }
