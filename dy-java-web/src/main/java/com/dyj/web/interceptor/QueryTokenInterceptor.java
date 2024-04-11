@@ -2,7 +2,6 @@ package com.dyj.web.interceptor;
 
 import com.alibaba.fastjson.JSONObject;
 import com.dtflys.forest.exceptions.ForestRuntimeException;
-import com.dtflys.forest.http.ForestBody;
 import com.dtflys.forest.http.ForestRequest;
 import com.dtflys.forest.http.ForestResponse;
 import com.dtflys.forest.interceptor.Interceptor;
@@ -10,7 +9,6 @@ import com.dyj.common.domain.DyResult;
 import com.dyj.common.domain.UserTokenInfo;
 import com.dyj.common.handler.RequestHandler;
 import com.dyj.common.service.IAgentTokenService;
-import com.dyj.web.domain.query.BaseQuery;
 import com.dyj.web.domain.query.UserInfoQuery;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -23,9 +21,9 @@ import java.util.Objects;
  * @author danmo
  * @date 2024-04-07 15:03
  **/
-public class AccessTokenInterceptor implements Interceptor<DyResult> {
+public class QueryTokenInterceptor implements Interceptor<DyResult> {
 
-    private final Log log = LogFactory.getLog(AccessTokenInterceptor.class);
+    private final Log log = LogFactory.getLog(QueryTokenInterceptor.class);
     @Override
     public boolean beforeExecute(ForestRequest request) {
         Integer tenantId = null;
@@ -45,18 +43,19 @@ public class AccessTokenInterceptor implements Interceptor<DyResult> {
         if (Objects.isNull(userTokenInfo)) {
             throw new RuntimeException("access_token is null");
         }
-        request.addBody("access-token", userTokenInfo.getAccessToken());
+        request.replaceOrAddQuery("access-token", userTokenInfo.getAccessToken());
+        request.replaceOrAddQuery("open_id", openId);
         return Interceptor.super.beforeExecute(request);
     }
 
     @Override
     public void onSuccess(DyResult data, ForestRequest request, ForestResponse response) {
-        log.info("AccessTokenInterceptor onSuccess:" + data.toString());
+        log.info("QueryTokenInterceptor onSuccess:" + data.toString());
     }
 
     @Override
     public void onError(ForestRuntimeException ex, ForestRequest request, ForestResponse response) {
-        StringBuilder sb = new StringBuilder("AccessTokenInterceptor onError ");
+        StringBuilder sb = new StringBuilder("QueryTokenInterceptor onError ");
         sb.append("url:");
         sb.append(request.getUrl());
         sb.append(", ");

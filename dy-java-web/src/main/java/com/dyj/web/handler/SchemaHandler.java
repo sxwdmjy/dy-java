@@ -22,7 +22,7 @@ public class SchemaHandler extends AbstractWebHandler {
      * @return
      */
     public DySimpleResult<SchemaShareVo> getH5Share(GetH5ShareQuery query) {
-        setBaseQuery(query);
+        baseQuery(query);
         return getSchemaClient().getH5Share(query);
     }
 
@@ -34,9 +34,7 @@ public class SchemaHandler extends AbstractWebHandler {
      * @return DySimpleResult<SchemaShareVo>
      */
     public DySimpleResult<SchemaShareVo> getUserProfile(String openId, String account, Long expireAt) {
-        BaseQuery query = new BaseQuery();
-        setBaseQuery(query);
-        return getSchemaClient().getUserProfile(query, openId, account, expireAt);
+        return getSchemaClient().getUserProfile(baseQuery(), openId, account, expireAt);
     }
 
     /**
@@ -47,9 +45,7 @@ public class SchemaHandler extends AbstractWebHandler {
      * @return DySimpleResult<SchemaShareVo>
      */
     public DySimpleResult<SchemaShareVo> getUserChat(String openId, String account, Long expireAt){
-        BaseQuery query = new BaseQuery();
-        setBaseQuery(query);
-        return getSchemaClient().getUserChat(query, openId, account, expireAt);
+        return getSchemaClient().getUserChat(baseQuery(), openId, account, expireAt);
     }
 
     /**
@@ -60,9 +56,7 @@ public class SchemaHandler extends AbstractWebHandler {
      * @return DySimpleResult<SchemaShareVo>
      */
     public DySimpleResult<SchemaShareVo> getItem(String itemId, String videoId, Long expireAt){
-        BaseQuery query = new BaseQuery();
-        setBaseQuery(query);
-        return getSchemaClient().getItem(query, itemId, videoId, expireAt);
+        return getSchemaClient().getItem(baseQuery(), itemId, videoId, expireAt);
     }
 
     /**
@@ -73,8 +67,6 @@ public class SchemaHandler extends AbstractWebHandler {
      * @return DySimpleResult<SchemaShareVo>
      */
     public DySimpleResult<SchemaShareVo> getLive(String openId,String account, Long expireAt){
-        BaseQuery query = new BaseQuery();
-        setBaseQuery(query);
-        return getSchemaClient().getLive(query, openId,account, expireAt);
+        return getSchemaClient().getLive(baseQuery(), openId,account, expireAt);
     }
 }

@@ -12,10 +12,13 @@ import com.dyj.common.utils.DyConfigUtils;
 import com.dyj.web.domain.query.*;
 import com.dyj.web.domain.vo.*;
 import com.dyj.web.handler.*;
+import org.springframework.util.StreamUtils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
 import java.util.List;
 
 /**
@@ -633,6 +636,92 @@ public class DyWebClient {
      */
     public DyResult<VideoBasicListVo> queryVideoBasicInfo(VideoDataQuery query){
         return new PostingTaskHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).queryVideoBasicInfo(query);
+    }
+
+    /**
+     * 上传素材
+     *
+     * @param file 文件
+     * @return DyResult<UploadMaterialVo>
+     * @throws IOException
+     */
+    public DyResult<UploadMaterialVo> uploadMaterial(File file) throws IOException {
+        return uploadMaterial(Files.newInputStream(file.toPath()));
+    }
+
+    /**
+     * 上传素材
+     *
+     * @param inputStream 流
+     * @return DyResult<UploadMaterialVo>
+     * @throws IOException
+     */
+    public DyResult<UploadMaterialVo> uploadMaterial(InputStream inputStream) throws IOException {
+        return uploadMaterial(StreamUtils.copyToByteArray(inputStream));
+    }
+
+    /**
+     * 上传素材
+     *
+     * @param bytes bytes
+     * @return DyResult<UploadMaterialVo>
+     */
+    public DyResult<UploadMaterialVo> uploadMaterial(byte[] bytes) {
+        return new MediaHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).uploadMaterial(bytes);
+    }
+
+    /**
+     * 上传临时素材
+     *
+     * @param file 文件
+     * @return DyResult<UploadMaterialVo>
+     * @throws IOException
+     */
+    public DyResult<UploadMaterialVo> uploadTemporaryMaterial(File file) throws IOException {
+        return uploadTemporaryMaterial(Files.newInputStream(file.toPath()));
+    }
+
+    /**
+     * 上传临时素材
+     *
+     * @param inputStream 流
+     * @return DyResult<UploadMaterialVo>
+     * @throws IOException
+     */
+    public DyResult<UploadMaterialVo> uploadTemporaryMaterial(InputStream inputStream) throws IOException {
+        return uploadTemporaryMaterial(StreamUtils.copyToByteArray(inputStream));
+    }
+
+    /**
+     * 上传临时素材
+     *
+     * @param bytes bytes
+     * @return DyResult<UploadMaterialVo>
+     */
+    public DyResult<UploadMaterialVo> uploadTemporaryMaterial(byte[] bytes) {
+        return new MediaHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).uploadTemporaryMaterial(bytes);
+    }
+
+    /**
+     * 素材列表接口
+     *
+     * @param openId 用户ID
+     * @param cursor cursor
+     * @param count  数量
+     * @return DyResult<MaterialListVo>
+     */
+    public DyResult<MaterialListVo> queryMaterialList(String openId, Integer cursor, Integer count) {
+        return new MediaHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).queryMaterialList(openId, cursor, count);
+    }
+
+    /**
+     * 删除素材
+     * @param openId 用户ID
+     * @param mediaId 素材ID
+     * @return DyResult<BaseVo>
+     */
+    public DyResult<BaseVo> deleteMaterial(String openId, String mediaId) {
+        return new MediaHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).deleteMaterial(openId, mediaId);
     }
 
 }

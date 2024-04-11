@@ -4,6 +4,9 @@ import com.dyj.common.config.AgentConfiguration;
 import com.dyj.spring.utils.SpringUtils;
 import com.dyj.web.client.*;
 import com.dyj.web.domain.query.BaseQuery;
+import com.dyj.web.domain.query.UserInfoQuery;
+
+import java.util.Objects;
 
 /**
  * @author danmo
@@ -56,8 +59,39 @@ public abstract class AbstractWebHandler {
         return SpringUtils.getBean(PostingTaskClient.class);
     }
 
-    void setBaseQuery(BaseQuery query){
+    protected MediaClient getMediaClient() {
+        return SpringUtils.getBean(MediaClient.class);
+    }
+
+    protected BaseQuery baseQuery(){
+        return baseQuery(null);
+    }
+
+    protected BaseQuery baseQuery(BaseQuery query){
+        if(Objects.isNull(query)){
+            query = new BaseQuery();
+        }
         query.setTenantId(agentConfiguration.getTenantId());
         query.setClientKey(agentConfiguration.getClientKey());
+        return query;
+    }
+
+    protected UserInfoQuery userInfoQuery(){
+        return userInfoQuery(new UserInfoQuery());
+    }
+
+    protected UserInfoQuery userInfoQuery(String openId){
+        UserInfoQuery query = new UserInfoQuery();
+        query.setOpen_id(openId);
+        return userInfoQuery(query);
+    }
+
+    protected UserInfoQuery userInfoQuery(UserInfoQuery query){
+        if(Objects.isNull(query)){
+            query = new UserInfoQuery();
+        }
+        query.setTenantId(agentConfiguration.getTenantId());
+        query.setClientKey(agentConfiguration.getClientKey());
+        return query;
     }
 }

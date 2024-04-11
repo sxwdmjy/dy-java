@@ -9,7 +9,7 @@ import com.dyj.web.domain.query.UserRoleCheckQuery;
 import com.dyj.web.domain.vo.CheckFansVo;
 import com.dyj.web.domain.vo.UserInfoVo;
 import com.dyj.web.domain.vo.UserRoleCheckVo;
-import com.dyj.web.interceptor.AccessTokenInterceptor;
+import com.dyj.web.interceptor.BodyTokenInterceptor;
 import com.dyj.web.interceptor.TokenHeaderInterceptor;
 
 /**
@@ -19,7 +19,7 @@ import com.dyj.web.interceptor.TokenHeaderInterceptor;
 @BaseRequest(baseURL = "${domain}")
 public interface UserClient {
 
-    @Post(url = "${userInfo}", contentType = ContentType.APPLICATION_X_WWW_FORM_URLENCODED, interceptor = AccessTokenInterceptor.class)
+    @Post(url = "${userInfo}", contentType = ContentType.APPLICATION_X_WWW_FORM_URLENCODED, interceptor = BodyTokenInterceptor.class)
     DyResult<UserInfoVo> getUserInfo(@Body UserInfoQuery query);
 
     @Get(url = "${checkFans}", contentType = ContentType.APPLICATION_JSON, interceptor = TokenHeaderInterceptor.class)

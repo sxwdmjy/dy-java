@@ -29,7 +29,7 @@ public class PostingTaskHandler extends AbstractWebHandler{
      * @return DyResult<PostingTaskVo>
      */
     public DyResult<PostingTaskVo> createPostingTask(CreatePostingTaskQuery query){
-        setBaseQuery(query);
+        baseQuery(query);
         return getPostingTaskClient().createPostingTask(query);
     }
     /**
@@ -38,7 +38,7 @@ public class PostingTaskHandler extends AbstractWebHandler{
      * @return DyResult<BaseVo>
      */
     public DyResult<BaseVo> postingTaskBindVideo(PostingTaskQuery query){
-        setBaseQuery(query);
+        baseQuery(query);
         return getPostingTaskClient().postingTaskBindVideo(query);
     }
     /**
@@ -47,7 +47,7 @@ public class PostingTaskHandler extends AbstractWebHandler{
      * @return DyResult<ConfirmPostingTaskVo>
      */
     public DyResult<ConfirmPostingTaskVo> confirmPostingTask(ConfirmPostingTaskQuery query){
-        setBaseQuery(query);
+        baseQuery(query);
         return getPostingTaskClient().postingTaskConfirm(query);
     }
     /**
@@ -56,7 +56,7 @@ public class PostingTaskHandler extends AbstractWebHandler{
      * @return DyResult<VideoBasicListVo>
      */
     public DyResult<VideoBasicListVo> queryVideoBasicInfo(VideoDataQuery query){
-        setBaseQuery(query);
+        baseQuery(query);
         return getPostingTaskClient().queryVideoBasicInfo(query);
     }
 

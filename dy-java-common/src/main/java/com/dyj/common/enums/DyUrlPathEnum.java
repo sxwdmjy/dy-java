@@ -283,6 +283,29 @@ public enum DyUrlPathEnum {
      * 查询视频基础信息
      */
     QUERY_VIDEO_BASIC_INFO("queryVideoBasicInfo","/api/douyin/v1/video/video_basic_info"),
+
+
+    /**
+     * 上传素材接口
+     */
+    UPLOAD_MATERIAL("uploadMaterial","/enterprise/media/upload"),
+
+    /**
+     * 上传临时素材接口
+     */
+    UPLOAD_TEMPORARY_MATERIAL("uploadTemporaryMaterial","/enterprise/media/temp/upload"),
+
+    /**
+     * 素材列表接口
+     */
+    QUERY_MATERIAL_LIST("queryMaterialList","/enterprise/media/list"),
+
+    /**
+     * 删除素材接口
+     */
+    DELETE_MATERIAL("deleteMaterial","/enterprise/media/delete"),
+
+
     ;
 
 
