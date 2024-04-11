@@ -724,4 +724,34 @@ public class DyWebClient {
         return new MediaHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).deleteMaterial(openId, mediaId);
     }
 
+    /**
+     * 小程序接口能力
+     * @param micAppId 小程序id
+     * @return DyResult<MicAppDevtoolLegalVo>
+     */
+    public DyResult<MicAppDevtoolLegalVo> micAppDevtoolLegal(String micAppId) {
+        return new ToolsHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).micAppDevtoolLegal(micAppId);
+    }
+    /**
+     * 模拟webhook事件
+     * @param eventType 事件类型
+     * @return DyResult<BaseVo>
+     */
+    public DyResult<BaseVo> webhookEventSend(String eventType) {
+        return new ToolsHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).webhookEventSend(eventType);
+    }
+
+    /**
+     * 获取jsb_ticket
+     */
+    public DyResult<TicketVo> getJsbTicket(){
+        return new ToolsHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).getJsbTicket();
+    }
+
+    /**
+     * 获取 open_ticket
+     */
+    public DyResult<TicketVo> getOpenTicket(){
+        return new ToolsHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).getOpenTicket();
+    }
 }

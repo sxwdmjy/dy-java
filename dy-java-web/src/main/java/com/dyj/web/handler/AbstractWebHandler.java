@@ -63,6 +63,10 @@ public abstract class AbstractWebHandler {
         return SpringUtils.getBean(MediaClient.class);
     }
 
+    protected ToolsClient getToolsClient() {
+        return SpringUtils.getBean(ToolsClient.class);
+    }
+
     protected BaseQuery baseQuery(){
         return baseQuery(null);
     }

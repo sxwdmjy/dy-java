@@ -44,7 +44,7 @@ public class ClientTokenInterceptor implements Interceptor<DyResult> {
             }
         }
         if (Objects.nonNull(clientTokenInfo)) {
-            request.addBody("access-token", clientTokenInfo.getAccessToken());
+            request.addHeader("access-token", clientTokenInfo.getAccessToken());
         }
         return true;
     }

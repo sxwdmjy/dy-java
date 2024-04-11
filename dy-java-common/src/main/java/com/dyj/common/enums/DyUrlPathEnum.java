@@ -305,7 +305,25 @@ public enum DyUrlPathEnum {
      */
     DELETE_MATERIAL("deleteMaterial","/enterprise/media/delete"),
 
+    /**
+     * 小程序接口能力
+     */
+    MICAPP_DEVTOOL_LEGAL("micAppDevtoolLegal","/devtool/micapp/is_legal"),
 
+    /**
+     * 模拟webhook事件
+     */
+    WEBHOOK_EVENT_SEND("webhookEventSend","/sandbox/webhook/event/send/"),
+
+    /**
+     * 获取jsb_ticket
+     */
+    GET_TICKET("getJsbTicket","/js/getticket"),
+
+    /**
+     * 获取 open_ticket
+     */
+    GET_OPEN_TICKET("getOpenTicket","/open/getticket"),
     ;
 
 
