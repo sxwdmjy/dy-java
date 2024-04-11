@@ -1,6 +1,6 @@
 package com.dyj.common.enums;
 
-public enum DyConfigEnum {
+public enum DyUrlPathEnum {
 
     /**
      * 域名
@@ -266,6 +266,23 @@ public enum DyConfigEnum {
      */
     SCHEMA_GET_LIVE("schemaGetLive","/api/douyin/v1/schema/get_live"),
 
+    /**
+     * 创建投稿任务
+     */
+    CREATE_POSTING_TASK("createPostingTask","/task/posting/create"),
+
+    /**
+     * 绑定视频
+     */
+    POSTING_TASK_BIND_VIDEO("postingTaskBindVideo","/task/posting/bind_video"),
+    /**
+     * 核销投稿任务
+     */
+    POSTING_TASK_CONFIRM("postingTaskConfirm","/task/posting/user"),
+    /**
+     * 查询视频基础信息
+     */
+    QUERY_VIDEO_BASIC_INFO("queryVideoBasicInfo","/api/douyin/v1/video/video_basic_info"),
     ;
 
 
@@ -273,7 +290,7 @@ public enum DyConfigEnum {
     private String key;
     private String value;
 
-    DyConfigEnum(String key, String value) {
+    DyUrlPathEnum(String key, String value) {
         this.key = key;
         this.value = value;
     }
@@ -295,7 +312,7 @@ public enum DyConfigEnum {
     }
 
     public static String getValueByKey(String key) {
-        for (DyConfigEnum e : DyConfigEnum.values()) {
+        for (DyUrlPathEnum e : DyUrlPathEnum.values()) {
             if (e.getKey().equals(key)) {
                 return e.getValue();
             }

@@ -601,4 +601,38 @@ public class DyWebClient {
         return new SchemaHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).getLive(openId, account, expireAt);
     }
 
+    /**
+     * 创建投稿任务
+     *
+     * @param query 入参
+     * @return DyResult<PostingTaskVo>
+     */
+    public DyResult<PostingTaskVo> createPostingTask(CreatePostingTaskQuery query){
+        return new PostingTaskHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).createPostingTask(query);
+    }
+    /**
+     * 绑定视频
+     * @param query 入参
+     * @return DyResult<BaseVo>
+     */
+    public DyResult<BaseVo> postingTaskBindVideo(PostingTaskQuery query){
+        return new PostingTaskHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).postingTaskBindVideo(query);
+    }
+    /**
+     * 核销投稿任务
+     * @param query 入参
+     * @return DyResult<ConfirmPostingTaskVo>
+     */
+    public DyResult<ConfirmPostingTaskVo> confirmPostingTask(ConfirmPostingTaskQuery query){
+        return new PostingTaskHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).confirmPostingTask(query);
+    }
+    /**
+     * 查询视频基础信息
+     * @param query 入参
+     * @return DyResult<VideoBasicListVo>
+     */
+    public DyResult<VideoBasicListVo> queryVideoBasicInfo(VideoDataQuery query){
+        return new PostingTaskHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).queryVideoBasicInfo(query);
+    }
+
 }

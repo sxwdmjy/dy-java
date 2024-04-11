@@ -52,6 +52,10 @@ public abstract class AbstractWebHandler {
         return SpringUtils.getBean(SchemaClient.class);
     }
 
+    protected PostingTaskClient getPostingTaskClient() {
+        return SpringUtils.getBean(PostingTaskClient.class);
+    }
+
     void setBaseQuery(BaseQuery query){
         query.setTenantId(agentConfiguration.getTenantId());
         query.setClientKey(agentConfiguration.getClientKey());
