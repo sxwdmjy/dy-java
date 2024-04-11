@@ -11,7 +11,7 @@ public interface IAgentTokenService {
 
     UserTokenInfo getTokenInfo(Integer tenantId, String clientKey, String openId) throws AuthTokenNotFoundException;
 
-    void setClientTokenInfo(Integer tenantId, String clientKey, String accessToken, Long expiresIn) throws AuthTokenNotFoundException;
+    ClientTokenInfo setClientTokenInfo(Integer tenantId, String clientKey, String accessToken, Long expiresIn);
 
     ClientTokenInfo getClientTokenInfo(Integer tenantId, String clientKey) throws AuthTokenNotFoundException;
 

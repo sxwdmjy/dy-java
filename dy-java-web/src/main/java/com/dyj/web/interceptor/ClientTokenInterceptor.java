@@ -10,8 +10,11 @@ import com.dyj.common.domain.DyResult;
 import com.dyj.common.domain.UserTokenInfo;
 import com.dyj.common.handler.RequestHandler;
 import com.dyj.common.service.IAgentTokenService;
+import com.dyj.common.utils.DyConfigUtils;
+import com.dyj.web.DyWebClient;
 import com.dyj.web.domain.query.BaseQuery;
 import com.dyj.web.domain.query.UserInfoQuery;
+import com.dyj.web.domain.vo.ClientTokenVo;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -32,13 +35,18 @@ public class ClientTokenInterceptor implements Interceptor<DyResult> {
             }
 
         }
-        IAgentTokenService agentTokenService = RequestHandler.getInstance().getDyConfiguration().getAgentTokenService();
+        IAgentTokenService agentTokenService = DyConfigUtils.getAgentTokenService();
         ClientTokenInfo clientTokenInfo = agentTokenService.getClientTokenInfo(tenantId, clientKey);
         if (Objects.isNull(clientTokenInfo)) {
-            throw new RuntimeException("access_token is null");
+            ClientTokenVo clientToken = DyWebClient.getInstance().tenantId(tenantId).clientKey(clientKey).clientToken().getData();
+            if(Objects.nonNull(clientToken) && clientToken.getError_code() == 0){
+                clientTokenInfo = agentTokenService.setClientTokenInfo(tenantId, clientKey, clientToken.getAccess_token(), clientToken.getExpires_in());
+            }
         }
-        request.addBody("access-token", clientTokenInfo.getAccessToken());
-        return Interceptor.super.beforeExecute(request);
+        if (Objects.nonNull(clientTokenInfo)) {
+            request.addBody("access-token", clientTokenInfo.getAccessToken());
+        }
+        return true;
     }
 
     @Override

@@ -240,7 +240,31 @@ public enum DyConfigEnum {
      */
     COMMENT_REPLY("commentReply","/item/comment/reply"),
 
+    /**
+     * H5分享跳转链接获取
+     */
+    SCHEMA_GET_SHARE("schemaGetShare","/api/douyin/v1/schema/get_share"),
 
+
+    /**
+     * 个人页跳转链接获取
+     */
+    SCHEMA_GET_USER_PROFILE("schemaGetUserProfile","/api/douyin/v1/schema/get_user_profile"),
+
+    /**
+     * 个人会话页跳转链接获取
+     */
+    SCHEMA_GET_USER_CHAT("schemaGetUserChat","/api/douyin/v1/schema/get_chat"),
+
+    /**
+     * 视频详情页跳转链接获取
+     */
+    SCHEMA_GET_ITEM_INFO("schemaGetItemInfo","/api/douyin/v1/schema/get_item_info"),
+
+    /**
+     * 直播间跳转链接获取
+     */
+    SCHEMA_GET_LIVE("schemaGetLive","/api/douyin/v1/schema/get_live"),
 
     ;
 

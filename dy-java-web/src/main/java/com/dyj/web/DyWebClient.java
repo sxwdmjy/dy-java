@@ -551,4 +551,54 @@ public class DyWebClient {
         return new CommentHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).commentReply(query);
     }
 
+    /**
+     * H5分享跳转链接获取
+     * @param query 入参
+     * @return DySimpleResult<SchemaShareVo>
+     */
+    public DySimpleResult<SchemaShareVo> getH5Share(GetH5ShareQuery query) {
+        return new SchemaHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).getH5Share(query);
+    }
+    /**
+     * 个人页跳转链接获取
+     * @param openId  用户ID
+     * @param account 抖音号
+     * @param expireAt 生成短链过期时间
+     * @return DySimpleResult<SchemaShareVo>
+     */
+    public DySimpleResult<SchemaShareVo> getUserProfile(String openId, String account, Long expireAt) {
+        return new SchemaHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).getUserProfile(openId, account, expireAt);
+    }
+    /**
+     * 个人会话页跳转链接获取
+     * @param openId  用户ID
+     * @param account 抖音号
+     * @param expireAt 生成短链过期时间
+     * @return DySimpleResult<SchemaShareVo>
+     */
+    DySimpleResult<SchemaShareVo> getUserChat(String openId,String account, Long expireAt){
+        return new SchemaHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).getUserChat(openId, account, expireAt);
+    }
+    /**
+     * 视频详情页跳转链接获取
+     * @param itemId 视频ID
+     * @param videoId 视频ID
+     * @param expireAt 生成短链过期时间
+     * @return DySimpleResult<SchemaShareVo>
+     */
+    public DySimpleResult<SchemaShareVo> getItem(String itemId, String videoId, Long expireAt) {
+        return new SchemaHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).getItem(itemId, videoId, expireAt);
+    }
+
+    /**
+     * 直播间页跳转链接获取
+     * @param openId  用户ID
+     * @param account 抖音号
+     * @param expireAt 生成短链过期时间
+     * @return DySimpleResult<SchemaShareVo>
+     */
+    public DySimpleResult<SchemaShareVo> getLive(String openId,String account, Long expireAt) {
+        return new SchemaHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).getLive(openId, account, expireAt);
+    }
+
 }

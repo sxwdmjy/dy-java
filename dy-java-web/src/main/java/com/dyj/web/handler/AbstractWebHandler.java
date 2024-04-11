@@ -3,6 +3,7 @@ package com.dyj.web.handler;
 import com.dyj.common.config.AgentConfiguration;
 import com.dyj.spring.utils.SpringUtils;
 import com.dyj.web.client.*;
+import com.dyj.web.domain.query.BaseQuery;
 
 /**
  * @author danmo
@@ -46,5 +47,13 @@ public abstract class AbstractWebHandler {
 
     protected CommentClient getCommentClient() {
         return SpringUtils.getBean(CommentClient.class);
+    }
+    protected SchemaClient getSchemaClient() {
+        return SpringUtils.getBean(SchemaClient.class);
+    }
+
+    void setBaseQuery(BaseQuery query){
+        query.setTenantId(agentConfiguration.getTenantId());
+        query.setClientKey(agentConfiguration.getClientKey());
     }
 }

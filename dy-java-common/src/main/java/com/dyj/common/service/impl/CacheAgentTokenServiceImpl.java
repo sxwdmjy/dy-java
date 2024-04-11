@@ -3,7 +3,6 @@ package com.dyj.common.service.impl;
 import com.dyj.common.domain.ClientTokenInfo;
 import com.dyj.common.domain.UserTokenInfo;
 import com.dyj.common.exception.AuthTokenNotFoundException;
-import com.dyj.common.exception.OpenIdIsNullException;
 import com.dyj.common.service.IAgentTokenService;
 
 import java.util.Map;
@@ -32,7 +31,7 @@ public class CacheAgentTokenServiceImpl implements IAgentTokenService {
 
     @Override
     public UserTokenInfo getTokenInfo(Integer tenantId, String clientKey, String openId) throws AuthTokenNotFoundException {
-        UserTokenInfo userTokenInfo = userTokenMap.get(String.format("%s_%s_%s", tenantId, clientKey,openId));
+        UserTokenInfo userTokenInfo = userTokenMap.get(String.format("%s_%s_%s", tenantId, clientKey, openId));
         if (Objects.isNull(userTokenInfo)) {
             throw new AuthTokenNotFoundException("token not found");
         }
@@ -40,19 +39,18 @@ public class CacheAgentTokenServiceImpl implements IAgentTokenService {
     }
 
     @Override
-    public void setClientTokenInfo(Integer tenantId, String clientKey, String accessToken, Long expiresIn) throws AuthTokenNotFoundException {
+    public ClientTokenInfo setClientTokenInfo(Integer tenantId, String clientKey, String accessToken, Long expiresIn){
         ClientTokenInfo clientTokenInfo = new ClientTokenInfo();
         clientTokenInfo.setAccessToken(accessToken);
         clientTokenInfo.setExpiresIn(expiresIn);
         clientTokenMap.put(String.format("%s_%s", tenantId, clientKey), clientTokenInfo);
+        return clientTokenInfo;
     }
 
     @Override
     public ClientTokenInfo getClientTokenInfo(Integer tenantId, String clientKey) throws AuthTokenNotFoundException {
         return clientTokenMap.get(String.format("%s_%s", tenantId, clientKey));
     }
-
-
 
 
 }

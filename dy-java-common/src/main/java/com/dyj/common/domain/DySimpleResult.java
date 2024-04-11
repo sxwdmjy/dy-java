@@ -4,13 +4,15 @@ package com.dyj.common.domain;
  * @author danmo
  * @date 2024-04-09 11:30
  **/
-public class DySimpleResult {
+public class DySimpleResult <T>{
 
     private String err_msg;
 
     private Integer err_no;
 
     private String log_id;
+
+    private T data;
 
     public String getErr_msg() {
         return err_msg;
@@ -36,12 +38,21 @@ public class DySimpleResult {
         this.log_id = log_id;
     }
 
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
+
     @Override
     public String toString() {
         return "{" +
                 "err_msg='" + err_msg + '\'' +
                 ", err_no=" + err_no +
                 ", log_id='" + log_id + '\'' +
+                ", data=" + data +
                 '}';
     }
 }

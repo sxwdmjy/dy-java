@@ -13,7 +13,7 @@ public class ClientTokenVo  extends BaseVo{
     /**
      * access_token接口调用凭证超时时间，单位（秒)
      */
-    private Integer expires_in;
+    private Long expires_in;
 
 
     public String getAccess_token() {
@@ -24,11 +24,11 @@ public class ClientTokenVo  extends BaseVo{
         this.access_token = access_token;
     }
 
-    public Integer getExpires_in() {
+    public Long getExpires_in() {
         return expires_in;
     }
 
-    public void setExpires_in(Integer expires_in) {
+    public void setExpires_in(Long expires_in) {
         this.expires_in = expires_in;
     }
 
