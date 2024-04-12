@@ -324,6 +324,11 @@ public enum DyUrlPathEnum {
      * 获取 open_ticket
      */
     GET_OPEN_TICKET("getOpenTicket","/open/getticket"),
+
+    /**
+     * 关键词视频搜索
+     */
+    VIDEO_SEARCH_V2("videoSearchV2", "/video/search/"),
     ;
 
 

@@ -754,4 +754,16 @@ public class DyWebClient {
     public DyResult<TicketVo> getOpenTicket(){
         return new ToolsHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).getOpenTicket();
     }
+
+    /**
+     * 关键词视频搜索
+     * @param openId openId
+     * @param keyword 关键词
+     * @param cursor 分页游标, 第一页请求cursor是0, response中会返回下一页请求用到的cursor, 同时response还会返回has_more来表明是否有更多的数据。 选填
+     * @param count 每页数量
+     * @return
+     */
+    public DyResult<VideoSearchListVo> videoSearchV2(String openId, String keyword, Integer count, Long cursor){
+        return new SearchHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).videoSearchV2(openId, keyword, count, cursor);
+    }
 }
