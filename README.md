@@ -79,7 +79,7 @@ AccessTokenVo accessToken = DyWebClient.getInstance()
 
 ![输入图片说明](image2.png)
 
-###### 应用案例
-完整案例登记列表，请【[访问这里](https://gitee.com/sxwdmjy/dy-java/issues/I9G8DI)】查看，欢迎登记更多的案例。
+##### 应用案例
+ 完整案例登记列表，请【[访问这里](https://gitee.com/sxwdmjy/dy-java/issues/I9G8DI)】查看，欢迎登记更多的案例。
 
 以下为节选的部分案例：
