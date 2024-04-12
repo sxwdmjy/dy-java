@@ -92,17 +92,4 @@ public class AuthUserAttribution {
     public void setRoom_id(String room_id) {
         this.room_id = room_id;
     }
-
-    @Override
-    public String toString() {
-        return "AuthUserAttribution{" +
-                "anchor_id='" + anchor_id + '\'' +
-                ", author_id='" + author_id + '\'' +
-                ", conversation_id='" + conversation_id + '\'' +
-                ", from_att_uid='" + from_att_uid + '\'' +
-                ", group_id='" + group_id + '\'' +
-                ", message_id='" + message_id + '\'' +
-                ", room_id='" + room_id + '\'' +
-                '}';
-    }
 }

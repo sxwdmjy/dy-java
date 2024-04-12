@@ -32,13 +32,5 @@ public class PostingTaskVo extends BaseVo{
         this.task_status = task_status;
     }
 
-    @Override
-    public String toString() {
-        return "PostingTaskVo{" +
-                "task_id='" + task_id + '\'' +
-                ", task_status='" + task_status + '\'' +
-                ", description='" + description + '\'' +
-                ", error_code=" + error_code +
-                '}';
-    }
+
 }

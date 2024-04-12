@@ -243,23 +243,4 @@ public class CreateVideoQuery extends UserInfoQuery{
         }
     }
 
-    @Override
-    public String toString() {
-        return "CreateVideoQuery{" +
-                "video_id='" + video_id + '\'' +
-                ", text='" + text + '\'' +
-                ", at_users=" + at_users +
-                ", micro_app_title='" + micro_app_title + '\'' +
-                ", micro_app_url='" + micro_app_url + '\'' +
-                ", micro_app_id='" + micro_app_id + '\'' +
-                ", poi_id='" + poi_id + '\'' +
-                ", cover_tsp=" + cover_tsp +
-                ", poi_commerce=" + poi_commerce +
-                ", custom_cover_image_url='" + custom_cover_image_url + '\'' +
-                ", ent_id='" + ent_id + '\'' +
-                ", open_id='" + open_id + '\'' +
-                ", tenantId=" + tenantId +
-                ", clientKey='" + clientKey + '\'' +
-                '}';
-    }
 }

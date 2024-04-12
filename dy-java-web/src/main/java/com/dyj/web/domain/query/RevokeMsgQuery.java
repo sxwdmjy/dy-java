@@ -95,15 +95,5 @@ public class RevokeMsgQuery extends UserInfoQuery {
         }
 }
 
-    @Override
-    public String toString() {
-        return "RevokeMsgQuery{" +
-                "conversation_id='" + conversation_id + '\'' +
-                ", conversation_type=" + conversation_type +
-                ", msg_id='" + msg_id + '\'' +
-                ", open_id='" + open_id + '\'' +
-                ", tenantId=" + tenantId +
-                ", clientKey='" + clientKey + '\'' +
-                '}';
-    }
+
 }

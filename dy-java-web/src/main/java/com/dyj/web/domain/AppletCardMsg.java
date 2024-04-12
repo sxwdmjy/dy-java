@@ -84,12 +84,4 @@ public class AppletCardMsg extends MsgContent {
         setAppletCard(null, null, null, null,schema);
         return this;
     }
-
-    @Override
-    public String toString() {
-        return "AppletCardMsg{" +
-                "msg_type=" + getMsg_type() +
-                ", applet_card=" + applet_card +
-                '}';
-    }
 }

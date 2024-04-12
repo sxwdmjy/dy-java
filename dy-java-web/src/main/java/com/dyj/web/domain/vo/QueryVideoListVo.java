@@ -35,15 +35,4 @@ public class QueryVideoListVo extends BaseVo {
     public void setList(List<AccountVideo> list) {
         this.list = list;
     }
-
-    @Override
-    public String toString() {
-        return "QueryVideoListVo{" +
-                "cursor=" + cursor +
-                ", has_more=" + has_more +
-                ", list=" + list +
-                ", description='" + description + '\'' +
-                ", error_code=" + error_code +
-                '}';
-    }
 }

@@ -39,7 +39,7 @@ public class QueryTokenInterceptor implements Interceptor<DyResult> {
             }
         }
         IAgentTokenService agentTokenService = RequestHandler.getInstance().getDyConfiguration().getAgentTokenService();
-        UserTokenInfo userTokenInfo = agentTokenService.getTokenInfo(tenantId, clientKey,openId);
+        UserTokenInfo userTokenInfo = agentTokenService.getUserTokenInfo(tenantId, clientKey,openId);
         if (Objects.isNull(userTokenInfo)) {
             throw new RuntimeException("access_token is null");
         }
@@ -48,10 +48,7 @@ public class QueryTokenInterceptor implements Interceptor<DyResult> {
         return Interceptor.super.beforeExecute(request);
     }
 
-    @Override
-    public void onSuccess(DyResult data, ForestRequest request, ForestResponse response) {
-        log.info("QueryTokenInterceptor onSuccess:" + data.toString());
-    }
+
 
     @Override
     public void onError(ForestRuntimeException ex, ForestRequest request, ForestResponse response) {
@@ -67,6 +64,6 @@ public class QueryTokenInterceptor implements Interceptor<DyResult> {
         sb.append(", ");
         sb.append("msg:");
         sb.append(ex.getMessage());
-        log.info("AuthInterceptor onError:" + sb.toString());
+        log.info(sb.toString());
     }
 }

@@ -74,14 +74,5 @@ public class PostingTaskQuery extends UserInfoQuery{
         }
     }
 
-    @Override
-    public String toString() {
-        return "PostingTaskQuery{" +
-                "task_id='" + task_id + '\'' +
-                ", video_id='" + video_id + '\'' +
-                ", open_id='" + open_id + '\'' +
-                ", tenantId=" + tenantId +
-                ", clientKey='" + clientKey + '\'' +
-                '}';
-    }
+
 }

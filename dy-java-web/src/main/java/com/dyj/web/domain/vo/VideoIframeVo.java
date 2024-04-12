@@ -54,15 +54,4 @@ public class VideoIframeVo extends BaseVo {
         this.video_width = video_width;
     }
 
-    @Override
-    public String toString() {
-        return "QueryVideoIframeVo{" +
-                "iframe_code='" + iframe_code + '\'' +
-                ", video_height='" + video_height + '\'' +
-                ", video_title='" + video_title + '\'' +
-                ", video_width='" + video_width + '\'' +
-                ", description='" + description + '\'' +
-                ", error_code=" + error_code +
-                '}';
-    }
 }

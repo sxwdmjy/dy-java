@@ -58,13 +58,4 @@ public class IntentionLog {
         this.open_id = open_id;
     }
 
-    @Override
-    public String toString() {
-        return "IntentionLog{" +
-                "content='" + content + '\'' +
-                ", event='" + event + '\'' +
-                ", event_time='" + event_time + '\'' +
-                ", open_id='" + open_id + '\'' +
-                '}';
-    }
 }

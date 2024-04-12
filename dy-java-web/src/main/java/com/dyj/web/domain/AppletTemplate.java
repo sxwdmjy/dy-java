@@ -135,23 +135,4 @@ public class AppletTemplate {
     public void setReject_reasons(String reject_reasons) {
         this.reject_reasons = reject_reasons;
     }
-
-    @Override
-    public String toString() {
-        return "AppletTemplate{" +
-                "card_template_id='" + card_template_id + '\'' +
-                ", card_type=" + card_type +
-                ", content='" + content + '\'' +
-                ", create_time=" + create_time +
-                ", media_id='" + media_id + '\'' +
-                ", name='" + name + '\'' +
-                ", status=" + status +
-                ", title='" + title + '\'' +
-                ", update_time=" + update_time +
-                ", app_icon_url='" + app_icon_url + '\'' +
-                ", app_id='" + app_id + '\'' +
-                ", icon_media_id='" + icon_media_id + '\'' +
-                ", reject_reasons='" + reject_reasons + '\'' +
-                '}';
-    }
 }

@@ -119,16 +119,5 @@ public class CommentQuery extends UserInfoQuery{
         }
     }
 
-    @Override
-    public String toString() {
-        return "CommentQuery{" +
-                "item_id='" + item_id + '\'' +
-                ", comment_id='" + comment_id + '\'' +
-                ", content='" + content + '\'' +
-                ", top=" + top +
-                ", open_id='" + open_id + '\'' +
-                ", tenantId=" + tenantId +
-                ", clientKey='" + clientKey + '\'' +
-                '}';
-    }
+
 }

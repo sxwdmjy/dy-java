@@ -31,11 +31,4 @@ public class BaseVo {
         this.error_code = error_code;
     }
 
-    @Override
-    public String toString() {
-        return "BaseVo{" +
-                "description='" + description + '\'' +
-                ", error_code=" + error_code +
-                '}';
-    }
 }

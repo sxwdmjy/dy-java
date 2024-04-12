@@ -49,8 +49,4 @@ public class ImageClientUploadVo extends DyResult<BaseVo> {
         this.md5 = md5;
     }
 
-    @Override
-    public String toString() {
-        return JSONObject.toJSONString(this);
-    }
 }

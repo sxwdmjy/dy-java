@@ -103,17 +103,4 @@ public class AuthUser {
     public void setAttribution(AuthUserAttribution attribution) {
         this.attribution = attribution;
     }
-
-    @Override
-    public String toString() {
-        return "AuthUser{" +
-                "enter_from='" + enter_from + '\'' +
-                ", auth_user_source_app_id='" + auth_user_source_app_id + '\'' +
-                ", data_im_extra='" + data_im_extra + '\'' +
-                ", path='" + path + '\'' +
-                ", query='" + query + '\'' +
-                ", target_open_id='" + target_open_id + '\'' +
-                ", attribution=" + attribution +
-                '}';
-    }
 }

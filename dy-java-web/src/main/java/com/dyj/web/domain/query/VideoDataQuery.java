@@ -71,15 +71,4 @@ public class VideoDataQuery extends UserInfoQuery{
             return videoDataQuery;
         }
     }
-
-    @Override
-    public String toString() {
-        return "VideoDataQuery{" +
-                "item_ids=" + item_ids +
-                ", video_ids=" + video_ids +
-                ", open_id='" + open_id + '\'' +
-                ", tenantId=" + tenantId +
-                ", clientKey='" + clientKey + '\'' +
-                '}';
-    }
 }

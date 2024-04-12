@@ -66,14 +66,5 @@ public class UserRoleCheckVo extends BaseVo {
         this.err_msg = err_msg;
     }
 
-    @Override
-    public String toString() {
-        return "UserRoleCheckVo{" +
-                "match_result=" + match_result +
-                ", filter_role=" + filter_role +
-                ", log_id='" + log_id + '\'' +
-                ", err_no=" + err_no +
-                ", err_msg='" + err_msg + '\'' +
-                '}';
-    }
+
 }

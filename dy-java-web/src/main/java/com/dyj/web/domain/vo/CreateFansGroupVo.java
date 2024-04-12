@@ -22,8 +22,4 @@ public class CreateFansGroupVo extends DyResult<BaseVo> {
         this.group_id = group_id;
     }
 
-    @Override
-    public String toString() {
-        return JSONObject.toJSONString(this);
-    }
 }

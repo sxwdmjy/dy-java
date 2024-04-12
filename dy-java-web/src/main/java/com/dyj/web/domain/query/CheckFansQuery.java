@@ -63,13 +63,5 @@ public class CheckFansQuery extends UserInfoQuery {
         }
     }
 
-    @Override
-    public String toString() {
-        return "CheckFansQuery{" +
-                "follower_open_id='" + follower_open_id + '\'' +
-                ", open_id='" + open_id + '\'' +
-                ", tenantId=" + tenantId +
-                ", clientKey='" + clientKey + '\'' +
-                '}';
-    }
+
 }

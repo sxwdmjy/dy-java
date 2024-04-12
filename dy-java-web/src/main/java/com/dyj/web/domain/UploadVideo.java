@@ -31,13 +31,4 @@ public class UploadVideo {
     public void setHeight(String height) {
         this.height = height;
     }
-
-    @Override
-    public String toString() {
-        return "UploadVideo{" +
-                "video_id='" + video_id + '\'' +
-                ", width='" + width + '\'' +
-                ", height='" + height + '\'' +
-                '}';
-    }
 }

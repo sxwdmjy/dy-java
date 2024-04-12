@@ -101,20 +101,4 @@ public class VideoLocation {
     public void setProvince(String province) {
         this.province = province;
     }
-
-    @Override
-    public String toString() {
-        return "VideoLocation{" +
-                "address='" + address + '\'' +
-                ", city='" + city + '\'' +
-                ", city_code='" + city_code + '\'' +
-                ", country='" + country + '\'' +
-                ", country_code='" + country_code + '\'' +
-                ", district='" + district + '\'' +
-                ", location='" + location + '\'' +
-                ", poi_id='" + poi_id + '\'' +
-                ", poi_name='" + poi_name + '\'' +
-                ", province='" + province + '\'' +
-                '}';
-    }
 }

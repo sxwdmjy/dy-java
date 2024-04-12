@@ -84,14 +84,5 @@ public class UserRoleCheckQuery extends UserInfoQuery {
         }
     }
 
-    @Override
-    public String toString() {
-        return "UserRoleCheckQuery{" +
-                "douyin_shortId='" + douyin_shortId + '\'' +
-                ", role_labels=" + role_labels +
-                ", open_id='" + open_id + '\'' +
-                ", tenantId=" + tenantId +
-                ", clientKey='" + clientKey + '\'' +
-                '}';
-    }
+
 }

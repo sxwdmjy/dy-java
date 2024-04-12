@@ -45,7 +45,7 @@ public class TokenHeaderInterceptor implements Interceptor<DyResult> {
                 clientKey = query.getClientKey();
             }
         }
-        UserTokenInfo userTokenInfo = DyConfigUtils.getAgentTokenService().getTokenInfo(tenantId, clientKey, openId);
+        UserTokenInfo userTokenInfo = DyConfigUtils.getAgentTokenService().getUserTokenInfo(tenantId, clientKey, openId);
         if (Objects.isNull(userTokenInfo)) {
             throw new RuntimeException("access-token is null");
         }
@@ -53,11 +53,6 @@ public class TokenHeaderInterceptor implements Interceptor<DyResult> {
 
         request.replaceOrAddQuery("open_id", openId);
         return Interceptor.super.beforeExecute(request);
-    }
-
-    @Override
-    public void onSuccess(DyResult data, ForestRequest request, ForestResponse response) {
-        log.info("TokenHeaderInterceptor onSuccess:" + data.toString());
     }
 
     @Override
@@ -74,6 +69,6 @@ public class TokenHeaderInterceptor implements Interceptor<DyResult> {
         sb.append(", ");
         sb.append("msg:");
         sb.append(ex.getMessage());
-        log.info("AuthInterceptor onError:" + sb.toString());
+        log.info(sb.toString());
     }
 }

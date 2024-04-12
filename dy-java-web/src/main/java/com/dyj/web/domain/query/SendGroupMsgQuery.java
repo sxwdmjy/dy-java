@@ -99,8 +99,4 @@ public class SendGroupMsgQuery extends UserInfoQuery {
     }
 
 
-    @Override
-    public String toString() {
-        return JSONObject.toJSONString(this);
-    }
 }

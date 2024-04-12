@@ -71,11 +71,11 @@ public interface BusinessClient {
      * @return
      */
     @Post(value = "${imageClientUpload}",contentType = ContentType.MULTIPART_FORM_DATA ,interceptor = ClientTokenInterceptor.class)
-    ImageClientUploadVo imageClientUpload(@Var("query") BaseQuery query, @DataFile(value = "image") File file);
+    ImageClientUploadVo imageClientUpload(@Var("query") BaseQuery query, @DataFile(value = "image",fileName = "image") File file);
     @Post(value = "${imageClientUpload}",contentType = ContentType.MULTIPART_FORM_DATA ,interceptor = ClientTokenInterceptor.class)
-    ImageClientUploadVo imageClientUpload(@Var("query") BaseQuery query, @DataFile(value = "image") InputStream inputStream);
+    ImageClientUploadVo imageClientUpload(@Var("query") BaseQuery query, @DataFile(value = "image",fileName = "image") InputStream inputStream);
     @Post(value = "${imageClientUpload}",contentType = ContentType.MULTIPART_FORM_DATA ,interceptor = ClientTokenInterceptor.class)
-    ImageClientUploadVo imageClientUpload(@Var("query") BaseQuery query, @DataFile(value = "image") Byte[] bytes);
+    ImageClientUploadVo imageClientUpload(@Var("query") BaseQuery query, @DataFile(value = "image",fileName = "image") Byte[] bytes);
 
 
 

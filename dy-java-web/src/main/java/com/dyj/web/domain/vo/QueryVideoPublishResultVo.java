@@ -12,13 +12,6 @@ public class QueryVideoPublishResultVo extends BaseVo{
         this.share_id = share_id;
     }
 
-    @Override
-    public String toString() {
-        return "QueryVideoPublishResultVo{" +
-                "share_id='" + share_id + '\'' +
-                ", description='" + description + '\'' +
-                ", error_code=" + error_code +
-                '}';
-    }
+
 }
 

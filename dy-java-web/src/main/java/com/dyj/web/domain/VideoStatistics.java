@@ -79,16 +79,4 @@ public class VideoStatistics {
     public void setShare_count(Integer share_count) {
         this.share_count = share_count;
     }
-
-    @Override
-    public String toString() {
-        return "VideoStatistics{" +
-                "comment_count=" + comment_count +
-                ", digg_count=" + digg_count +
-                ", download_count=" + download_count +
-                ", forward_count=" + forward_count +
-                ", play_count=" + play_count +
-                ", share_count=" + share_count +
-                '}';
-    }
 }

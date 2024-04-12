@@ -148,21 +148,4 @@ public class AccountVideo {
     public void setVideo_id(String video_id) {
         this.video_id = video_id;
     }
-
-    @Override
-    public String toString() {
-        return "AccountVideo{" +
-                "cover='" + cover + '\'' +
-                ", create_time=" + create_time +
-                ", is_reviewed=" + is_reviewed +
-                ", is_top=" + is_top +
-                ", item_id='" + item_id + '\'' +
-                ", share_url='" + share_url + '\'' +
-                ", title='" + title + '\'' +
-                ", video_status=" + video_status +
-                ", media_type=" + media_type +
-                ", statistics=" + statistics +
-                ", video_id='" + video_id + '\'' +
-                '}';
-    }
 }

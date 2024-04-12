@@ -16,12 +16,4 @@ public class CreateAppletTemplateVo extends BaseVo {
         this.card_template_id = card_template_id;
     }
 
-    @Override
-    public String toString() {
-        return "CreateAppletTemplateVo{" +
-                "card_template_id='" + card_template_id + '\'' +
-                ", description='" + description + '\'' +
-                ", error_code=" + error_code +
-                '}';
-    }
 }

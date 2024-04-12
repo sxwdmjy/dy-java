@@ -72,13 +72,6 @@ public class AuthPrivateMessageCardMsg extends MsgContent{
             this.app_id = appId;
             return this;
         }
-
-        @Override
-        public String toString() {
-            return "AuthPrivateMessageCardAppInfo{" +
-                    "app_id='" + app_id + '\'' +
-                    '}';
-        }
     }
 
     public static class AuthPrivateMessageCardToUserInfo{
@@ -110,21 +103,6 @@ public class AuthPrivateMessageCardMsg extends MsgContent{
             return this;
         }
 
-        @Override
-        public String toString() {
-            return "AuthPrivateMessageCardToUserInfo{" +
-                    "app_id='" + app_id + '\'' +
-                    ", open_id='" + open_id + '\'' +
-                    '}';
-        }
     }
 
-
-    @Override
-    public String toString() {
-        return "AuthPrivateMessageCardMsg{" +
-                "auth_private_message_card=" + auth_private_message_card +
-                ", msg_type=" + msg_type +
-                '}';
-    }
 }

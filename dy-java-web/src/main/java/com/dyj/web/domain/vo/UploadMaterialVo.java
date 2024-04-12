@@ -18,12 +18,5 @@ public class UploadMaterialVo extends BaseVo{
         this.media = media;
     }
 
-    @Override
-    public String toString() {
-        return "UploadMaterialVo{" +
-                "media=" + media +
-                ", description='" + description + '\'' +
-                ", error_code=" + error_code +
-                '}';
-    }
+
 }
