@@ -23,11 +23,6 @@ public class NoTokenInterceptor implements Interceptor<DyResult> {
     }
 
     @Override
-    public void onSuccess(DyResult data, ForestRequest request, ForestResponse response) {
-        log.info("AuthInterceptor onSuccess:" + data.toString());
-    }
-
-    @Override
     public void onError(ForestRuntimeException ex, ForestRequest request, ForestResponse response) {
         StringBuilder sb = new StringBuilder("AuthInterceptor onError ");
         sb.append("url:");
@@ -41,6 +36,6 @@ public class NoTokenInterceptor implements Interceptor<DyResult> {
         sb.append(", ");
         sb.append("msg:");
         sb.append(ex.getMessage());
-        log.info("AuthInterceptor onError:" + sb.toString());
+        log.info(sb.toString());
     }
 }

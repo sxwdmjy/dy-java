@@ -53,12 +53,4 @@ public class InvitationMsg extends MsgContent{
         setGroupInvitation(null, groupToken);
         return this;
     }
-
-    @Override
-    public String toString() {
-        return "InvitationMsg{" +
-                "msg_type=" + getMsg_type() +
-                ", group_invitation=" + group_invitation +
-                '}';
-    }
 }

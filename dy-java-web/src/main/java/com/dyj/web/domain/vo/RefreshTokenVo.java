@@ -31,13 +31,5 @@ public class RefreshTokenVo  extends BaseVo{
         this.expires_in = expires_in;
     }
 
-    @Override
-    public String toString() {
-        return "RefreshTokenVo{" +
-                "refresh_token='" + refresh_token + '\'' +
-                ", expires_in=" + expires_in +
-                ", description='" + description + '\'' +
-                ", error_code=" + error_code +
-                '}';
-    }
+
 }

@@ -144,20 +144,4 @@ public class FansGroup {
     public void setTags(List<String> tags) {
         this.tags = tags;
     }
-
-    @Override
-    public String toString() {
-        return "FansGroup{" +
-                "group_id='" + group_id + '\'' +
-                ", group_name='" + group_name + '\'' +
-                ", avatar_uri='" + avatar_uri + '\'' +
-                ", description='" + description + '\'' +
-                ", entry_limit=" + entry_limit +
-                ", exist_num=" + exist_num +
-                ", group_type=" + group_type +
-                ", max_num=" + max_num +
-                ", status=" + status +
-                ", tags=" + tags +
-                '}';
-    }
 }

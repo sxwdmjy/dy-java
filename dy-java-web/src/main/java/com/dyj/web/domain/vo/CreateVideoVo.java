@@ -22,13 +22,5 @@ public class CreateVideoVo extends BaseVo{
         this.video_id = video_id;
     }
 
-    @Override
-    public String toString() {
-        return "CreateVideoVo{" +
-                "item_id='" + item_id + '\'' +
-                ", video_id='" + video_id + '\'' +
-                ", description='" + description + '\'' +
-                ", error_code=" + error_code +
-                '}';
-    }
+
 }

@@ -46,14 +46,4 @@ public class MaterialListVo extends BaseVo {
         this.medias = medias;
     }
 
-    @Override
-    public String toString() {
-        return "MaterialListVo{" +
-                "cursor=" + cursor +
-                ", has_more=" + has_more +
-                ", medias=" + medias +
-                ", description='" + description + '\'' +
-                ", error_code=" + error_code +
-                '}';
-    }
 }

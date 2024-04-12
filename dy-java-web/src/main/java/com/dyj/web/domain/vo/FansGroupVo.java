@@ -12,4 +12,12 @@ import java.util.List;
 public class FansGroupVo extends DyResult<BaseVo> {
 
     private List<FansGroup> group_list;
+
+    public List<FansGroup> getGroup_list() {
+        return group_list;
+    }
+
+    public void setGroup_list(List<FansGroup> group_list) {
+        this.group_list = group_list;
+    }
 }

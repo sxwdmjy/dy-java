@@ -50,11 +50,6 @@ public class ClientTokenInterceptor implements Interceptor<DyResult> {
     }
 
     @Override
-    public void onSuccess(DyResult data, ForestRequest request, ForestResponse response) {
-        log.info("ClientTokenInterceptor onSuccess:" + data.toString());
-    }
-
-    @Override
     public void onError(ForestRuntimeException ex, ForestRequest request, ForestResponse response) {
         StringBuilder sb = new StringBuilder("ClientTokenInterceptor onError ");
         sb.append("url:");
@@ -68,6 +63,6 @@ public class ClientTokenInterceptor implements Interceptor<DyResult> {
         sb.append(", ");
         sb.append("msg:");
         sb.append(ex.getMessage());
-        log.info("AuthInterceptor onError:" + sb.toString());
+        log.info(sb.toString());
     }
 }

@@ -63,29 +63,13 @@ public class DyConfigurationRegister implements ResourceLoaderAware, BeanPostPro
         String agentSourceClass = dyConfigurationProperties.getAgentSourceClass();
         //根据类详细路径获取类对象
         if (StringUtils.hasLength(agentSourceClass)) {
-            try {
-                Class<?> aClass = Class.forName(agentSourceClass);
-                if (!IAgentConfigService.class.isAssignableFrom(aClass)) {
-                    throw new RuntimeException("property 'agentConfig' must be a class extending from com.dyj.common.service.IAgentConfigService");
-                }
-                IAgentConfigService iAgentConfigService = (IAgentConfigService) aClass.newInstance();
-                configuration.setAgentConfigService(iAgentConfigService);
-            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
-                throw new RuntimeException(e);
-            }
+            IAgentConfigService bean = applicationContext.getBean("dyAgentSource", IAgentConfigService.class);
+            configuration.setAgentConfigService(bean);
         }
         String tokenSourceClass = dyConfigurationProperties.getTokenSourceClass();
         if (StringUtils.hasLength(tokenSourceClass)) {
-            try {
-                Class<?> aClass = Class.forName(tokenSourceClass);
-                if (!IAgentTokenService.class.isAssignableFrom(aClass)) {
-                    throw new RuntimeException("property 'agentToken' must be a class extending from com.dyj.common.service.IAgentTokenService");
-                }
-                IAgentTokenService agentTokenService = (IAgentTokenService) aClass.newInstance();
-                configuration.setAgentTokenService(agentTokenService);
-            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
-                throw new RuntimeException(e);
-            }
+            IAgentTokenService agentTokenService =  applicationContext.getBean("dyTokenService", IAgentTokenService.class);
+            configuration.setAgentTokenService(agentTokenService);
         }
         //configuration.setInterceptorFactory(DyInterceptorFactory);
         RequestHandler.getInstance().setDyConfiguration(configuration);
@@ -118,4 +102,36 @@ public class DyConfigurationRegister implements ResourceLoaderAware, BeanPostPro
     }
 
 
+    public void registerAgentSource() {
+        String agentSourceClass = dyConfigurationProperties.getAgentSourceClass();
+        //根据类详细路径获取类对象
+        if (StringUtils.hasLength(agentSourceClass)) {
+            try {
+                Class<?> aClass = Class.forName(agentSourceClass);
+                if (!IAgentConfigService.class.isAssignableFrom(aClass)) {
+                    throw new RuntimeException("property 'agentConfig' must be a class extending from com.dyj.common.service.IAgentConfigService");
+                }
+                BeanDefinitionRegistry beanFactory = (BeanDefinitionRegistry) applicationContext.getAutowireCapableBeanFactory();
+                beanFactory.registerBeanDefinition("dyAgentSource", BeanDefinitionBuilder.genericBeanDefinition(aClass).getRawBeanDefinition());
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public void registerTokenSource() {
+        String tokenSourceClass = dyConfigurationProperties.getTokenSourceClass();
+        if (StringUtils.hasLength(tokenSourceClass)) {
+            try {
+                Class<?> aClass = Class.forName(tokenSourceClass);
+                if (!IAgentTokenService.class.isAssignableFrom(aClass)) {
+                    throw new RuntimeException("property 'agentToken' must be a class extending from com.dyj.common.service.IAgentTokenService");
+                }
+                BeanDefinitionRegistry beanFactory = (BeanDefinitionRegistry) applicationContext.getAutowireCapableBeanFactory();
+                beanFactory.registerBeanDefinition("dyTokenService", BeanDefinitionBuilder.genericBeanDefinition(aClass).getRawBeanDefinition());
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
 }

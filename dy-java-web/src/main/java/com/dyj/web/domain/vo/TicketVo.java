@@ -32,13 +32,5 @@ public class TicketVo extends BaseVo{
         this.ticket = ticket;
     }
 
-    @Override
-    public String toString() {
-        return "JsbTicketVo{" +
-                "expires_in=" + expires_in +
-                ", ticket='" + ticket + '\'' +
-                ", description='" + description + '\'' +
-                ", error_code=" + error_code +
-                '}';
-    }
+
 }

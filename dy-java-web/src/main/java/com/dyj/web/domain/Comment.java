@@ -134,20 +134,4 @@ public class Comment {
     public void setNick_name(String nick_name) {
         this.nick_name = nick_name;
     }
-
-    @Override
-    public String toString() {
-        return "Comment{" +
-                "comment_id='" + comment_id + '\'' +
-                ", reply_comment_id='" + reply_comment_id + '\'' +
-                ", comment_user_id='" + comment_user_id + '\'' +
-                ", content='" + content + '\'' +
-                ", create_time=" + create_time +
-                ", digg_count=" + digg_count +
-                ", reply_comment_total=" + reply_comment_total +
-                ", top=" + top +
-                ", avatar='" + avatar + '\'' +
-                ", nick_name='" + nick_name + '\'' +
-                '}';
-    }
 }

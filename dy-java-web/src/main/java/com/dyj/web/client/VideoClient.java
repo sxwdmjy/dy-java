@@ -22,10 +22,10 @@ public interface VideoClient {
     DyResult<CreateImageTextVo> createImageText(@JSONBody CreateImageTextQuery query);
 
     @Post(url = "${uploadImage}", contentType = ContentType.MULTIPART_FORM_DATA, interceptor = TokenHeaderInterceptor.class)
-    DyResult<UploadImageVo> uploadImage(@Var("query") UserInfoQuery query, @DataFile(value = "image") InputStream inputStream);
+    DyResult<UploadImageVo> uploadImage(@Var("query") UserInfoQuery query, @DataFile(value = "image",fileName = "image") InputStream inputStream);
 
     @Post(url = "${uploadVideo}", contentType = ContentType.MULTIPART_FORM_DATA, interceptor = TokenHeaderInterceptor.class)
-    DyResult<UploadVideoVo> uploadVideo(@Var("query") UserInfoQuery query, @DataFile(value = "video") InputStream inputStream);
+    DyResult<UploadVideoVo> uploadVideo(@Var("query") UserInfoQuery query, @DataFile(value = "video",fileName = "video") InputStream inputStream);
 
 
     @Post(url = "${createVideo}", contentType = ContentType.APPLICATION_JSON, interceptor = TokenHeaderInterceptor.class)
@@ -35,7 +35,7 @@ public interface VideoClient {
     DyResult<UploadVideoVo> completeVideoPartUpload(@Var("query") UserInfoQuery query, @Query("upload_id") String uploadId);
 
     @Post(url = "${uploadVideoPart}", contentType = ContentType.MULTIPART_FORM_DATA, interceptor = TokenHeaderInterceptor.class)
-    DyResult<BaseVo> uploadVideoPart(@Var("query") UserInfoQuery query, @Query("upload_id") String uploadId, @Query("part_number") Integer partNumber, @DataFile(value = "video") InputStream inputStream);
+    DyResult<BaseVo> uploadVideoPart(@Var("query") UserInfoQuery query, @Query("upload_id") String uploadId, @Query("part_number") Integer partNumber, @DataFile(value = "video",fileName = "video") InputStream inputStream);
 
     @Post(url = "${initializeVideoPartUpload}", contentType = ContentType.APPLICATION_JSON, interceptor = TokenHeaderInterceptor.class)
     DyResult<InitPartUploadVo> initializeVideoPartUpload(@Var("query") UserInfoQuery query);

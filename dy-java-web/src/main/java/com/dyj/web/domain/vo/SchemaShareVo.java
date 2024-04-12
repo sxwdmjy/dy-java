@@ -19,10 +19,5 @@ public class SchemaShareVo {
         this.schema = schema;
     }
 
-    @Override
-    public String toString() {
-        return "SchemaShareVo{" +
-                "schema='" + schema + '\'' +
-                '}';
-    }
+
 }

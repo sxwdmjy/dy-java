@@ -145,6 +145,15 @@ public class CreateImageTextQuery extends UserInfoQuery {
             return this;
         }
 
+        public CreateImageTextQueryBuilder openId(String openId) {
+            this.openId = openId;
+            return this;
+        }
+        public CreateImageTextQueryBuilder tenantId(Integer tenantId) {
+            this.tenantId = tenantId;
+            return this;
+        }
+
         public CreateImageTextQuery build() {
             CreateImageTextQuery createImageTextQuery = new CreateImageTextQuery();
             createImageTextQuery.setImage_list(imageList);
@@ -159,21 +168,5 @@ public class CreateImageTextQuery extends UserInfoQuery {
             createImageTextQuery.setOpen_id(openId);
             return createImageTextQuery;
         }
-    }
-
-    @Override
-    public String toString() {
-        return "CreateImageTextQuery{" +
-                "image_list=" + image_list +
-                ", text='" + text + '\'' +
-                ", at_users=" + at_users +
-                ", micro_app_title='" + micro_app_title + '\'' +
-                ", micro_app_url='" + micro_app_url + '\'' +
-                ", micro_app_id='" + micro_app_id + '\'' +
-                ", poi_id='" + poi_id + '\'' +
-                ", open_id='" + open_id + '\'' +
-                ", tenantId=" + tenantId +
-                ", clientKey='" + clientKey + '\'' +
-                '}';
     }
 }

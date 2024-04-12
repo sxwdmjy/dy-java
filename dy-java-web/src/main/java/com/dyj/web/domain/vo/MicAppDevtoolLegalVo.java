@@ -16,12 +16,5 @@ public class MicAppDevtoolLegalVo extends BaseVo{
         this.is_legal = is_legal;
     }
 
-    @Override
-    public String toString() {
-        return "MicAppDevtoolLegalVo{" +
-                "is_legal=" + is_legal +
-                ", description='" + description + '\'' +
-                ", error_code=" + error_code +
-                '}';
-    }
+
 }

@@ -76,15 +76,4 @@ public class RetainConsultCard {
     public void setStatus(List<Integer> status) {
         this.status = status;
     }
-
-    @Override
-    public String toString() {
-        return "RetainConsultCard{" +
-                "card_id='" + card_id + '\'' +
-                ", title='" + title + '\'' +
-                ", media_id='" + media_id + '\'' +
-                ", components=" + components +
-                ", status=" + status +
-                '}';
-    }
 }

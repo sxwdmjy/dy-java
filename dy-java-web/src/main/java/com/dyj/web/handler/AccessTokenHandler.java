@@ -31,7 +31,7 @@ public class AccessTokenHandler extends AbstractWebHandler {
         query.setClient_secret(agentConfiguration.getClientSecret());
         DyResult<AccessTokenVo> dyResult = getAuthClient().getAccessToken(query);
         if (Objects.nonNull(dyResult) && dyResult.getData().getError_code() == 0) {
-            DyConfigUtils.getAgentTokenService().setTokenInfo(agentConfiguration.getTenantId(), agentConfiguration.getClientKey(), dyResult.getData().getAccess_token(), dyResult.getData().getExpires_in(), dyResult.getData().getRefresh_token(), dyResult.getData().getRefresh_expires_in(), dyResult.getData().getOpen_id());
+            DyConfigUtils.getAgentTokenService().setUserTokenInfo(agentConfiguration.getTenantId(), agentConfiguration.getClientKey(), dyResult.getData().getAccess_token(), dyResult.getData().getExpires_in(), dyResult.getData().getRefresh_token(), dyResult.getData().getRefresh_expires_in(), dyResult.getData().getOpen_id());
         }
         return dyResult;
     }

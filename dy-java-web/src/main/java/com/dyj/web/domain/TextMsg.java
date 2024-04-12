@@ -42,11 +42,5 @@ public class TextMsg extends MsgContent{
         return this;
     }
 
-    @Override
-    public String toString() {
-        return "Text{" +
-                "msg_type=" + getMsg_type() +
-                ", text=" + text +
-                '}';
-    }
+
 }

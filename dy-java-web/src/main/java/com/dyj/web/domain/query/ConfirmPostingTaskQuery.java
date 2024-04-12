@@ -93,15 +93,5 @@ public class ConfirmPostingTaskQuery extends UserInfoQuery{
         }
     }
 
-    @Override
-    public String toString() {
-        return "ConfirmPostingTaskQuery{" +
-                "task_id='" + task_id + '\'' +
-                ", target_open_id='" + target_open_id + '\'' +
-                ", video_id='" + video_id + '\'' +
-                ", open_id='" + open_id + '\'' +
-                ", tenantId=" + tenantId +
-                ", clientKey='" + clientKey + '\'' +
-                '}';
-    }
+
 }

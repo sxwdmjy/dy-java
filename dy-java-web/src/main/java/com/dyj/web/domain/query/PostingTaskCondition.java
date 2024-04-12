@@ -49,12 +49,5 @@ public class PostingTaskCondition {
         this.min_value = min_value;
     }
 
-    @Override
-    public String toString() {
-        return "PostingTaskCondition{" +
-                "condition='" + condition + '\'' +
-                ", max_value=" + max_value +
-                ", min_value=" + min_value +
-                '}';
-    }
+
 }

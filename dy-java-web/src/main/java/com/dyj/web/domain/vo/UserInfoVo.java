@@ -63,15 +63,5 @@ public class UserInfoVo  extends BaseVo{
         this.nickname = nickname;
     }
 
-    @Override
-    public String toString() {
-        return "UserInfoVo{" +
-                "open_id='" + open_id + '\'' +
-                ", union_id='" + union_id + '\'' +
-                ", avatar='" + avatar + '\'' +
-                ", nickname='" + nickname + '\'' +
-                ", description='" + description + '\'' +
-                ", error_code=" + error_code +
-                '}';
-    }
+
 }

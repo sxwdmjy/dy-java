@@ -14,12 +14,5 @@ public class UploadVideoVo extends BaseVo {
         this.video = video;
     }
 
-    @Override
-    public String toString() {
-        return "UploadVideoVo{" +
-                "video=" + video +
-                ", description='" + description + '\'' +
-                ", error_code=" + error_code +
-                '}';
-    }
+
 }

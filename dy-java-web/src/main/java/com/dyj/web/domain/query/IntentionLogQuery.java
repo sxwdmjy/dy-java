@@ -135,17 +135,4 @@ public class IntentionLogQuery extends UserInfoQuery {
         }
     }
 
-    @Override
-    public String toString() {
-        return "IntentionLogQuery{" +
-                "count=" + count +
-                ", start_time=" + start_time +
-                ", end_time=" + end_time +
-                ", event='" + event + '\'' +
-                ", query_session='" + query_session + '\'' +
-                ", open_id='" + open_id + '\'' +
-                ", tenantId=" + tenantId +
-                ", clientKey='" + clientKey + '\'' +
-                '}';
-    }
 }

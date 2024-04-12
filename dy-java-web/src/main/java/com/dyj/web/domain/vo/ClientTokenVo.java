@@ -32,13 +32,5 @@ public class ClientTokenVo  extends BaseVo{
         this.expires_in = expires_in;
     }
 
-    @Override
-    public String toString() {
-        return "ClientTokenVo{" +
-                "description='" + description + '\'' +
-                ", error_code=" + error_code +
-                ", access_token='" + access_token + '\'' +
-                ", expires_in=" + expires_in +
-                '}';
-    }
+
 }

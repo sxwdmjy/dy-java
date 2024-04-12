@@ -14,13 +14,5 @@ public class UploadImageVo extends BaseVo{
         this.image = image;
     }
 
-    @Override
-    public String
-    toString() {
-        return "UploadImageVo{" +
-                "image=" + image +
-                ", description='" + description + '\'' +
-                ", error_code=" + error_code +
-                '}';
-    }
+
 }

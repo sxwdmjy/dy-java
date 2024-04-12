@@ -123,16 +123,5 @@ public class AppletTemplateQuery extends UserInfoQuery {
 
     }
 
-    @Override
-    public String toString() {
-        return "AppletTemplateQuery{" +
-                "card_template_id='" + card_template_id + '\'' +
-                ", count=" + count +
-                ", cursor=" + cursor +
-                ", status=" + status +
-                ", open_id='" + open_id + '\'' +
-                ", tenantId=" + tenantId +
-                ", clientKey='" + clientKey + '\'' +
-                '}';
-    }
+
 }

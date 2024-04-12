@@ -223,21 +223,4 @@ public class GetH5ShareQuery extends BaseQuery{
 
     }
 
-    @Override
-    public String toString() {
-        return "GetH5ShareQuery{" +
-                "client_ticket='" + client_ticket + '\'' +
-                ", expire_at='" + expire_at + '\'' +
-                ", hashtag_list=" + hashtag_list +
-                ", image_list_path=" + image_list_path +
-                ", micro_app_info=" + micro_app_info +
-                ", poi_id='" + poi_id + '\'' +
-                ", share_to_publish=" + share_to_publish +
-                ", state='" + state + '\'' +
-                ", title='" + title + '\'' +
-                ", video_path='" + video_path + '\'' +
-                ", tenantId=" + tenantId +
-                ", clientKey='" + clientKey + '\'' +
-                '}';
-    }
 }

@@ -6,11 +6,11 @@ package com.dyj.web.domain.vo;
  **/
 public class RefreshAccessTokenVo  extends BaseVo{
 
-
+    private String access_token;
     /**
      * access_token接口调用凭证超时时间，单位（秒)
      */
-    private Integer expires_in;
+    private Long expires_in;
 
     /**
      * 日志ID
@@ -25,7 +25,7 @@ public class RefreshAccessTokenVo  extends BaseVo{
     /**
      * refresh_token凭证超时时间，单位（秒)
      */
-    private Integer refresh_expires_in;
+    private Long refresh_expires_in;
     /**
      * 用户刷新access_token
      */
@@ -36,11 +36,19 @@ public class RefreshAccessTokenVo  extends BaseVo{
     private String scope;
 
 
-    public Integer getExpires_in() {
+    public String getAccess_token() {
+        return access_token;
+    }
+
+    public void setAccess_token(String access_token) {
+        this.access_token = access_token;
+    }
+
+    public Long getExpires_in() {
         return expires_in;
     }
 
-    public void setExpires_in(Integer expires_in) {
+    public void setExpires_in(Long expires_in) {
         this.expires_in = expires_in;
     }
 
@@ -60,11 +68,11 @@ public class RefreshAccessTokenVo  extends BaseVo{
         this.open_id = open_id;
     }
 
-    public Integer getRefresh_expires_in() {
+    public Long getRefresh_expires_in() {
         return refresh_expires_in;
     }
 
-    public void setRefresh_expires_in(Integer refresh_expires_in) {
+    public void setRefresh_expires_in(Long refresh_expires_in) {
         this.refresh_expires_in = refresh_expires_in;
     }
 
@@ -84,17 +92,4 @@ public class RefreshAccessTokenVo  extends BaseVo{
         this.scope = scope;
     }
 
-    @Override
-    public String toString() {
-        return "RefreshAccessTokenVo{" +
-                "expires_in=" + expires_in +
-                ", log_id='" + log_id + '\'' +
-                ", open_id='" + open_id + '\'' +
-                ", refresh_expires_in=" + refresh_expires_in +
-                ", refresh_token='" + refresh_token + '\'' +
-                ", scope='" + scope + '\'' +
-                ", description='" + description + '\'' +
-                ", error_code=" + error_code +
-                '}';
-    }
 }

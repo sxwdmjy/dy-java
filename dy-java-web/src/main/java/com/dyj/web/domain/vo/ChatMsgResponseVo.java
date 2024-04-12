@@ -38,8 +38,4 @@ public class ChatMsgResponseVo extends DyResult<BaseVo> {
         this.msg_list = msg_list;
     }
 
-    @Override
-    public String toString() {
-        return JSONObject.toJSONString(this);
-    }
 }

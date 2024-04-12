@@ -7,9 +7,10 @@ import com.dyj.common.exception.AuthTokenNotFoundException;
 public interface IAgentTokenService {
 
 
-    void setTokenInfo(Integer tenantId, String clientKey, String accessToken, Long expiresIn, String refreshToken, Long refreshExpiresIn, String openId) throws AuthTokenNotFoundException;
+    void setUserTokenInfo(Integer tenantId, String clientKey, String accessToken, Long expiresIn, String refreshToken, Long refreshExpiresIn, String openId) throws AuthTokenNotFoundException;
 
-    UserTokenInfo getTokenInfo(Integer tenantId, String clientKey, String openId) throws AuthTokenNotFoundException;
+    UserTokenInfo getUserTokenInfo(Integer tenantId, String clientKey, String openId) throws AuthTokenNotFoundException;
+
 
     ClientTokenInfo setClientTokenInfo(Integer tenantId, String clientKey, String accessToken, Long expiresIn);
 

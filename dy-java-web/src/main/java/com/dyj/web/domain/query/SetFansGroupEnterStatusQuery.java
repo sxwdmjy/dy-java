@@ -75,15 +75,4 @@ public class SetFansGroupEnterStatusQuery extends UserInfoQuery{
         }
     }
 
-
-    @Override
-    public String toString() {
-        return "SetFansGroupEnterStatusQuery{" +
-                "apply_id='" + apply_id + '\'' +
-                ", status=" + status +
-                ", open_id='" + open_id + '\'' +
-                ", tenantId=" + tenantId +
-                ", clientKey='" + clientKey + '\'' +
-                '}';
-    }
 }
