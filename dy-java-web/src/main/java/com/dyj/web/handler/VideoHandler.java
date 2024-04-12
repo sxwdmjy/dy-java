@@ -6,10 +6,10 @@ import com.dyj.spring.utils.SpringUtils;
 import com.dyj.web.client.VideoClient;
 import com.dyj.web.domain.query.*;
 import com.dyj.web.domain.vo.*;
+import org.apache.commons.io.FileUtils;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.*;
+import java.nio.file.Files;
 
 public class VideoHandler extends AbstractWebHandler{
 
@@ -24,22 +24,20 @@ public class VideoHandler extends AbstractWebHandler{
         return getVideoClient().createImageText(query);
     }
 
-    public DyResult<UploadImageVo> uploadImage(String openId, File file) throws FileNotFoundException {
+    public DyResult<UploadImageVo> uploadImage(String openId, File file) throws IOException {
         UserInfoQuery query = new UserInfoQuery();
         query.setTenantId(agentConfiguration.getTenantId());
         query.setClientKey(agentConfiguration.getClientKey());
         query.setOpen_id(openId);
-        FileInputStream inputStream = new FileInputStream(file);
-        return getVideoClient().uploadImage(query, inputStream);
+        return getVideoClient().uploadImage(query, Files.newInputStream(file.toPath()));
     }
 
-    public DyResult<UploadVideoVo> uploadVideo(String openId, File file) throws FileNotFoundException {
+    public DyResult<UploadVideoVo> uploadVideo(String openId, File file) throws IOException {
         UserInfoQuery query = new UserInfoQuery();
         query.setTenantId(agentConfiguration.getTenantId());
         query.setClientKey(agentConfiguration.getClientKey());
         query.setOpen_id(openId);
-        FileInputStream inputStream = new FileInputStream(file);
-        return getVideoClient().uploadVideo(query, inputStream);
+        return getVideoClient().uploadVideo(query, Files.newInputStream(file.toPath()));
     }
 
     public DyResult<CreateVideoVo> createVideo(CreateVideoQuery query) {

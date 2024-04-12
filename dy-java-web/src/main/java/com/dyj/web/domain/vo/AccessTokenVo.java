@@ -107,19 +107,5 @@ public class AccessTokenVo extends BaseVo{
         this.user_id = user_id;
     }
 
-    @Override
-    public String toString() {
-        return "DyAccessTokenVo{" +
-                "description='" + super.getDescription() + '\'' +
-                ", error_code=" + super.getError_code() +
-                ", access_token='" + access_token + '\'' +
-                ", expires_in=" + expires_in +
-                ", log_id='" + log_id + '\'' +
-                ", open_id='" + open_id + '\'' +
-                ", refresh_expires_in=" + refresh_expires_in +
-                ", refresh_token='" + refresh_token + '\'' +
-                ", scope='" + scope + '\'' +
-                ", user_id=" + user_id +
-                '}';
-    }
+
 }

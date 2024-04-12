@@ -43,12 +43,4 @@ public class CardMsg extends MsgContent {
         this.setRetainConsultCard(cardId);
         return this;
     }
-
-    @Override
-    public String toString() {
-        return "CardMsg{" +
-                "msg_type=" + getMsg_type() +
-                ", retain_consult_card=" + retain_consult_card +
-                '}';
-    }
 }

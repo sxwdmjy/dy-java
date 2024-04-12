@@ -19,7 +19,7 @@ public class CacheAgentTokenServiceImpl implements IAgentTokenService {
     private final Map<String, ClientTokenInfo> clientTokenMap = new ConcurrentHashMap<>();
 
     @Override
-    public void setTokenInfo(Integer tenantId, String clientKey, String accessToken, Long expiresIn, String refreshToken, Long refreshExpiresIn, String openId) throws AuthTokenNotFoundException {
+    public void setUserTokenInfo(Integer tenantId, String clientKey, String accessToken, Long expiresIn, String refreshToken, Long refreshExpiresIn, String openId) throws AuthTokenNotFoundException {
         UserTokenInfo userTokenInfo = new UserTokenInfo();
         userTokenInfo.setAccessToken(accessToken);
         userTokenInfo.setExpiresIn(expiresIn);
@@ -30,7 +30,7 @@ public class CacheAgentTokenServiceImpl implements IAgentTokenService {
     }
 
     @Override
-    public UserTokenInfo getTokenInfo(Integer tenantId, String clientKey, String openId) throws AuthTokenNotFoundException {
+    public UserTokenInfo getUserTokenInfo(Integer tenantId, String clientKey, String openId) throws AuthTokenNotFoundException {
         UserTokenInfo userTokenInfo = userTokenMap.get(String.format("%s_%s_%s", tenantId, clientKey, openId));
         if (Objects.isNull(userTokenInfo)) {
             throw new AuthTokenNotFoundException("token not found");

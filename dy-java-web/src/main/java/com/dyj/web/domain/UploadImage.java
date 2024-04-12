@@ -32,12 +32,5 @@ public class UploadImage {
         this.height = height;
     }
 
-    @Override
-    public String toString() {
-        return "UpLoadImage{" +
-                "image_id='" + image_id + '\'' +
-                ", width='" + width + '\'' +
-                ", height='" + height + '\'' +
-                '}';
-    }
+
 }

@@ -16,12 +16,5 @@ public class ConfirmPostingTaskVo extends BaseVo{
         this.result = result;
     }
 
-    @Override
-    public String toString() {
-        return "ConfirmPostingTaskVo{" +
-                "result=" + result +
-                ", description='" + description + '\'' +
-                ", error_code=" + error_code +
-                '}';
-    }
+
 }

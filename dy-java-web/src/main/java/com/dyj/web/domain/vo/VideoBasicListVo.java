@@ -20,12 +20,5 @@ public class VideoBasicListVo extends BaseVo {
         this.list = list;
     }
 
-    @Override
-    public String toString() {
-        return "VideoBasicListVo{" +
-                "list=" + list +
-                ", description='" + description + '\'' +
-                ", error_code=" + error_code +
-                '}';
-    }
+
 }

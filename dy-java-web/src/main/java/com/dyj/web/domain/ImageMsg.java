@@ -44,12 +44,4 @@ public class ImageMsg extends MsgContent{
         setImage(mediaId);
         return this;
     }
-
-    @Override
-    public String toString() {
-        return "ImageMsg{" +
-                "msg_type=" + getMsg_type() +
-                ", image=" + image +
-                '}';
-    }
 }

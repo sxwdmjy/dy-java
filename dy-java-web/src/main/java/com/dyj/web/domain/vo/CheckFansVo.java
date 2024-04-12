@@ -32,13 +32,5 @@ public class CheckFansVo extends BaseVo{
         this.follow_time = follow_time;
     }
 
-    @Override
-    public String toString() {
-        return "CheckFansVo{" +
-                "is_follower=" + is_follower +
-                ", follow_time=" + follow_time +
-                ", description='" + description + '\'' +
-                ", error_code=" + error_code +
-                '}';
-    }
+
 }

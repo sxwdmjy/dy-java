@@ -8,9 +8,4 @@ import com.dyj.common.domain.DySimpleResult;
  **/
 public class FansGroupSettingVo extends DySimpleResult {
 
-
-    @Override
-    public String toString() {
-        return super.toString();
-    }
 }

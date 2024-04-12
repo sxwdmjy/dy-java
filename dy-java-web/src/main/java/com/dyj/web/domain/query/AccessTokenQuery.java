@@ -94,13 +94,4 @@ public class AccessTokenQuery {
         }
     }
 
-    @Override
-    public String toString() {
-        return "AccessTokenQuery{" +
-                "client_key='" + client_key + '\'' +
-                ", client_secret='" + client_secret + '\'' +
-                ", code='" + code + '\'' +
-                ", grant_type='" + grant_type + '\'' +
-                '}';
-    }
 }

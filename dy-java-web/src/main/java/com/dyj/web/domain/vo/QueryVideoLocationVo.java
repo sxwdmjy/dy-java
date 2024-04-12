@@ -36,14 +36,5 @@ public class QueryVideoLocationVo extends BaseVo {
         this.list = list;
     }
 
-    @Override
-    public String toString() {
-        return "QueryVideoLocationVo{" +
-                "cursor=" + cursor +
-                ", has_more=" + has_more +
-                ", list=" + list +
-                ", description='" + description + '\'' +
-                ", error_code=" + error_code +
-                '}';
-    }
+
 }

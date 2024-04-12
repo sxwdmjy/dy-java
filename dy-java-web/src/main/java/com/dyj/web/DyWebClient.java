@@ -74,7 +74,7 @@ public class DyWebClient {
     public DyResult<RefreshTokenVo> refreshToken(String openId) {
         DyConfiguration configuration = configuration();
         AgentConfiguration agentConfiguration = configuration.getAgentConfigService().loadAgentByTenantId(tenantId, clientKey);
-        UserTokenInfo userTokenInfo = configuration.getAgentTokenService().getTokenInfo(tenantId, clientKey,openId);
+        UserTokenInfo userTokenInfo = configuration.getAgentTokenService().getUserTokenInfo(agentConfiguration.getTenantId(), agentConfiguration.getClientKey(),openId);
         // 利用配置信息和授权码获取新的访问令牌
         return new AccessTokenHandler(agentConfiguration).refreshToken(userTokenInfo.getRefreshToken());
     }
@@ -101,7 +101,7 @@ public class DyWebClient {
     public DyResult<RefreshAccessTokenVo> refreshAccessToken(String openId) {
         DyConfiguration configuration = configuration();
         AgentConfiguration agentConfiguration = configuration.getAgentConfigService().loadAgentByTenantId(tenantId, clientKey);
-        UserTokenInfo userTokenInfo = configuration.getAgentTokenService().getTokenInfo(tenantId, clientKey,openId);
+        UserTokenInfo userTokenInfo = configuration.getAgentTokenService().getUserTokenInfo(agentConfiguration.getTenantId(), agentConfiguration.getClientKey(),openId);
         // 通过AccessTokenHandler处理逻辑，获取指定租户和客户端的刷新令牌
         return new AccessTokenHandler(agentConfiguration).refreshAccessToken(userTokenInfo.getRefreshToken());
     }
@@ -163,7 +163,7 @@ public class DyWebClient {
      * @return DyResult<UploadImageVo> 返回一个包含上传图片结果的响应对象。
      * @throws FileNotFoundException 如果指定的文件不存在，则抛出此异常。
      */
-    public DyResult<UploadImageVo> uploadImage(String openId, File file) throws FileNotFoundException {
+    public DyResult<UploadImageVo> uploadImage(String openId, File file) throws IOException {
         return new VideoHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).uploadImage(openId, file);
     }
 
@@ -175,7 +175,7 @@ public class DyWebClient {
      * @return DyResult<UploadVideoVo> 返回一个包含上传视频结果的响应对象。
      * @throws FileNotFoundException 如果指定的文件不存在，则抛出此异常。
      */
-    public DyResult<UploadVideoVo> uploadVideo(String openId, File file) throws FileNotFoundException {
+    public DyResult<UploadVideoVo> uploadVideo(String openId, File file) throws IOException {
         return new VideoHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).uploadVideo(openId, file);
     }
 

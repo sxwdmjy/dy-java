@@ -2,8 +2,11 @@ package com.dyj.spring.config;
 
 import com.dtflys.forest.springboot.ForestAutoConfiguration;
 import com.dtflys.forest.springboot.annotation.ForestScan;
+import com.dyj.common.service.IAgentConfigService;
 import com.dyj.spring.DyConfigurationRegister;
 import com.dyj.spring.properties.DyConfigurationProperties;
+import org.springframework.beans.factory.support.BeanDefinitionBuilder;
+import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -11,6 +14,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
 
@@ -34,8 +38,11 @@ public class DyAutoConfiguration {
         DyConfigurationRegister register = new DyConfigurationRegister(
                 applicationContext,
                 properties);
+        register.registerTokenSource();
+        register.registerAgentSource();
         register.registerDyConfiguration();
         register.setForestProperties();
+
         return register;
     }
 }

@@ -109,15 +109,5 @@ public class CreatePostingTaskQuery extends BaseQuery {
         }
     }
 
-    @Override
-    public String toString() {
-        return "CreatePostingTaskQuery{" +
-                "start_time=" + start_time +
-                ", end_time=" + end_time +
-                ", task_name='" + task_name + '\'' +
-                ", task_condition=" + task_condition +
-                ", tenantId=" + tenantId +
-                ", clientKey='" + clientKey + '\'' +
-                '}';
-    }
+
 }

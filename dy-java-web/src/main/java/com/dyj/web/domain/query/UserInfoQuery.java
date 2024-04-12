@@ -19,12 +19,5 @@ public class UserInfoQuery extends BaseQuery {
         this.open_id = open_id;
     }
 
-    @Override
-    public String toString() {
-        return "UserInfoQuery{" +
-                "open_id='" + open_id + '\'' +
-                ", tenantId=" + tenantId +
-                ", clientKey='" + clientKey + '\'' +
-                '}';
-    }
+
 }

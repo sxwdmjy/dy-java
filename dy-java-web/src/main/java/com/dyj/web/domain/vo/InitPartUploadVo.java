@@ -12,12 +12,4 @@ public class InitPartUploadVo extends BaseVo{
         this.upload_id = upload_id;
     }
 
-    @Override
-    public String toString() {
-        return "InitPartUploadVo{" +
-                "upload_id='" + upload_id + '\'' +
-                ", description='" + description + '\'' +
-                ", error_code=" + error_code +
-                '}';
-    }
 }

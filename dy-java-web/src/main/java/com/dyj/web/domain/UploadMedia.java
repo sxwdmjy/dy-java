@@ -44,13 +44,4 @@ public class UploadMedia {
     public void setStatus(String status) {
         this.status = status;
     }
-
-    @Override
-    public String toString() {
-        return "UploadMedia{" +
-                "media_id='" + media_id + '\'' +
-                ", url_list=" + url_list +
-                ", status='" + status + '\'' +
-                '}';
-    }
 }

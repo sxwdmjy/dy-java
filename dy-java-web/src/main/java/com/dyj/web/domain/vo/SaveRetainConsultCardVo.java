@@ -19,8 +19,5 @@ public class SaveRetainConsultCardVo extends DyResult<BaseVo> {
         this.card_id = card_id;
     }
 
-    @Override
-    public String toString() {
-        return JSONObject.toJSONString(this);
-    }
+
 }

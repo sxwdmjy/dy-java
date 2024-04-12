@@ -119,16 +119,5 @@ public class SaveRetainConsultCardQuery extends UserInfoQuery {
 
     }
 
-    @Override
-    public String toString() {
-        return "SaveRetainConsultCardQuery{" +
-                "card_id='" + card_id + '\'' +
-                ", components=" + components +
-                ", media_id='" + media_id + '\'' +
-                ", title='" + title + '\'' +
-                ", open_id='" + open_id + '\'' +
-                ", tenantId=" + tenantId +
-                ", clientKey='" + clientKey + '\'' +
-                '}';
-    }
+
 }

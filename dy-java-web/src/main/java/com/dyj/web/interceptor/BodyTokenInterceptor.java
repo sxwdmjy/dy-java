@@ -9,6 +9,7 @@ import com.dyj.common.domain.DyResult;
 import com.dyj.common.domain.UserTokenInfo;
 import com.dyj.common.handler.RequestHandler;
 import com.dyj.common.service.IAgentTokenService;
+import com.dyj.common.utils.DyConfigUtils;
 import com.dyj.web.domain.query.UserInfoQuery;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -38,18 +39,13 @@ public class BodyTokenInterceptor implements Interceptor<DyResult> {
                 clientKey = query.getClientKey();
             }
         }
-        IAgentTokenService agentTokenService = RequestHandler.getInstance().getDyConfiguration().getAgentTokenService();
-        UserTokenInfo userTokenInfo = agentTokenService.getTokenInfo(tenantId, clientKey,openId);
+        IAgentTokenService agentTokenService = DyConfigUtils.getAgentTokenService();
+        UserTokenInfo userTokenInfo = agentTokenService.getUserTokenInfo(tenantId, clientKey,openId);
         if (Objects.isNull(userTokenInfo)) {
             throw new RuntimeException("access_token is null");
         }
-        request.addBody("access-token", userTokenInfo.getAccessToken());
-        return Interceptor.super.beforeExecute(request);
-    }
-
-    @Override
-    public void onSuccess(DyResult data, ForestRequest request, ForestResponse response) {
-        log.info("AccessTokenInterceptor onSuccess:" + data.toString());
+        request.addBody("access_token", userTokenInfo.getAccessToken());
+        return true;
     }
 
     @Override
@@ -66,6 +62,6 @@ public class BodyTokenInterceptor implements Interceptor<DyResult> {
         sb.append(", ");
         sb.append("msg:");
         sb.append(ex.getMessage());
-        log.info("AuthInterceptor onError:" + sb.toString());
+        log.info(sb.toString());
     }
 }

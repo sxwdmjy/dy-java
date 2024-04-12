@@ -45,14 +45,5 @@ public class CommentReplyVo extends BaseVo{
         this.nick_name = nick_name;
     }
 
-    @Override
-    public String toString() {
-        return "CommentReplyVo{" +
-                "comment_id='" + comment_id + '\'' +
-                ", avatar='" + avatar + '\'' +
-                ", nick_name='" + nick_name + '\'' +
-                ", description='" + description + '\'' +
-                ", error_code=" + error_code +
-                '}';
-    }
+
 }

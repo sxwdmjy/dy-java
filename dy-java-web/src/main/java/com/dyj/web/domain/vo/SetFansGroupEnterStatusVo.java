@@ -19,8 +19,5 @@ public class SetFansGroupEnterStatusVo extends DyResult<BaseVo> {
         this.success = success;
     }
 
-    @Override
-    public String toString() {
-        return JSONObject.toJSONString(this);
-    }
+
 }

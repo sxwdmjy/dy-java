@@ -21,10 +21,5 @@ public class RetainConsultCardVo extends DyResult<BaseVo> {
         this.cards = cards;
     }
 
-    @Override
-    public String toString() {
-        return "RetainConsultCardVo{" +
-                "cards=" + cards +
-                '}';
-    }
+
 }

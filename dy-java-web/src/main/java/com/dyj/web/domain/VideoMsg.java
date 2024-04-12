@@ -42,12 +42,4 @@ public class VideoMsg extends MsgContent {
         setVideo(itemId);
         return this;
     }
-
-    @Override
-    public String toString() {
-        return "VideoMsg{" +
-                "msg_type=" + getMsg_type() +
-                ", video=" + video +
-                '}';
-    }
 }

@@ -103,8 +103,4 @@ public class FansGroupEnterStatusApplyVo {
         this.list = list;
     }
 
-    @Override
-    public String toString() {
-        return JSONObject.toJSONString(this);
-    }
 }

@@ -46,14 +46,4 @@ public class IntentionLogVo extends BaseVo {
         this.query_session = query_session;
     }
 
-    @Override
-    public String toString() {
-        return "IntentionLogVo{" +
-                "has_more=" + has_more +
-                ", intention_log_infos=" + intention_log_infos +
-                ", query_session='" + query_session + '\'' +
-                ", description='" + description + '\'' +
-                ", error_code=" + error_code +
-                '}';
-    }
 }

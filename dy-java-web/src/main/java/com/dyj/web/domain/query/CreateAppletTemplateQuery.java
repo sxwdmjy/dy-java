@@ -162,18 +162,4 @@ public class CreateAppletTemplateQuery extends UserInfoQuery {
         }
     }
 
-    @Override
-    public String toString() {
-        return "CreateAppletTemplateQuery{" +
-                "card_template_id='" + card_template_id + '\'' +
-                ", card_type=" + card_type +
-                ", content='" + content + '\'' +
-                ", media_id='" + media_id + '\'' +
-                ", app_id='" + app_id + '\'' +
-                ", title='" + title + '\'' +
-                ", open_id='" + open_id + '\'' +
-                ", tenantId=" + tenantId +
-                ", clientKey='" + clientKey + '\'' +
-                '}';
-    }
 }

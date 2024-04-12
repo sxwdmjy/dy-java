@@ -135,18 +135,4 @@ public class SendMsgQuery extends UserInfoQuery {
         }
     }
 
-    @Override
-    public String toString() {
-        return "SendMsgQuery{" +
-                "msg_id='" + msg_id + '\'' +
-                ", conversation_id='" + conversation_id + '\'' +
-                ", to_user_id='" + to_user_id + '\'' +
-                ", content=" + content +
-                ", scene='" + scene + '\'' +
-                ", content_list=" + content_list +
-                ", openId='" + open_id + '\'' +
-                ", tenantId=" + tenantId +
-                ", clientKey='" + clientKey + '\'' +
-                '}';
-    }
 }

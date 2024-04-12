@@ -21,9 +21,4 @@ public class FansGroupCountVo extends DyResult<BaseVo> {
     public void setLeft_count(Integer left_count) {
         this.left_count = left_count;
     }
-
-    @Override
-    public String toString() {
-        return JSONObject.toJSONString(this);
-    }
 }

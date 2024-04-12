@@ -296,24 +296,5 @@ public class CreateFansGroupQuery extends UserInfoQuery {
 
 
 
-    @Override
-    public String toString() {
-        return "CreateFansGroupQuery{" +
-                "avatar_uri='" + avatar_uri + '\'' +
-                ", description='" + description + '\'' +
-                ", group_name='" + group_name + '\'' +
-                ", active_fans=" + active_fans +
-                ", allow_invite=" + allow_invite +
-                ", fans_limit=" + fans_limit +
-                ", group_type=" + group_type +
-                ", live_auto_sync=" + live_auto_sync +
-                ", item_auto_sync=" + item_auto_sync +
-                ", open_audit_switch=" + open_audit_switch +
-                ", relation_type=" + relation_type +
-                ", show_at_profile=" + show_at_profile +
-                ", open_id='" + open_id + '\'' +
-                ", tenantId=" + tenantId +
-                ", clientKey='" + clientKey + '\'' +
-                '}';
-    }
+
 }

@@ -86,15 +86,5 @@ public class RevokeGroupMsgQuery extends UserInfoQuery {
         }
     }
 
-    @Override
-    public String toString() {
-        return "RevokeGroupMsgQuery{" +
-                "msg_id='" + msg_id + '\'' +
-                ", conversation_id='" + conversation_id + '\'' +
-                ", conversation_type=" + conversation_type +
-                ", open_id='" + open_id + '\'' +
-                ", tenantId=" + tenantId +
-                ", clientKey='" + clientKey + '\'' +
-                '}';
-    }
+
 }

@@ -79,14 +79,5 @@ public class AuthorizeUserListQuery extends UserInfoQuery{
     }
 
 
-    @Override
-    public String toString() {
-        return "AuthorizeUserListQuery{" +
-                "page_num=" + page_num +
-                ", page_size=" + page_size +
-                ", open_id='" + open_id + '\'' +
-                ", tenantId=" + tenantId +
-                ", clientKey='" + clientKey + '\'' +
-                '}';
-    }
+
 }

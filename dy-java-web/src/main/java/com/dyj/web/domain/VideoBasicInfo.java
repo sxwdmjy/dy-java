@@ -107,17 +107,4 @@ public class VideoBasicInfo {
     public void setCreate_time(Long create_time) {
         this.create_time = create_time;
     }
-
-    @Override
-    public String toString() {
-        return "VideoBasicInfo{" +
-                "item_id='" + item_id + '\'' +
-                ", video_id='" + video_id + '\'' +
-                ", media_type=" + media_type +
-                ", title='" + title + '\'' +
-                ", video_status=" + video_status +
-                ", cover='" + cover + '\'' +
-                ", create_time=" + create_time +
-                '}';
-    }
 }
