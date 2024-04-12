@@ -1,6 +1,6 @@
 ![输入图片说明](Logo.png)
 
-#### 介绍
+#### 一、介绍
 抖音Java开发工具包，支持包括移动\网站应用、开放平台、抖店、小程序等抖音开发功能模块的后端开发
 
  **简化接口调用方式，开箱即用** 
@@ -16,7 +16,7 @@
 ```
 - 移动\网站应用：`dy-java-web`   
 
-#### 文件配置
+#### 二、文件配置
 ``` yml
 dyjava:
   beanId:  
@@ -47,7 +47,7 @@ dyjava:
     async-mode: platform         # 异步模式（默认为 platform）
 ```
 
-#### 使用示例
+#### 三、使用示例
 
 * 移动\网站应用：
 ```java
@@ -64,7 +64,7 @@ AccessTokenVo accessToken = DyWebClient.getInstance()
         .accessToken(code).getData();
 ```
 
-#### 开发规划
+#### 四、开发规划
 ###### 接口接入计划
 1. 网站应用、App(2024-04-15前完成)
 2. 小程序(2024-04-30前完成)
@@ -79,7 +79,7 @@ AccessTokenVo accessToken = DyWebClient.getInstance()
 
 ![输入图片说明](image2.png)
 
-#### 应用案例
+#### 五、应用案例
  完整案例登记列表，请【[访问这里](https://gitee.com/sxwdmjy/dy-java/issues/I9G8DI)】查看，欢迎登记更多的案例。
 
 以下为节选的部分案例：
