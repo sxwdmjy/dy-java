@@ -145,6 +145,15 @@ public class CreateImageTextQuery extends UserInfoQuery {
             return this;
         }
 
+        public CreateImageTextQueryBuilder openId(String openId) {
+            this.openId = openId;
+            return this;
+        }
+        public CreateImageTextQueryBuilder tenantId(Integer tenantId) {
+            this.tenantId = tenantId;
+            return this;
+        }
+
         public CreateImageTextQuery build() {
             CreateImageTextQuery createImageTextQuery = new CreateImageTextQuery();
             createImageTextQuery.setImage_list(imageList);

@@ -54,13 +54,12 @@ public class VideoHandler extends AbstractWebHandler{
         return getVideoClient().completeVideoPartUpload(query, uploadId);
     }
 
-    public DyResult<BaseVo> updateVideoPart(String openId, String uploadId, Integer partNumber, File file) throws FileNotFoundException {
+    public DyResult<BaseVo> updateVideoPart(String openId, String uploadId, Integer partNumber, File file) throws IOException {
         UserInfoQuery query = new UserInfoQuery();
         query.setTenantId(agentConfiguration.getTenantId());
         query.setClientKey(agentConfiguration.getClientKey());
         query.setOpen_id(openId);
-        FileInputStream inputStream = new FileInputStream(file);
-        return getVideoClient().uploadVideoPart(query, uploadId, partNumber, inputStream);
+        return getVideoClient().uploadVideoPart(query, uploadId, partNumber, Files.newInputStream(file.toPath()));
     }
 
     public DyResult<InitPartUploadVo> initializeVideoPartUpload(String openId) {

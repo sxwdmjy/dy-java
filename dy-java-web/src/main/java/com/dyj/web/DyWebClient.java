@@ -210,7 +210,7 @@ public class DyWebClient {
      * @return DyResult<BaseVo>。
      * @throws FileNotFoundException 如果指定的文件不存在，则抛出此异常。
      */
-    public DyResult<BaseVo> updateVideoPart(String openId, String uploadId, Integer partNumber, File file) throws FileNotFoundException {
+    public DyResult<BaseVo> updateVideoPart(String openId, String uploadId, Integer partNumber, File file) throws IOException {
         return new VideoHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).updateVideoPart(openId, uploadId, partNumber, file);
     }
 
