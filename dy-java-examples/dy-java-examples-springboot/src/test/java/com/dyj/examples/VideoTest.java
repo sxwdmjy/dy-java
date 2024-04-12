@@ -4,7 +4,9 @@ import com.alibaba.fastjson.JSONObject;
 import com.dyj.common.domain.DyResult;
 import com.dyj.web.DyWebClient;
 import com.dyj.web.domain.query.CreateImageTextQuery;
+import com.dyj.web.domain.query.CreateVideoQuery;
 import com.dyj.web.domain.vo.CreateImageTextVo;
+import com.dyj.web.domain.vo.CreateVideoVo;
 import com.dyj.web.domain.vo.UploadImageVo;
 import com.dyj.web.domain.vo.UploadVideoVo;
 import org.apache.commons.io.FileUtils;
@@ -37,10 +39,21 @@ public class VideoTest {
 
     @Test
     public void uploadImage() throws IOException {
-        File file = FileUtils.getFile("C:\\Users\\sunxiwang\\Pictures\\微信图片_20240402102610.png");
+        File file = FileUtils.getFile("20240402102610.png");
         DyResult<UploadImageVo> uploadVideo = DyWebClient.getInstance().uploadImage(openId, file);
         System.out.println(JSONObject.toJSONString(uploadVideo));
     }
 
+    @Test
+    public void uploadVideo() throws IOException {
+        File file = FileUtils.getFile("5bab3d14cf994ec924885f880fcfdd2c.mp4");
+        DyResult<UploadVideoVo> uploadVideo = DyWebClient.getInstance().uploadVideo(openId, file);
+        System.out.println(JSONObject.toJSONString(uploadVideo));
+    }
 
+    @Test
+    public void createVideo() {
+        DyResult<CreateVideoVo> video = DyWebClient.getInstance().createVideo(CreateVideoQuery.builder().build());
+        System.out.println(JSONObject.toJSONString(video));
+    }
 }
