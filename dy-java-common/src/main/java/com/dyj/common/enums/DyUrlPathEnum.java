@@ -326,6 +326,16 @@ public enum DyUrlPathEnum {
     GET_OPEN_TICKET("getOpenTicket","/open/getticket/"),
 
     /**
+     * 获取事件订阅状态
+     */
+    GET_EVENT_SUBSCRIBE_STATUS("getEventSubscribeStatus","/event/status/list/"),
+
+    /**
+     * 更新应用推送事件订阅状态
+     */
+    UPDATE_EVENT_SUBSCRIBE_STATUS("updateEventSubscribeStatus","/event/status/update/"),
+
+    /**
      * 关键词视频搜索
      */
     VIDEO_SEARCH_V2("videoSearchV2", "/video/search/"),

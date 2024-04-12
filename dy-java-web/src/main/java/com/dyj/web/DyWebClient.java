@@ -756,6 +756,25 @@ public class DyWebClient {
     }
 
     /**
+     * 获取事件订阅状态
+     * @return DyResult<EventSubscribeVo>
+     */
+    public DyResult<EventSubscribeVo> getEventSubscribeStatus(){
+        return new ToolsHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).getEventSubscribeStatus();
+    }
+
+
+    /**
+     * 更新事件订阅状态
+     * @param query 状态入参
+     * @return DyResult<BaseVo>
+     */
+    public DyResult<BaseVo> updateEventSubscribeStatus(UpdateEventSubscribeQuery query){
+        return new ToolsHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).updateEventSubscribeStatus(query);
+    }
+
+
+    /**
      * 关键词视频搜索
      * @param openId openId
      * @param keyword 关键词

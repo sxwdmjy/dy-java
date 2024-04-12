@@ -4,9 +4,12 @@ import com.dtflys.forest.annotation.*;
 import com.dtflys.forest.backend.ContentType;
 import com.dyj.common.domain.DyResult;
 import com.dyj.web.domain.query.BaseQuery;
+import com.dyj.web.domain.query.UpdateEventSubscribeQuery;
 import com.dyj.web.domain.vo.BaseVo;
+import com.dyj.web.domain.vo.EventSubscribeVo;
 import com.dyj.web.domain.vo.TicketVo;
 import com.dyj.web.domain.vo.MicAppDevtoolLegalVo;
+import com.dyj.web.interceptor.ClientQueryTokenInterceptor;
 import com.dyj.web.interceptor.ClientTokenInterceptor;
 
 /**
@@ -42,4 +45,18 @@ public interface ToolsClient {
      */
     @Get(value = "${getOpenTicket}", interceptor = ClientTokenInterceptor.class)
     DyResult<TicketVo> getOpenTicket(@Var("query") BaseQuery query);
+
+    /**
+     * 获取事件订阅状态
+     */
+    @Get(value = "${getEventSubscribeStatus}", interceptor = ClientQueryTokenInterceptor.class)
+    DyResult<EventSubscribeVo> getEventSubscribeStatus(@Var("query") BaseQuery query);
+
+    /**
+     * 更新应用推送事件订阅状态
+     * @param query
+     * @return
+     */
+    @Post(value = "${updateEventSubscribeStatus}", interceptor = ClientQueryTokenInterceptor.class)
+    DyResult<BaseVo> updateEventSubscribeStatus(@JSONBody UpdateEventSubscribeQuery query);
 }
