@@ -12,6 +12,7 @@ import com.dyj.common.utils.DyConfigUtils;
 import com.dyj.web.domain.query.*;
 import com.dyj.web.domain.vo.*;
 import com.dyj.web.handler.*;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.util.StreamUtils;
 
 import java.io.File;
@@ -52,6 +53,22 @@ public class DyWebClient {
         return DyConfigUtils.getDyConfig();
     }
 
+
+    /**
+     * 回调事件签名验证
+     * @param signature 签名
+     * @param wholeStr  消息体字符串
+     * @return 验证结果
+     */
+    public Boolean checkSign(String signature, String wholeStr) {
+        AgentConfiguration agentConfiguration = configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey);
+        String data = agentConfiguration.getClientSecret() + wholeStr;
+        String sign = DigestUtils.sha1Hex(data);
+        if(!sign.equals(signature)){
+            return false;
+        }
+        return true;
+    }
 
     /**
      * 通过代码获取访问令牌。
@@ -754,6 +771,25 @@ public class DyWebClient {
     public DyResult<TicketVo> getOpenTicket(){
         return new ToolsHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).getOpenTicket();
     }
+
+    /**
+     * 获取事件订阅状态
+     * @return DyResult<EventSubscribeVo>
+     */
+    public DyResult<EventSubscribeVo> getEventSubscribeStatus(){
+        return new ToolsHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).getEventSubscribeStatus();
+    }
+
+
+    /**
+     * 更新事件订阅状态
+     * @param query 状态入参
+     * @return DyResult<BaseVo>
+     */
+    public DyResult<BaseVo> updateEventSubscribeStatus(UpdateEventSubscribeQuery query){
+        return new ToolsHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).updateEventSubscribeStatus(query);
+    }
+
 
     /**
      * 关键词视频搜索

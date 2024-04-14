@@ -1,13 +1,19 @@
 package com.dyj.web.handler;
 
 import com.dtflys.forest.annotation.Body;
+import com.dtflys.forest.annotation.JSONBody;
 import com.dtflys.forest.annotation.Var;
 import com.dyj.common.config.AgentConfiguration;
 import com.dyj.common.domain.DyResult;
+import com.dyj.web.domain.EventSubscribe;
 import com.dyj.web.domain.query.BaseQuery;
+import com.dyj.web.domain.query.UpdateEventSubscribeQuery;
 import com.dyj.web.domain.vo.BaseVo;
+import com.dyj.web.domain.vo.EventSubscribeVo;
 import com.dyj.web.domain.vo.MicAppDevtoolLegalVo;
 import com.dyj.web.domain.vo.TicketVo;
+
+import java.util.List;
 
 /**
  * @author danmo
@@ -48,5 +54,23 @@ public class ToolsHandler extends AbstractWebHandler {
      */
     public DyResult<TicketVo> getOpenTicket(){
         return getToolsClient().getOpenTicket(baseQuery());
+    }
+
+    /**
+     * 获取事件订阅状态
+     * @return DyResult<EventSubscribeVo>
+     */
+    public DyResult<EventSubscribeVo> getEventSubscribeStatus(){
+        return getToolsClient().getEventSubscribeStatus(baseQuery());
+    }
+
+    /**
+     * 更新事件订阅状态
+     * @param query
+     * @return
+     */
+    public  DyResult<BaseVo> updateEventSubscribeStatus(UpdateEventSubscribeQuery query){
+        baseQuery(query);
+        return getToolsClient().updateEventSubscribeStatus(query);
     }
 }
