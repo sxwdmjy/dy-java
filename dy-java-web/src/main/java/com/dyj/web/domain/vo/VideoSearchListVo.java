@@ -2,6 +2,8 @@ package com.dyj.web.domain.vo;
 
 import com.dyj.web.domain.VideoSearchResult;
 
+import java.util.List;
+
 public class VideoSearchListVo extends BaseVo {
 
     /**
@@ -13,15 +15,14 @@ public class VideoSearchListVo extends BaseVo {
     private Boolean has_more;
 
 
-    private VideoSearchResult list;
+    private List<VideoSearchResult> list;
 
 
-
-    public VideoSearchResult getList() {
+    public List<VideoSearchResult> getList() {
         return list;
     }
 
-    public VideoSearchListVo setList(VideoSearchResult list) {
+    public VideoSearchListVo setList(List<VideoSearchResult> list) {
         this.list = list;
         return this;
     }
@@ -44,12 +45,4 @@ public class VideoSearchListVo extends BaseVo {
         return this;
     }
 
-    @Override
-    public String toString() {
-        return "VideoSearchListVo{" +
-                "list=" + list +
-                ", cursor=" + cursor +
-                ", has_more=" + has_more +
-                '}';
-    }
 }
