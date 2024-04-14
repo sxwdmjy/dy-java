@@ -8,7 +8,7 @@
     </parent>
 
     <artifactId>dy-java-web</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>dy-java-web</name>
 
 
