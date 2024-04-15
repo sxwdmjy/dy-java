@@ -35,12 +35,22 @@ public class CardMsg extends MsgContent {
         this.retain_consult_card.put("card_id", cardId);
     }
 
-    public static CardMsg build() {
-        return new CardMsg();
+    public static CardMsgBuilder builder() {
+        return new CardMsgBuilder();
     }
 
-    public CardMsg cardId(String cardId) {
-        this.setRetainConsultCard(cardId);
-        return this;
-    }
+   public static class CardMsgBuilder {
+        private String cardId;
+
+        public CardMsgBuilder cardId(String cardId) {
+            this.cardId = cardId;
+            return this;
+        }
+
+        public CardMsg build() {
+            CardMsg cardMsg = new CardMsg();
+            cardMsg.setRetainConsultCard(this.cardId);
+            return cardMsg;
+        }
+   }
 }

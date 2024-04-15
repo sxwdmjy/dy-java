@@ -12,7 +12,7 @@ import java.util.Objects;
  * @author danmo
  * @date 2024-04-08 15:56
  **/
-public class InvitationMsg extends MsgContent{
+public class InvitationMsg extends MsgContent {
 
 
     private JSONObject group_invitation;
@@ -20,6 +20,7 @@ public class InvitationMsg extends MsgContent{
     public InvitationMsg() {
         super.setMsg_type(MediaTypeEnum.GROUP_INVITATION);
     }
+
     public JSONObject getGroup_invitation() {
         return group_invitation;
     }
@@ -40,17 +41,28 @@ public class InvitationMsg extends MsgContent{
         }
     }
 
-    public static InvitationMsg build() {
-        return new InvitationMsg();
+    public static InvitationMsgBuilder builder() {
+        return new InvitationMsgBuilder();
     }
 
-    public InvitationMsg groupId(String groupId) {
-        setGroupInvitation(groupId, null);
-        return this;
-    }
+    public static class InvitationMsgBuilder {
+        private String groupId;
+        private String groupToken;
 
-    public InvitationMsg groupToken(String groupToken) {
-        setGroupInvitation(null, groupToken);
-        return this;
+        public InvitationMsgBuilder groupId(String groupId) {
+            this.groupId = groupId;
+            return this;
+        }
+
+        public InvitationMsgBuilder groupToken(String groupToken) {
+            this.groupToken = groupToken;
+            return this;
+        }
+
+        public InvitationMsg build() {
+            InvitationMsg invitationMsg = new InvitationMsg();
+            invitationMsg.setGroupInvitation(groupId, groupToken);
+            return invitationMsg;
+        }
     }
 }

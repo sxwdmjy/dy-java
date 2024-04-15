@@ -35,13 +35,20 @@ public class ImageMsg extends MsgContent{
         this.image = image;
     }
 
-
-    public static ImageMsg build(){
-        return new ImageMsg();
+    public static ImageMsgBuilder builder() {
+        return new ImageMsgBuilder();
     }
 
-    public ImageMsg mediaId(String mediaId){
-        setImage(mediaId);
-        return this;
+    public static class ImageMsgBuilder {
+        private String mediaId;
+        public ImageMsgBuilder mediaId(String mediaId) {
+            this.mediaId = mediaId;
+            return this;
+        }
+        public ImageMsg build() {
+            ImageMsg imageMsg = new ImageMsg();
+            imageMsg.setImage(mediaId);
+            return imageMsg;
+        }
     }
 }
