@@ -13,6 +13,7 @@
         <module>dy-java-spring</module>
         <module>dy-java-common</module>
         <module>dy-java-web</module>
+        <module>dy-java-applet</module>
     </modules>
 
     <properties>

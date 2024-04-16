@@ -1,4 +1,8 @@
 package com.dyj.common.client;
 
-public interface BaseClient {
+public class BaseClient {
+
+    public Integer tenantId;
+
+    public String clientKey;
 }

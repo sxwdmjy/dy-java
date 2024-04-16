@@ -72,7 +72,7 @@ public class GroupHandler extends AbstractWebHandler{
         return getGroupClient().sendGroupMessage(query);
     }
 
-    public DySimpleResult revokeGroupMessage(RevokeGroupMsgQuery query) {
+    public DySimpleResult<BaseVo> revokeGroupMessage(RevokeGroupMsgQuery query) {
         query.setTenantId(agentConfiguration.getTenantId());
         query.setClientKey(agentConfiguration.getClientKey());
         return getGroupClient().revokeGroupMessage(query);

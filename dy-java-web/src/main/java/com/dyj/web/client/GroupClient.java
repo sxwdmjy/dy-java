@@ -41,5 +41,5 @@ public interface GroupClient {
     ChatMsgResponseVo sendGroupMessage(@JSONBody SendGroupMsgQuery query);
 
     @Post(value = "${revokeGroupMessage}", interceptor = TokenHeaderInterceptor.class)
-    DySimpleResult revokeGroupMessage(@JSONBody RevokeGroupMsgQuery query);
+    DySimpleResult<BaseVo> revokeGroupMessage(@JSONBody RevokeGroupMsgQuery query);
 }
