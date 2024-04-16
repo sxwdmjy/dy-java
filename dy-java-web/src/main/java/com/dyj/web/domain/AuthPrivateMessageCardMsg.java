@@ -38,18 +38,26 @@ public class AuthPrivateMessageCardMsg extends MsgContent{
         }
     }
 
-    public static AuthPrivateMessageCardMsg build(){
-        return new AuthPrivateMessageCardMsg();
+    public static AuthPrivateMessageCardMsgBuilder builder() {
+        return new AuthPrivateMessageCardMsgBuilder();
     }
 
-    public AuthPrivateMessageCardMsg appInfo(AuthPrivateMessageCardAppInfo appInfo){
-        setAuthPrivateMessageCard(appInfo,null);
-        return this;
-    }
-
-    public AuthPrivateMessageCardMsg toUserInfo(AuthPrivateMessageCardToUserInfo toUserInfo){
-        setAuthPrivateMessageCard(null,toUserInfo);
-        return this;
+    public static class AuthPrivateMessageCardMsgBuilder {
+        private AuthPrivateMessageCardAppInfo appInfo;
+        private AuthPrivateMessageCardToUserInfo toUserInfo;
+        public AuthPrivateMessageCardMsgBuilder appInfo(AuthPrivateMessageCardAppInfo appInfo) {
+            this.appInfo = appInfo;
+            return this;
+        }
+        public AuthPrivateMessageCardMsgBuilder toUserInfo(AuthPrivateMessageCardToUserInfo toUserInfo) {
+            this.toUserInfo = toUserInfo;
+            return this;
+        }
+        public AuthPrivateMessageCardMsg build() {
+            AuthPrivateMessageCardMsg authPrivateMessageCardMsg = new AuthPrivateMessageCardMsg();
+            authPrivateMessageCardMsg.setAuthPrivateMessageCard(appInfo,toUserInfo);
+            return authPrivateMessageCardMsg;
+        }
     }
 
 
@@ -64,13 +72,20 @@ public class AuthPrivateMessageCardMsg extends MsgContent{
             this.app_id = app_id;
         }
 
-        public static AuthPrivateMessageCardAppInfo build(){
-            return new AuthPrivateMessageCardAppInfo();
+        public static AuthPrivateMessageCardAppInfoBuilder builder(){
+            return new AuthPrivateMessageCardAppInfoBuilder();
         }
-
-        public AuthPrivateMessageCardAppInfo appId(String appId){
-            this.app_id = appId;
-            return this;
+        public static class AuthPrivateMessageCardAppInfoBuilder {
+            private String appId;
+            public AuthPrivateMessageCardAppInfoBuilder appId(String appId){
+                this.appId = appId;
+                return this;
+            }
+            public AuthPrivateMessageCardAppInfo build(){
+                AuthPrivateMessageCardAppInfo authPrivateMessageCardAppInfo = new AuthPrivateMessageCardAppInfo();
+                authPrivateMessageCardAppInfo.setApp_id(appId);
+                return authPrivateMessageCardAppInfo;
+            }
         }
     }
 
@@ -94,13 +109,27 @@ public class AuthPrivateMessageCardMsg extends MsgContent{
             this.open_id = open_id;
         }
 
-        public static AuthPrivateMessageCardToUserInfo build(){
-            return new AuthPrivateMessageCardToUserInfo();
+        public static AuthPrivateMessageCardToUserInfoBuilder builder(){
+            return new AuthPrivateMessageCardToUserInfoBuilder();
         }
 
-        public AuthPrivateMessageCardToUserInfo appId(String appId){
-            this.app_id = appId;
-            return this;
+        public static class AuthPrivateMessageCardToUserInfoBuilder {
+            private String appId;
+            private String openId;
+            public AuthPrivateMessageCardToUserInfoBuilder appId(String appId){
+                this.appId = appId;
+                return this;
+            }
+            public AuthPrivateMessageCardToUserInfoBuilder openId(String openId){
+                this.openId = openId;
+                return this;
+            }
+            public AuthPrivateMessageCardToUserInfo build(){
+                AuthPrivateMessageCardToUserInfo authPrivateMessageCardToUserInfo = new AuthPrivateMessageCardToUserInfo();
+                authPrivateMessageCardToUserInfo.setApp_id(appId);
+                authPrivateMessageCardToUserInfo.setOpen_id(openId);
+                return authPrivateMessageCardToUserInfo;
+            }
         }
 
     }

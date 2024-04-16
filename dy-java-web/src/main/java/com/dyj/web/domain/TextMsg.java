@@ -33,14 +33,25 @@ public class TextMsg extends MsgContent{
         this.text = text;
     }
 
-    public static TextMsg build(){
-        return new TextMsg();
+    public static TextMsgBuilder builder(){
+        return new TextMsgBuilder();
     }
 
-    public TextMsg text(String text){
-        setText(text);
-        return this;
+    public static class TextMsgBuilder{
+        private String text;
+
+        public TextMsgBuilder text(String text){
+            this.text = text;
+            return this;
+        }
+
+        public TextMsg build(){
+            TextMsg textMsg = new TextMsg();
+            textMsg.setText(text);
+            return textMsg;
+        }
     }
+
 
 
 }

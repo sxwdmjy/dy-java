@@ -54,34 +54,47 @@ public class AppletCardMsg extends MsgContent {
         }
     }
 
-
-    public static AppletCardMsg build() {
-        return new AppletCardMsg();
+    public static AppletCardMsgBuilder builder() {
+        return new AppletCardMsgBuilder();
     }
 
-    public AppletCardMsg cardTemplateId(String cardTemplateId) {
-        setAppletCard(cardTemplateId, null, null, null, null);
-        return this;
-    }
+    public static class AppletCardMsgBuilder {
+        private String cardTemplateId;
+        private String path;
+        private String query;
+        private String appId;
+        private String schema;
 
-    public AppletCardMsg path(String path) {
-        setAppletCard(null, path, null, null,null);
-        return this;
-    }
+        public AppletCardMsgBuilder cardTemplateId(String cardTemplateId) {
+            this.cardTemplateId = cardTemplateId;
+            return this;
+        }
 
+        public AppletCardMsgBuilder path(String path) {
+            this.path = path;
+            return this;
+        }
 
-    public AppletCardMsg query(String query) {
-        setAppletCard(null, null, query, null,null);
-        return this;
-    }
+        public AppletCardMsgBuilder query(String query) {
+            this.query = query;
+            return this;
+        }
 
-    public AppletCardMsg appId(String appId) {
-        setAppletCard(null, null, null, appId,null);
-        return this;
-    }
+        public AppletCardMsgBuilder appId(String appId) {
+            this.appId = appId;
+            return this;
+        }
 
-    public AppletCardMsg schema(String schema) {
-        setAppletCard(null, null, null, null,schema);
-        return this;
+        public AppletCardMsgBuilder schema(String schema) {
+            this.schema = schema;
+            return this;
+        }
+
+        public AppletCardMsg build() {
+            AppletCardMsg appletCardMsg = new AppletCardMsg();
+            appletCardMsg.setAppletCard(cardTemplateId, path, query, appId, schema);
+            return appletCardMsg;
+        }
+
     }
 }

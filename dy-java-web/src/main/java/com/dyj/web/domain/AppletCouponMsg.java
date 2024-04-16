@@ -40,17 +40,25 @@ public class AppletCouponMsg extends MsgContent{
         }
     }
 
-    public static AppletCouponMsg build() {
-        return new AppletCouponMsg();
+    public static AppletCouponMsgBuilder builder() {
+        return new AppletCouponMsgBuilder();
+    }
+    public static class AppletCouponMsgBuilder {
+        private String activityId;
+        private String couponMetaId;
+        public AppletCouponMsgBuilder activityId(String activityId) {
+            this.activityId = activityId;
+            return this;
+        }
+        public AppletCouponMsgBuilder couponMetaId(String couponMetaId) {
+            this.couponMetaId = couponMetaId;
+            return this;
+        }
+        public AppletCouponMsg build() {
+            AppletCouponMsg appletCouponMsg = new AppletCouponMsg();
+            appletCouponMsg.setAppletCoupon(activityId,couponMetaId);
+            return appletCouponMsg;
+        }
     }
 
-    public AppletCouponMsg activityId(String activityId) {
-        setAppletCoupon(activityId,null);
-        return this;
-    }
-
-    public AppletCouponMsg couponMetaId(String couponMetaId) {
-        setAppletCoupon(null,couponMetaId);
-        return this;
-    }
 }

@@ -324,6 +324,133 @@ public enum DyUrlPathEnum {
      * 获取 open_ticket
      */
     GET_OPEN_TICKET("getOpenTicket","/open/getticket/"),
+
+    /**
+     * 获取事件订阅状态
+     */
+    GET_EVENT_SUBSCRIBE_STATUS("getEventSubscribeStatus","/event/status/list/"),
+
+    /**
+     * 更新应用推送事件订阅状态
+     */
+    UPDATE_EVENT_SUBSCRIBE_STATUS("updateEventSubscribeStatus","/event/status/update/"),
+
+    /**
+     * 关键词视频搜索
+     */
+    VIDEO_SEARCH_V2("videoSearchV2", "/video/search/"),
+
+    /**
+     * 关键词视频评论列表
+     */
+    VIDEO_SEARCH_COMMENT_LIST_V2("videoSearchCommentListV2", "/video/search/comment/list/"),
+
+    /**
+     * 关键词视频评论回复
+     */
+    VIDEO_SEARCH_COMMENT_REPLY_V2("videoSearchCommentReplyV2", "/video/search/comment/reply/"),
+
+    /**
+     * 关键词视频评论回复列表
+     */
+    VIDEO_SEARCH_COMMENT_REPLY_LIST_V2("videoSearchCommentReplyListV2", "/video/search/comment/reply/list/"),
+
+    /**
+     * 获取用户视频情况
+     */
+    EXTERNAL_USER_ITEM("externalUserItem", "/data/external/user/item/"),
+
+    /**
+     * 获取用户粉丝数
+     */
+    EXTERNAL_USER_FANS("externalUserFans", "/data/external/user/fans/"),
+
+    /**
+     * 获取用户点赞数
+     */
+    EXTERNAL_USER_LIKE("externalUserLike", "/data/external/user/like/"),
+
+    /**
+     * 获取用户评论数
+     */
+    EXTERNAL_USER_COMMENT("externalUserComment", "/data/external/user/comment/"),
+
+    /**
+     * 获取用户分享数
+     */
+    EXTERNAL_USER_SHARE("externalUserShare", "/data/external/user/share/"),
+
+
+    /**
+     * 获取用户主页访问数
+     */
+    EXTERNAL_USER_PROFILE("externalUserProfile", "/data/external/user/profile/"),
+
+    /**
+     * 获取视频基础数据
+     */
+    EXTERNAL_ITEM_BASE("externalItemBase", "/data/external/item/base/"),
+
+    /**
+     * 获取视频点赞数据
+     */
+    EXTERNAL_ITEM_LIKE("externalItemLike", "/data/external/item/like/"),
+
+    /**
+     * 获取视频评论数据
+     */
+    EXTERNAL_ITEM_COMMENT("externalItemComment", "/data/external/item/comment/"),
+
+    /**
+     * 获取视频播放数据
+     */
+    EXTERNAL_ITEM_PLAY("externalItemPlay", "/data/external/item/play/"),
+
+    /**
+     * 获取视频分享数据
+     */
+    EXTERNAL_ITEM_SHARE("externalItemShare", "/data/external/item/share/"),
+
+    /**
+     * 获取主播历史开播过的房间ID
+     */
+    GET_ROOM_ID_LIST("getRoomIdList", "/room/data/room_id/get/"),
+
+    /**
+     * 获取直播间互动数据
+     */
+    GET_ROOM_INTERACTIVE_DATA("getRoomInteractiveData", "/room/data/interactive/get/"),
+
+    /**
+     * 获取直播间看播数据
+     */
+    GET_ROOM_AUDIENCE_DATA("getRoomAudienceData", "/room/data/audience/get/"),
+
+    /**
+     * 获取直播间基础数据
+     */
+    GET_ROOM_BASE_DATA("getRoomBaseData", "/room/data/base/get/"),
+
+    /**
+     * 获取用户粉丝数据
+     */
+    API_FANS_DATA_BIND("apiFansDataBind", "/api/douyin/v1/user/fans_data/"),
+
+    /**
+     * 获取用户粉丝来源
+     */
+    GET_FANS_SOURCE("getFansSource", "/data/extern/fans/source/"),
+
+    /**
+     * 获取用户粉丝喜好
+     */
+    GET_FANS_FAVOURITE("getFansFavourite", "/data/extern/fans/favourite/"),
+
+    /**
+     * 获取用户粉丝热评
+     */
+    GET_FANS_COMMENT("getFansComment", "/data/extern/fans/comment/"),
+
     ;
 
 

@@ -67,6 +67,12 @@ public abstract class AbstractWebHandler {
         return SpringUtils.getBean(ToolsClient.class);
     }
 
+    protected SearchClient getSearchClient() {
+        return SpringUtils.getBean(SearchClient.class);
+    }
+    protected DataExternalClient getDataExternalClient() {
+        return SpringUtils.getBean(DataExternalClient.class);
+    }
     protected BaseQuery baseQuery(){
         return baseQuery(null);
     }

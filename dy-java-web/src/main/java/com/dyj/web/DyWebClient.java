@@ -6,12 +6,12 @@ import com.dyj.common.config.DyConfiguration;
 import com.dyj.common.domain.DyResult;
 import com.dyj.common.domain.DySimpleResult;
 import com.dyj.common.domain.UserTokenInfo;
-import com.dyj.common.handler.RequestHandler;
-import com.dyj.common.service.IAgentConfigService;
 import com.dyj.common.utils.DyConfigUtils;
+import com.dyj.web.domain.*;
 import com.dyj.web.domain.query.*;
 import com.dyj.web.domain.vo.*;
 import com.dyj.web.handler.*;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.util.StreamUtils;
 
 import java.io.File;
@@ -52,6 +52,22 @@ public class DyWebClient {
         return DyConfigUtils.getDyConfig();
     }
 
+
+    /**
+     * 回调事件签名验证
+     * @param signature 签名
+     * @param wholeStr  消息体字符串
+     * @return 验证结果
+     */
+    public Boolean checkSign(String signature, String wholeStr) {
+        AgentConfiguration agentConfiguration = configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey);
+        String data = agentConfiguration.getClientSecret() + wholeStr;
+        String sign = DigestUtils.sha1Hex(data);
+        if(!sign.equals(signature)){
+            return false;
+        }
+        return true;
+    }
 
     /**
      * 通过代码获取访问令牌。
@@ -753,5 +769,267 @@ public class DyWebClient {
      */
     public DyResult<TicketVo> getOpenTicket(){
         return new ToolsHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).getOpenTicket();
+    }
+
+    /**
+     * 获取事件订阅状态
+     * @return DyResult<EventSubscribeVo>
+     */
+    public DyResult<EventSubscribeVo> getEventSubscribeStatus(){
+        return new ToolsHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).getEventSubscribeStatus();
+    }
+
+
+    /**
+     * 更新事件订阅状态
+     * @param query 状态入参
+     * @return DyResult<BaseVo>
+     */
+    public DyResult<BaseVo> updateEventSubscribeStatus(UpdateEventSubscribeQuery query){
+        return new ToolsHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).updateEventSubscribeStatus(query);
+    }
+
+
+    /**
+     * 关键词视频搜索
+     * @param openId openId
+     * @param keyword 关键词
+     * @param cursor 分页游标, 第一页请求cursor是0, response中会返回下一页请求用到的cursor, 同时response还会返回has_more来表明是否有更多的数据。 选填
+     * @param count 每页数量
+     * @return
+     */
+    public DyResult<VideoSearchListVo> videoSearchV2(String openId, String keyword, Integer count, Long cursor){
+        return new SearchHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).videoSearchV2(openId, keyword, count, cursor);
+    }
+
+    /**
+     * 关键词视频评论列表
+     * @param count 每页数量。
+     * @param secItemId 视频搜索接口返回的加密的视频id
+     * @param cursor 分页游标, 第一页请求cursor是0, response中会返回下一页请求用到的cursor, 同时response还会返回has_more来表明是否有更多的数据。 选填
+     * @return
+     */
+    public DyResult<VideoSearchCommentListV2ListVo> videoSearchCommentListV2(Integer count, String secItemId, Long cursor){
+        return new SearchHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).videoSearchCommentListV2(count, secItemId, cursor);
+    }
+
+
+    /**
+     * 关键词视频评论回复
+     * @param body 关键词视频评论回复请求值
+     * @return
+     */
+    public DyResult<VideoSearchCommentReplyV2Result> videoSearchCommentReplyV2(VideoSearchCommentReplyV2Query body){
+        return new SearchHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).videoSearchCommentReplyV2(body);
+    }
+
+    /**
+     * 关键词视频评论回复列表
+     * @param cursor 分页游标, 第一页请求cursor是0, response中会返回下一页请求用到的cursor, 同时response还会返回has_more来表明是否有更多的数据。 选填
+     * @param count 每页数量。
+     * @param secItemId 视频搜索接口返回的加密的视频id
+     * @param commentId 评论id
+     * @return
+     */
+    public DyResult<VideoSearchCommentListV2ListVo> videoSearchCommentReplyListV2(Long cursor,Integer count,String secItemId,String commentId){
+        return new SearchHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).videoSearchCommentReplyListV2(cursor, count, secItemId, commentId);
+    }
+
+    /**
+     * 获取用户视频情况
+     * @param dateType 近7/15/30天；输入7代表7天、15代表15天、30代表30天。
+     * @param openId 通过/oauth/access_token/获取，用户唯一标志
+     * @return
+     */
+    public DyResult<ResultListVo<ExternalUserItemResult>> externalUserItem(Long dateType, String openId){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).externalUserItem(dateType,openId);
+    }
+
+    /**
+     * 获取用户粉丝数
+     * @param openId 通过/oauth/access_token/获取，用户唯一标志
+     * @param dateType 近7/15/30天；输入7代表7天、15代表15天、30代表30天。
+     * @return
+     */
+    public DyResult<ResultListVo<ExternalUserFansResult>> externalUserFans(Long dateType, String openId){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).externalUserFans(dateType,openId);
+    }
+
+    /**
+     * 获取用户点赞数
+     * @param dateType 近7/15/30天；输入7代表7天、15代表15天、30代表30天。
+     * @param openId 通过/oauth/access_token/获取，用户唯一标志
+     * @return
+     */
+    public DyResult<ResultListVo<ExternalUserLikeResult>> externalUserLike(Long dateType, String openId){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).externalUserLike(dateType,openId);
+    }
+
+    /**
+     * 获取用户评论数
+     * @param dateType 近7/15/30天；输入7代表7天、15代表15天、30代表30天。
+     * @param openId 通过/oauth/access_token/获取，用户唯一标志
+     * @return
+     */
+    public DyResult<ResultListVo<ExternalUserCommentResult>> externalUserComment(Long dateType, String openId){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).externalUserComment(dateType,openId);
+    }
+
+    /**
+     * 获取用户分享数
+     * @param dateType 近7/15/30天；输入7代表7天、15代表15天、30代表30天。
+     * @param openId 通过/oauth/access_token/获取，用户唯一标志
+     * @return
+     */
+    public DyResult<ResultListVo<ExternalUserShareResult>> externalUserShare(Long dateType, String openId){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).externalUserShare(dateType,openId);
+
+    }
+
+    /**
+     * 获取用户主页访问数
+     * @param dateType 近7/15/30天；输入7代表7天、15代表15天、30代表30天。
+     * @param openId 通过/oauth/access_token/获取，用户唯一标志
+     * @return
+     */
+    public DyResult<ResultListVo<ExternalUserProfileResult>> externalUserProfile(Long dateType,String openId){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).externalUserProfile(dateType,openId);
+    }
+
+    /**
+     * 获取视频基础数据
+     * @param itemId item_id，仅能查询access_token对应用户上传的视频
+     * @param openId 通过/oauth/access_token/获取，用户唯一标志
+     * @return
+     */
+    public DyResult<ResultVo<ExternalItemBaseResult>> externalItemBase(String itemId, String openId) {
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).externalItemBase(itemId,openId);
+    }
+
+    /**
+     * 获取视频点赞数据
+     * @param dateType 近7/15/30天；输入7代表7天、15代表15天、30代表30天。
+     * @param itemId item_id，仅能查询access_token对应用户上传的视频
+     * @param openId 通过/oauth/access_token/获取，用户唯一标志
+     * @return
+     */
+    public DyResult<ResultListVo<ExternalItemLikeResult>> externalItemLike(Long dateType,String itemId,String openId){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).externalItemLike(dateType,itemId,openId);
+    }
+
+    /**
+     * 获取视频评论数据
+     * @param dateType 近7/15/30天；输入7代表7天、15代表15天、30代表30天。
+     * @param itemId item_id，仅能查询access_token对应用户上传的视频
+     * @param openId 通过/oauth/access_token/获取，用户唯一标志
+     * @return
+     */
+    public DyResult<ResultListVo<ExternalItemCommentResult>> externalItemComment(Long dateType,String itemId,String openId){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).externalItemComment(dateType,itemId,openId);
+    }
+
+    /**
+     * 获取视频播放数据
+     * @param dateType 近7/15/30天；输入7代表7天、15代表15天、30代表30天。
+     * @param itemId item_id，仅能查询access_token对应用户上传的视频
+     * @param openId 通过/oauth/access_token/获取，用户唯一标志
+     * @return
+     */
+    public DyResult<ResultListVo<ExternalItemPlayResult>> externalItemPlay(Long dateType,String itemId,String openId){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).externalItemPlay(dateType,itemId,openId);
+    }
+
+    /**
+     * 获取视频分享数据
+     * @param dateType 近7/15/30天；输入7代表7天、15代表15天、30代表30天。
+     * @param itemId item_id，仅能查询access_token对应用户上传的视频
+     * @param openId 通过/oauth/access_token/获取，用户唯一标志
+     * @return
+     */
+    public DyResult<ResultListVo<ExternalItemShareResult>> externalItemShare(Long dateType,String itemId,String openId){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).externalItemShare(dateType,itemId,openId);
+    }
+
+
+    /**
+     * 获取主播历史开播过的房间ID
+     * @param endTime 查询结束时间，秒级时间戳。
+     * @param openId 通过/oauth/access_token/获取，用户唯一标志
+     * @param startTime 查询开始时间，秒级时间戳。
+     * @return
+     */
+    public GetRoomIdListVo getRoomIdList(Long endTime, String openId, Long startTime){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).getRoomIdList(endTime,openId,startTime);
+
+    }
+
+    /**
+     * 获取直播间互动数据
+     * @param liveId 业务线，1：抖火，3：西瓜头条
+     * @param openId 通过/oauth/access_token/获取，用户唯一标志
+     * @param roomId 房间id
+     * @return
+     */
+    public DySimpleResult<LiveRoomResult> getRoomInteractiveData(Long liveId, String openId, Long roomId){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).getRoomInteractiveData(liveId,openId,roomId);
+    }
+
+    /**
+     * 获取直播间看播数据
+     * @param liveId 业务线，1：抖火，3：西瓜头条
+     * @param openId 调用 /oauth/access_token/ 生成的 open_id，53dba859-3b1a-4a82-9249-3baf97fcada8
+     * @param roomId 房间id
+     * @return
+     */
+    public DySimpleResult<LiveRoomResult> getRoomAudienceData(Long liveId,String openId,Long roomId){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).getRoomAudienceData(liveId,openId,roomId);
+    }
+
+    /**
+     * 获取直播间基础数据
+     * @param liveId 业务线，1：抖火，3：西瓜头条
+     * @param openId <p>调用 <a href="https://developer.open-douyin.com/docs/resource/zh-CN/dop/develop/openapi/account-permission/get-access-token" target="_blank" rel="nofollow" class="syl-link" elementtiming="element-timing">/oauth/access_token/</a> 生成的 open_id，53dba859-3b1a-4a82-9249-3baf97fcada8</p>
+     * @param roomId 房间id
+     * @return
+     */
+    public DySimpleResult<LiveRoomResult> getRoomBaseData(Long liveId,String openId,Long roomId){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).getRoomBaseData(liveId,openId,roomId);
+    }
+
+    /**
+     * 获取用户粉丝数据
+     * @param openId 通过/oauth/access_token/获取，用户唯一标志
+     * @return
+     */
+    public DyResult<ApiFansDataBindFansVo> apiFansDataBind(String openId){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).apiFansDataBind(openId);
+    }
+
+    /**
+     * 获取用户粉丝来源
+     * @param openId 通过/oauth/access_token/获取，用户唯一标志
+     * @return
+     */
+    public DyResult<ListVo<ItemValue>> getFansSource(String openId){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).getFansSource(openId);
+    }
+
+    /**
+     * 获取用户粉丝喜好
+     * @param openId 通过/oauth/access_token/获取，用户唯一标志
+     * @return
+     */
+    public DyResult<ListVo<GetFansFavouriteResult>> getFansFavourite(String openId){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).getFansFavourite(openId);
+    }
+
+    /**
+     * 获取用户粉丝热评
+     * @param openId 通过/oauth/access_token/获取，用户唯一标志
+     * @return
+     */
+    public DyResult<ListVo<GetFansCommentResult>> getFansComment(String openId){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).getFansComment(openId);
+
     }
 }

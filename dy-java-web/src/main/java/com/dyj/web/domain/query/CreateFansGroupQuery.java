@@ -32,7 +32,7 @@ public class CreateFansGroupQuery extends UserInfoQuery {
     private Integer fans_limit;
 
     /**
-     * 2 主播粉丝群  5 万粉群
+     * 2-主播粉丝群  5-万粉群
      */
     private Integer group_type;
 
@@ -159,9 +159,9 @@ public class CreateFansGroupQuery extends UserInfoQuery {
     }
 
 
-    public static CreateFansGroupQuery Builder()
+    public static CreateFansGroupQueryBuilder builder()
     {
-        return new CreateFansGroupQuery();
+        return new CreateFansGroupQueryBuilder();
     }
 
 

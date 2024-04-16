@@ -120,6 +120,53 @@ public class SendMsgQuery extends UserInfoQuery {
         private Integer tenantId;
         private String clientKey;
         private String openId;
+
+        public SendMsgQueryBuilder msgId(String msgId) {
+            this.msgId = msgId;
+            return this;
+        }
+
+        public SendMsgQueryBuilder conversationId(String conversationId) {
+            this.conversationId = conversationId;
+            return this;
+        }
+
+        public SendMsgQueryBuilder toUserId(String toUserId) {
+            this.toUserId = toUserId;
+            return this;
+        }
+
+        public SendMsgQueryBuilder content(MsgContent content) {
+            this.content = content;
+            return this;
+        }
+
+        public SendMsgQueryBuilder scene(String scene) {
+            this.scene = scene;
+            return this;
+        }
+
+        public SendMsgQueryBuilder contentList(List<MsgContent> contentList) {
+            this.contentList = contentList;
+            return this;
+        }
+
+        public SendMsgQueryBuilder tenantId(Integer tenantId) {
+            this.tenantId = tenantId;
+            return this;
+        }
+
+        public SendMsgQueryBuilder clientKey(String clientKey) {
+            this.clientKey = clientKey;
+            return this;
+        }
+
+        public SendMsgQueryBuilder openId(String openId) {
+            this.openId = openId;
+            return this;
+        }
+
+
         public SendMsgQuery build() {
             SendMsgQuery sendMsgQuery = new SendMsgQuery();
             sendMsgQuery.setMsg_id(msgId);
