@@ -15,6 +15,7 @@ DyJava是一款功能强大的抖音Java开发工具包，支持多种抖音开�
  </dependency>
 ```
 - 移动\网站应用：`dy-java-web`   
+- 小程序应用：`dy-java-applet`   
 
 #### 二、文件配置
 ``` yml
@@ -59,6 +60,21 @@ AccessTokenVo accessToken = DyWebClient.getInstance()
         .accessToken(code).getData();
 //多租户多应用获取AccessToken
 AccessTokenVo accessToken = DyWebClient.getInstance()
+        .tenantId(1)
+        .clientKey("123")
+        .accessToken(code).getData();
+```
+
+* 小程序应用：
+```java
+//单租户获取AccessToken
+DyAppletClient.getInstance().accessToken(code).getData();
+//多租户单应用获取AccessToken
+DyAppletClient.getInstance()
+        .tenantId(1)
+        .accessToken(code).getData();
+//多租户多应用获取AccessToken
+DyAppletClient.getInstance()
         .tenantId(1)
         .clientKey("123")
         .accessToken(code).getData();
