@@ -73,7 +73,7 @@ public class BusinessHandler extends AbstractWebHandler{
         return getBusinessClient().imageClientUpload(query, inputStream);
     }
 
-    public ImageClientUploadVo imageClientUpload(Byte[] bytes) {
+    public ImageClientUploadVo imageClientUpload(byte[] bytes) {
         BaseQuery query = new BaseQuery();
         query.setClientKey(agentConfiguration.getClientKey());
         query.setTenantId(agentConfiguration.getTenantId());

@@ -19,4 +19,23 @@ public class UpdateEventSubscribeQuery extends BaseQuery{
     public void setList(List<EventSubscribe> list) {
         this.list = list;
     }
+
+    public static UpdateEventSubscribeQueryBuild builder() {
+        return new UpdateEventSubscribeQueryBuild();
+    }
+
+    public static class UpdateEventSubscribeQueryBuild {
+        private List<EventSubscribe> list;
+
+        public UpdateEventSubscribeQueryBuild list(List<EventSubscribe> list) {
+            this.list = list;
+            return this;
+        }
+
+        public UpdateEventSubscribeQuery build() {
+            UpdateEventSubscribeQuery updateEventSubscribeQuery = new UpdateEventSubscribeQuery();
+            updateEventSubscribeQuery.setList(list);
+            return updateEventSubscribeQuery;
+        }
+    }
 }

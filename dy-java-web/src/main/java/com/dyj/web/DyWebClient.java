@@ -507,7 +507,7 @@ public class DyWebClient {
      * @param bytes 图片文件字节数组
      * @return 返回上传图片结果
      */
-    public ImageClientUploadVo imageClientUpload(Byte[] bytes) {
+    public ImageClientUploadVo imageClientUpload(byte[] bytes) {
         return new BusinessHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).imageClientUpload(bytes);
     }
 
@@ -526,7 +526,7 @@ public class DyWebClient {
      * @param query
      * @return
      */
-    public DyResult<BaseVo> commentTop(@JSONBody CommentQuery query) {
+    public DyResult<BaseVo> commentTop(CommentQuery query) {
         return new CommentHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).commentTop(query);
     }
 
@@ -565,7 +565,7 @@ public class DyWebClient {
      * @param query 包含评论信息的查询参数。
      * @return 返回评论回复的结果，包含评论回复的详细信息。
      */
-    public DyResult<CommentReplyVo> commentReply(@JSONBody CommentQuery query) {
+    public DyResult<CommentReplyVo> commentReply(CommentQuery query) {
         // 通过租户ID和客户端密钥加载代理配置，创建评论处理器并发表评论回复
         return new CommentHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).commentReply(query);
     }
@@ -595,7 +595,7 @@ public class DyWebClient {
      * @param expireAt 生成短链过期时间
      * @return DySimpleResult<SchemaShareVo>
      */
-    DySimpleResult<SchemaShareVo> getUserChat(String openId,String account, Long expireAt){
+    public DySimpleResult<SchemaShareVo> getUserChat(String openId, String account, Long expireAt){
         return new SchemaHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).getUserChat(openId, account, expireAt);
     }
     /**
