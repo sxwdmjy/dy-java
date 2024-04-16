@@ -3,14 +3,14 @@ package com.dyj.web.handler;
 import com.dyj.common.config.AgentConfiguration;
 import com.dyj.common.domain.DyResult;
 import com.dyj.common.utils.DyConfigUtils;
-import com.dyj.web.domain.query.AccessTokenQuery;
-import com.dyj.web.domain.query.ClientTokenQuery;
-import com.dyj.web.domain.query.RefreshAccessTokenQuery;
-import com.dyj.web.domain.query.RefreshTokenQuery;
-import com.dyj.web.domain.vo.AccessTokenVo;
-import com.dyj.web.domain.vo.ClientTokenVo;
-import com.dyj.web.domain.vo.RefreshAccessTokenVo;
-import com.dyj.web.domain.vo.RefreshTokenVo;
+import com.dyj.common.domain.query.AccessTokenQuery;
+import com.dyj.common.domain.query.ClientTokenQuery;
+import com.dyj.common.domain.query.RefreshAccessTokenQuery;
+import com.dyj.common.domain.query.RefreshTokenQuery;
+import com.dyj.common.domain.vo.AccessTokenVo;
+import com.dyj.common.domain.vo.ClientTokenVo;
+import com.dyj.common.domain.vo.RefreshAccessTokenVo;
+import com.dyj.common.domain.vo.RefreshTokenVo;
 
 import java.util.Objects;
 

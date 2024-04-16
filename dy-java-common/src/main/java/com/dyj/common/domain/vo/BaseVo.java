@@ -1,4 +1,4 @@
-package com.dyj.web.domain.vo;
+package com.dyj.common.domain.vo;
 
 /**
  * @author danmo

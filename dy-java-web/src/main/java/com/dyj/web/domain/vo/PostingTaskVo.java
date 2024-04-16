@@ -1,10 +1,12 @@
 package com.dyj.web.domain.vo;
 
+import com.dyj.common.domain.vo.BaseVo;
+
 /**
  * @author danmo
  * @date 2024-04-11 13:57
  **/
-public class PostingTaskVo extends BaseVo{
+public class PostingTaskVo extends BaseVo {
 
     /**
      * 任务id

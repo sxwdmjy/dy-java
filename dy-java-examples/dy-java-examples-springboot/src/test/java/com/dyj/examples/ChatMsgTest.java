@@ -9,7 +9,7 @@ import com.dyj.web.domain.query.AuthorizeUserListQuery;
 import com.dyj.web.domain.query.RevokeMsgQuery;
 import com.dyj.web.domain.query.SendMsgQuery;
 import com.dyj.web.domain.vo.AuthorizeUserListVo;
-import com.dyj.web.domain.vo.BaseVo;
+import com.dyj.common.domain.vo.BaseVo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;

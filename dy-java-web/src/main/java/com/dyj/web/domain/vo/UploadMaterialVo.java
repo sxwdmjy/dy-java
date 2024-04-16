@@ -1,12 +1,13 @@
 package com.dyj.web.domain.vo;
 
+import com.dyj.common.domain.vo.BaseVo;
 import com.dyj.web.domain.UploadMedia;
 
 /**
  * @author danmo
  * @date 2024-04-11 15:10
  **/
-public class UploadMaterialVo extends BaseVo{
+public class UploadMaterialVo extends BaseVo {
 
     private UploadMedia media;
 

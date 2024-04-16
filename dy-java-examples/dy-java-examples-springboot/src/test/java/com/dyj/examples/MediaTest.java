@@ -4,7 +4,7 @@ package com.dyj.examples;
 import com.alibaba.fastjson.JSONObject;
 import com.dyj.common.domain.DyResult;
 import com.dyj.web.DyWebClient;
-import com.dyj.web.domain.vo.BaseVo;
+import com.dyj.common.domain.vo.BaseVo;
 import com.dyj.web.domain.vo.MaterialListVo;
 import com.dyj.web.domain.vo.UploadMaterialVo;
 import org.junit.Test;

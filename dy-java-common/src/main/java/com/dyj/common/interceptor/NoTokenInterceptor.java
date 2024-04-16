@@ -1,4 +1,4 @@
-package com.dyj.web.interceptor;
+package com.dyj.common.interceptor;
 
 import com.alibaba.fastjson.JSONObject;
 import com.dtflys.forest.exceptions.ForestRuntimeException;

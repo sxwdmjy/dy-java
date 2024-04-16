@@ -2,6 +2,7 @@ package com.dyj.examples;
 
 import com.alibaba.fastjson.JSONObject;
 import com.dyj.common.domain.DyResult;
+import com.dyj.common.domain.vo.BaseVo;
 import com.dyj.web.DyWebClient;
 import com.dyj.web.domain.query.CreateImageTextQuery;
 import com.dyj.web.domain.query.CreateVideoQuery;
@@ -15,7 +16,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**

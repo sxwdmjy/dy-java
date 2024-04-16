@@ -7,14 +7,11 @@ import com.dtflys.forest.http.ForestResponse;
 import com.dtflys.forest.interceptor.Interceptor;
 import com.dyj.common.domain.ClientTokenInfo;
 import com.dyj.common.domain.DyResult;
-import com.dyj.common.domain.UserTokenInfo;
-import com.dyj.common.handler.RequestHandler;
 import com.dyj.common.service.IAgentTokenService;
 import com.dyj.common.utils.DyConfigUtils;
 import com.dyj.web.DyWebClient;
 import com.dyj.web.domain.query.BaseQuery;
-import com.dyj.web.domain.query.UserInfoQuery;
-import com.dyj.web.domain.vo.ClientTokenVo;
+import com.dyj.common.domain.vo.ClientTokenVo;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 

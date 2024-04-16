@@ -1,6 +1,8 @@
 package com.dyj.web.domain.vo;
 
-public class QueryVideoPublishResultVo extends BaseVo{
+import com.dyj.common.domain.vo.BaseVo;
+
+public class QueryVideoPublishResultVo extends BaseVo {
 
     private String share_id;
 

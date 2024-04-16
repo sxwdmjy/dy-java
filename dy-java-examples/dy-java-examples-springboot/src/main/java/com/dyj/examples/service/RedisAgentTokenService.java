@@ -5,11 +5,9 @@ import com.dyj.common.domain.UserTokenInfo;
 import com.dyj.common.exception.AuthTokenNotFoundException;
 import com.dyj.common.service.IAgentTokenService;
 import com.dyj.web.DyWebClient;
-import com.dyj.web.domain.vo.RefreshAccessTokenVo;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.dyj.common.domain.vo.RefreshAccessTokenVo;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
-import org.springframework.stereotype.Service;
 
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;

@@ -1,20 +1,19 @@
-package com.dyj.web.client;
+package com.dyj.common.client;
 
 import com.dtflys.forest.annotation.BaseRequest;
 import com.dtflys.forest.annotation.Body;
 import com.dtflys.forest.annotation.Post;
 import com.dtflys.forest.backend.ContentType;
-import com.dyj.common.client.BaseClient;
 import com.dyj.common.domain.DyResult;
-import com.dyj.web.domain.query.AccessTokenQuery;
-import com.dyj.web.domain.query.ClientTokenQuery;
-import com.dyj.web.domain.query.RefreshTokenQuery;
-import com.dyj.web.domain.query.RefreshAccessTokenQuery;
-import com.dyj.web.domain.vo.AccessTokenVo;
-import com.dyj.web.domain.vo.ClientTokenVo;
-import com.dyj.web.domain.vo.RefreshAccessTokenVo;
-import com.dyj.web.domain.vo.RefreshTokenVo;
-import com.dyj.web.interceptor.NoTokenInterceptor;
+import com.dyj.common.domain.query.AccessTokenQuery;
+import com.dyj.common.domain.query.ClientTokenQuery;
+import com.dyj.common.domain.query.RefreshAccessTokenQuery;
+import com.dyj.common.domain.query.RefreshTokenQuery;
+import com.dyj.common.domain.vo.AccessTokenVo;
+import com.dyj.common.domain.vo.ClientTokenVo;
+import com.dyj.common.domain.vo.RefreshAccessTokenVo;
+import com.dyj.common.domain.vo.RefreshTokenVo;
+import com.dyj.common.interceptor.NoTokenInterceptor;
 
 /**
  * @author danmo
@@ -22,7 +21,7 @@ import com.dyj.web.interceptor.NoTokenInterceptor;
  **/
 
 @BaseRequest(baseURL = "${domain}", contentType = ContentType.APPLICATION_JSON)
-public interface AuthClient extends BaseClient {
+public interface AuthClient {
 
 
     /** 获取accessToken */

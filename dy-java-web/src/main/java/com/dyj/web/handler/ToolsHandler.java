@@ -1,19 +1,12 @@
 package com.dyj.web.handler;
 
-import com.dtflys.forest.annotation.Body;
-import com.dtflys.forest.annotation.JSONBody;
-import com.dtflys.forest.annotation.Var;
 import com.dyj.common.config.AgentConfiguration;
 import com.dyj.common.domain.DyResult;
-import com.dyj.web.domain.EventSubscribe;
-import com.dyj.web.domain.query.BaseQuery;
 import com.dyj.web.domain.query.UpdateEventSubscribeQuery;
-import com.dyj.web.domain.vo.BaseVo;
+import com.dyj.common.domain.vo.BaseVo;
 import com.dyj.web.domain.vo.EventSubscribeVo;
 import com.dyj.web.domain.vo.MicAppDevtoolLegalVo;
 import com.dyj.web.domain.vo.TicketVo;
-
-import java.util.List;
 
 /**
  * @author danmo

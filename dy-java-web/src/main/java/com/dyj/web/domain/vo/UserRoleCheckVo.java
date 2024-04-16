@@ -1,8 +1,7 @@
 package com.dyj.web.domain.vo;
 
 import com.alibaba.fastjson.JSONObject;
-
-import java.util.Map;
+import com.dyj.common.domain.vo.BaseVo;
 
 /**
  * @author danmo

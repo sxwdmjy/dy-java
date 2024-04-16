@@ -3,7 +3,7 @@ package com.dyj.examples;
 import com.alibaba.fastjson.JSON;
 import com.dyj.common.domain.DyResult;
 import com.dyj.web.DyWebClient;
-import com.dyj.web.domain.vo.AccessTokenVo;
+import com.dyj.common.domain.vo.AccessTokenVo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;

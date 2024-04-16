@@ -1,10 +1,12 @@
 package com.dyj.web.domain.vo;
 
+import com.dyj.common.domain.vo.BaseVo;
+
 /**
  * @author danmo
  * @date 2024-04-07 14:56
  **/
-public class UserInfoVo  extends BaseVo{
+public class UserInfoVo  extends BaseVo {
 
     /**
      * 用户在当前应用的唯一标识

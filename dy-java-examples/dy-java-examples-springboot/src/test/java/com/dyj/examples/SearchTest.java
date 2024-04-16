@@ -1,13 +1,11 @@
 package com.dyj.examples;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.dyj.common.domain.DyResult;
+import com.dyj.common.domain.vo.AccessTokenVo;
 import com.dyj.web.DyWebClient;
-import com.dyj.web.domain.VideoSearchResult;
 import com.dyj.web.domain.query.VideoSearchCommentReplyV2Query;
 import com.dyj.web.domain.vo.*;
-import com.dyj.web.handler.SearchHandler;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;

@@ -3,14 +3,13 @@ package com.dyj.web.client;
 import com.dtflys.forest.annotation.BaseRequest;
 import com.dtflys.forest.annotation.JSONBody;
 import com.dtflys.forest.annotation.Post;
-import com.dtflys.forest.annotation.Var;
 import com.dtflys.forest.backend.ContentType;
 import com.dyj.common.domain.DyResult;
 import com.dyj.web.domain.query.AuthorizeUserListQuery;
 import com.dyj.web.domain.query.RevokeMsgQuery;
 import com.dyj.web.domain.query.SendMsgQuery;
 import com.dyj.web.domain.vo.AuthorizeUserListVo;
-import com.dyj.web.domain.vo.BaseVo;
+import com.dyj.common.domain.vo.BaseVo;
 import com.dyj.web.domain.vo.ChatMsgResponseVo;
 import com.dyj.web.interceptor.TokenHeaderInterceptor;
 

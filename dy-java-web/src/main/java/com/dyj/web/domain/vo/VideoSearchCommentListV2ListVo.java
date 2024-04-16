@@ -1,5 +1,6 @@
 package com.dyj.web.domain.vo;
 
+import com.dyj.common.domain.vo.BaseVo;
 import com.dyj.web.domain.VideoSearchCommentListV2Result;
 
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.List;
 /**
  * 关键词视频评论列表分页返回值
  */
-public class VideoSearchCommentListV2ListVo extends BaseVo{
+public class VideoSearchCommentListV2ListVo extends BaseVo {
 
     /**
      * 用于下一页请求的cursor

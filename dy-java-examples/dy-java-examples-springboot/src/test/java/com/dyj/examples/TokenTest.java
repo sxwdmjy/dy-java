@@ -2,12 +2,13 @@ package com.dyj.examples;
 
 import com.alibaba.fastjson.JSONObject;
 import com.dyj.common.domain.DyResult;
-import com.dyj.common.service.IAgentTokenService;
+import com.dyj.common.domain.vo.AccessTokenVo;
+import com.dyj.common.domain.vo.ClientTokenVo;
+import com.dyj.common.domain.vo.RefreshAccessTokenVo;
+import com.dyj.common.domain.vo.RefreshTokenVo;
 import com.dyj.web.DyWebClient;
-import com.dyj.web.domain.vo.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;

@@ -4,7 +4,7 @@ import com.dtflys.forest.annotation.*;
 import com.dtflys.forest.backend.ContentType;
 import com.dyj.common.domain.DyResult;
 import com.dyj.web.domain.query.UserInfoQuery;
-import com.dyj.web.domain.vo.BaseVo;
+import com.dyj.common.domain.vo.BaseVo;
 import com.dyj.web.domain.vo.MaterialListVo;
 import com.dyj.web.domain.vo.UploadMaterialVo;
 import com.dyj.web.interceptor.QueryTokenInterceptor;

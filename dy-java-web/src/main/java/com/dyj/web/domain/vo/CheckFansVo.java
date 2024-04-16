@@ -1,10 +1,12 @@
 package com.dyj.web.domain.vo;
 
+import com.dyj.common.domain.vo.BaseVo;
+
 /**
  * @author danmo
  * @date 2024-04-07 16:48
  **/
-public class CheckFansVo extends BaseVo{
+public class CheckFansVo extends BaseVo {
 
     /**
      * follower_open_id是否关注了open_id

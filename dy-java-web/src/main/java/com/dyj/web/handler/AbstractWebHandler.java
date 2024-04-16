@@ -1,5 +1,6 @@
 package com.dyj.web.handler;
 
+import com.dyj.common.client.AuthClient;
 import com.dyj.common.config.AgentConfiguration;
 import com.dyj.spring.utils.SpringUtils;
 import com.dyj.web.client.*;

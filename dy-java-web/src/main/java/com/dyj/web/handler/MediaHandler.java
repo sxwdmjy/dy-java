@@ -3,15 +3,9 @@ package com.dyj.web.handler;
 import com.dyj.common.config.AgentConfiguration;
 import com.dyj.common.domain.DyResult;
 import com.dyj.web.domain.query.UserInfoQuery;
-import com.dyj.web.domain.vo.BaseVo;
+import com.dyj.common.domain.vo.BaseVo;
 import com.dyj.web.domain.vo.MaterialListVo;
 import com.dyj.web.domain.vo.UploadMaterialVo;
-import org.springframework.util.StreamUtils;
-
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Files;
 
 /**
  * @author danmo

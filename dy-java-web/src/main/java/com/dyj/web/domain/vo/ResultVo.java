@@ -1,6 +1,8 @@
 package com.dyj.web.domain.vo;
 
-public class ResultVo <T> extends BaseVo{
+import com.dyj.common.domain.vo.BaseVo;
+
+public class ResultVo <T> extends BaseVo {
 
     private T result;
 

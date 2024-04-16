@@ -6,7 +6,7 @@ import com.dyj.web.domain.query.ConfirmPostingTaskQuery;
 import com.dyj.web.domain.query.CreatePostingTaskQuery;
 import com.dyj.web.domain.query.PostingTaskQuery;
 import com.dyj.web.domain.query.VideoDataQuery;
-import com.dyj.web.domain.vo.BaseVo;
+import com.dyj.common.domain.vo.BaseVo;
 import com.dyj.web.domain.vo.ConfirmPostingTaskVo;
 import com.dyj.web.domain.vo.PostingTaskVo;
 import com.dyj.web.domain.vo.VideoBasicListVo;

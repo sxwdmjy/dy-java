@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.dyj.common.domain.DyResult;
 import com.dyj.web.DyWebClient;
 import com.dyj.web.domain.query.CommentQuery;
-import com.dyj.web.domain.vo.BaseVo;
+import com.dyj.common.domain.vo.BaseVo;
 import com.dyj.web.domain.vo.CommentListVo;
 import com.dyj.web.domain.vo.CommentReplyVo;
 import org.junit.Test;

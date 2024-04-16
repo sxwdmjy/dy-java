@@ -1,10 +1,12 @@
 package com.dyj.web.domain.vo;
 
+import com.dyj.common.domain.vo.BaseVo;
+
 /**
  * @author danmo
  * @date 2024-04-11 18:53
  **/
-public class TicketVo extends BaseVo{
+public class TicketVo extends BaseVo {
 
     /**
      * 凭证超时时间，单位（秒)

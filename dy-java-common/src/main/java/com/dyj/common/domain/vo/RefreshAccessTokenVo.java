@@ -1,10 +1,10 @@
-package com.dyj.web.domain.vo;
+package com.dyj.common.domain.vo;
 
 /**
  * @author danmo
  * @date 2024-04-03 11:25
  **/
-public class RefreshAccessTokenVo  extends BaseVo{
+public class RefreshAccessTokenVo extends BaseVo {
 
     private String access_token;
     /**

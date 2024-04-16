@@ -1,6 +1,8 @@
 package com.dyj.web.domain.vo;
 
-public class CreateVideoVo extends BaseVo{
+import com.dyj.common.domain.vo.BaseVo;
+
+public class CreateVideoVo extends BaseVo {
 
     private String item_id;
 

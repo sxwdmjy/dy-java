@@ -2,7 +2,7 @@ package com.dyj.spring;
 
 import com.dtflys.forest.config.ForestConfiguration;
 import com.dyj.common.config.DyConfiguration;
-import com.dyj.common.enums.DyUrlPathEnum;
+import com.dyj.common.enums.DyWebUrlPathEnum;
 import com.dyj.common.handler.RequestHandler;
 import com.dyj.common.service.IAgentConfigService;
 import com.dyj.common.service.IAgentTokenService;
@@ -94,7 +94,7 @@ public class DyConfigurationRegister implements ResourceLoaderAware, BeanPostPro
             forestConfiguration.setLogResponseStatus(forestProperties.isLogResponseStatus());
             forestConfiguration.setLogResponseContent(forestProperties.isLogResponseContent());
             forestConfiguration.setAsyncMode(forestProperties.getAsyncMode());
-            for (DyUrlPathEnum value : DyUrlPathEnum.values()) {
+            for (DyWebUrlPathEnum value : DyWebUrlPathEnum.values()) {
                 forestProperties.getVariables().put(value.getKey(), value.getValue());
             }
             forestConfiguration.setVariables(forestProperties.getVariables());

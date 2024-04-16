@@ -1,6 +1,6 @@
 package com.dyj.common.enums;
 
-public enum DyUrlPathEnum {
+public enum DyWebUrlPathEnum {
 
     /**
      * 域名
@@ -458,7 +458,7 @@ public enum DyUrlPathEnum {
     private String key;
     private String value;
 
-    DyUrlPathEnum(String key, String value) {
+    DyWebUrlPathEnum(String key, String value) {
         this.key = key;
         this.value = value;
     }
@@ -480,7 +480,7 @@ public enum DyUrlPathEnum {
     }
 
     public static String getValueByKey(String key) {
-        for (DyUrlPathEnum e : DyUrlPathEnum.values()) {
+        for (DyWebUrlPathEnum e : DyWebUrlPathEnum.values()) {
             if (e.getKey().equals(key)) {
                 return e.getValue();
             }

@@ -1,9 +1,11 @@
 package com.dyj.web.domain.vo;
 
 
+import com.dyj.common.domain.vo.BaseVo;
+
 import java.util.List;
 
-public class ResultListVo <T> extends BaseVo{
+public class ResultListVo <T> extends BaseVo {
 
     private List<T> result_list;
 

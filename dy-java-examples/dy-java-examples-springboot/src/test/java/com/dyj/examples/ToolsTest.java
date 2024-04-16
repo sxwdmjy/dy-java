@@ -6,7 +6,7 @@ import com.dyj.common.domain.DyResult;
 import com.dyj.web.DyWebClient;
 import com.dyj.web.domain.EventSubscribe;
 import com.dyj.web.domain.query.UpdateEventSubscribeQuery;
-import com.dyj.web.domain.vo.BaseVo;
+import com.dyj.common.domain.vo.BaseVo;
 import com.dyj.web.domain.vo.EventSubscribeVo;
 import com.dyj.web.domain.vo.MicAppDevtoolLegalVo;
 import com.dyj.web.domain.vo.TicketVo;

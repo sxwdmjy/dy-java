@@ -1,6 +1,8 @@
 package com.dyj.web.domain.vo;
 
-public class InitPartUploadVo extends BaseVo{
+import com.dyj.common.domain.vo.BaseVo;
+
+public class InitPartUploadVo extends BaseVo {
 
     private String upload_id;
 

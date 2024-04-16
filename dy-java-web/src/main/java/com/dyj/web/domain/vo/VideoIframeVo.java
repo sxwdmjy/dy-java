@@ -1,5 +1,7 @@
 package com.dyj.web.domain.vo;
 
+import com.dyj.common.domain.vo.BaseVo;
+
 public class VideoIframeVo extends BaseVo {
 
     /**
