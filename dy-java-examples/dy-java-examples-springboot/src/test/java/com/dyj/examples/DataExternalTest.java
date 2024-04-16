@@ -237,4 +237,31 @@ public class DataExternalTest {
         System.out.println(JSON.toJSONString(webClient.getFansComment(openId)));
     }
 
+    /**
+     * 获取实时热点词
+     */
+    @Test
+    public void hotSentences(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.hotSentences()));
+    }
+
+    /**
+     * 获取上升词
+     */
+    @Test
+    public void trendingSentences(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.trendingSentences(1,null)));
+    }
+
+    /**
+     * 获取热点词聚合的视频
+     */
+    @Test
+    public void hotVideoList(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.hotVideoList("")));
+    }
+
 }

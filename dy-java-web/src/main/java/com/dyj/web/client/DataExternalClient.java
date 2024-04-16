@@ -9,11 +9,9 @@ import com.dyj.common.domain.DyResult;
 import com.dyj.common.domain.DySimpleResult;
 import com.dyj.web.domain.*;
 import com.dyj.web.domain.query.UserInfoQuery;
-import com.dyj.web.domain.ApiFansDataBindFansData;
 import com.dyj.web.domain.vo.*;
+import com.dyj.web.interceptor.ClientTokenInterceptor;
 import com.dyj.web.interceptor.TokenHeaderInterceptor;
-
-import java.util.List;
 
 /**
  * 数据开放服务
@@ -175,4 +173,28 @@ public interface DataExternalClient {
      */
     @Get(value = "${getFansComment}", interceptor = TokenHeaderInterceptor.class)
     DyResult<ListVo<GetFansCommentResult>> getFansComment(@Var("query") UserInfoQuery query);
+
+    /**
+     * 获取实时热点词
+     * @return
+     */
+    @Get(value = "${hotSentences}", interceptor = ClientTokenInterceptor.class)
+    DyResult<HotSentencesDataVo> hotSentences();
+
+    /**
+     * 获取上升词
+     * @param count 每页数量
+     * @param cursor 分页游标, 第一页请求cursor是0, response中会返回下一页请求用到的cursor, 同时response还会返回has_more来表明是否有更多的数据。
+     * @return
+     */
+    @Get(value = "${trendingSentences}", interceptor = ClientTokenInterceptor.class)
+    DyResult<TrendingSentencesVo> trendingSentences(@Query("count") Integer count,@Query("cursor") Long cursor);
+
+    /**
+     * 获取热点词聚合的视频
+     * @param hotSentence 热点词
+     * @return
+     */
+    @Get(value = "${hotVideoList}", interceptor = ClientTokenInterceptor.class)
+    DyResult<HotVideoListDataVo> hotVideoList(@Query("hot_sentence") String hotSentence);
 }

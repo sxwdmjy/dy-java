@@ -451,6 +451,21 @@ public enum DyWebUrlPathEnum {
      */
     GET_FANS_COMMENT("getFansComment", "/data/extern/fans/comment/"),
 
+    /**
+     * 获取实时热点词
+     */
+    HOT_SENTENCES("hotSentences", "/hotsearch/sentences/"),
+
+    /**
+     * 获取上升词
+     */
+    TRENDING_SENTENCES("trendingSentences", "/hotsearch/trending/sentences/"),
+
+    /**
+     * 获取热点词聚合的视频
+     */
+    HOT_VIDEO_LIST("hotVideoList", "/hotsearch/videos/"),
+
     ;
 
 
