@@ -19,7 +19,7 @@ public class CommentHandler extends AbstractWebHandler {
         super(agentConfiguration);
     }
 
-    public DyResult<BaseVo> commentTop(@JSONBody CommentQuery query) {
+    public DyResult<BaseVo> commentTop(CommentQuery query) {
         query.setTenantId(agentConfiguration.getTenantId());
         query.setClientKey(agentConfiguration.getClientKey());
         return getCommentClient().commentTop(query);
@@ -41,7 +41,7 @@ public class CommentHandler extends AbstractWebHandler {
         return getCommentClient().queryCommentReplyList(query, itemId,commentId, sortType, count, cursor);
     }
 
-    public DyResult<CommentReplyVo> commentReply(@JSONBody CommentQuery query) {
+    public DyResult<CommentReplyVo> commentReply(CommentQuery query) {
         query.setTenantId(agentConfiguration.getTenantId());
         query.setClientKey(agentConfiguration.getClientKey());
         return getCommentClient().commentReply(query);

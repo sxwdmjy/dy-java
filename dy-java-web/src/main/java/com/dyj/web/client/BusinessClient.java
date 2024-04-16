@@ -75,7 +75,7 @@ public interface BusinessClient {
     @Post(value = "${imageClientUpload}",contentType = ContentType.MULTIPART_FORM_DATA ,interceptor = ClientTokenInterceptor.class)
     ImageClientUploadVo imageClientUpload(@Var("query") BaseQuery query, @DataFile(value = "image",fileName = "image") InputStream inputStream);
     @Post(value = "${imageClientUpload}",contentType = ContentType.MULTIPART_FORM_DATA ,interceptor = ClientTokenInterceptor.class)
-    ImageClientUploadVo imageClientUpload(@Var("query") BaseQuery query, @DataFile(value = "image",fileName = "image") Byte[] bytes);
+    ImageClientUploadVo imageClientUpload(@Var("query") BaseQuery query, @DataFile(value = "image",fileName = "image") byte[] bytes);
 
 
 
