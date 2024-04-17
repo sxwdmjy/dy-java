@@ -7,11 +7,11 @@ import com.dtflys.forest.annotation.Var;
 import com.dtflys.forest.backend.ContentType;
 import com.dyj.common.domain.DyResult;
 import com.dyj.common.domain.DySimpleResult;
+import com.dyj.common.interceptor.ClientTokenInterceptor;
 import com.dyj.web.domain.*;
-import com.dyj.web.domain.query.UserInfoQuery;
+import com.dyj.common.domain.query.UserInfoQuery;
 import com.dyj.web.domain.vo.*;
-import com.dyj.web.interceptor.ClientTokenInterceptor;
-import com.dyj.web.interceptor.TokenHeaderInterceptor;
+import com.dyj.common.interceptor.TokenHeaderInterceptor;
 
 /**
  * 数据开放服务

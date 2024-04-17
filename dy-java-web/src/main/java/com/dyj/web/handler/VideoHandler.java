@@ -2,6 +2,8 @@ package com.dyj.web.handler;
 
 import com.dyj.common.config.AgentConfiguration;
 import com.dyj.common.domain.DyResult;
+import com.dyj.common.domain.query.BaseQuery;
+import com.dyj.common.domain.query.UserInfoQuery;
 import com.dyj.common.domain.vo.BaseVo;
 import com.dyj.web.domain.query.*;
 import com.dyj.web.domain.vo.*;

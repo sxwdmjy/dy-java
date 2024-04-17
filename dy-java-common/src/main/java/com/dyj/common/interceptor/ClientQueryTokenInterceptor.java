@@ -1,24 +1,32 @@
-package com.dyj.web.interceptor;
+package com.dyj.common.interceptor;
 
 import com.alibaba.fastjson.JSONObject;
 import com.dtflys.forest.exceptions.ForestRuntimeException;
 import com.dtflys.forest.http.ForestRequest;
 import com.dtflys.forest.http.ForestResponse;
 import com.dtflys.forest.interceptor.Interceptor;
+import com.dyj.common.client.AuthClient;
+import com.dyj.common.config.AgentConfiguration;
 import com.dyj.common.domain.ClientTokenInfo;
 import com.dyj.common.domain.DyResult;
+import com.dyj.common.domain.query.ClientTokenQuery;
 import com.dyj.common.service.IAgentTokenService;
 import com.dyj.common.utils.DyConfigUtils;
 import com.dyj.web.DyWebClient;
-import com.dyj.web.domain.query.BaseQuery;
+import com.dyj.common.domain.query.BaseQuery;
 import com.dyj.common.domain.vo.ClientTokenVo;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import javax.annotation.Resource;
 import java.util.Objects;
 
-public class ClientTokenInterceptor implements Interceptor<DyResult> {
-    private final Log log = LogFactory.getLog(ClientTokenInterceptor.class);
+public class ClientQueryTokenInterceptor implements Interceptor<DyResult> {
+    private final Log log = LogFactory.getLog(ClientQueryTokenInterceptor.class);
+
+    @Resource
+    private AuthClient authClient;
+
     @Override
     public boolean beforeExecute(ForestRequest request) {
         Integer tenantId = null;
@@ -35,13 +43,17 @@ public class ClientTokenInterceptor implements Interceptor<DyResult> {
         IAgentTokenService agentTokenService = DyConfigUtils.getAgentTokenService();
         ClientTokenInfo clientTokenInfo = agentTokenService.getClientTokenInfo(tenantId, clientKey);
         if (Objects.isNull(clientTokenInfo)) {
-            ClientTokenVo clientToken = DyWebClient.getInstance().tenantId(tenantId).clientKey(clientKey).clientToken().getData();
+            AgentConfiguration agent = DyConfigUtils.getAgent(tenantId, clientKey);
+            ClientTokenQuery clientTokenQuery = new ClientTokenQuery();
+            clientTokenQuery.setClient_key(agent.getClientKey());
+            clientTokenQuery.setClient_secret(agent.getClientSecret());
+            ClientTokenVo clientToken = authClient.getClientToken(clientTokenQuery).getData();
             if(Objects.nonNull(clientToken) && clientToken.getError_code() == 0){
                 clientTokenInfo = agentTokenService.setClientTokenInfo(tenantId, clientKey, clientToken.getAccess_token(), clientToken.getExpires_in());
             }
         }
         if (Objects.nonNull(clientTokenInfo)) {
-            request.addHeader("access-token", clientTokenInfo.getAccessToken());
+            request.replaceOrAddQuery("access_token", clientTokenInfo.getAccessToken());
         }
         return true;
     }

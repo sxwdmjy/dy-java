@@ -1,6 +1,6 @@
 package com.dyj.web.domain.query;
 
-import com.alibaba.fastjson.JSONObject;
+import com.dyj.common.domain.query.UserInfoQuery;
 import com.dyj.web.domain.MsgContent;
 
 /**

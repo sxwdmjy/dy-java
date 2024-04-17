@@ -3,14 +3,14 @@ package com.dyj.web.client;
 import com.dtflys.forest.annotation.*;
 import com.dtflys.forest.backend.ContentType;
 import com.dyj.common.domain.DyResult;
-import com.dyj.web.domain.query.BaseQuery;
+import com.dyj.common.domain.query.BaseQuery;
+import com.dyj.common.interceptor.ClientTokenInterceptor;
 import com.dyj.web.domain.query.UpdateEventSubscribeQuery;
 import com.dyj.common.domain.vo.BaseVo;
 import com.dyj.web.domain.vo.EventSubscribeVo;
 import com.dyj.web.domain.vo.TicketVo;
 import com.dyj.web.domain.vo.MicAppDevtoolLegalVo;
-import com.dyj.web.interceptor.ClientQueryTokenInterceptor;
-import com.dyj.web.interceptor.ClientTokenInterceptor;
+import com.dyj.common.interceptor.ClientQueryTokenInterceptor;
 
 /**
  * @author danmo

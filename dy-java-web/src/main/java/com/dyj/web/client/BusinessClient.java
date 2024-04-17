@@ -3,11 +3,13 @@ package com.dyj.web.client;
 import com.dtflys.forest.annotation.*;
 import com.dtflys.forest.backend.ContentType;
 import com.dyj.common.domain.DyResult;
+import com.dyj.common.domain.query.BaseQuery;
+import com.dyj.common.domain.query.UserInfoQuery;
 import com.dyj.common.domain.vo.BaseVo;
+import com.dyj.common.interceptor.ClientTokenInterceptor;
 import com.dyj.web.domain.query.*;
 import com.dyj.web.domain.vo.*;
-import com.dyj.web.interceptor.ClientTokenInterceptor;
-import com.dyj.web.interceptor.TokenHeaderInterceptor;
+import com.dyj.common.interceptor.TokenHeaderInterceptor;
 
 import java.io.File;
 import java.io.InputStream;

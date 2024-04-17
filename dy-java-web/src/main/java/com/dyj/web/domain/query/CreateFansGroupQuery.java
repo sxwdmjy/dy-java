@@ -1,5 +1,7 @@
 package com.dyj.web.domain.query;
 
+import com.dyj.common.domain.query.UserInfoQuery;
+
 public class CreateFansGroupQuery extends UserInfoQuery {
 
     /**

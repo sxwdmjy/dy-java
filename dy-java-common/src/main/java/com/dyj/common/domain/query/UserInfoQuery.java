@@ -1,4 +1,6 @@
-package com.dyj.web.domain.query;
+package com.dyj.common.domain.query;
+
+import com.dyj.common.domain.query.BaseQuery;
 
 /**
  * @author danmo

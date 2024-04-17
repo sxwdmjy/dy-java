@@ -7,7 +7,7 @@ import com.dtflys.forest.backend.ContentType;
 import com.dyj.common.domain.DyResult;
 import com.dyj.web.domain.query.IntentionLogQuery;
 import com.dyj.web.domain.vo.IntentionLogVo;
-import com.dyj.web.interceptor.TokenHeaderInterceptor;
+import com.dyj.common.interceptor.TokenHeaderInterceptor;
 
 /**
  * @author danmo

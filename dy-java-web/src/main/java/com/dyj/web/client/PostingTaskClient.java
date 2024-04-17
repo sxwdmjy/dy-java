@@ -5,6 +5,7 @@ import com.dtflys.forest.annotation.JSONBody;
 import com.dtflys.forest.annotation.Post;
 import com.dtflys.forest.backend.ContentType;
 import com.dyj.common.domain.DyResult;
+import com.dyj.common.interceptor.ClientTokenInterceptor;
 import com.dyj.web.domain.query.ConfirmPostingTaskQuery;
 import com.dyj.web.domain.query.CreatePostingTaskQuery;
 import com.dyj.web.domain.query.PostingTaskQuery;
@@ -13,8 +14,7 @@ import com.dyj.common.domain.vo.BaseVo;
 import com.dyj.web.domain.vo.ConfirmPostingTaskVo;
 import com.dyj.web.domain.vo.PostingTaskVo;
 import com.dyj.web.domain.vo.VideoBasicListVo;
-import com.dyj.web.interceptor.ClientTokenInterceptor;
-import com.dyj.web.interceptor.TokenHeaderInterceptor;
+import com.dyj.common.interceptor.TokenHeaderInterceptor;
 
 /**
  * 投稿任务

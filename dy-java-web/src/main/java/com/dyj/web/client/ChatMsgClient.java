@@ -11,7 +11,7 @@ import com.dyj.web.domain.query.SendMsgQuery;
 import com.dyj.web.domain.vo.AuthorizeUserListVo;
 import com.dyj.common.domain.vo.BaseVo;
 import com.dyj.web.domain.vo.ChatMsgResponseVo;
-import com.dyj.web.interceptor.TokenHeaderInterceptor;
+import com.dyj.common.interceptor.TokenHeaderInterceptor;
 
 /**
  * 私信管理

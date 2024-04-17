@@ -1,10 +1,12 @@
 package com.dyj.web.domain.query;
 
+import com.dyj.common.domain.query.UserInfoQuery;
+
 /**
  * @author danmo
  * @date 2024-04-08 17:16
  **/
-public class AuthorizeUserListQuery extends UserInfoQuery{
+public class AuthorizeUserListQuery extends UserInfoQuery {
 
     private Integer page_num;
 

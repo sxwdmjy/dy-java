@@ -5,7 +5,6 @@ import com.dtflys.forest.annotation.Post;
 import com.dyj.applet.domain.query.Code2SessionQuery;
 import com.dyj.applet.domain.vo.Code2SessionVo;
 import com.dyj.common.domain.DySimpleResult;
-import com.dyj.common.domain.vo.AccessTokenVo;
 
 /**
  * @author danmo

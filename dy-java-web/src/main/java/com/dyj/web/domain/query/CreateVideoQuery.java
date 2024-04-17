@@ -1,8 +1,10 @@
 package com.dyj.web.domain.query;
 
+import com.dyj.common.domain.query.UserInfoQuery;
+
 import java.util.List;
 
-public class CreateVideoQuery extends UserInfoQuery{
+public class CreateVideoQuery extends UserInfoQuery {
 
     /**
      * 必须上传加密的 video_id。加密的 video_id 通过调用 /video/upload 接口可以得到。

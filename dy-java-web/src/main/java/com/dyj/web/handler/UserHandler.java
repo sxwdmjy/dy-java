@@ -2,10 +2,8 @@ package com.dyj.web.handler;
 
 import com.dyj.common.config.AgentConfiguration;
 import com.dyj.common.domain.DyResult;
-import com.dyj.spring.utils.SpringUtils;
-import com.dyj.web.client.UserClient;
 import com.dyj.web.domain.query.CheckFansQuery;
-import com.dyj.web.domain.query.UserInfoQuery;
+import com.dyj.common.domain.query.UserInfoQuery;
 import com.dyj.web.domain.query.UserRoleCheckQuery;
 import com.dyj.web.domain.vo.CheckFansVo;
 import com.dyj.web.domain.vo.UserInfoVo;
