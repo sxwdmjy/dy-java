@@ -8,6 +8,8 @@ public class DySimpleResult <T>{
 
     private String err_msg;
 
+    private String err_tips;
+
     private Integer err_no;
 
     private String log_id;
@@ -38,6 +40,14 @@ public class DySimpleResult <T>{
         this.log_id = log_id;
     }
 
+    public String getErr_tips() {
+        return err_tips;
+    }
+
+    public void setErr_tips(String err_tips) {
+        this.err_tips = err_tips;
+    }
+
     public T getData() {
         return data;
     }
@@ -52,6 +62,7 @@ public class DySimpleResult <T>{
                 "err_msg='" + err_msg + '\'' +
                 ", err_no=" + err_no +
                 ", log_id='" + log_id + '\'' +
+                ", err_tips='" + err_tips + '\'' +
                 ", data=" + data +
                 '}';
     }

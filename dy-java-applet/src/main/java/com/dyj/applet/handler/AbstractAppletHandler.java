@@ -1,5 +1,6 @@
 package com.dyj.applet.handler;
 
+import com.dyj.applet.client.LoginClient;
 import com.dyj.common.client.AuthClient;
 import com.dyj.common.config.AgentConfiguration;
 import com.dyj.spring.utils.SpringUtils;
@@ -18,5 +19,9 @@ public abstract class AbstractAppletHandler {
 
     protected AuthClient getAuthClient() {
         return SpringUtils.getBean(AuthClient.class);
+    }
+
+    protected LoginClient getLoginClient() {
+        return SpringUtils.getBean(LoginClient.class);
     }
 }

@@ -1,11 +1,14 @@
 package com.dyj.applet;
 
+import com.dyj.applet.domain.vo.Code2SessionVo;
 import com.dyj.applet.handler.AppletTokenHandler;
+import com.dyj.applet.handler.LoginHandler;
 import com.dyj.common.client.BaseClient;
 import com.dyj.common.config.AgentConfiguration;
 import com.dyj.common.config.DyConfiguration;
 import com.dyj.common.domain.DyAppletResult;
 import com.dyj.common.domain.DyResult;
+import com.dyj.common.domain.DySimpleResult;
 import com.dyj.common.domain.UserTokenInfo;
 import com.dyj.common.domain.vo.*;
 
@@ -112,5 +115,15 @@ public class DyAppletClient extends BaseClient {
      */
     public DyAppletResult<AppsV2TokenVo> appsV2Token() {
         return new AppletTokenHandler(configuration().getAgentByTenantId(tenantId, clientKey)).appsV2Token();
+    }
+
+    /**
+     * code2Session
+     * @param code login 接口返回的登录凭证
+     * @param anonymousCode login 接口返回的匿名登录凭证
+     * @return  DySimpleResult<Code2SessionVo>
+     */
+    public DySimpleResult<Code2SessionVo> code2Session(String code, String anonymousCode) {
+        return new LoginHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).code2Session(code, anonymousCode);
     }
 }

@@ -15,7 +15,7 @@ public enum DyAppletUrlPathEnum {
     APPS_V2_TOKEN("appsV2Token", "/api/apps/v2/token/"),
 
     //登录code2Session
-    CODE_TO_SESSION("code2Session", "/api/apps/v2/code2session/"),
+    CODE_TO_SESSION("code2Session", "https://developer.toutiao.com/api/apps/v2/jscode2session"),
 
     ;
 
