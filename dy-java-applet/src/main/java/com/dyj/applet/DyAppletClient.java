@@ -1,8 +1,12 @@
 package com.dyj.applet;
 
-import com.dyj.applet.domain.vo.Code2SessionVo;
+import com.dyj.applet.domain.query.CreateQrCodeQuery;
+import com.dyj.applet.domain.query.GenerateSchemaQuery;
+import com.dyj.applet.domain.query.GenerateUrlLinkQuery;
+import com.dyj.applet.domain.vo.*;
 import com.dyj.applet.handler.AppletTokenHandler;
 import com.dyj.applet.handler.LoginHandler;
+import com.dyj.applet.handler.SchemaHandler;
 import com.dyj.common.client.BaseClient;
 import com.dyj.common.config.AgentConfiguration;
 import com.dyj.common.config.DyConfiguration;
@@ -125,5 +129,77 @@ public class DyAppletClient extends BaseClient {
      */
     public DySimpleResult<Code2SessionVo> code2Session(String code, String anonymousCode) {
         return new LoginHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).code2Session(code, anonymousCode);
+    }
+
+    /**
+     * 生成schema
+     *
+     * @param query 入参
+     * @return DySimpleResult<GenerateSchemaVo>
+     */
+    public DySimpleResult<GenerateSchemaVo> generateSchema(GenerateSchemaQuery query) {
+        return new SchemaHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).generateSchema(query);
+    }
+
+    /**
+     * 查询schema
+     *
+     * @param appId  小程序ID
+     * @param schema schema
+     * @return DySimpleResult<QuerySchemaVo>
+     */
+    public DySimpleResult<QuerySchemaVo> querySchema(String appId, String schema) {
+        return new SchemaHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).querySchema(appId, schema);
+    }
+
+    /**
+     * 查询schema配额
+     *
+     * @param appId 小程序ID
+     * @return DySimpleResult<QuerySchemaQuotaVo>
+     */
+    public DySimpleResult<QuerySchemaQuotaVo> querySchemaQuota(String appId) {
+        return new SchemaHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).querySchemaQuota(appId);
+    }
+
+    /**
+     * 生成urlLink
+     *
+     * @param query 入参
+     * @return DySimpleResult<GenerateUrlLinkVo>
+     */
+    public DySimpleResult<GenerateUrlLinkVo> generateUrlLink(GenerateUrlLinkQuery query) {
+        return new SchemaHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).generateUrlLink(query);
+    }
+
+    /**
+     * 查询urlLink配额
+     *
+     * @param appId 小程序ID
+     * @return DySimpleResult<QueryUrlLinkQuotaVo>
+     */
+    public DySimpleResult<QueryUrlLinkQuotaVo> queryUrlLinkQuota(String appId) {
+        return new SchemaHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).queryUrlLinkQuota(appId);
+    }
+
+    /**
+     * 查询urlLink
+     *
+     * @param appId   小程序ID
+     * @param urlLink urlLink
+     * @return DySimpleResult<QueryUrlLinkVo>
+     */
+    public DySimpleResult<QueryUrlLinkVo> queryUrlLink(String appId, String urlLink) {
+        return new SchemaHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).queryUrlLink(appId, urlLink);
+    }
+
+    /**
+     * 生成二维码
+     *
+     * @param query 入参
+     * @return DySimpleResult<QrCodeVo>
+     */
+    public DySimpleResult<QrCodeVo> createQrCode(CreateQrCodeQuery query) {
+        return new SchemaHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).createQrCode(query);
     }
 }
