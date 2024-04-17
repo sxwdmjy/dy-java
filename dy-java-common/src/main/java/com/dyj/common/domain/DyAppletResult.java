@@ -4,7 +4,7 @@ package com.dyj.common.domain;
  * @author danmo
  * @date 2024-04-03 11:18
  **/
-public class DyResult<T> {
+public class DyAppletResult<T> {
 
     /**
      * 返回对象
@@ -13,10 +13,9 @@ public class DyResult<T> {
 
     private String message;
     /**
-     * 错误码描述
+     * 错误码
      */
-    private DyExtra extra;
-
+    private Integer error_code;
 
     public T getData() {
         return data;
@@ -34,21 +33,11 @@ public class DyResult<T> {
         this.message = message;
     }
 
-    public DyExtra getExtra() {
-        return extra;
+    public Integer getError_code() {
+        return error_code;
     }
 
-    public void setExtra(DyExtra extra) {
-        this.extra = extra;
-    }
-
-
-    @Override
-    public String toString() {
-        return "DyResult{" +
-                "data=" + data +
-                ", message='" + message + '\'' +
-                ", extra=" + extra +
-                '}';
+    public void setError_code(Integer error_code) {
+        this.error_code = error_code;
     }
 }

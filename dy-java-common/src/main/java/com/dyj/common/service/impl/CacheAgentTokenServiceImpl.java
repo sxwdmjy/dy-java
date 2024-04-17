@@ -2,6 +2,7 @@ package com.dyj.common.service.impl;
 
 import com.dyj.common.domain.ClientTokenInfo;
 import com.dyj.common.domain.UserTokenInfo;
+import com.dyj.common.domain.vo.BizTokenVo;
 import com.dyj.common.exception.AuthTokenNotFoundException;
 import com.dyj.common.service.IAgentTokenService;
 
@@ -50,6 +51,16 @@ public class CacheAgentTokenServiceImpl implements IAgentTokenService {
     @Override
     public ClientTokenInfo getClientTokenInfo(Integer tenantId, String clientKey) throws AuthTokenNotFoundException {
         return clientTokenMap.get(String.format("%s_%s", tenantId, clientKey));
+    }
+
+    @Override
+    public BizTokenVo getBizToken(Integer tenantId, String clientKey, String openId) {
+        return null;
+    }
+
+    @Override
+    public void setBizToken(Integer tenantId, String clientKey, String bizToken, Long bizExpiresIn, String bizRefreshToken, Long bizRefreshExpiresIn) {
+
     }
 
 

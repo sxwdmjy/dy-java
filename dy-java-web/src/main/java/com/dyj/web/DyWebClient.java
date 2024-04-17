@@ -45,10 +45,6 @@ public class DyWebClient extends BaseClient {
         return this;
     }
 
-    private DyConfiguration configuration() {
-        return DyConfigUtils.getDyConfig();
-    }
-
 
     /**
      * 回调事件签名验证
