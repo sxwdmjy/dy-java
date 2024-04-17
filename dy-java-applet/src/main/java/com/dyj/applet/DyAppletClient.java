@@ -1,17 +1,18 @@
 package com.dyj.applet;
 
-import com.dtflys.forest.annotation.BaseRequest;
 import com.dyj.applet.handler.AppletTokenHandler;
 import com.dyj.common.client.BaseClient;
+import com.dyj.common.config.AgentConfiguration;
+import com.dyj.common.config.DyConfiguration;
 import com.dyj.common.domain.DyAppletResult;
-import com.dyj.common.domain.vo.AppsV2TokenVo;
-import com.dyj.common.domain.vo.BizTokenVo;
+import com.dyj.common.domain.DyResult;
+import com.dyj.common.domain.UserTokenInfo;
+import com.dyj.common.domain.vo.*;
 
 /**
  * @author danmo
  * @date 2024-04-16 15:28
  **/
-@BaseRequest(baseURL = "${domain}")
 public class DyAppletClient extends BaseClient {
 
 
@@ -30,6 +31,59 @@ public class DyAppletClient extends BaseClient {
     public DyAppletClient clientKey(String clientKey) {
         this.clientKey = clientKey;
         return this;
+    }
+
+
+    /**
+     * 通过代码获取访问令牌。
+     *
+     * @param code 用户授权后返回的授权码。
+     * @return 返回一个包含访问令牌信息的结果对象。
+     */
+    public DyResult<AccessTokenVo> accessToken(String code) {
+        // 使用配置信息和授权码获取访问令牌
+        return new AppletTokenHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).getAccessToken(code);
+    }
+
+    /**
+     * 刷新访问令牌。
+     * 本方法用于根据租户ID和应用ID获取新的访问令牌。
+     *
+     * @return 返回一个包含刷新后的访问令牌信息的结果对象。
+     */
+    public DyResult<RefreshTokenVo> refreshToken(String openId) {
+        DyConfiguration configuration = configuration();
+        AgentConfiguration agentConfiguration = configuration.getAgentConfigService().loadAgentByTenantId(tenantId, clientKey);
+        UserTokenInfo userTokenInfo = configuration.getAgentTokenService().getUserTokenInfo(agentConfiguration.getTenantId(), agentConfiguration.getClientKey(), openId);
+        // 利用配置信息和授权码获取新的访问令牌
+        return new AppletTokenHandler(agentConfiguration).refreshToken(userTokenInfo.getRefreshToken());
+    }
+
+
+    /**
+     * 根据指定的租户ID和客户端ID获取客户端令牌。
+     *
+     * @return 返回客户端令牌的结果，包含令牌信息或其他操作结果。
+     */
+    public DyResult<ClientTokenVo> clientToken() {
+        AgentConfiguration agentConfiguration = configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey);
+        // 通过AccessTokenHandler处理逻辑，获取指定租户和客户端的令牌
+        return new AppletTokenHandler(agentConfiguration).getClientToken();
+    }
+
+
+    /**
+     * 带租户ID和客户端ID参数的刷新访问令牌方法。
+     * 使用提供的租户ID和客户端ID刷新访问令牌。
+     *
+     * @return DyResult<RefreshAccessTokenVo> 包含刷新后的访问令牌信息的结果对象。
+     */
+    public DyResult<RefreshAccessTokenVo> refreshAccessToken(String openId) {
+        DyConfiguration configuration = configuration();
+        AgentConfiguration agentConfiguration = configuration.getAgentConfigService().loadAgentByTenantId(tenantId, clientKey);
+        UserTokenInfo userTokenInfo = configuration.getAgentTokenService().getUserTokenInfo(agentConfiguration.getTenantId(), agentConfiguration.getClientKey(), openId);
+        // 通过AccessTokenHandler处理逻辑，获取指定租户和客户端的刷新令牌
+        return new AppletTokenHandler(agentConfiguration).refreshAccessToken(userTokenInfo.getRefreshToken());
     }
 
     /**
