@@ -264,4 +264,33 @@ public class DataExternalTest {
         System.out.println(JSON.toJSONString(webClient.hotVideoList("")));
     }
 
+    /**
+     * 获取抖音星图达人热榜
+     */
+    @Test
+    public void starHotlist(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.starHotlist(1L)));
+    }
+
+    /**
+     * 获取抖音星图达人指数
+     */
+    @Test
+    public void starAuthorScore(){
+        DyWebClient webClient = new DyWebClient();
+        DyResult<AccessTokenVo> accessToken = webClient.accessToken(code);
+        System.out.println(JSON.toJSONString(accessToken));
+        System.out.println(JSON.toJSONString(webClient.starAuthorScore(openId)));
+    }
+
+    /**
+     * 获取抖音星图达人指数数据V2
+     */
+    @Test
+    public void starAuthorScoreV2(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.starAuthorScoreV2("")));
+    }
+
 }

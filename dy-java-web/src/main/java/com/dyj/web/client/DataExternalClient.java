@@ -7,6 +7,7 @@ import com.dtflys.forest.annotation.Var;
 import com.dtflys.forest.backend.ContentType;
 import com.dyj.common.domain.DyResult;
 import com.dyj.common.domain.DySimpleResult;
+import com.dyj.common.domain.vo.DataAndExtraBodyVo;
 import com.dyj.web.domain.*;
 import com.dyj.web.domain.query.UserInfoQuery;
 import com.dyj.web.domain.vo.*;
@@ -197,4 +198,27 @@ public interface DataExternalClient {
      */
     @Get(value = "${hotVideoList}", interceptor = ClientTokenInterceptor.class)
     DyResult<HotVideoListDataVo> hotVideoList(@Query("hot_sentence") String hotSentence);
+
+    /**
+     * 获取抖音星图达人热榜
+     * @param hotListType 达人热榜类型 * `1` - 星图指数榜 * `2` - 涨粉指数榜 * `3` - 性价比指数榜 * `4` - 种草指数榜 * `5` - 精选指数榜 * `6` - 传播指数榜 选填
+     * @return
+     */
+    @Get(value = "${starHotlist}", interceptor = ClientTokenInterceptor.class)
+    DataAndExtraBodyVo<StarHotResult> starHotlist(@Query("hot_list_type") Long hotListType);
+
+    /**
+     * 获取抖音星图达人指数
+     * @return
+     */
+    @Get(value = "${starAuthorScore}", interceptor = TokenHeaderInterceptor.class)
+    DataAndExtraBodyVo<StarAuthorScoreResult> starAuthorScore(@Var("query") UserInfoQuery query);
+
+    /**
+     * 获取抖音星图达人指数数据V2
+     * @param uniqueId 达人抖音号 选填
+     * @return
+     */
+    @Get(value = "${starAuthorScoreV2}", interceptor = ClientTokenInterceptor.class)
+    DataAndExtraBodyVo<StarAuthorScoreV2Result> starAuthorScoreV2(@Query("unique_id") String uniqueId);
 }
