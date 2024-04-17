@@ -14,6 +14,8 @@ public enum DyAppletUrlPathEnum {
     //getAccessToken
     GET_ACCESS_TOKEN("getAccessToken", "/api/apps/v2/token/"),
 
+    //登录code2Session
+    CODE_TO_SESSION("code2Session", "/api/apps/v2/code2session/"),
 
     ;
 
