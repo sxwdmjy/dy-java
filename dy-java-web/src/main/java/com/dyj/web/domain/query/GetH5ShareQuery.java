@@ -1,5 +1,6 @@
 package com.dyj.web.domain.query;
 
+import com.dyj.common.domain.query.BaseQuery;
 import com.dyj.web.domain.MiroAppInfo;
 
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
  * @author danmo
  * @date 2024-04-11 11:28
  **/
-public class GetH5ShareQuery extends BaseQuery{
+public class GetH5ShareQuery extends BaseQuery {
 
     /**
      * client_ticket

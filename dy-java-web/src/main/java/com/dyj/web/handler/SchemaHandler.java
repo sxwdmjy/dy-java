@@ -1,9 +1,7 @@
 package com.dyj.web.handler;
 
-import com.dtflys.forest.annotation.JSONBody;
 import com.dyj.common.config.AgentConfiguration;
 import com.dyj.common.domain.DySimpleResult;
-import com.dyj.web.domain.query.BaseQuery;
 import com.dyj.web.domain.query.GetH5ShareQuery;
 import com.dyj.web.domain.vo.SchemaShareVo;
 

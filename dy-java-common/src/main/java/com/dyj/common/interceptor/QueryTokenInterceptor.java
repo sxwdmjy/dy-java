@@ -1,4 +1,4 @@
-package com.dyj.web.interceptor;
+package com.dyj.common.interceptor;
 
 import com.alibaba.fastjson.JSONObject;
 import com.dtflys.forest.exceptions.ForestRuntimeException;
@@ -9,7 +9,7 @@ import com.dyj.common.domain.DyResult;
 import com.dyj.common.domain.UserTokenInfo;
 import com.dyj.common.handler.RequestHandler;
 import com.dyj.common.service.IAgentTokenService;
-import com.dyj.web.domain.query.UserInfoQuery;
+import com.dyj.common.domain.query.UserInfoQuery;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 

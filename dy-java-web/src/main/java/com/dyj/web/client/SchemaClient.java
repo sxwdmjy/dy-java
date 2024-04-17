@@ -5,10 +5,10 @@ import com.dtflys.forest.annotation.JSONBody;
 import com.dtflys.forest.annotation.Post;
 import com.dtflys.forest.backend.ContentType;
 import com.dyj.common.domain.DySimpleResult;
-import com.dyj.web.domain.query.BaseQuery;
+import com.dyj.common.domain.query.BaseQuery;
+import com.dyj.common.interceptor.ClientTokenInterceptor;
 import com.dyj.web.domain.query.GetH5ShareQuery;
 import com.dyj.web.domain.vo.SchemaShareVo;
-import com.dyj.web.interceptor.ClientTokenInterceptor;
 
 /**
  * 场景跳转接口

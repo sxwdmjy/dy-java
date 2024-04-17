@@ -1,8 +1,10 @@
 package com.dyj.web.domain.query;
 
+import com.dyj.common.domain.query.UserInfoQuery;
+
 import java.util.List;
 
-public class VideoDataQuery extends UserInfoQuery{
+public class VideoDataQuery extends UserInfoQuery {
 
     /**
      * item_id 数组，仅能查询 access_token 对应用户上传的视频（与video_ids字段二选一，平台优先处理item_ids）

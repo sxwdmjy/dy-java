@@ -1,10 +1,12 @@
-package com.dyj.applet.interceptor;
+package com.dyj.common.interceptor;
 
 import com.dtflys.forest.exceptions.ForestRuntimeException;
 import com.dtflys.forest.http.ForestRequest;
 import com.dtflys.forest.http.ForestResponse;
 import com.dtflys.forest.interceptor.Interceptor;
 import com.dyj.common.domain.DyAppletResult;
+import com.dyj.common.domain.query.BaseQuery;
+import com.dyj.common.domain.query.UserInfoQuery;
 import com.dyj.common.domain.vo.BizTokenVo;
 import com.dyj.common.utils.DyConfigUtils;
 
@@ -25,7 +27,18 @@ public class BizTokenHeaderInterceptor implements Interceptor<DyAppletResult> {
         String clientKey = "";
         String openId = "";
         Object[] arguments = request.getArguments();
-
+        for (Object argument : arguments) {
+            if (argument instanceof UserInfoQuery) {
+                UserInfoQuery query = (UserInfoQuery) argument;
+                openId = query.getOpen_id();
+                tenantId = query.getTenantId();
+                clientKey = query.getClientKey();
+            } else if (argument instanceof BaseQuery) {
+                BaseQuery query = (BaseQuery) argument;
+                tenantId = query.getTenantId();
+                clientKey = query.getClientKey();
+            }
+        }
         BizTokenVo bizToken = DyConfigUtils.getAgentTokenService().getBizToken(tenantId, clientKey, openId);
         if (Objects.isNull(bizToken)) {
             throw new RuntimeException("access-token is null");

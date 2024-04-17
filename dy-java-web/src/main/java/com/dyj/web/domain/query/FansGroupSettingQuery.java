@@ -1,5 +1,6 @@
 package com.dyj.web.domain.query;
 
+import com.dyj.common.domain.query.UserInfoQuery;
 import com.dyj.common.enums.GroupSettingTypeEnum;
 import com.dyj.web.domain.MsgContent;
 

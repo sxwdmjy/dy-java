@@ -1,5 +1,6 @@
 package com.dyj.web.domain.query;
 
+import com.dyj.common.domain.query.BaseQuery;
 import com.dyj.web.domain.EventSubscribe;
 
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
  * @author danmo
  * @date 2024-04-12 18:33
  **/
-public class UpdateEventSubscribeQuery extends BaseQuery{
+public class UpdateEventSubscribeQuery extends BaseQuery {
 
     private List<EventSubscribe> list;
 

@@ -4,11 +4,11 @@ import com.dtflys.forest.annotation.*;
 import com.dtflys.forest.backend.ContentType;
 import com.dyj.common.domain.DyResult;
 import com.dyj.web.domain.VideoSearchCommentReplyV2Result;
-import com.dyj.web.domain.query.UserInfoQuery;
+import com.dyj.common.domain.query.UserInfoQuery;
 import com.dyj.web.domain.query.VideoSearchCommentReplyV2Query;
 import com.dyj.web.domain.vo.VideoSearchCommentListV2ListVo;
 import com.dyj.web.domain.vo.VideoSearchListVo;
-import com.dyj.web.interceptor.TokenHeaderInterceptor;
+import com.dyj.common.interceptor.TokenHeaderInterceptor;
 
 /**
  * 搜索管理

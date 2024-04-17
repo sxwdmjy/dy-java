@@ -3,7 +3,7 @@ package com.dyj.applet.client;
 import com.dtflys.forest.annotation.BaseRequest;
 import com.dtflys.forest.annotation.Post;
 import com.dtflys.forest.backend.ContentType;
-import com.dyj.applet.interceptor.BizTokenHeaderInterceptor;
+import com.dyj.common.interceptor.BizTokenHeaderInterceptor;
 import com.dyj.common.domain.DyAppletResult;
 
 import java.util.List;

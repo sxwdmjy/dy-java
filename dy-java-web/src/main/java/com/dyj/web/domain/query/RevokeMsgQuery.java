@@ -1,5 +1,7 @@
 package com.dyj.web.domain.query;
 
+import com.dyj.common.domain.query.UserInfoQuery;
+
 /**
  * @author danmo
  * @date 2024-04-08 18:20

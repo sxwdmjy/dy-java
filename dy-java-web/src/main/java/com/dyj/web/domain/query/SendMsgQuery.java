@@ -1,5 +1,6 @@
 package com.dyj.web.domain.query;
 
+import com.dyj.common.domain.query.UserInfoQuery;
 import com.dyj.web.domain.MsgContent;
 
 import java.util.List;

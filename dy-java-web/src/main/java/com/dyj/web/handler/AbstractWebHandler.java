@@ -4,8 +4,8 @@ import com.dyj.common.client.AuthClient;
 import com.dyj.common.config.AgentConfiguration;
 import com.dyj.spring.utils.SpringUtils;
 import com.dyj.web.client.*;
-import com.dyj.web.domain.query.BaseQuery;
-import com.dyj.web.domain.query.UserInfoQuery;
+import com.dyj.common.domain.query.BaseQuery;
+import com.dyj.common.domain.query.UserInfoQuery;
 
 import java.util.Objects;
 

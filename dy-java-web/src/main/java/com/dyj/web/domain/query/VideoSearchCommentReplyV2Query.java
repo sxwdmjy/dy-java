@@ -1,5 +1,7 @@
 package com.dyj.web.domain.query;
 
+import com.dyj.common.domain.query.UserInfoQuery;
+
 /**
  * 关键词视频评论回复请求值
  * @author ws

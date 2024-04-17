@@ -1,10 +1,12 @@
 package com.dyj.applet.domain.query;
 
+import com.dyj.common.domain.query.BaseQuery;
+
 /**
  * @author danmo
  * @date 2024-04-17 10:55
  **/
-public class Code2SessionQuery {
+public class Code2SessionQuery extends BaseQuery {
 
     /**
      * 小程序 ID
@@ -71,6 +73,10 @@ public class Code2SessionQuery {
         private String code;
         private String anonymousCode;
 
+        private Integer tenantId;
+
+        private String clientKey;
+
         public Code2SessionBuilder appid(String appid) {
             this.appid = appid;
             return this;
@@ -91,12 +97,24 @@ public class Code2SessionQuery {
             return this;
         }
 
+        public Code2SessionBuilder tenantId(Integer tenantId) {
+            this.tenantId = tenantId;
+            return this;
+        }
+
+        public Code2SessionBuilder clientKey(String clientKey) {
+            this.clientKey = clientKey;
+            return this;
+        }
+
         public Code2SessionQuery build() {
             Code2SessionQuery query = new Code2SessionQuery();
             query.setAppid(appid);
             query.setSecret(secret);
             query.setCode(code);
             query.setAnonymous_code(anonymousCode);
+            query.setTenantId(tenantId);
+            query.setClientKey(clientKey);
             return query;
         }
     }

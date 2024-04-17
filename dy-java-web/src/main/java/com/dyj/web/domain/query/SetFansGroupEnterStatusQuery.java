@@ -1,10 +1,12 @@
 package com.dyj.web.domain.query;
 
+import com.dyj.common.domain.query.UserInfoQuery;
+
 /**
  * @author danmo
  * @date 2024-04-09 10:25
  **/
-public class SetFansGroupEnterStatusQuery extends UserInfoQuery{
+public class SetFansGroupEnterStatusQuery extends UserInfoQuery {
 
     /**
      * 入群申请id

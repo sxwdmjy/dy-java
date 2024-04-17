@@ -3,14 +3,14 @@ package com.dyj.web.client;
 import com.dtflys.forest.annotation.*;
 import com.dtflys.forest.backend.ContentType;
 import com.dyj.common.domain.DyResult;
+import com.dyj.common.interceptor.BodyTokenInterceptor;
 import com.dyj.web.domain.query.CheckFansQuery;
-import com.dyj.web.domain.query.UserInfoQuery;
+import com.dyj.common.domain.query.UserInfoQuery;
 import com.dyj.web.domain.query.UserRoleCheckQuery;
 import com.dyj.web.domain.vo.CheckFansVo;
 import com.dyj.web.domain.vo.UserInfoVo;
 import com.dyj.web.domain.vo.UserRoleCheckVo;
-import com.dyj.web.interceptor.BodyTokenInterceptor;
-import com.dyj.web.interceptor.TokenHeaderInterceptor;
+import com.dyj.common.interceptor.TokenHeaderInterceptor;
 
 /**
  * @author danmo

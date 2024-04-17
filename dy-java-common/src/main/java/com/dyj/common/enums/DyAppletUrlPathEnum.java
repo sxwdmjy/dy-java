@@ -17,6 +17,23 @@ public enum DyAppletUrlPathEnum {
     //登录code2Session
     CODE_TO_SESSION("code2Session", "https://developer.toutiao.com/api/apps/v2/jscode2session"),
 
+    //生成SchemaV2
+    GENERATE_SCHEMA("generateSchema", "/api/apps/v1/url/generate_schema/"),
+    //查询SchemaV2
+    QUERY_SCHEMA("querySchema", "/api/apps/v1/url/query_schema/"),
+    //查询Schema配额V2
+    QUERY_SCHEMA_QUOTA("querySchemaQuota", "/api/apps/v1/url/query_schema_quota/"),
+    //生成 Link V2
+    GENERATE_URL_LINK("generateUrlLink", "/api/apps/v1/url_link/generate/"),
+    //查询 Link 配额V2
+    QUERY_QUOTA_URL_LINK("queryQuotaUrlLink", "/api/apps/v1/url_link/query_quota/"),
+    //查询 Link V2
+    QUERY_INFO_URL_LINK("queryInfoUrlLink", "/api/apps/v1/url_link/query_info/"),
+    //生成QRCodeV2
+    CREATE_QR_CODE("createQrCode", "/api/apps/v1/qrcode/create/"),
+
+
+
     ;
 
 

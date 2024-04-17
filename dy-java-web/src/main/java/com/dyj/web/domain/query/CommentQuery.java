@@ -1,10 +1,12 @@
 package com.dyj.web.domain.query;
 
+import com.dyj.common.domain.query.UserInfoQuery;
+
 /**
  * @author danmo
  * @date 2024-04-10 16:46
  **/
-public class CommentQuery extends UserInfoQuery{
+public class CommentQuery extends UserInfoQuery {
 
     /**
      * 视频item_id

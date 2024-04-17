@@ -1,10 +1,12 @@
 package com.dyj.web.domain.query;
 
+import com.dyj.common.domain.query.UserInfoQuery;
+
 /**
  * @author danmo
  * @date 2024-04-11 14:00
  **/
-public class ConfirmPostingTaskQuery extends UserInfoQuery{
+public class ConfirmPostingTaskQuery extends UserInfoQuery {
 
     /**
      * 任务ID
