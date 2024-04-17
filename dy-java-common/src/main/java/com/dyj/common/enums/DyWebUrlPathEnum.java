@@ -82,7 +82,7 @@ public enum DyWebUrlPathEnum {
     /**
      * 查询授权账号视频列表
      */
-    QUERY_VIDEO_LIST("queryVideoList", "/api/douyin/v1/video/init_video_part_upload/"),
+    QUERY_VIDEO_LIST("queryVideoList", "/api/douyin/v1/video/video_list/"),
 
 
     /**
