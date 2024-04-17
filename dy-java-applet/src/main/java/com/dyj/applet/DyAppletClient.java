@@ -123,9 +123,10 @@ public class DyAppletClient extends BaseClient {
 
     /**
      * code2Session
-     * @param code login 接口返回的登录凭证
+     *
+     * @param code          login 接口返回的登录凭证
      * @param anonymousCode login 接口返回的匿名登录凭证
-     * @return  DySimpleResult<Code2SessionVo>
+     * @return DySimpleResult<Code2SessionVo>
      */
     public DySimpleResult<Code2SessionVo> code2Session(String code, String anonymousCode) {
         return new LoginHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).code2Session(code, anonymousCode);
