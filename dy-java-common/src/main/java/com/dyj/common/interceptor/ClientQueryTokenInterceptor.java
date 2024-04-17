@@ -9,12 +9,11 @@ import com.dyj.common.client.AuthClient;
 import com.dyj.common.config.AgentConfiguration;
 import com.dyj.common.domain.ClientTokenInfo;
 import com.dyj.common.domain.DyResult;
+import com.dyj.common.domain.query.BaseQuery;
 import com.dyj.common.domain.query.ClientTokenQuery;
+import com.dyj.common.domain.vo.ClientTokenVo;
 import com.dyj.common.service.IAgentTokenService;
 import com.dyj.common.utils.DyConfigUtils;
-import com.dyj.web.DyWebClient;
-import com.dyj.common.domain.query.BaseQuery;
-import com.dyj.common.domain.vo.ClientTokenVo;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -48,7 +47,7 @@ public class ClientQueryTokenInterceptor implements Interceptor<DyResult> {
             clientTokenQuery.setClient_key(agent.getClientKey());
             clientTokenQuery.setClient_secret(agent.getClientSecret());
             ClientTokenVo clientToken = authClient.getClientToken(clientTokenQuery).getData();
-            if(Objects.nonNull(clientToken) && clientToken.getError_code() == 0){
+            if (Objects.nonNull(clientToken) && clientToken.getError_code() == 0) {
                 clientTokenInfo = agentTokenService.setClientTokenInfo(tenantId, clientKey, clientToken.getAccess_token(), clientToken.getExpires_in());
             }
         }
