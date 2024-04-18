@@ -48,7 +48,21 @@ public enum DyAppletUrlPathEnum {
     //更新线索组件
     UPDATE_CLUE_COMPONENT("updateClueComponent","/api/apps/v1/capacity/update_clue_component_info"),
     //删除线索组件
-    DELETE_CLUE_COMPONENT("deleteClueComponent","/api/apps/v1/capacity/delete_clue_component_info")
+    DELETE_CLUE_COMPONENT("deleteClueComponent","/api/apps/v1/capacity/delete_clue_component_info"),
+
+    //查询特定视频的视频数据
+    QUERY_VIDEO_LIST("queryAptVideoList", "/api/apps/v1/video/query/"),
+
+    //查询特定视频的视频数据(经营授权)
+    QUERY_BIZ_VIDEO_LIST("queryBizVideoList", "/api/apps/v1/video_bc/query/"),
+    //获取视频基础数据
+    GET_ITEM_BASE_INFO("getItemBaseInfo", "/api/apps/v1/item/get_base/"),
+    //获取视频基础数据（经营授权）
+    GET_ITEM_BIZ_BASE_INFO("getItemBizBaseInfo", "/api/apps/v1/item_bc/get_base/"),
+    //获取视频点赞数据
+    GET_ITEM_LIKE_INFO("getItemLikeInfo", "/api/apps/v1/item/get_like/"),
+    //获取视频点赞数据（经营授权）
+    GET_ITEM_BIZ_LIKE_INFO("getItemBizLikeInfo", "/api/apps/v1/item_bc/get_like/"),
     ;
 
 

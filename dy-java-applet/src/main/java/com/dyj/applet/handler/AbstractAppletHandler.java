@@ -1,9 +1,6 @@
 package com.dyj.applet.handler;
 
-import com.dyj.applet.client.ChatMsgClient;
-import com.dyj.applet.client.ClueClient;
-import com.dyj.applet.client.LoginClient;
-import com.dyj.applet.client.SchemaClient;
+import com.dyj.applet.client.*;
 import com.dyj.common.client.AuthClient;
 import com.dyj.common.config.AgentConfiguration;
 import com.dyj.common.domain.query.BaseQuery;
@@ -28,22 +25,26 @@ public abstract class AbstractAppletHandler {
         return SpringUtils.getBean(AuthClient.class);
     }
 
-    protected LoginClient getLoginClient() {
-        return SpringUtils.getBean(LoginClient.class);
+    protected AptLoginClient getLoginClient() {
+        return SpringUtils.getBean(AptLoginClient.class);
     }
 
-    protected SchemaClient getSchemaClient() {
-        return SpringUtils.getBean(SchemaClient.class);
+    protected AptSchemaClient getSchemaClient() {
+        return SpringUtils.getBean(AptSchemaClient.class);
     }
 
-    protected ChatMsgClient getChatMsgClient() {
-        return SpringUtils.getBean(ChatMsgClient.class);
+    protected AptChatMsgClient getChatMsgClient() {
+        return SpringUtils.getBean(AptChatMsgClient.class);
     }
 
-    protected ClueClient getClueClient() {
-        return SpringUtils.getBean(ClueClient.class);
+    protected AptClueClient getClueClient() {
+        return SpringUtils.getBean(AptClueClient.class);
     }
 
+
+    protected AptVideoClient getVideoClient() {
+        return SpringUtils.getBean(AptVideoClient.class);
+    }
 
     protected BaseQuery baseQuery(){
         return baseQuery(null);

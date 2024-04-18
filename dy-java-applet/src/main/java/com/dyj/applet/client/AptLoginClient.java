@@ -12,7 +12,7 @@ import com.dyj.common.domain.DySimpleResult;
  * @date 2024-04-17 10:52
  **/
 @BaseRequest(baseURL = "${ttDomain}")
-public interface LoginClient {
+public interface AptLoginClient {
 
     @Post(url = "${code2Session}")
     DySimpleResult<Code2SessionVo> code2Session(@JSONBody Code2SessionQuery query);

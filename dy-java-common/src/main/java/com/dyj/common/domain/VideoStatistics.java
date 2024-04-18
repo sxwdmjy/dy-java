@@ -1,4 +1,4 @@
-package com.dyj.web.domain;
+package com.dyj.common.domain;
 
 public class VideoStatistics {
 

@@ -1,5 +1,7 @@
 package com.dyj.web.domain;
 
+import com.dyj.common.domain.VideoStatistics;
+
 /**
  * 关键词视频搜索接口返回
  */

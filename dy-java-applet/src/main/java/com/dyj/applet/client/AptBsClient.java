@@ -13,7 +13,7 @@ import java.util.List;
  * @date 2024-04-17 10:12
  **/
 @BaseRequest(baseURL = "${domain}")
-public interface BsClient {
+public interface AptBsClient {
 
     /**
      * 经营能力当前状态查询

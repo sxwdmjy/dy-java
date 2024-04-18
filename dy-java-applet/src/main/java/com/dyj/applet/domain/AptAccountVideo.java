@@ -1,4 +1,4 @@
-package com.dyj.web.domain;
+package com.dyj.applet.domain;
 
 import com.dyj.common.domain.VideoStatistics;
 
@@ -6,7 +6,7 @@ import com.dyj.common.domain.VideoStatistics;
  * @author danmo
  * @date 2024/04/07 22:40
  */
-public class AccountVideo {
+public class AptAccountVideo {
 
     /**
      * 视频封面

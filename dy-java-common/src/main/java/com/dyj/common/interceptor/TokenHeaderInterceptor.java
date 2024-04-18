@@ -12,6 +12,7 @@ import com.dyj.common.domain.query.BaseQuery;
 import com.dyj.common.domain.query.UserInfoQuery;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.util.StringUtils;
 
 import java.util.Objects;
 
@@ -37,10 +38,6 @@ public class TokenHeaderInterceptor implements Interceptor<DyResult> {
                 openId = query.getOpen_id();
                 tenantId = query.getTenantId();
                 clientKey = query.getClientKey();
-            } else if (argument instanceof BaseQuery) {
-                BaseQuery query = (BaseQuery) argument;
-                tenantId = query.getTenantId();
-                clientKey = query.getClientKey();
             }
         }
         UserTokenInfo userTokenInfo = DyConfigUtils.getAgentTokenService().getUserTokenInfo(tenantId, clientKey, openId);
@@ -49,7 +46,9 @@ public class TokenHeaderInterceptor implements Interceptor<DyResult> {
         }
         request.addHeader("access-token", userTokenInfo.getAccessToken());
 
-        request.replaceOrAddQuery("open_id", openId);
+        if(StringUtils.hasLength(openId)){
+            request.replaceOrAddQuery("open_id", openId);
+        }
         return Interceptor.super.beforeExecute(request);
     }
 

@@ -14,7 +14,7 @@ import com.dyj.common.interceptor.AppV2TokenHeaderInterceptor;
  * @date 2024-04-18 15:09
  **/
 @BaseRequest(baseURL = "${ttDomain}", interceptor = AppV2TokenHeaderInterceptor.class)
-public interface ClueClient {
+public interface AptClueClient {
 
     /**
      * 创建线索组件

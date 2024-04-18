@@ -14,7 +14,7 @@ import com.dyj.common.domain.query.BaseQuery;
 import com.dyj.common.interceptor.ClientTokenInterceptor;
 
 @BaseRequest(baseURL = "${domain}", interceptor = ClientTokenInterceptor.class)
-public interface SchemaClient {
+public interface AptSchemaClient {
 
     /**
      * 生成SchemaV2

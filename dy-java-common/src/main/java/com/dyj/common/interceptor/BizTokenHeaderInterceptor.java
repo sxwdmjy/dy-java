@@ -33,10 +33,6 @@ public class BizTokenHeaderInterceptor implements Interceptor<DyAppletResult> {
                 openId = query.getOpen_id();
                 tenantId = query.getTenantId();
                 clientKey = query.getClientKey();
-            } else if (argument instanceof BaseQuery) {
-                BaseQuery query = (BaseQuery) argument;
-                tenantId = query.getTenantId();
-                clientKey = query.getClientKey();
             }
         }
         BizTokenVo bizToken = DyConfigUtils.getAgentTokenService().getBizToken(tenantId, clientKey, openId);

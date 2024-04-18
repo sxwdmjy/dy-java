@@ -24,7 +24,7 @@ import com.dyj.common.interceptor.BizTokenHeaderInterceptor;
  * @date 2024-04-08 09:36
  **/
 @BaseRequest(baseURL = "${domain}", contentType = ContentType.APPLICATION_JSON, interceptor = BizTokenHeaderInterceptor.class)
-public interface ChatMsgClient {
+public interface AptChatMsgClient {
 
     /**
      * 发送私信消息
