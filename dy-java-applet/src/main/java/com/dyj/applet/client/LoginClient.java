@@ -1,5 +1,6 @@
 package com.dyj.applet.client;
 
+import com.dtflys.forest.annotation.BaseRequest;
 import com.dtflys.forest.annotation.JSONBody;
 import com.dtflys.forest.annotation.Post;
 import com.dyj.applet.domain.query.Code2SessionQuery;
@@ -10,6 +11,7 @@ import com.dyj.common.domain.DySimpleResult;
  * @author danmo
  * @date 2024-04-17 10:52
  **/
+@BaseRequest(baseURL = "${ttDomain}")
 public interface LoginClient {
 
     @Post(url = "${code2Session}")

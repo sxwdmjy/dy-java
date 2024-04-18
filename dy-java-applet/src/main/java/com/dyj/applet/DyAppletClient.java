@@ -1,14 +1,8 @@
 package com.dyj.applet;
 
-import com.dyj.applet.domain.query.CreateQrCodeQuery;
-import com.dyj.applet.domain.query.GenerateSchemaQuery;
-import com.dyj.applet.domain.query.GenerateUrlLinkQuery;
-import com.dyj.applet.domain.query.SendMsgQuery;
+import com.dyj.applet.domain.query.*;
 import com.dyj.applet.domain.vo.*;
-import com.dyj.applet.handler.AppletTokenHandler;
-import com.dyj.applet.handler.ChatMsgHandler;
-import com.dyj.applet.handler.LoginHandler;
-import com.dyj.applet.handler.SchemaHandler;
+import com.dyj.applet.handler.*;
 import com.dyj.common.client.BaseClient;
 import com.dyj.common.config.AgentConfiguration;
 import com.dyj.common.config.DyConfiguration;
@@ -17,6 +11,8 @@ import com.dyj.common.domain.DyResult;
 import com.dyj.common.domain.DySimpleResult;
 import com.dyj.common.domain.UserTokenInfo;
 import com.dyj.common.domain.vo.*;
+
+import java.util.List;
 
 /**
  * @author danmo
@@ -261,5 +257,77 @@ public class DyAppletClient extends BaseClient {
      */
     public DyResult<BaseVo> revokeMessage(String openId, String msgId, String conversationId, Integer conversationType) {
         return new ChatMsgHandler(configuration().getAgentByTenantId(tenantId, clientKey)).revokeMessage(openId, msgId, conversationId, conversationType);
+    }
+
+
+    /**
+     * 创建线索组件
+     *
+     * @param categoryId 类目id
+     * @param configName 配置名称
+     * @param region     区域
+     * @return DySimpleResult<CreateClueComponentVo>
+     */
+    public DySimpleResult<CreateClueComponentVo> createClueComponent(String categoryId, String configName, String region) {
+        return new ClueHandler(configuration().getAgentByTenantId(tenantId, clientKey)).createClueComponent(categoryId, configName, region);
+    }
+
+    /**
+     * 创建线索组件
+     *
+     * @param categoryId 类目id
+     * @param configName 配置名称
+     * @param regionList 区域
+     * @return DySimpleResult<CreateClueComponentVo>
+     */
+    public DySimpleResult<CreateClueComponentVo> createClueComponent(String categoryId, String configName, List<String> regionList) {
+        return new ClueHandler(configuration().getAgentByTenantId(tenantId, clientKey)).createClueComponent(categoryId, configName, regionList);
+    }
+
+    /**
+     * 查询线索组件
+     *
+     * @param pageNo   页码
+     * @param pageSize 页大小
+     * @return DySimpleResult<ClueComponentVo>
+     */
+    public DySimpleResult<ClueComponentVo> queryClueComponent(Integer pageNo, Integer pageSize) {
+        return new ClueHandler(configuration().getAgentByTenantId(tenantId, clientKey)).queryClueComponent(pageNo, pageSize);
+    }
+
+    /**
+     * 更新线索组件
+     *
+     * @param configId   配置id
+     * @param categoryId 类目id
+     * @param configName 配置名称
+     * @param region     区域
+     * @return DySimpleResult
+     */
+    public DySimpleResult updateClueComponent(String configId, String categoryId, String configName, String region) {
+        return new ClueHandler(configuration().getAgentByTenantId(tenantId, clientKey)).updateClueComponent(configId, categoryId, configName, region);
+    }
+
+    /**
+     * 更新线索组件
+     *
+     * @param configId   配置id
+     * @param categoryId 类目id
+     * @param configName 配置名称
+     * @param regionList 区域
+     * @return DySimpleResult
+     */
+    public DySimpleResult updateClueComponent(String configId, String categoryId, String configName, List<String> regionList) {
+        return new ClueHandler(configuration().getAgentByTenantId(tenantId, clientKey)).updateClueComponent(configId, categoryId, configName, regionList);
+    }
+
+    /**
+     * 删除线索组件
+     *
+     * @param configId 配置id
+     * @return DySimpleResult
+     */
+    public DySimpleResult deleteClueComponent(String configId) {
+       return new ClueHandler(configuration().getAgentByTenantId(tenantId, clientKey)).deleteClueComponent(configId);
     }
 }

@@ -1,6 +1,7 @@
 package com.dyj.applet.handler;
 
 import com.dyj.applet.client.ChatMsgClient;
+import com.dyj.applet.client.ClueClient;
 import com.dyj.applet.client.LoginClient;
 import com.dyj.applet.client.SchemaClient;
 import com.dyj.common.client.AuthClient;
@@ -39,6 +40,9 @@ public abstract class AbstractAppletHandler {
         return SpringUtils.getBean(ChatMsgClient.class);
     }
 
+    protected ClueClient getClueClient() {
+        return SpringUtils.getBean(ClueClient.class);
+    }
 
 
     protected BaseQuery baseQuery(){

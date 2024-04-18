@@ -2,6 +2,8 @@ package com.dyj.common.enums;
 
 public enum DyAppletUrlPathEnum {
 
+    T_T_DOMAIN("ttDomain","https://developer.toutiao.com"),
+
     //BusinessToken 生成
     BUSINESS_ACCESS_TOKEN("bizAccessToken", "/oauth/business_token/"),
 
@@ -15,7 +17,7 @@ public enum DyAppletUrlPathEnum {
     APPS_V2_TOKEN("appsV2Token", "/api/apps/v2/token/"),
 
     //登录code2Session
-    CODE_TO_SESSION("code2Session", "https://developer.toutiao.com/api/apps/v2/jscode2session"),
+    CODE_TO_SESSION("code2Session", "/api/apps/v2/jscode2session"),
 
     //生成SchemaV2
     GENERATE_SCHEMA("generateSchema", "/api/apps/v1/url/generate_schema/"),
@@ -38,6 +40,15 @@ public enum DyAppletUrlPathEnum {
     //查询主动私信用户授权状态
     IM_AUTHORIZE_STATUS("imAuthStatus","/im/authorize/status/"),
 
+    //创建线索组件
+    CREATE_CLUE_COMPONENT("createClueComponent","/api/apps/v1/capacity/create_clue_component_info"),
+
+    //查询已创建的线索组件
+    QUERY_CLUE_COMPONENT("queryClueComponent","/api/apps/v1/capacity/query_clue_component_info"),
+    //更新线索组件
+    UPDATE_CLUE_COMPONENT("updateClueComponent","/api/apps/v1/capacity/update_clue_component_info"),
+    //删除线索组件
+    DELETE_CLUE_COMPONENT("deleteClueComponent","/api/apps/v1/capacity/delete_clue_component_info")
     ;
 
 

@@ -2,6 +2,7 @@ package com.dyj.examples.service;
 
 import com.dyj.common.domain.ClientTokenInfo;
 import com.dyj.common.domain.UserTokenInfo;
+import com.dyj.common.domain.vo.AppsV2TokenVo;
 import com.dyj.common.domain.vo.BizTokenVo;
 import com.dyj.common.exception.AuthTokenNotFoundException;
 import com.dyj.common.service.IAgentTokenService;
@@ -80,5 +81,15 @@ public class RedisAgentTokenService implements IAgentTokenService {
     @Override
     public void setBizToken(Integer tenantId, String clientKey, String bizToken, Long bizExpiresIn, String bizRefreshToken, Long bizRefreshExpiresIn, String openId) {
 
+    }
+
+    @Override
+    public void setAppsV2Token(Integer tenantId, String clientKey, String accessToken, Long expiresIn) {
+
+    }
+
+    @Override
+    public AppsV2TokenVo getAppsV2Token(Integer tenantId, String clientKey) {
+        return null;
     }
 }
