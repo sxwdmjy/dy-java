@@ -4,7 +4,7 @@ package com.dyj.examples;
 import com.alibaba.fastjson.JSONObject;
 import com.dyj.common.enums.GroupSettingTypeEnum;
 import com.dyj.web.DyWebClient;
-import com.dyj.web.domain.TextMsg;
+import com.dyj.common.domain.TextMsg;
 import com.dyj.web.domain.query.*;
 import com.dyj.web.domain.vo.CreateFansGroupVo;
 import com.dyj.web.domain.vo.FansGroupSettingVo;

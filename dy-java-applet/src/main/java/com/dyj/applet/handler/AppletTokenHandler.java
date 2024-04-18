@@ -59,7 +59,11 @@ public class AppletTokenHandler extends AbstractAppletHandler {
      * @return  DyAppletResult<BizTokenVo>
      */
     public DyAppletResult<BizTokenVo> getBizToken(String openId, String scope) {
-       return getAuthClient().getBizToken(BizTokenQuery.builder().clientKey(agentConfiguration.getClientKey()).clientSecret(agentConfiguration.getClientSecret()).openId(openId).scope(scope).build());
+        DyAppletResult<BizTokenVo> dyAppletResult = getAuthClient().getBizToken(BizTokenQuery.builder().clientKey(agentConfiguration.getClientKey()).clientSecret(agentConfiguration.getClientSecret()).openId(openId).scope(scope).build());
+        if (Objects.nonNull(dyAppletResult) && dyAppletResult.getError_code() == 0) {
+            DyConfigUtils.getAgentTokenService().setBizToken(agentConfiguration.getTenantId(), agentConfiguration.getClientKey(), dyAppletResult.getData().getBiz_token(), dyAppletResult.getData().getBiz_expires_in(), dyAppletResult.getData().getBiz_refresh_token(), dyAppletResult.getData().getBiz_refresh_expires_in(), openId);
+        }
+       return dyAppletResult;
     }
 
     /**

@@ -466,6 +466,23 @@ public enum DyWebUrlPathEnum {
      */
     HOT_VIDEO_LIST("hotVideoList", "/hotsearch/videos/"),
 
+    /**
+     * 获取抖音星图达人热榜
+     */
+    STAR_HOTLIST("starHotlist", "/star/hot_list/"),
+
+    /**
+     * 获取抖音星图达人指数
+     */
+    STAR_AUTHOR_SCORE("starAuthorScore", "/star/author_score/"),
+
+
+    /**
+     * 获取抖音星图达人指数数据V2
+     */
+    STAR_AUTHOR_SCORE_V2("starAuthorScoreV2", "/star/author_score_v2/"),
+
+
     ;
 
 

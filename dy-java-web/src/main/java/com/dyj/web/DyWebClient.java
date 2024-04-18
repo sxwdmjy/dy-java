@@ -1114,4 +1114,31 @@ public class DyWebClient extends BaseClient {
     public DyResult<HotVideoListDataVo> hotVideoList(String hotSentence){
         return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).hotVideoList(hotSentence);
     }
+
+    /**
+     * 获取抖音星图达人热榜
+     * @param hotListType 达人热榜类型 * `1` - 星图指数榜 * `2` - 涨粉指数榜 * `3` - 性价比指数榜 * `4` - 种草指数榜 * `5` - 精选指数榜 * `6` - 传播指数榜 选填
+     * @return
+     */
+    public DataAndExtraBodyVo<StarHotResult> starHotlist(Long hotListType){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).starHotlist(hotListType);
+    }
+
+    /**
+     * 获取抖音星图达人指数
+     * @param openId 通过/oauth/access_token/获取，用户唯一标志 选填
+     * @return
+     */
+    public DataAndExtraBodyVo<StarAuthorScoreResult> starAuthorScore(String openId){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).starAuthorScore(openId);
+    }
+
+    /**
+     * 获取抖音星图达人指数数据V2
+     * @param uniqueId 达人抖音号 选填
+     * @return
+     */
+    public DataAndExtraBodyVo<StarAuthorScoreV2Result> starAuthorScoreV2(String uniqueId){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).starAuthorScoreV2(uniqueId);
+    }
 }

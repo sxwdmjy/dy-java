@@ -4,6 +4,7 @@ package com.dyj.web.handler;
 import com.dyj.common.config.AgentConfiguration;
 import com.dyj.common.domain.DyResult;
 import com.dyj.common.domain.DySimpleResult;
+import com.dyj.common.domain.vo.DataAndExtraBodyVo;
 import com.dyj.web.domain.*;
 import com.dyj.web.domain.ApiFansDataBindFansData;
 import com.dyj.web.domain.vo.*;
@@ -240,6 +241,33 @@ public class DataExternalHandler extends AbstractWebHandler{
      */
     public DyResult<HotVideoListDataVo> hotVideoList(String hotSentence){
         return getDataExternalClient().hotVideoList(hotSentence);
+    }
+
+    /**
+     * 获取抖音星图达人热榜
+     * @param hotListType 达人热榜类型 * `1` - 星图指数榜 * `2` - 涨粉指数榜 * `3` - 性价比指数榜 * `4` - 种草指数榜 * `5` - 精选指数榜 * `6` - 传播指数榜 选填
+     * @return
+     */
+    public DataAndExtraBodyVo<StarHotResult> starHotlist(Long hotListType){
+        return getDataExternalClient().starHotlist(hotListType);
+    }
+
+    /**
+     * 获取抖音星图达人指数
+     * @param openId 通过/oauth/access_token/获取，用户唯一标志 选填
+     * @return
+     */
+    public DataAndExtraBodyVo<StarAuthorScoreResult> starAuthorScore(String openId){
+        return getDataExternalClient().starAuthorScore(userInfoQuery(openId));
+    }
+
+    /**
+     * 获取抖音星图达人指数数据V2
+     * @param uniqueId 达人抖音号 选填
+     * @return
+     */
+    public DataAndExtraBodyVo<StarAuthorScoreV2Result> starAuthorScoreV2(String uniqueId){
+        return getDataExternalClient().starAuthorScoreV2(uniqueId);
     }
 
 }

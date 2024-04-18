@@ -20,7 +20,6 @@ import java.util.Objects;
  **/
 public class BizTokenHeaderInterceptor implements Interceptor<DyAppletResult> {
 
-
     @Override
     public boolean beforeExecute(ForestRequest request) {
         Integer tenantId = null;
@@ -44,6 +43,7 @@ public class BizTokenHeaderInterceptor implements Interceptor<DyAppletResult> {
             throw new RuntimeException("access-token is null");
         }
         request.addHeader("access-token", bizToken.getBiz_token());
+        request.replaceOrAddQuery("open_id", openId);
         return true;
     }
 

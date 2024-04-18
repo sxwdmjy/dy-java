@@ -1,7 +1,7 @@
 package com.dyj.web.domain.query;
 
 import com.dyj.common.domain.query.UserInfoQuery;
-import com.dyj.web.domain.MsgContent;
+import com.dyj.common.domain.MsgContent;
 
 /**
  * @author danmo

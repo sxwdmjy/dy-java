@@ -32,7 +32,11 @@ public enum DyAppletUrlPathEnum {
     //生成QRCodeV2
     CREATE_QR_CODE("createQrCode", "/api/apps/v1/qrcode/create/"),
 
+    //发送主动私信
+    AUTHORIZE_SEND_MSG("authSendMsg","/im/authorize/send/msg/"),
 
+    //查询主动私信用户授权状态
+    IM_AUTHORIZE_STATUS("imAuthStatus","/im/authorize/status/"),
 
     ;
 

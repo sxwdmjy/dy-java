@@ -3,8 +3,10 @@ package com.dyj.applet;
 import com.dyj.applet.domain.query.CreateQrCodeQuery;
 import com.dyj.applet.domain.query.GenerateSchemaQuery;
 import com.dyj.applet.domain.query.GenerateUrlLinkQuery;
+import com.dyj.applet.domain.query.SendMsgQuery;
 import com.dyj.applet.domain.vo.*;
 import com.dyj.applet.handler.AppletTokenHandler;
+import com.dyj.applet.handler.ChatMsgHandler;
 import com.dyj.applet.handler.LoginHandler;
 import com.dyj.applet.handler.SchemaHandler;
 import com.dyj.common.client.BaseClient;
@@ -202,5 +204,62 @@ public class DyAppletClient extends BaseClient {
      */
     public DySimpleResult<QrCodeVo> createQrCode(CreateQrCodeQuery query) {
         return new SchemaHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).createQrCode(query);
+    }
+
+    /**
+     * 发送私信消息
+     *
+     * @param query 入参
+     * @return ChatMsgResponseVo
+     */
+    public SendMsgResponseVo sendMessage(SendMsgQuery query) {
+        return new ChatMsgHandler(configuration().getAgentByTenantId(tenantId, clientKey)).sendMessage(query);
+    }
+
+    /**
+     * 发送主动私信
+     *
+     * @param query 入参
+     * @return DySimpleResult<AuthSendMsgVo>
+     */
+    public DySimpleResult<AuthSendMsgVo> authSendMsg(SendMsgQuery query) {
+        return new ChatMsgHandler(configuration().getAgentByTenantId(tenantId, clientKey)).authSendMsg(query);
+    }
+
+    /**
+     * 查询主动私信用户授权状态
+     *
+     * @param openId  用户ID
+     * @param cOpenId C端用户的open_id
+     * @param appId   C端用户open_id所在的小程序 可不传
+     * @return DySimpleResult<ImAuthStatusVo>
+     */
+    public DySimpleResult<ImAuthStatusVo> queryImAuthStatus(String openId, String cOpenId, String appId) {
+        return new ChatMsgHandler(configuration().getAgentByTenantId(tenantId, clientKey)).queryImAuthStatus(openId, cOpenId, appId);
+    }
+
+    /**
+     * 查询授权主动私信用户
+     *
+     * @param openId   用户ID
+     * @param pageNum  页码
+     * @param pageSize 每页数量
+     * @return DySimpleResult<ImAuthUserListVo>
+     */
+    public DySimpleResult<ImAuthUserListVo> queryAuthorizeUserList(String openId, Long pageNum, Long pageSize) {
+        return new ChatMsgHandler(configuration().getAgentByTenantId(tenantId, clientKey)).queryAuthorizeUserList(openId, pageNum, pageSize);
+    }
+
+    /**
+     * 私信消息撤回
+     *
+     * @param openId           用户ID
+     * @param msgId            消息ID
+     * @param conversationId   会话 ID：来源于私信 webhook，接收私信消息事件，对应 webhook 的 content 里的conversation_short_id 字段
+     * @param conversationType 会话类型 1- 单聊 2- 群聊
+     * @return DyResult<BaseVo>
+     */
+    public DyResult<BaseVo> revokeMessage(String openId, String msgId, String conversationId, Integer conversationType) {
+        return new ChatMsgHandler(configuration().getAgentByTenantId(tenantId, clientKey)).revokeMessage(openId, msgId, conversationId, conversationType);
     }
 }
