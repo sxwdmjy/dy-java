@@ -44,7 +44,7 @@ public interface VideoClient {
     DyResult<InitPartUploadVo> initializeVideoPartUpload(@Var("query") UserInfoQuery query);
 
     @Get(url = "${queryVideoList}", contentType = ContentType.APPLICATION_JSON, interceptor = TokenHeaderInterceptor.class)
-    DyResult<QueryVideoListVo> queryVideoList(@Var("query") UserInfoQuery query, @Query("cursor") Integer cursor, @Query("count") Integer count);
+    DyResult<QueryVideoListVo> queryVideoList(@Var("query") UserInfoQuery query, @Query("cursor") Long cursor, @Query("count") Integer count);
 
     @Post(url = "${queryVideoData}", contentType = ContentType.APPLICATION_JSON, interceptor = TokenHeaderInterceptor.class)
     DyResult<QueryVideoListVo> queryVideoData(@JSONBody VideoDataQuery query);

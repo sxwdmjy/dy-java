@@ -242,7 +242,7 @@ public class DyWebClient extends BaseClient {
      * @param count  每页数量。
      * @return DyResult<QueryVideoListVo>。
      */
-    public DyResult<QueryVideoListVo> queryVideoList(String openId, Integer cursor, Integer count) {
+    public DyResult<QueryVideoListVo> queryVideoList(String openId, Long cursor, Integer count) {
         return new VideoHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).queryVideoList(openId, cursor, count);
     }
 

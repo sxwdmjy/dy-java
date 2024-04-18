@@ -7,17 +7,17 @@ import java.util.List;
 
 public class QueryVideoListVo extends BaseVo {
 
-    private Integer cursor;
+    private Long cursor;
 
     private Boolean has_more;
 
     private List<AccountVideo> list;
 
-    public Integer getCursor() {
+    public Long getCursor() {
         return cursor;
     }
 
-    public void setCursor(Integer cursor) {
+    public void setCursor(Long cursor) {
         this.cursor = cursor;
     }
 

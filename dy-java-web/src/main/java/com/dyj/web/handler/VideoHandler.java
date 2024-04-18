@@ -70,7 +70,7 @@ public class VideoHandler extends AbstractWebHandler{
         return getVideoClient().initializeVideoPartUpload(query);
     }
 
-    public DyResult<QueryVideoListVo> queryVideoList(String openId, Integer cursor, Integer count) {
+    public DyResult<QueryVideoListVo> queryVideoList(String openId, Long cursor, Integer count) {
         UserInfoQuery query = new UserInfoQuery();
         query.setTenantId(agentConfiguration.getTenantId());
         query.setClientKey(agentConfiguration.getClientKey());

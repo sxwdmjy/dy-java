@@ -85,7 +85,7 @@ public class VideoTest {
     //查询授权账号视频列表
     @Test
     public void queryVideoList(){
-        DyResult<QueryVideoListVo> baseVoDyResult = DyWebClient.getInstance().queryVideoList(openId, 1, 10);
+        DyResult<QueryVideoListVo> baseVoDyResult = DyWebClient.getInstance().queryVideoList(openId, 1L, 10);
         System.out.println(JSONObject.toJSONString(baseVoDyResult));
     }
 
