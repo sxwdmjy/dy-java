@@ -19,7 +19,7 @@ public interface IAgentTokenService {
 
     BizTokenVo getBizToken(Integer tenantId, String clientKey, String openId);
 
-    void setBizToken(Integer tenantId, String clientKey, String bizToken, Long bizExpiresIn, String bizRefreshToken, Long bizRefreshExpiresIn);
+    void setBizToken(Integer tenantId, String clientKey, String bizToken, Long bizExpiresIn, String bizRefreshToken, Long bizRefreshExpiresIn, String openId);
 
     //String getOpenId() throws OpenIdIsNullException;
 }

@@ -59,9 +59,7 @@ public class CacheAgentTokenServiceImpl implements IAgentTokenService {
     }
 
     @Override
-    public void setBizToken(Integer tenantId, String clientKey, String bizToken, Long bizExpiresIn, String bizRefreshToken, Long bizRefreshExpiresIn) {
+    public void setBizToken(Integer tenantId, String clientKey, String bizToken, Long bizExpiresIn, String bizRefreshToken, Long bizRefreshExpiresIn, String openId) {
 
     }
-
-
 }

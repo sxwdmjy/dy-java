@@ -35,4 +35,40 @@ public class ColorRGB {
     public void setB(Integer b) {
         this.b = b;
     }
+
+    public static ColorRGBBuilder builder() {
+        return new ColorRGBBuilder();
+    }
+
+    public static class ColorRGBBuilder {
+        private Integer r;
+        private Integer g;
+        private Integer b;
+
+        public ColorRGBBuilder r
+                (Integer r) {
+            this.r = r;
+            return this;
+        }
+
+        public ColorRGBBuilder g
+                (Integer g) {
+            this.g = g;
+            return this;
+        }
+
+        public ColorRGBBuilder b
+                (Integer b) {
+            this.b = b;
+            return this;
+        }
+
+        public ColorRGB build() {
+            ColorRGB colorRGB = new ColorRGB();
+            colorRGB.setR(r);
+            colorRGB.setG(g);
+            colorRGB.setB(b);
+            return colorRGB;
+        }
+    }
 }

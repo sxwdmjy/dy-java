@@ -1,4 +1,4 @@
-package com.dyj.web.domain;
+package com.dyj.common.domain;
 
 import com.alibaba.fastjson.JSONObject;
 import com.dyj.common.enums.MediaTypeEnum;

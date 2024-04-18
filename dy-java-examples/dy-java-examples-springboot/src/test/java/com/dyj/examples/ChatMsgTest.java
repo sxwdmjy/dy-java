@@ -4,7 +4,7 @@ package com.dyj.examples;
 import com.alibaba.fastjson.JSONArray;
 import com.dyj.common.domain.DyResult;
 import com.dyj.web.DyWebClient;
-import com.dyj.web.domain.TextMsg;
+import com.dyj.common.domain.TextMsg;
 import com.dyj.web.domain.query.AuthorizeUserListQuery;
 import com.dyj.web.domain.query.RevokeMsgQuery;
 import com.dyj.web.domain.query.SendMsgQuery;
