@@ -1141,4 +1141,25 @@ public class DyWebClient extends BaseClient {
     public DataAndExtraBodyVo<StarAuthorScoreV2Result> starAuthorScoreV2(String uniqueId){
         return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).starAuthorScoreV2(uniqueId);
     }
+
+    /**
+     * 获取抖音电影榜、抖音电视剧榜、抖音综艺榜
+     * @param type 榜单类型：  * 1 - 电影   * 2 - 电视剧   * 3 - 综艺 选填
+     * @param version 榜单版本：空值默认为本周榜单 选填
+     * @return
+     */
+    public DataAndExtraBodyVo<DiscoveryEntRankItemVo> discoveryEntRankItem(Long type,Long version){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).discoveryEntRankItem(type,version);
+    }
+
+    /**
+     * 获取抖音影视综榜单版本
+     * @param count 每页数量 选填
+     * @param cursor 分页游标, 第一页请求cursor是0, response中会返回下一页请求用到的cursor, 同时response还会返回has_more来表明是否有更多的数据。 选填
+     * @param type 榜单类型：  * 1 - 电影   * 2 - 电视剧   * 3 - 综艺 选填
+     * @return
+     */
+    public DataAndExtraBodyVo<DiscoveryEntRankVersionListVo> discoveryEntRankVersion(Long count,Long cursor,Long type){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).discoveryEntRankVersion(count,cursor,type);
+    }
 }

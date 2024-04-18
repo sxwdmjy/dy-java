@@ -47,4 +47,43 @@ public class VideoSearchCommentReplyV2Query extends UserInfoQuery {
         this.sec_item_id = sec_item_id;
         return this;
     }
+
+    public static class VideoSearchCommentReplyV2QueryBuilder{
+        /**
+         * 需要回复的评论id（如果需要回复的是视频不传此字段） 选填
+         */
+        private String commentId;
+        /**
+         * content
+         */
+        private String content;
+        /**
+         * 视频搜索接口返回的加密的视频id
+         */
+        private String secItemId;
+
+        public VideoSearchCommentReplyV2QueryBuilder commentId(String commentId) {
+            this.commentId = commentId;
+            return this;
+        }
+
+        public VideoSearchCommentReplyV2QueryBuilder content(String content) {
+            this.content = content;
+            return this;
+        }
+
+        public VideoSearchCommentReplyV2QueryBuilder secItemId(String secItemId) {
+            this.secItemId = secItemId;
+            return this;
+        }
+
+        public VideoSearchCommentReplyV2Query build(){
+            return new VideoSearchCommentReplyV2Query()
+                    .setComment_id(commentId)
+                    .setContent(content)
+                    .setSec_item_id(secItemId);
+        }
+
+    }
+
 }

@@ -221,4 +221,23 @@ public interface DataExternalClient {
      */
     @Get(value = "${starAuthorScoreV2}", interceptor = ClientTokenInterceptor.class)
     DataAndExtraBodyVo<StarAuthorScoreV2Result> starAuthorScoreV2(@Query("unique_id") String uniqueId);
+
+    /**
+     * 获取抖音电影榜、抖音电视剧榜、抖音综艺榜
+     * @param type 榜单类型：  * 1 - 电影   * 2 - 电视剧   * 3 - 综艺 选填
+     * @param version 榜单版本：空值默认为本周榜单 选填
+     * @return
+     */
+    @Get(value = "${discoveryEntRankItem}", interceptor = ClientTokenInterceptor.class)
+    DataAndExtraBodyVo<DiscoveryEntRankItemVo> discoveryEntRankItem(@Query("type") Long type,@Query("version") Long version);
+
+    /**
+     * 获取抖音影视综榜单版本
+     * @param count 每页数量 选填
+     * @param cursor 分页游标, 第一页请求cursor是0, response中会返回下一页请求用到的cursor, 同时response还会返回has_more来表明是否有更多的数据。 选填
+     * @param type 榜单类型：  * 1 - 电影   * 2 - 电视剧   * 3 - 综艺 选填
+     * @return
+     */
+    @Get(value = "${discoveryEntRankVersion}", interceptor = ClientTokenInterceptor.class)
+    DataAndExtraBodyVo<DiscoveryEntRankVersionListVo> discoveryEntRankVersion(@Query("count") Long count,@Query("cursor") Long cursor,@Query("type") Long type);
 }

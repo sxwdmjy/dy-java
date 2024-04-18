@@ -293,4 +293,22 @@ public class DataExternalTest {
         System.out.println(JSON.toJSONString(webClient.starAuthorScoreV2("")));
     }
 
+    /**
+     * 获取抖音电影榜、抖音电视剧榜、抖音综艺榜
+     */
+    @Test
+    public void discoveryEntRankItem(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.discoveryEntRankItem(1L,1L)));
+    }
+    
+    /**
+     * 获取抖音影视综榜单版本
+     */
+    @Test
+    public void discoveryEntRankVersion(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.discoveryEntRankVersion(1L,null,1L)));
+    }
+
 }

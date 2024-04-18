@@ -482,6 +482,15 @@ public enum DyWebUrlPathEnum {
      */
     STAR_AUTHOR_SCORE_V2("starAuthorScoreV2", "/star/author_score_v2/"),
 
+    /**
+     * 获取抖音电影榜、抖音电视剧榜、抖音综艺榜
+     */
+    DISCOVERY_ENT_RANK_ITEM("discoveryEntRankItem", "/discovery/ent/rank/item/"),
+
+    /**
+     * 获取抖音影视综榜单版本
+     */
+    DISCOVERY_ENT_RANK_VERSION("discoveryEntRankVersion", "/discovery/ent/rank/version/")
 
     ;
 
