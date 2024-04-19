@@ -548,7 +548,7 @@ public class DyWebClient extends BaseClient {
      * @param cursor   分页游标。
      * @return 返回评论列表的结果，包含评论信息。
      */
-    public DyResult<CommentListVo> queryCommentList(String openId, String itemId, String sortType, Integer count, Integer cursor) {
+    public DyResult<CommentListVo> queryCommentList(String openId, String itemId, String sortType, Integer count, Long cursor) {
         // 通过租户ID和客户端密钥加载代理配置，创建评论处理器并查询评论列表
         return new CommentHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).queryCommentList(openId, itemId, sortType, count, cursor);
     }
@@ -564,7 +564,7 @@ public class DyWebClient extends BaseClient {
      * @param cursor    分页游标。
      * @return 返回评论回复列表的结果，包含评论回复信息。
      */
-    public DyResult<CommentListVo> queryCommentReplyList(String openId, String itemId, String commentId, String sortType, Integer count, Integer cursor) {
+    public DyResult<CommentListVo> queryCommentReplyList(String openId, String itemId, String commentId, String sortType, Integer count, Long cursor) {
         // 通过租户ID和客户端密钥加载代理配置，创建评论处理器并查询评论回复列表
         return new CommentHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId, clientKey)).queryCommentReplyList(openId, itemId, commentId, sortType, count, cursor);
     }
