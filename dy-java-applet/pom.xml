@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.dyj</groupId>
         <artifactId>dy-java</artifactId>
-        <version>1.0.0</version>
+        <version>${revision}</version>
     </parent>
 
     <groupId>com.dyj.applet</groupId>
