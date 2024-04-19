@@ -1,9 +1,7 @@
 package com.dyj.applet.handler;
 
 import com.dyj.applet.domain.query.AptVideoQuery;
-import com.dyj.applet.domain.vo.AptVideoListVo;
-import com.dyj.applet.domain.vo.ItemBaseInfoVo;
-import com.dyj.applet.domain.vo.ItemLikeInfoVo;
+import com.dyj.applet.domain.vo.*;
 import com.dyj.common.config.AgentConfiguration;
 import com.dyj.common.domain.DyResult;
 
@@ -97,5 +95,77 @@ public class AptVideoHandler extends AbstractAppletHandler {
      */
     public DyResult<ItemLikeInfoVo> getItemBizLikeInfo(String openId, String itemId, Integer dateType) {
         return getVideoClient().getItemBizLikeInfo(userInfoQuery(), itemId, dateType);
+    }
+
+    /**
+     * 获取视频评论数据
+     *
+     * @param openId  用户ID
+     * @param itemId  item_id
+     * @param dateType 数据范围，数据范围，近7/15天；输入7代表7天、15代表15天
+     * @return DyResult<ItemCommentInfoVo>
+     */
+    public DyResult<ItemCommentInfoVo> getItemComment(String openId, String itemId, Integer dateType) {
+        return getVideoClient().getItemComment(userInfoQuery(), itemId, dateType);
+    }
+
+    /**
+     * 获取视频评论数据（经营授权）
+     *
+     * @param openId  用户ID
+     * @param itemId  item_id
+     * @param dateType 数据范围，数据范围，近7/15天；输入7代表7天、15代表15天
+     * @return DyResult<ItemCommentInfoVo>
+     */
+    public DyResult<ItemCommentInfoVo> getItemBizComment(String openId, String itemId, Integer dateType) {
+        return getVideoClient().getItemBizComment(userInfoQuery(), itemId, dateType);
+    }
+
+    /**
+     * 获取视频播放数据
+     *
+     * @param openId  用户ID
+     * @param itemId  item_id
+     * @param dateType 数据范围，数据范围，近7/15天；输入7代表7天、15代表15天
+     * @return DyResult<ItemPlayInfoVo>
+     */
+    public DyResult<ItemPlayInfoVo> getItemPlay(String openId, String itemId, Integer dateType) {
+        return getVideoClient().getItemPlay(userInfoQuery(), itemId, dateType);
+    }
+
+    /**
+     * 获取视频播放数据（经营授权）
+     *
+     * @param openId  用户ID
+     * @param itemId  item_id
+     * @param dateType 数据范围，数据范围，近7/15天；输入7代表7天、15代表15天
+     * @return DyResult<ItemPlayInfoVo>
+     */
+    public DyResult<ItemPlayInfoVo> getItemBizPlay(String openId, String itemId, Integer dateType) {
+        return getVideoClient().getItemBizPlay(userInfoQuery(), itemId, dateType);
+    }
+
+    /**
+     * 获取视频分享数据（经营授权）
+     *
+     * @param openId  用户ID
+     * @param itemId  item_id
+     * @param dateType 数据范围，数据范围，近7/15天；输入7代表7天、15代表15天
+     * @return DyResult<ItemShareInfoVo>
+     */
+    public DyResult<ItemShareInfoVo> getItemShare(String openId, String itemId, Integer dateType) {
+        return getVideoClient().getItemShare(userInfoQuery(), itemId, dateType);
+    }
+
+    /**
+     * 获取视频分享数据（经营授权）
+     *
+     * @param openId  用户ID
+     * @param itemId  item_id
+     * @param dateType 数据范围，数据范围，近7/15天；输入7代表7天、15代表15天
+     * @return DyResult<ItemShareInfoVo>
+     */
+    public DyResult<ItemShareInfoVo> getItemBizShare(String openId, String itemId, Integer dateType) {
+        return getVideoClient().getItemBizShare(userInfoQuery(), itemId, dateType);
     }
 }

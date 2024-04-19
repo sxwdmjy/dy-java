@@ -63,6 +63,23 @@ public enum DyAppletUrlPathEnum {
     GET_ITEM_LIKE_INFO("getItemLikeInfo", "/api/apps/v1/item/get_like/"),
     //获取视频点赞数据（经营授权）
     GET_ITEM_BIZ_LIKE_INFO("getItemBizLikeInfo", "/api/apps/v1/item_bc/get_like/"),
+
+    //获取视频评论数据
+    GET_ITEM_COMMENT_INFO("getItemComment", "/api/apps/v1/item/get_comment/"),
+    //获取视频评论数据（经营授权）
+    GET_ITEM_BIZ_COMMENT_INFO("getItemBizComment", "/api/apps/v1/item_bc/get_comment/"),
+
+    //获取视频播放数据
+    GET_ITEM_PLAY_INFO("getItemPlay", "/api/apps/v1/item/get_play/"),
+
+    //获取视频播放数据（经营授权）
+    GET_ITEM_BIZ_PLAY_INFO("getItemBizPlay", "/api/apps/v1/item_bc/get_play/"),
+
+    //获取视频分享数据
+    GET_ITEM_SHARE_INFO("getItemShare", "/api/apps/v1/item/get_share/"),
+
+    //获取视频分享数据（经营授权）
+    GET_ITEM_BIZ_SHARE_INFO("getItemBizShare", "/api/apps/v1/item_bc/get_share/"),
     ;
 
 
