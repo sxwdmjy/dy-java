@@ -1,7 +1,7 @@
-package com.dyj.web.domain.vo;
+package com.dyj.applet.domain.vo;
 
+import com.dyj.applet.domain.Comment;
 import com.dyj.common.domain.vo.BaseVo;
-import com.dyj.web.domain.Comment;
 
 import java.util.List;
 

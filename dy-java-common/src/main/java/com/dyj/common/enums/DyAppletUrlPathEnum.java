@@ -80,7 +80,21 @@ public enum DyAppletUrlPathEnum {
 
     //获取视频分享数据（经营授权）
     GET_ITEM_BIZ_SHARE_INFO("getItemBizShare", "/api/apps/v1/item_bc/get_share/"),
+    //置顶评论
+    TOP_COMMENT("topComment","/api/apps/v1/item/top_comment/"),
+    //评论列表
+    COMMENT_LIST("commentList","/api/apps/v1/item/list_comment/"),
+    //评论回复列表
+    COMMENT_REPLY_LIST("commentReplyList","/api/apps/v1/item/list_comment_reply/"),
+    //回复视频评论
+    REPLY_COMMENT("replyComment","/api/apps/v1/item/reply_comment/"),
+    //videoid转换itemid
+    VIDEO_ID_TO_OPEN_ITEM_ID("videoId2itemId","/api/apps/v1/convert_video_id/video_id_to_open_item_id/"),
+    //itemid转换encryptid
+    ITEM_ID_TO_ENCRYPT_ID("itemId2encryptId","/api/apps/v1/convert_video_id/open_item_id_to_encrypt_id/"),
+
     ;
+
 
 
 

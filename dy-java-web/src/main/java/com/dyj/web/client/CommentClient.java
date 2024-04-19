@@ -35,7 +35,7 @@ public interface CommentClient {
      * @return DyResult<CommentListVo>
      */
     @Get(value = "${queryCommentList}", interceptor = TokenHeaderInterceptor.class)
-    DyResult<CommentListVo> queryCommentList(@Var("query") UserInfoQuery query, @Query("item_id") String itemId, @Query("sort_type") String sortType, @Query("count") Integer count, @Query("cursor") Integer cursor);
+    DyResult<CommentListVo> queryCommentList(@Var("query") UserInfoQuery query, @Query("item_id") String itemId, @Query("sort_type") String sortType, @Query("count") Integer count, @Query("cursor") Long cursor);
 
     /**
      * 评论回复列表
@@ -48,7 +48,7 @@ public interface CommentClient {
      * @return
      */
     @Get(value = "${queryCommentReplyList}", interceptor = TokenHeaderInterceptor.class)
-    DyResult<CommentListVo> queryCommentReplyList(@Var("query") UserInfoQuery query, @Query("item_id") String itemId, @Query("comment_id") String commentId, @Query("sort_type") String sortType, @Query("count") Integer count, @Query("cursor") Integer cursor);
+    DyResult<CommentListVo> queryCommentReplyList(@Var("query") UserInfoQuery query, @Query("item_id") String itemId, @Query("comment_id") String commentId, @Query("sort_type") String sortType, @Query("count") Integer count, @Query("cursor") Long cursor);
 
     /**
      * 回复视频评论

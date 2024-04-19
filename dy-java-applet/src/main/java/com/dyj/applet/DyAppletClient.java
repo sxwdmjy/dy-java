@@ -1,9 +1,6 @@
 package com.dyj.applet;
 
-import com.dyj.applet.domain.query.CreateQrCodeQuery;
-import com.dyj.applet.domain.query.GenerateSchemaQuery;
-import com.dyj.applet.domain.query.GenerateUrlLinkQuery;
-import com.dyj.applet.domain.query.SendMsgQuery;
+import com.dyj.applet.domain.query.*;
 import com.dyj.applet.domain.vo.*;
 import com.dyj.applet.handler.*;
 import com.dyj.common.client.BaseClient;
@@ -453,5 +450,80 @@ public class DyAppletClient extends BaseClient {
      */
     public DyResult<ItemShareInfoVo> getItemBizShare(String openId, String itemId, Integer dateType) {
         return new AptVideoHandler(configuration().getAgentByTenantId(tenantId, clientKey)).getItemBizShare(openId, itemId, dateType);
+    }
+
+    /**
+     * 置顶评论
+     *
+     * @param openId    用户ID
+     * @param commentId 评论ID
+     * @param itemId    视频ID
+     * @param top       true: 置顶, false: 取消置顶
+     * @return TopCommentVo
+     */
+    public TopCommentVo topComment(String openId, String commentId, String itemId, Boolean top) {
+        return new AptVideoHandler(configuration().getAgentByTenantId(tenantId, clientKey)).topComment(openId, commentId, itemId, top);
+    }
+
+    /**
+     * 获取评论列表
+     *
+     * @param openId   用户ID
+     * @param itemId   视频ID
+     * @param sortType 列表排序方式，不传默认按推荐序，可选值：time(时间逆序)、time_asc(时间顺序)
+     * @param count    每页的数量，最大不超过50，最小不低于1
+     * @param cursor   分页游标
+     * @return DyResult<CommentListVo>
+     */
+    public DyResult<CommentListVo> commentList(String openId, String itemId, String sortType, Integer count, Long cursor) {
+        return new AptVideoHandler(configuration().getAgentByTenantId(tenantId, clientKey)).commentList(openId, itemId, sortType, count, cursor);
+    }
+    /**
+     * 获取评论回复列表
+     *
+     * @param openId    用户ID
+     * @param itemId    视频ID
+     * @param commentId 评论ID
+     * @param sortType  列表排序方式，不传默认按推荐序，可选值：time(时间逆序)、time_asc(时间顺序)
+     * @param count     每页的数量，最大不超过50，最小不低于1
+     * @param cursor    分页游标
+     * @return DyResult<CommentListVo>
+     */
+    public DyResult<CommentListVo> commentReplyList(String openId, String itemId, String commentId, String sortType, Integer count, Long cursor) {
+        return new AptVideoHandler(configuration().getAgentByTenantId(tenantId, clientKey)).commentReplyList(openId, itemId, commentId, sortType, count, cursor);
+    }
+
+    /**
+     * 回复评论
+     *
+     * @param openId   用户ID
+     * @param content  评论内容
+     * @param commentId 评论ID
+     * @param itemId   视频ID
+     * @return DyResult<CommentReplyVo>
+     */
+    public DyResult<CommentReplyVo> replyComment(String openId, String content, String commentId, String itemId) {
+        return new AptVideoHandler(configuration().getAgentByTenantId(tenantId, clientKey)).replyComment(openId, content, commentId, itemId);
+    }
+
+    /**
+     * videoId转换itemId
+     * @param accessKey 字段含义：小程序id或移动网站应用id  备注：填写转化为目标应用的应用ID，如果转化为本小程序可用的itemId，填入本小程序的appid即可。
+     * @param appId 小程序ID
+     * @param videoIds 需要转换的videoId
+     * @return DySimpleResult<ConvertResultVo>
+     */
+    public DySimpleResult<ConvertResultVo> videoId2itemId(String accessKey,String appId, List<String> videoIds){
+        return new AptVideoHandler(configuration().getAgentByTenantId(tenantId, clientKey)).videoId2itemId(accessKey,appId,videoIds);
+    }
+
+    /**
+     * itemId转换encryptId
+     * @param accessKey  根据打通文档的说明，此处在使用的应用类型为小程序时应当为小程序的 appid。具体内容参见上面的 access_key 说明
+     * @param itemIds 需要转换的itemId
+     * @return DySimpleResult<ConvertResultVo>
+     */
+    public DySimpleResult<ConvertResultVo> itemId2encryptId(String accessKey, List<String> itemIds){
+        return new AptVideoHandler(configuration().getAgentByTenantId(tenantId, clientKey)).itemId2encryptId(accessKey,itemIds);
     }
 }

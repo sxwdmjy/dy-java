@@ -1,4 +1,4 @@
-package com.dyj.web.domain.query;
+package com.dyj.applet.domain.query;
 
 import com.dyj.common.domain.query.UserInfoQuery;
 
