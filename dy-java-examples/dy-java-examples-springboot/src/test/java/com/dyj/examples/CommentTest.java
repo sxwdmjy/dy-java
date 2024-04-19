@@ -33,14 +33,14 @@ class CommentTest {
     //查询评论列表
     @Test
     void queryCommentList() {
-        DyResult<CommentListVo> dyResult = DyWebClient.getInstance().queryCommentList(openId, itemId, "time", 100, 0);
+        DyResult<CommentListVo> dyResult = DyWebClient.getInstance().queryCommentList(openId, itemId, "time", 100, 0L);
         System.out.println(JSONObject.toJSONString(dyResult));
     }
 
     //查询评论回复列表
     @Test
     void queryCommentReplyList() {
-        DyResult<CommentListVo> dyResult = DyWebClient.getInstance().queryCommentReplyList(openId, itemId, commentId,"time", 100, 0);
+        DyResult<CommentListVo> dyResult = DyWebClient.getInstance().queryCommentReplyList(openId, itemId, commentId,"time", 100, 0L);
         System.out.println(JSONObject.toJSONString(dyResult));
     }
 

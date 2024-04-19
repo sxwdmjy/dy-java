@@ -12,6 +12,8 @@ spring:
 
 dyjava:
   beanId: dasdsadsad
+  domain:  #自定义抖音域名，默认线上域名
+  ttDomain:  #自定义头条域名，默认线上域名
   source-type: 1
   agents:
     - tenantId: 1
