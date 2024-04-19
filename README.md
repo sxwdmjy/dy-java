@@ -21,6 +21,8 @@ DyJava是一款功能强大的抖音Java开发工具包，支持多种抖音开�
 ``` yml
 dyjava:
   beanId:  
+  domain: https://open.douyin.com #自定义抖音域名，默认线上域名
+  ttDomain: https://developer.toutiao.com #自定义头条域名，默认线上域名
   agents:  #可配置多个应用
     - tenantId: 1   #租户名称
       clientKey:  #应用Key

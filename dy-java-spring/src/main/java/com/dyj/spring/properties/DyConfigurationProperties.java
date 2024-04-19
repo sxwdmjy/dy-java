@@ -29,6 +29,16 @@ public class DyConfigurationProperties {
     private Integer defaultId;
 
     /**
+     * 域名
+     */
+    private String domain;
+
+    /**
+     * 域名
+     */
+    private String ttDomain;
+
+    /**
      * 应用配置
      */
     private List<AgentConfiguration> agents;
@@ -54,6 +64,22 @@ public class DyConfigurationProperties {
 
     public void setBeanId(String beanId) {
         this.beanId = beanId;
+    }
+
+    public String getDomain() {
+        return domain;
+    }
+
+    public void setDomain(String domain) {
+        this.domain = domain;
+    }
+
+    public String getTtDomain() {
+        return ttDomain;
+    }
+
+    public void setTtDomain(String ttDomain) {
+        this.ttDomain = ttDomain;
     }
 
     public List<AgentConfiguration> getAgents() {

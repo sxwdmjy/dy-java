@@ -2,6 +2,7 @@ package com.dyj.spring;
 
 import com.dtflys.forest.config.ForestConfiguration;
 import com.dyj.common.config.DyConfiguration;
+import com.dyj.common.enums.DyAppletUrlPathEnum;
 import com.dyj.common.enums.DyWebUrlPathEnum;
 import com.dyj.common.handler.RequestHandler;
 import com.dyj.common.service.IAgentConfigService;
@@ -53,7 +54,6 @@ public class DyConfigurationRegister implements ResourceLoaderAware, BeanPostPro
                 .setFactoryMethod("configuration")
                 .addConstructorArgValue(id);
 
-
         BeanDefinition beanDefinition = beanDefinitionBuilder.getRawBeanDefinition();
 
         BeanDefinitionRegistry beanFactory = (BeanDefinitionRegistry) applicationContext.getAutowireCapableBeanFactory();
@@ -96,6 +96,15 @@ public class DyConfigurationRegister implements ResourceLoaderAware, BeanPostPro
             forestConfiguration.setAsyncMode(forestProperties.getAsyncMode());
             for (DyWebUrlPathEnum value : DyWebUrlPathEnum.values()) {
                 forestProperties.getVariables().put(value.getKey(), value.getValue());
+            }
+            for (DyAppletUrlPathEnum value : DyAppletUrlPathEnum.values()){
+                forestProperties.getVariables().put(value.getKey(), value.getValue());
+            }
+            if(StringUtils.hasLength(dyConfigurationProperties.getDomain())){
+                forestProperties.getVariables().put("domain", dyConfigurationProperties.getDomain());
+            }
+            if (StringUtils.hasLength(dyConfigurationProperties.getTtDomain())){
+                forestProperties.getVariables().put("ttDomain", dyConfigurationProperties.getTtDomain());
             }
             forestConfiguration.setVariables(forestProperties.getVariables());
         }
