@@ -6,10 +6,7 @@ import com.dyj.common.domain.DyResult;
 import com.dyj.common.domain.DySimpleResult;
 import com.dyj.common.domain.vo.DataAndExtraBodyVo;
 import com.dyj.web.domain.*;
-import com.dyj.web.domain.ApiFansDataBindFansData;
 import com.dyj.web.domain.vo.*;
-
-import java.util.List;
 
 /**
  * 数据开放服务
@@ -289,6 +286,262 @@ public class DataExternalHandler extends AbstractWebHandler{
      */
     public DataAndExtraBodyVo<DiscoveryEntRankVersionListVo> discoveryEntRankVersion(Long count,Long cursor,Long type){
         return getDataExternalClient().discoveryEntRankVersion(count,cursor,type);
+    }
+
+
+    /**
+     * 热门视频榜
+     * @return
+     */
+    public DyResult<ListVo<GetHotVideoBillboard>> getHotVideoBillboard(){
+        return getDataExternalClient().getHotVideoBillboard();
+    }
+
+    /**
+     * 体育总榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> sportOverallBillboard(){
+        return getDataExternalClient().sportOverallBillboard();
+    }
+
+    /**
+     * 篮球榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> sportBasketballBillboard(){
+        return getDataExternalClient().sportBasketballBillboard();
+    }
+
+    /**
+     * 足球榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> sportSoccerBillboard(){
+        return getDataExternalClient().sportSoccerBillboard();
+    }
+
+    /**
+     * 综合体育榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> sportComprehensiveBillboard(){
+        return getDataExternalClient().sportComprehensiveBillboard();
+    }
+
+    /**
+     * 运动健身榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> sportFitnessBillboard(){
+        return getDataExternalClient().sportFitnessBillboard();
+    }
+
+    /**
+     * 户外运动榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> sportOutdoorsBillboard(){
+        return getDataExternalClient().sportOutdoorsBillboard();
+    }
+
+    /**
+     * 台球榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> sportTableTennisBillboard(){
+        return getDataExternalClient().sportTableTennisBillboard();
+    }
+
+    /**
+     * 运动文化榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> sportCultureEBillboard(){
+        return getDataExternalClient().sportCultureEBillboard();
+    }
+
+    /**
+     * 搞笑总榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> amusementOverallBillboard(){
+        return getDataExternalClient().amusementOverallBillboard();
+    }
+
+    /**
+     * 搞笑新势力榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> amusementNewBillboard(){
+        return getDataExternalClient().amusementNewBillboard();
+    }
+
+    /**
+     * 单机主机榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> gameConsoleBillboard(){
+        return getDataExternalClient().gameConsoleBillboard();
+    }
+    /**
+     * 游戏资讯榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> gameInfBillboard(){
+        return getDataExternalClient().gameInfBillboard();
+    }
+
+    /**
+     * 美食总榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> foodOverallBillboard(){
+        return getDataExternalClient().foodOverallBillboard();
+    }
+
+    /**
+     * 美食新势力榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> foodNewBillboard(){
+        return getDataExternalClient().foodNewBillboard();
+    }
+
+    /**
+     * 美食教程榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> foodTutorialBillboard(){
+        return getDataExternalClient().foodTutorialBillboard();
+    }
+
+    /**
+     * 美食探店榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> foodShopBillboard(){
+        return getDataExternalClient().foodShopBillboard();
+    }
+
+    /**
+     * 剧情总榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> dramaOverallBillboard(){
+        return getDataExternalClient().dramaOverallBillboard();
+    }
+
+    /**
+     * 汽车总榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> carOverallBillboard(){
+        return getDataExternalClient().carOverallBillboard();
+    }
+
+    /**
+     * 评车
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> carCommentBillboard(){
+        return getDataExternalClient().carCommentBillboard();
+    }
+
+    /**
+     * 玩车
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> carPlayBillboard(){
+        return getDataExternalClient().carPlayBillboard();
+    }
+
+    /**
+     * 用车
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> carUseBillboard(){
+        return getDataExternalClient().carUseBillboard();
+    }
+
+    /**
+     * 驾考
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> carDriverBillboard(){
+        return getDataExternalClient().carDriverBillboard();
+    }
+
+    /**
+     * 旅游总榜单
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> travelOverallBillboard(){
+        return getDataExternalClient().travelOverallBillboard();
+    }
+
+    /**
+     * 旅游新势力榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> travelNewBillboard(){
+        return getDataExternalClient().travelNewBillboard();
+    }
+
+    /**
+     * 二次元总榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> cospaOverallBillboard(){
+        return getDataExternalClient().cospaOverallBillboard();
+    }
+
+    /**
+     * 轻漫
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> cospaQingManBillboard(){
+        return getDataExternalClient().cospaQingManBillboard();
+    }
+
+    /**
+     * 出境拍摄
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> cospaOutShotBillboard(){
+        return getDataExternalClient().cospaOutShotBillboard();
+    }
+
+    /**
+     * 绘画
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> cospaPaintingBillboard(){
+        return getDataExternalClient().cospaPaintingBillboard();
+    }
+
+    /**
+     * 声控
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> cospaVoiceControlBillboard(){
+        return getDataExternalClient().cospaVoiceControlBillboard();
+    }
+
+    /**
+     * 脑洞
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> cospaBrainCavityBillboard(){
+        return getDataExternalClient().cospaBrainCavityBillboard();
+    }
+
+    /**
+     * 二次元新势力榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> cospaNewBillboard(){
+        return getDataExternalClient().cospaNewBillboard();
     }
 
 

@@ -311,4 +311,281 @@ public class DataExternalTest {
         System.out.println(JSON.toJSONString(webClient.discoveryEntRankVersion(1L,null,1L)));
     }
 
+    /**
+     * 热门视频榜
+     */
+    @Test
+    public void getHotVideoBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.getHotVideoBillboard()));
+    }
+
+    /**
+     * 体育总榜
+     */
+    @Test
+    public void sportOverallBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.sportOverallBillboard()));
+    }
+
+    /**
+     * 篮球榜
+     */
+    @Test
+    public void sportBasketballBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.sportBasketballBillboard()));
+    }
+
+    /**
+     * 足球榜
+     */
+    @Test
+    public void sportSoccerBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.sportSoccerBillboard()));
+    }
+
+    /**
+     * 综合体育榜
+     */
+    @Test
+    public void sportComprehensiveBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.sportComprehensiveBillboard()));
+    }
+
+    /**
+     * 运动健身榜
+     */
+    @Test
+    public void sportFitnessBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.sportFitnessBillboard()));
+    }
+
+    /**
+     * 户外运动榜
+     */
+    @Test
+    public void sportOutdoorsBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.sportOutdoorsBillboard()));
+    }
+
+    /**
+     * 台球榜
+     */
+    @Test
+    public void sportTableTennisBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.sportTableTennisBillboard()));
+    }
+
+    /**
+     * 运动文化榜
+     */
+    @Test
+    public void sportCultureEBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.sportCultureEBillboard()));
+    }
+
+    /**
+     * 搞笑总榜
+     */
+    @Test
+    public void amusementOverallBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.amusementOverallBillboard()));
+    }
+
+    /**
+     * 搞笑新势力榜
+     */
+    @Test
+    public void amusementNewBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.amusementNewBillboard()));
+    }
+
+    /**
+     * 单机主机榜
+     */
+    @Test
+    public void gameConsoleBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.gameConsoleBillboard()));
+    }
+
+    /**
+     * 游戏资讯榜
+     */
+    @Test
+    public void gameInfBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.gameInfBillboard()));
+    }
+
+    /**
+     * 美食总榜
+     */
+    @Test
+    public void foodOverallBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.foodOverallBillboard()));
+    }
+
+    /**
+     * 美食教程榜
+     */
+    @Test
+    public void foodTutorialBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.foodTutorialBillboard()));
+    }
+
+    /**
+     * 美食探店榜
+     */
+    @Test
+    public void foodShopBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.foodShopBillboard()));
+    }
+
+    /**
+     * 剧情总榜
+     */
+    @Test
+    public void dramaOverallBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.dramaOverallBillboard()));
+    }
+
+    /**
+     * 汽车总榜
+     */
+    @Test
+    public void carOverallBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.carOverallBillboard()));
+    }
+
+    /**
+     * 评车
+     */
+    @Test
+    public void carCommentBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.carCommentBillboard()));
+    }
+
+    /**
+     * 玩车
+     */
+    @Test
+    public void carPlayBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.carPlayBillboard()));
+    }
+
+    /**
+     * 用车
+     */
+    @Test
+    public void carUseBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.carUseBillboard()));
+    }
+    /**
+     * 驾考
+     */
+    @Test
+    public void carDriverBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.carDriverBillboard()));
+    }
+
+    /**
+     * 旅游总榜单
+     */
+    @Test
+    public void travelOverallBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.travelOverallBillboard()));
+    }
+    /**
+     * 旅游新势力榜
+     */
+    @Test
+    public void travelNewBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.travelNewBillboard()));
+    }
+
+    /**
+     * 二次元总榜
+     */
+    @Test
+    public void cospaOverallBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.cospaOverallBillboard()));
+    }
+
+    /**
+     * 轻漫
+     */
+    @Test
+    public void cospaQingManBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.cospaQingManBillboard()));
+    }
+
+    /**
+     * 出境拍摄
+     */
+    @Test
+    public void cospaOutShotBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.cospaOutShotBillboard()));
+    }
+
+    /**
+     * 绘画
+     */
+    @Test
+    public void cospaPaintingBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.cospaPaintingBillboard()));
+    }
+
+    /**
+     * 声控
+     */
+    @Test
+    public void cospaVoiceControlBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.cospaVoiceControlBillboard()));
+    }
+
+    /**
+     * 脑洞
+     */
+    @Test
+    public void cospaBrainCavityBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.cospaBrainCavityBillboard()));
+    }
+
+    /**
+     * 二次元新势力榜
+     */
+    @Test
+    public void cospaNewBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.cospaNewBillboard()));
+    }
+
 }

@@ -240,4 +240,229 @@ public interface DataExternalClient {
      */
     @Get(value = "${discoveryEntRankVersion}", interceptor = ClientTokenInterceptor.class)
     DataAndExtraBodyVo<DiscoveryEntRankVersionListVo> discoveryEntRankVersion(@Query("count") Long count,@Query("cursor") Long cursor,@Query("type") Long type);
+
+    /**
+     * 热门视频榜
+     * @return
+     */
+    @Get(value = "${getHotVideoBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<GetHotVideoBillboard>> getHotVideoBillboard();
+
+
+    /**
+     * 体育总榜
+     * @return
+     */
+    @Get(value = "${sportOverallBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<ExternDataBillboard>> sportOverallBillboard();
+
+    /**
+     * 篮球榜
+     * @return
+     */
+    @Get(value = "${sportBasketballBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<ExternDataBillboard>> sportBasketballBillboard();
+
+    /**
+     * 足球榜
+     * @return
+     */
+    @Get(value = "${sportSoccerBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<ExternDataBillboard>> sportSoccerBillboard();
+
+    /**
+     * 综合体育榜
+     * @return
+     */
+    @Get(value = "${sportComprehensiveBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<ExternDataBillboard>> sportComprehensiveBillboard();
+
+    /**
+     * 运动健身榜
+     * @return
+     */
+    @Get(value = "${sportFitnessBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<ExternDataBillboard>> sportFitnessBillboard();
+
+    /**
+     * 户外运动榜
+     * @return
+     */
+    @Get(value = "${sportOutdoorsBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<ExternDataBillboard>> sportOutdoorsBillboard();
+
+    /**
+     * 台球榜
+     * @return
+     */
+    @Get(value = "${sportTableTennisBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<ExternDataBillboard>> sportTableTennisBillboard();
+
+    /**
+     * 运动文化榜
+     * @return
+     */
+    @Get(value = "${sportCultureEBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<ExternDataBillboard>> sportCultureEBillboard();
+
+    /**
+     * 搞笑总榜
+     * @return
+     */
+    @Get(value = "${amusementOverallBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<ExternDataBillboard>> amusementOverallBillboard();
+
+    /**
+     * 搞笑新势力榜
+     * @return
+     */
+    @Get(value = "${amusementNewBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<ExternDataBillboard>> amusementNewBillboard();
+
+    /**
+     * 单机主机榜
+     * @return
+     */
+    @Get(value = "${gameConsoleBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<ExternDataBillboard>> gameConsoleBillboard();
+
+    /**
+     * 游戏资讯榜
+     * @return
+     */
+    @Get(value = "${gameInfBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<ExternDataBillboard>> gameInfBillboard();
+
+    /**
+     * 美食总榜
+     * @return
+     */
+    @Get(value = "${foodOverallBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<ExternDataBillboard>> foodOverallBillboard();
+
+    /**
+     * 美食新势力榜
+     * @return
+     */
+    @Get(value = "${foodNewBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<ExternDataBillboard>> foodNewBillboard();
+
+    /**
+     * 美食教程榜
+     * @return
+     */
+    @Get(value = "${foodTutorialBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<ExternDataBillboard>> foodTutorialBillboard();
+
+    /**
+     * 美食探店榜
+     * @return
+     */
+    @Get(value = "${foodShopBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<ExternDataBillboard>> foodShopBillboard();
+
+    /**
+     * 剧情总榜
+     * @return
+     */
+    @Get(value = "${dramaOverallBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<ExternDataBillboard>> dramaOverallBillboard();
+
+    /**
+     * 汽车总榜
+     * @return
+     */
+    @Get(value = "${carOverallBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<ExternDataBillboard>> carOverallBillboard();
+
+    /**
+     * 评车
+     * @return
+     */
+    @Get(value = "${carCommentBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<ExternDataBillboard>> carCommentBillboard();
+
+    /**
+     * 玩车
+     * @return
+     */
+    @Get(value = "${carPlayBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<ExternDataBillboard>> carPlayBillboard();
+
+    /**
+     * 用车
+     * @return
+     */
+    @Get(value = "${carUseBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<ExternDataBillboard>> carUseBillboard();
+
+    /**
+     * 驾考
+     * @return
+     */
+    @Get(value = "${carDriverBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<ExternDataBillboard>> carDriverBillboard();
+
+    /**
+     * 旅游总榜单
+     * @return
+     */
+    @Get(value = "${travelOverallBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<ExternDataBillboard>> travelOverallBillboard();
+
+    /**
+     * 旅游新势力榜
+     * @return
+     */
+    @Get(value = "${travelNewBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<ExternDataBillboard>> travelNewBillboard();
+
+    /**
+     * 二次元总榜
+     * @return
+     */
+    @Get(value = "${cospaOverallBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<ExternDataBillboard>> cospaOverallBillboard();
+
+    /**
+     * 轻漫
+     * @return
+     */
+    @Get(value = "${cospaQingManBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<ExternDataBillboard>> cospaQingManBillboard();
+
+    /**
+     * 出境拍摄
+     * @return
+     */
+    @Get(value = "${cospaOutShotBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<ExternDataBillboard>> cospaOutShotBillboard();
+
+    /**
+     * 绘画
+     * @return
+     */
+    @Get(value = "${cospaPaintingBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<ExternDataBillboard>> cospaPaintingBillboard();
+
+    /**
+     * 声控
+     * @return
+     */
+    @Get(value = "${cospaVoiceControlBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<ExternDataBillboard>> cospaVoiceControlBillboard();
+
+    /**
+     * 脑洞
+     * @return
+     */
+    @Get(value = "${cospaBrainCavityBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<ExternDataBillboard>> cospaBrainCavityBillboard();
+
+    /**
+     * 二次元新势力榜
+     * @return
+     */
+    @Get(value = "${cospaNewBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<ExternDataBillboard>> cospaNewBillboard();
 }

@@ -490,7 +490,176 @@ public enum DyWebUrlPathEnum {
     /**
      * 获取抖音影视综榜单版本
      */
-    DISCOVERY_ENT_RANK_VERSION("discoveryEntRankVersion", "/discovery/ent/rank/version/")
+    DISCOVERY_ENT_RANK_VERSION("discoveryEntRankVersion", "/discovery/ent/rank/version/"),
+
+    /**
+     * 热门视频榜
+     */
+    GET_HOT_VIDEO_BILLBOARD("getHotVideoBillboard", "/data/extern/billboard/hot_video/"),
+
+
+    /**
+     * 体育总榜
+     */
+    SPORT_OVERALL_BILLBOARD("sportOverallBillboard", "/data/extern/billboard/sport/overall/"),
+
+
+    /**
+     * 篮球榜
+     */
+    SPORT_BASKETBALL_BILLBOARD("sportBasketballBillboard", "/data/extern/billboard/sport/basketball/"),
+
+    /**
+     * 足球榜
+     */
+    SPORT_SOCCER_BILLBOARD("sportSoccerBillboard", "/data/extern/billboard/sport/soccer/"),
+
+    /**
+     * 综合体育榜
+     */
+    SPORT_COMPREHENSIVE_BILLBOARD("sportComprehensiveBillboard", "/data/extern/billboard/sport/comprehensive/"),
+
+    /**
+     * 运动健身榜
+     */
+    SPORT_FITNESS_BILLBOARD("sportFitnessBillboard", "/data/extern/billboard/sport/fitness/"),
+
+    /**
+     * 户外运动榜
+     */
+    SPORT_OUTDOORS_BILLBOARD("sportOutdoorsBillboard", "/data/extern/billboard/sport/outdoors/"),
+
+    /**
+     * 台球榜
+     */
+    SPORT_TABLE_TENNIS_BILLBOARD("sportTableTennisBillboard", "/data/extern/billboard/sport/table_tennis/"),
+
+    /**
+     * 运动文化榜
+     */
+    SPORT_CULTURE_E_BILLBOARD("sportCultureEBillboard", "/data/extern/billboard/sport/culture/"),
+
+
+    /**
+     * 搞笑总榜
+     */
+    AMUSEMENT_OVERALL_BILLBOARD("amusementOverallBillboard", "/data/extern/billboard/amusement/overall/"),
+
+    /**
+     * 搞笑新势力榜
+     */
+    AMUSEMENT_NEW_BILLBOARD("amusementNewBillboard", "/data/extern/billboard/amusement/new/"),
+
+    /**
+     * 单机主机榜
+     */
+    GAME_CONSOLE_BILLBOARD("gameConsoleBillboard", "/data/extern/billboard/game/console/"),
+
+    /**
+     * 游戏资讯榜
+     */
+    GAME_INF_BILLBOARD("gameInfBillboard", "/data/extern/billboard/game/inf/"),
+
+
+    /**
+     * 美食总榜
+     */
+    FOOD_OVERALL_BILLBOARD("foodOverallBillboard", "/data/extern/billboard/food/overall/"),
+
+    /**
+     * 美食新势力榜
+     */
+    FOOD_NEW_BILLBOARD("foodNewBillboard", "/data/extern/billboard/food/new/"),
+
+    /**
+     * 美食教程榜
+     */
+    FOOD_TUTORIAL_BILLBOARD("foodTutorialBillboard", "/data/extern/billboard/food/tutorial/"),
+
+    /**
+     * 美食探店榜
+     */
+    FOOD_SHOP_BILLBOARD("foodShopBillboard", "/data/extern/billboard/food/shop/"),
+
+    /**
+     * 剧情总榜
+     */
+    DRAMA_OVERALL_BILLBOARD("dramaOverallBillboard", "/data/extern/billboard/drama/overall/"),
+
+    /**
+     * 汽车总榜
+     */
+    CAR_OVERALL_BILLBOARD("carOverallBillboard", "/data/extern/billboard/car/overall/"),
+
+    /**
+     * 评车
+     */
+    CAR_COMMENT_BILLBOARD("carCommentBillboard", "/data/extern/billboard/car/comment/"),
+
+    /**
+     * 玩车
+     */
+    CAR_PLAY_BILLBOARD("carPlayBillboard", "/data/extern/billboard/car/play/"),
+
+    /**
+     * 用车
+     */
+    CAR_USE_BILLBOARD("carUseBillboard", "/data/extern/billboard/car/use/"),
+
+
+    /**
+     * 驾考
+     */
+    CAR_DRIVER_BILLBOARD("carDriverBillboard", "/data/extern/billboard/car/driver/"),
+
+    /**
+     * 旅游总榜单
+     */
+    TRAVEL_OVERALL_BILLBOARD("travelOverallBillboard", "/data/extern/billboard/travel/overall/"),
+
+    /**
+     * 旅游新势力榜
+     */
+    TRAVEL_NEW_BILLBOARD("travelNewBillboard", "/data/extern/billboard/travel/new/"),
+
+
+    /**
+     * 二次元总榜
+     */
+    COSPA_OVERALL_BILLBOARD("cospaOverallBillboard", "/data/extern/billboard/cospa/overall/"),
+
+    /**
+     * 轻漫
+     */
+    COSPA_QING_MAN_BILLBOARD("cospaQingManBillboard", "/data/extern/billboard/cospa/qing_man/"),
+
+
+
+    /**
+     * 出境拍摄
+     */
+    COSPA_OUT_SHOT_BILLBOARD("cospaOutShotBillboard", "/data/extern/billboard/cospa/out_shot/"),
+
+    /**
+     * 绘画
+     */
+    COSPA_PAINTING_BILLBOARD("cospaPaintingBillboard", "/data/extern/billboard/cospa/painting/"),
+
+    /**
+     * 声控
+     */
+    COSPA_VOICE_CONTROL_BILLBOARD("cospaVoiceControlBillboard", "/data/extern/billboard/cospa/voice_control/"),
+
+
+    /**
+     * 脑洞
+     */
+    COSPA_BRAIN_CAVITY_BILLBOARD("cospaBrainCavityBillboard", "/data/extern/billboard/cospa/brain_cavity/"),
+
+    /**
+     * 二次元新势力榜
+     */
+    COSPA_NEW_BILLBOARD("cospaNewBillboard", "/data/extern/billboard/cospa/new/"),
 
     ;
 

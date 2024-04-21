@@ -7,7 +7,6 @@ import com.dyj.common.domain.DyResult;
 import com.dyj.common.domain.DySimpleResult;
 import com.dyj.common.domain.UserTokenInfo;
 import com.dyj.common.domain.vo.*;
-import com.dyj.common.utils.DyConfigUtils;
 import com.dyj.web.domain.*;
 import com.dyj.web.domain.query.*;
 import com.dyj.web.domain.vo.*;
@@ -1162,4 +1161,260 @@ public class DyWebClient extends BaseClient {
     public DataAndExtraBodyVo<DiscoveryEntRankVersionListVo> discoveryEntRankVersion(Long count,Long cursor,Long type){
         return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).discoveryEntRankVersion(count,cursor,type);
     }
+
+    /**
+     * 热门视频榜
+     * @return
+     */
+    public DyResult<ListVo<GetHotVideoBillboard>> getHotVideoBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).getHotVideoBillboard();
+    }
+
+    /**
+     * 体育总榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> sportOverallBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).sportOverallBillboard();
+    }
+
+    /**
+     * 篮球榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> sportBasketballBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).sportBasketballBillboard();
+    }
+
+    /**
+     * 足球榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> sportSoccerBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).sportSoccerBillboard();
+    }
+
+    /**
+     * 综合体育榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> sportComprehensiveBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).sportComprehensiveBillboard();
+    }
+
+    /**
+     * 运动健身榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> sportFitnessBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).sportFitnessBillboard();
+    }
+
+    /**
+     * 户外运动榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> sportOutdoorsBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).sportOutdoorsBillboard();
+    }
+
+    /**
+     * 台球榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> sportTableTennisBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).sportTableTennisBillboard();
+    }
+
+    /**
+     * 运动文化榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> sportCultureEBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).sportCultureEBillboard();
+    }
+
+    /**
+     * 搞笑总榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> amusementOverallBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).amusementOverallBillboard();
+    }
+
+    /**
+     * 搞笑新势力榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> amusementNewBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).amusementNewBillboard();
+    }
+
+    /**
+     * 单机主机榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> gameConsoleBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).gameConsoleBillboard();
+    }
+
+    /**
+     * 游戏资讯榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> gameInfBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).gameInfBillboard();
+    }
+
+    /**
+     * 美食总榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> foodOverallBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).foodOverallBillboard();
+    }
+
+    /**
+     * 美食新势力榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> foodNewBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).foodNewBillboard();
+    }
+
+    /**
+     * 美食教程榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> foodTutorialBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).foodTutorialBillboard();
+    }
+
+    /**
+     * 美食探店榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> foodShopBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).foodShopBillboard();
+    }
+
+    /**
+     * 剧情总榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> dramaOverallBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).dramaOverallBillboard();
+    }
+
+    /**
+     * 汽车总榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> carOverallBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).carOverallBillboard();
+    }
+
+    /**
+     * 评车
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> carCommentBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).carCommentBillboard();
+    }
+
+    /**
+     * 玩车
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> carPlayBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).carPlayBillboard();
+    }
+
+    /**
+     * 用车
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> carUseBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).carUseBillboard();
+    }
+
+    /**
+     * 驾考
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> carDriverBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).carDriverBillboard();
+    }
+
+    /**
+     * 旅游总榜单
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> travelOverallBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).travelOverallBillboard();
+    }
+    /**
+     * 旅游新势力榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> travelNewBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).travelNewBillboard();
+    }
+
+    /**
+     * 二次元总榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> cospaOverallBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).cospaOverallBillboard();
+    }
+
+    /**
+     * 轻漫
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> cospaQingManBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).cospaQingManBillboard();
+    }
+
+    /**
+     * 出境拍摄
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> cospaOutShotBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).cospaOutShotBillboard();
+    }
+
+    /**
+     * 绘画
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> cospaPaintingBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).cospaPaintingBillboard();
+    }
+
+    /**
+     * 声控
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> cospaVoiceControlBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).cospaVoiceControlBillboard();
+    }
+
+    /**
+     * 脑洞
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> cospaBrainCavityBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).cospaBrainCavityBillboard();
+    }
+
+    /**
+     * 二次元新势力榜
+     * @return
+     */
+    public DyResult<ListVo<ExternDataBillboard>> cospaNewBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).cospaNewBillboard();
+    }
+
 }
