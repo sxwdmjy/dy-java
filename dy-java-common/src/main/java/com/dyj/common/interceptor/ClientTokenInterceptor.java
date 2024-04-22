@@ -16,13 +16,22 @@ import com.dyj.common.service.IAgentTokenService;
 import com.dyj.common.utils.DyConfigUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import java.util.Objects;
 
+@Component
 public class ClientTokenInterceptor implements Interceptor<DyResult> {
     private final Log log = LogFactory.getLog(ClientTokenInterceptor.class);
-
     @Resource
     private AuthClient authClient;
 
@@ -73,4 +82,6 @@ public class ClientTokenInterceptor implements Interceptor<DyResult> {
         sb.append(ex.getMessage());
         log.info(sb.toString());
     }
+
+
 }

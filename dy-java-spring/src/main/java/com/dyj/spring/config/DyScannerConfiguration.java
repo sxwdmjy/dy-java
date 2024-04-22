@@ -4,6 +4,7 @@ import com.dtflys.forest.springboot.ForestAutoConfiguration;
 import com.dtflys.forest.springboot.annotation.ForestScan;
 import com.dyj.spring.utils.SpringUtils;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
@@ -12,6 +13,7 @@ import org.springframework.context.annotation.Import;
  * @date 2024-04-03 10:20
  **/
 @ForestScan("com.dyj.**.client")
+@ComponentScan("com.dyj.**.interceptor")
 @AutoConfigureBefore(ForestAutoConfiguration.class)
 @Configuration
 @Import({SpringUtils.class})

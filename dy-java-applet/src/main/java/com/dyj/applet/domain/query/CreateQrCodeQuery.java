@@ -22,6 +22,8 @@ public class CreateQrCodeQuery extends BaseQuery {
     private ColorRGB line_color;
     private ColorRGB background;
 
+    private String is_circle_code;
+
     public String getApp_id() {
         return app_id;
     }
@@ -78,6 +80,14 @@ public class CreateQrCodeQuery extends BaseQuery {
         this.background = background;
     }
 
+    public String getIs_circle_code() {
+        return is_circle_code;
+    }
+
+    public void setIs_circle_code(String is_circle_code) {
+        this.is_circle_code = is_circle_code;
+    }
+
     public static CreateQrCodeQueryBuilder builder() {
         return new CreateQrCodeQueryBuilder();
     }
@@ -90,6 +100,8 @@ public class CreateQrCodeQuery extends BaseQuery {
         private Boolean setIcon;
         private ColorRGB lineColor;
         private ColorRGB background;
+
+        private String isCircleCode;
 
         private Integer tenantId;
         private String clientKey;
@@ -129,6 +141,11 @@ public class CreateQrCodeQuery extends BaseQuery {
             return this;
         }
 
+        public CreateQrCodeQueryBuilder isCircleCode(String isCircleCode) {
+            this.isCircleCode = isCircleCode;
+            return this;
+        }
+
         public CreateQrCodeQueryBuilder tenantId(Integer tenantId) {
             this.tenantId = tenantId;
             return this;
@@ -148,6 +165,7 @@ public class CreateQrCodeQuery extends BaseQuery {
             createQrCodeQuery.setSet_icon(setIcon);
             createQrCodeQuery.setLine_color(lineColor);
             createQrCodeQuery.setBackground(background);
+            createQrCodeQuery.setIs_circle_code(isCircleCode);
             createQrCodeQuery.setTenantId(tenantId);
             createQrCodeQuery.setClientKey(clientKey);
             return createQrCodeQuery;

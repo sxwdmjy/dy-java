@@ -24,7 +24,7 @@ public class CommentHandler extends AbstractWebHandler {
         return getCommentClient().commentTop(query);
     }
 
-    public DyResult<CommentListVo> queryCommentList(String openId, String itemId, String sortType, Integer count, Integer cursor) {
+    public DyResult<CommentListVo> queryCommentList(String openId, String itemId, String sortType, Integer count, Long cursor) {
         UserInfoQuery query = new UserInfoQuery();
         query.setOpen_id(openId);
         query.setTenantId(agentConfiguration.getTenantId());
@@ -32,7 +32,7 @@ public class CommentHandler extends AbstractWebHandler {
         return getCommentClient().queryCommentList(query, itemId, sortType, count, cursor);
     }
 
-    public DyResult<CommentListVo> queryCommentReplyList(String openId, String itemId, String commentId, String sortType, Integer count, Integer cursor) {
+    public DyResult<CommentListVo> queryCommentReplyList(String openId, String itemId, String commentId, String sortType, Integer count, Long cursor) {
         UserInfoQuery query = new UserInfoQuery();
         query.setOpen_id(openId);
         query.setTenantId(agentConfiguration.getTenantId());
