@@ -16,10 +16,12 @@ import com.dyj.common.service.IAgentTokenService;
 import com.dyj.common.utils.DyConfigUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.Objects;
 
+@Component
 public class ClientQueryTokenInterceptor implements Interceptor<DyResult> {
     private final Log log = LogFactory.getLog(ClientQueryTokenInterceptor.class);
 

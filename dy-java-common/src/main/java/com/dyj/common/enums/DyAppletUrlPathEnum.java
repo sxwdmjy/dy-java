@@ -93,6 +93,16 @@ public enum DyAppletUrlPathEnum {
     //itemid转换encryptid
     ITEM_ID_TO_ENCRYPT_ID("itemId2encryptId","/api/apps/v1/convert_video_id/open_item_id_to_encrypt_id/"),
 
+    //删除抖音搜索直达子服务
+    DELETE_SEARCH_SUB_SERVICE("deleteSearchSubService","/aweme/apps/v1/search/delete_sub_service/"),
+    //校验是否有「搜索直达服务」的创建权限
+    CHECK_SEARCH_SUB_SERVICE("checkSearchSubService","/aweme/apps/v1/search/check_sub_service/"),
+    //创建抖音搜索直达子服务
+    CREATE_SEARCH_SUB_SERVICE("createSearchSubService","/api/apps/v1/capacity/create_ma_sub_service/"),
+    //查询已创建的抖音搜索直达子服务列表
+    QUERY_SEARCH_SUB_SERVICE("querySearchSubService","/api/apps/v1/capacity/query_ma_sub_service/"),
+
+
     ;
 
 

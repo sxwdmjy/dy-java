@@ -46,6 +46,10 @@ public abstract class AbstractAppletHandler {
         return SpringUtils.getBean(AptVideoClient.class);
     }
 
+    protected SearchSubServiceClient getSearchSubServiceClient() {
+        return SpringUtils.getBean(SearchSubServiceClient.class);
+    }
+
     protected BaseQuery baseQuery(){
         return baseQuery(null);
     }
