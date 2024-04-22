@@ -661,6 +661,21 @@ public enum DyWebUrlPathEnum {
      */
     COSPA_NEW_BILLBOARD("cospaNewBillboard", "/data/extern/billboard/cospa/new/"),
 
+    /**
+     * 娱乐明星榜
+     */
+    GET_STARS_BILLBOARD("getStarsBillboard", "/data/extern/billboard/stars/"),
+
+    /**
+     * 直播榜
+     */
+    GET_LIVE_BILLBOARD("getLiveBillboard", "/data/extern/billboard/live/"),
+
+    /**
+     * 热歌榜
+     */
+    GET_HOT_MUSIC_BILLBOARD("getHotMusicBillboard", "/data/extern/billboard/music/hot/"),
+
     ;
 
 

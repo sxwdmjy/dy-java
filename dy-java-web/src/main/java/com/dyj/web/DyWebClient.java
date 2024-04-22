@@ -1417,4 +1417,29 @@ public class DyWebClient extends BaseClient {
         return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).cospaNewBillboard();
     }
 
+    /**
+     * 娱乐明星榜
+     * @return
+     */
+    public DyResult<ListVo<StarsBillboard>> getStarsBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).getStarsBillboard();
+    }
+
+    /**
+     * 直播榜
+     * @return
+     */
+    public DyResult<ListVo<LiveBillboard>> getLiveBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).getLiveBillboard();
+    }
+
+    /**
+     * 热歌榜
+     * @return
+     */
+    public DyResult<ListVo<MusicBillboard>> getHotMusicBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).getHotMusicBillboard();
+
+    }
+
 }

@@ -544,5 +544,28 @@ public class DataExternalHandler extends AbstractWebHandler{
         return getDataExternalClient().cospaNewBillboard();
     }
 
+    /**
+     * 娱乐明星榜
+     * @return
+     */
+    public DyResult<ListVo<StarsBillboard>> getStarsBillboard(){
+        return getDataExternalClient().getStarsBillboard();
+    }
+
+    /**
+     * 直播榜
+     * @return
+     */
+    public DyResult<ListVo<LiveBillboard>> getLiveBillboard(){
+        return getDataExternalClient().getLiveBillboard();
+    }
+
+    /**
+     * 热歌榜
+     * @return
+     */
+    public DyResult<ListVo<MusicBillboard>> getHotMusicBillboard(){
+        return getDataExternalClient().getHotMusicBillboard();
+    }
 
 }

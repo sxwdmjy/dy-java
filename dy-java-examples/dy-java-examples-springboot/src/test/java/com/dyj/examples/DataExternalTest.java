@@ -588,4 +588,31 @@ public class DataExternalTest {
         System.out.println(JSON.toJSONString(webClient.cospaNewBillboard()));
     }
 
+    /**
+     * 娱乐明星榜
+     */
+    @Test
+    public void getStarsBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.getStarsBillboard()));
+    }
+
+    /**
+     * 直播榜
+     */
+    @Test
+    public void getLiveBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.getLiveBillboard()));
+    }
+
+    /**
+     * 热歌榜
+     */
+    @Test
+    public void getHotMusicBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.getHotMusicBillboard()));
+    }
+
 }

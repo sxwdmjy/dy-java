@@ -465,4 +465,25 @@ public interface DataExternalClient {
      */
     @Get(value = "${cospaNewBillboard}", interceptor = ClientTokenInterceptor.class)
     DyResult<ListVo<ExternDataBillboard>> cospaNewBillboard();
+
+    /**
+     * 娱乐明星榜
+     * @return
+     */
+    @Get(value = "${getStarsBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<StarsBillboard>> getStarsBillboard();
+
+    /**
+     * 直播榜
+     * @return
+     */
+    @Get(value = "${getLiveBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<LiveBillboard>> getLiveBillboard();
+
+    /**
+     * 热歌榜
+     * @return
+     */
+    @Get(value = "${getHotMusicBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<MusicBillboard>> getHotMusicBillboard();
 }
