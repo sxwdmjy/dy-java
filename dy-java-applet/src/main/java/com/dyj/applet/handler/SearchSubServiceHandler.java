@@ -1,13 +1,10 @@
 package com.dyj.applet.handler;
 
-import com.dtflys.forest.annotation.Query;
-import com.dtflys.forest.annotation.Var;
 import com.dyj.applet.domain.query.CreateSearchSubQuery;
 import com.dyj.applet.domain.vo.CheckSearchSubVo;
 import com.dyj.applet.domain.vo.SearchSubListVo;
 import com.dyj.common.config.AgentConfiguration;
 import com.dyj.common.domain.DySimpleResult;
-import com.dyj.common.domain.query.BaseQuery;
 import com.dyj.common.domain.vo.BaseVo;
 
 import java.util.List;
@@ -62,12 +59,12 @@ public class SearchSubServiceHandler extends AbstractAppletHandler {
     /**
      * 查询抖音搜索直达子服务
      *
-     * @param pageNo         查询的页号，从1开始
-     * @param pageSize       查询一页的大小，从1开始
-     * @param approvalState  要查询已创建服务的状态类型，0-审核中/1-已通过/2-未通过，传0就表示只查状态为审核中的服务，不传就表示查询全部状态的服务
+     * @param pageNo        查询的页号，从1开始
+     * @param pageSize      查询一页的大小，从1开始
+     * @param approvalState 要查询已创建服务的状态类型，0-审核中/1-已通过/2-未通过，传0就表示只查状态为审核中的服务，不传就表示查询全部状态的服务
      * @return DySimpleResult<SearchSubListVo>
      */
-    public DySimpleResult<SearchSubListVo> querySearchSubService(Integer pageNo, Integer pageSize, Long approvalState){
+    public DySimpleResult<SearchSubListVo> querySearchSubService(Integer pageNo, Integer pageSize, Long approvalState) {
         return getSearchSubServiceClient().querySearchSubService(baseQuery(), pageNo, pageSize, approvalState);
     }
 }
