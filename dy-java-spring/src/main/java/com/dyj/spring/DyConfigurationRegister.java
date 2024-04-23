@@ -68,7 +68,7 @@ public class DyConfigurationRegister implements ResourceLoaderAware, BeanPostPro
         }
         String tokenSourceClass = dyConfigurationProperties.getTokenSourceClass();
         if (StringUtils.hasLength(tokenSourceClass)) {
-            IAgentTokenService agentTokenService =  applicationContext.getBean("dyTokenService", IAgentTokenService.class);
+            IAgentTokenService agentTokenService = applicationContext.getBean("dyTokenService", IAgentTokenService.class);
             configuration.setAgentTokenService(agentTokenService);
         }
         //configuration.setInterceptorFactory(DyInterceptorFactory);
@@ -77,8 +77,8 @@ public class DyConfigurationRegister implements ResourceLoaderAware, BeanPostPro
 
     public void setForestProperties() {
         DyForestConfigurationProperties forestProperties = dyConfigurationProperties.getForest();
+        ForestConfiguration forestConfiguration = applicationContext.getBean(ForestConfiguration.class);
         if (Objects.nonNull(forestProperties)) {
-            ForestConfiguration forestConfiguration = applicationContext.getBean(ForestConfiguration.class);
             forestConfiguration.setBackendName(forestProperties.getBackend());
             forestConfiguration.setMaxConnections(forestProperties.getMaxConnections());
             forestConfiguration.setMaxRouteConnections(forestProperties.getMaxRouteConnections());
@@ -94,20 +94,24 @@ public class DyConfigurationRegister implements ResourceLoaderAware, BeanPostPro
             forestConfiguration.setLogResponseStatus(forestProperties.isLogResponseStatus());
             forestConfiguration.setLogResponseContent(forestProperties.isLogResponseContent());
             forestConfiguration.setAsyncMode(forestProperties.getAsyncMode());
-            for (DyWebUrlPathEnum value : DyWebUrlPathEnum.values()) {
-                forestProperties.getVariables().put(value.getKey(), value.getValue());
-            }
-            for (DyAppletUrlPathEnum value : DyAppletUrlPathEnum.values()){
-                forestProperties.getVariables().put(value.getKey(), value.getValue());
-            }
-            if(StringUtils.hasLength(dyConfigurationProperties.getDomain())){
-                forestProperties.getVariables().put("domain", dyConfigurationProperties.getDomain());
-            }
-            if (StringUtils.hasLength(dyConfigurationProperties.getTtDomain())){
-                forestProperties.getVariables().put("ttDomain", dyConfigurationProperties.getTtDomain());
-            }
-            forestConfiguration.setVariables(forestProperties.getVariables());
         }
+        if (forestProperties == null) {
+            forestProperties = new DyForestConfigurationProperties();
+        }
+        for (DyWebUrlPathEnum value : DyWebUrlPathEnum.values()) {
+            forestProperties.getVariables().put(value.getKey(), value.getValue());
+        }
+        for (DyAppletUrlPathEnum value : DyAppletUrlPathEnum.values()) {
+            forestProperties.getVariables().put(value.getKey(), value.getValue());
+        }
+        if (StringUtils.hasLength(dyConfigurationProperties.getDomain())) {
+            forestProperties.getVariables().put("domain", dyConfigurationProperties.getDomain());
+        }
+        if (StringUtils.hasLength(dyConfigurationProperties.getTtDomain())) {
+            forestProperties.getVariables().put("ttDomain", dyConfigurationProperties.getTtDomain());
+        }
+
+        forestConfiguration.setVariables(forestProperties.getVariables());
     }
 
 
