@@ -19,7 +19,7 @@ import java.util.Objects;
  * @author danmo
  * @date 2024-04-17 10:13
  **/
-public class BizTokenHeaderInterceptor implements Interceptor<DyAppletResult> {
+public class BizTokenHeaderInterceptor implements Interceptor<Object> {
 
     @Override
     public boolean beforeExecute(ForestRequest request) {
@@ -47,7 +47,7 @@ public class BizTokenHeaderInterceptor implements Interceptor<DyAppletResult> {
     }
 
     @Override
-    public void onSuccess(DyAppletResult data, ForestRequest request, ForestResponse response) {
+    public void onSuccess(Object data, ForestRequest request, ForestResponse response) {
         Interceptor.super.onSuccess(data, request, response);
     }
 

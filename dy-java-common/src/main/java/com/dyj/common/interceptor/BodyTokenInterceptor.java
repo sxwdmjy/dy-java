@@ -21,7 +21,7 @@ import java.util.Objects;
  * @author danmo
  * @date 2024-04-07 15:03
  **/
-public class BodyTokenInterceptor implements Interceptor<DyResult> {
+public class BodyTokenInterceptor implements Interceptor<Object> {
 
     private final Log log = LogFactory.getLog(BodyTokenInterceptor.class);
     @Override

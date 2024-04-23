@@ -22,7 +22,7 @@ import javax.annotation.Resource;
 import java.util.Objects;
 
 @Component
-public class ClientQueryTokenInterceptor implements Interceptor<DyResult> {
+public class ClientQueryTokenInterceptor implements Interceptor<Object> {
     private final Log log = LogFactory.getLog(ClientQueryTokenInterceptor.class);
 
     @Resource

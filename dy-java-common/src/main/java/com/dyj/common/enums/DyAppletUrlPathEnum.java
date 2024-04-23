@@ -101,6 +101,14 @@ public enum DyAppletUrlPathEnum {
     CREATE_SEARCH_SUB_SERVICE("createSearchSubService","/api/apps/v1/capacity/create_ma_sub_service/"),
     //查询已创建的抖音搜索直达子服务列表
     QUERY_SEARCH_SUB_SERVICE("querySearchSubService","/api/apps/v1/capacity/query_ma_sub_service/"),
+    //创建直播任务
+    CREATE_LIVE_TASK("createLiveTask","/api/apps/v2/task/create_live/"),
+    //创建视频任务
+    CREATE_VIDEO_TASK("createVideoTask","/api/apps/v2/task/create_video/"),
+    //核销直播任务
+    WRITE_OFF_LIVE_TASK("writeOffOutLiveTask","/api/apps/v2/task/writeoff_live/"),
+    //核销视频任务
+    WRITE_OFF_VIDEO_TASK("writeOffVideoTask","/api/apps/v2/task/writeoff_video/"),
 
 
     ;

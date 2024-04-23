@@ -9,6 +9,7 @@ import com.dyj.common.client.AuthClient;
 import com.dyj.common.config.AgentConfiguration;
 import com.dyj.common.domain.ClientTokenInfo;
 import com.dyj.common.domain.DyResult;
+import com.dyj.common.domain.DySimpleResult;
 import com.dyj.common.domain.query.BaseQuery;
 import com.dyj.common.domain.query.ClientTokenQuery;
 import com.dyj.common.domain.vo.ClientTokenVo;
@@ -30,7 +31,7 @@ import javax.annotation.Resource;
 import java.util.Objects;
 
 @Component
-public class ClientTokenInterceptor implements Interceptor<DyResult> {
+public class ClientTokenInterceptor implements Interceptor<Object> {
     private final Log log = LogFactory.getLog(ClientTokenInterceptor.class);
     @Resource
     private AuthClient authClient;

@@ -14,7 +14,7 @@ import org.apache.commons.logging.LogFactory;
  * @author danmo
  * @date 2024-04-03 11:07
  **/
-public class NoTokenInterceptor implements Interceptor<DyResult> {
+public class NoTokenInterceptor implements Interceptor<Object> {
     private final Log log = LogFactory.getLog(NoTokenInterceptor.class);
 
     @Override
