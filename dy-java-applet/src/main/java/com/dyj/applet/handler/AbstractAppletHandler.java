@@ -50,6 +50,10 @@ public abstract class AbstractAppletHandler {
         return SpringUtils.getBean(SearchSubServiceClient.class);
     }
 
+    protected AptTaskClient getTaskClient() {
+        return SpringUtils.getBean(AptTaskClient.class);
+    }
+
     protected BaseQuery baseQuery(){
         return baseQuery(null);
     }
