@@ -1,8 +1,9 @@
-package com.dyj.examples;
+package com.dyj.examples.web;
 
 
 import com.alibaba.fastjson.JSONObject;
 import com.dyj.common.enums.GroupSettingTypeEnum;
+import com.dyj.examples.DyJavaExamplesApplication;
 import com.dyj.web.DyWebClient;
 import com.dyj.common.domain.TextMsg;
 import com.dyj.web.domain.query.*;

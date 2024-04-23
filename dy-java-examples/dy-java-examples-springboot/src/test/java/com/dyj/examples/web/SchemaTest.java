@@ -1,8 +1,9 @@
-package com.dyj.examples;
+package com.dyj.examples.web;
 
 
 import com.alibaba.fastjson.JSONObject;
 import com.dyj.common.domain.DySimpleResult;
+import com.dyj.examples.DyJavaExamplesApplication;
 import com.dyj.web.DyWebClient;
 import com.dyj.web.domain.query.GetH5ShareQuery;
 import com.dyj.web.domain.vo.SchemaShareVo;

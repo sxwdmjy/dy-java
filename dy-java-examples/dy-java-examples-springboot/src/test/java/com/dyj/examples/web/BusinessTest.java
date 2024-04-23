@@ -1,8 +1,9 @@
-package com.dyj.examples;
+package com.dyj.examples.web;
 
 import com.alibaba.fastjson.JSONObject;
 import com.dyj.common.domain.DyResult;
 import com.dyj.common.domain.vo.BaseVo;
+import com.dyj.examples.DyJavaExamplesApplication;
 import com.dyj.web.DyWebClient;
 import com.dyj.web.domain.query.AppletTemplateQuery;
 import com.dyj.web.domain.query.CreateAppletTemplateQuery;
