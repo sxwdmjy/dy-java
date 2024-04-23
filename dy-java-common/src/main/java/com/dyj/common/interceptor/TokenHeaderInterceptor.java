@@ -22,7 +22,7 @@ import java.util.Objects;
  * @author danmo
  * @date 2024-04-07 15:03
  **/
-public class TokenHeaderInterceptor implements Interceptor<DyResult> {
+public class TokenHeaderInterceptor implements Interceptor<Object> {
 
     private final Log log = LogFactory.getLog(TokenHeaderInterceptor.class);
 

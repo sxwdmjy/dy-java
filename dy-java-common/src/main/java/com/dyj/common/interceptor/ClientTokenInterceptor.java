@@ -31,7 +31,7 @@ import javax.annotation.Resource;
 import java.util.Objects;
 
 @Component
-public class ClientTokenInterceptor implements Interceptor<DySimpleResult> {
+public class ClientTokenInterceptor implements Interceptor<Object> {
     private final Log log = LogFactory.getLog(ClientTokenInterceptor.class);
     @Resource
     private AuthClient authClient;
