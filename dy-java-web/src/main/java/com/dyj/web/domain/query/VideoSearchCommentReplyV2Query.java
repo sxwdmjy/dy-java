@@ -48,6 +48,10 @@ public class VideoSearchCommentReplyV2Query extends UserInfoQuery {
         return this;
     }
 
+    public static VideoSearchCommentReplyV2QueryBuilder builder(){
+        return new VideoSearchCommentReplyV2QueryBuilder();
+    }
+
     public static class VideoSearchCommentReplyV2QueryBuilder{
         /**
          * 需要回复的评论id（如果需要回复的是视频不传此字段） 选填

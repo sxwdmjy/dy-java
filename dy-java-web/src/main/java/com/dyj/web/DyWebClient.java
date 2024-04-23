@@ -1439,7 +1439,38 @@ public class DyWebClient extends BaseClient {
      */
     public DyResult<ListVo<MusicBillboard>> getHotMusicBillboard(){
         return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).getHotMusicBillboard();
+    }
 
+    /**
+     * 飙升榜
+     * @return
+     */
+    public DyResult<ListVo<MusicBillboard>> getSoarMusicBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).getSoarMusicBillboard();
+    }
+
+    /**
+     * 原创榜
+     * @return
+     */
+    public DyResult<ListVo<MusicBillboard>> getOriginalMusicBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).getOriginalMusicBillboard();
+    }
+
+    /**
+     * 话题榜
+     * @return
+     */
+    public DyResult<ListVo<TopicBillboard>> getTopicBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).getTopicBillboard();
+    }
+
+    /**
+     * 道具榜
+     * @return
+     */
+    public DyResult<ListVo<PropBillboard>> getPropBillboard(){
+        return new DataExternalHandler(configuration().getAgentConfigService().loadAgentByTenantId(tenantId,clientKey)).getPropBillboard();
     }
 
 }

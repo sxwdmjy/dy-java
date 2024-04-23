@@ -616,4 +616,41 @@ public class DataExternalTest {
         System.out.println(JSON.toJSONString(webClient.getHotMusicBillboard()));
     }
 
+    /**
+     * 飙升榜
+     */
+    @Test
+    public void getSoarMusicBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.getSoarMusicBillboard()));
+    }
+
+    /**
+     * 原创榜
+     */
+    @Test
+    public void getOriginalMusicBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.getOriginalMusicBillboard()));
+    }
+
+    /**
+     * 话题榜
+     */
+    @Test
+    public void getTopicBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.getTopicBillboard()));
+    }
+
+    /**
+     * 道具榜
+     */
+    @Test
+    public void getPropBillboard(){
+        DyWebClient webClient = new DyWebClient();
+        System.out.println(JSON.toJSONString(webClient.getPropBillboard()));
+    }
+
+
 }

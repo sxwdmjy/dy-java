@@ -676,6 +676,26 @@ public enum DyWebUrlPathEnum {
      */
     GET_HOT_MUSIC_BILLBOARD("getHotMusicBillboard", "/data/extern/billboard/music/hot/"),
 
+    /**
+     * 飙升榜
+     */
+    GET_SOAR_MUSIC_BILLBOARD("getSoarMusicBillboard", "/data/extern/billboard/music/soar/"),
+
+    /**
+     * 原创榜
+     */
+    GET_ORIGINAL_MUSIC_BILLBOARD("getOriginalMusicBillboard", "/data/extern/billboard/music/original/"),
+
+    /**
+     * 话题榜
+     */
+    GET_TOPIC_BILLBOARD("getTopicBillboard", "/data/extern/billboard/topic/"),
+
+    /**
+     * 道具榜
+     */
+    GET_PROP_BILLBOARD("getPropBillboard", "/data/extern/billboard/prop/"),
+
     ;
 
 

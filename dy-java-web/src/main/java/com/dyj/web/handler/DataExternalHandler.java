@@ -568,4 +568,36 @@ public class DataExternalHandler extends AbstractWebHandler{
         return getDataExternalClient().getHotMusicBillboard();
     }
 
+    /**
+     * 飙升榜
+     * @return
+     */
+    public DyResult<ListVo<MusicBillboard>> getSoarMusicBillboard(){
+        return getDataExternalClient().getSoarMusicBillboard();
+    }
+
+    /**
+     * 原创榜
+     * @return
+     */
+    public DyResult<ListVo<MusicBillboard>> getOriginalMusicBillboard(){
+        return getDataExternalClient().getOriginalMusicBillboard();
+    }
+
+    /**
+     * 话题榜
+     * @return
+     */
+    public DyResult<ListVo<TopicBillboard>> getTopicBillboard(){
+        return getDataExternalClient().getTopicBillboard();
+    }
+
+
+    /**
+     * 道具榜
+     * @return
+     */
+    public DyResult<ListVo<PropBillboard>> getPropBillboard(){
+        return getDataExternalClient().getPropBillboard();
+    }
 }
