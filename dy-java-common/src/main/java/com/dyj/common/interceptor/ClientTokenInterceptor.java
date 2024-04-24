@@ -41,7 +41,7 @@ public class ClientTokenInterceptor implements Interceptor<Object> {
         Integer tenantId = null;
         String clientKey = "";
         Object[] arguments = request.getArguments();
-        for (Object argument : arguments) {
+        for (Object argument : arguments == null ? new Object[0] : arguments) {
             if (argument instanceof BaseQuery) {
                 BaseQuery query = (BaseQuery) argument;
                 tenantId = query.getTenantId();
