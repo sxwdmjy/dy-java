@@ -23,7 +23,7 @@ public class PropertiesAgentConfigServiceImpl implements IAgentConfigService {
     @Override
     public List<AgentConfiguration> loadAgentByTenantId(Integer tenantId) throws AgentNotFoundException {
         List<AgentConfiguration> agentConfiguration = dyConfiguration.getAgentByTenantId(tenantId);
-        if (!CollectionUtils.isEmpty(agentConfiguration)) {
+        if (CollectionUtils.isEmpty(agentConfiguration)) {
             throw new AgentNotFoundException("租户未配置应用信息");
         }
         return agentConfiguration;

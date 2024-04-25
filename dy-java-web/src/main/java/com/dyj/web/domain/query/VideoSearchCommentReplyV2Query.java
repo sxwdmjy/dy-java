@@ -48,19 +48,25 @@ public class VideoSearchCommentReplyV2Query extends UserInfoQuery {
         return this;
     }
 
-    public static class VideoSearchCommentReplyV2QueryBuilder{
-        /**
-         * 需要回复的评论id（如果需要回复的是视频不传此字段） 选填
-         */
+    public static VideoSearchCommentReplyV2QueryBuilder builder(){
+        return new VideoSearchCommentReplyV2QueryBuilder();
+    }
+
+
+    public static final class VideoSearchCommentReplyV2QueryBuilder {
         private String commentId;
-        /**
-         * content
-         */
         private String content;
-        /**
-         * 视频搜索接口返回的加密的视频id
-         */
         private String secItemId;
+        private String openId;
+        private Integer tenantId;
+        private String clientKey;
+
+        private VideoSearchCommentReplyV2QueryBuilder() {
+        }
+
+        public static VideoSearchCommentReplyV2QueryBuilder aVideoSearchCommentReplyV2Query() {
+            return new VideoSearchCommentReplyV2QueryBuilder();
+        }
 
         public VideoSearchCommentReplyV2QueryBuilder commentId(String commentId) {
             this.commentId = commentId;
@@ -77,13 +83,30 @@ public class VideoSearchCommentReplyV2Query extends UserInfoQuery {
             return this;
         }
 
-        public VideoSearchCommentReplyV2Query build(){
-            return new VideoSearchCommentReplyV2Query()
-                    .setComment_id(commentId)
-                    .setContent(content)
-                    .setSec_item_id(secItemId);
+        public VideoSearchCommentReplyV2QueryBuilder openId(String openId) {
+            this.openId = openId;
+            return this;
         }
 
-    }
+        public VideoSearchCommentReplyV2QueryBuilder tenantId(Integer tenantId) {
+            this.tenantId = tenantId;
+            return this;
+        }
 
+        public VideoSearchCommentReplyV2QueryBuilder clientKey(String clientKey) {
+            this.clientKey = clientKey;
+            return this;
+        }
+
+        public VideoSearchCommentReplyV2Query build() {
+            VideoSearchCommentReplyV2Query videoSearchCommentReplyV2Query = new VideoSearchCommentReplyV2Query();
+            videoSearchCommentReplyV2Query.setComment_id(commentId);
+            videoSearchCommentReplyV2Query.setContent(content);
+            videoSearchCommentReplyV2Query.setSec_item_id(secItemId);
+            videoSearchCommentReplyV2Query.setOpen_id(openId);
+            videoSearchCommentReplyV2Query.setTenantId(tenantId);
+            videoSearchCommentReplyV2Query.setClientKey(clientKey);
+            return videoSearchCommentReplyV2Query;
+        }
+    }
 }

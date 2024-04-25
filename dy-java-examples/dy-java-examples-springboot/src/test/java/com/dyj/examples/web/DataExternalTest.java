@@ -1,8 +1,16 @@
 package com.dyj.examples.web;
 
 import com.alibaba.fastjson.JSON;
+import com.dyj.common.client.BaseClient;
+import com.dyj.common.config.AgentConfiguration;
 import com.dyj.common.domain.DyResult;
+import com.dyj.common.domain.UserTokenInfo;
+import com.dyj.common.exception.AuthTokenNotFoundException;
+import com.dyj.common.service.IAgentConfigService;
+import com.dyj.common.utils.DyConfigUtils;
 import com.dyj.examples.DyJavaExamplesApplication;
+import com.dyj.spring.properties.DyConfigurationProperties;
+import com.dyj.spring.utils.SpringUtils;
 import com.dyj.web.DyWebClient;
 import com.dyj.common.domain.vo.AccessTokenVo;
 import org.junit.Test;
@@ -10,6 +18,8 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import javax.annotation.Resource;
 
 /**
  * 数据开放服务
@@ -23,20 +33,38 @@ public class DataExternalTest {
 
     private final String openId = "_000oQUX6b7br2_T4fFcH3XIBeUqS_oUsOkn";
 
-    private final String code = "da8498f3b54aa9030kZt9pCD17G1k9CKWpbv_lf";
+    private final String code = "da8498f3b54aa903tW0CQSPYDGSFlb3c7ih4_lf";
     /**
      *  https://open.douyin.com/platform/oauth/connect?client_key=aw0nkq98bbkdvq7d&response_type=code&scope=user_info,trial.whitelist&redirect_uri=https://www.douyin.com
      *  授权连接获取code
      */
+
+    @Resource
+    private IAgentConfigService agentConfigService;
+    
+    private DyWebClient getAccessToken() {
+        DyWebClient webClient = DyWebClient.getInstance();
+        webClient.tenantId = agentConfigService.loadAgentByTenantId(1).get(0).getTenantId();
+        webClient.clientKey = agentConfigService.loadAgentByTenantId(1).get(0).getClientKey();
+        UserTokenInfo userTokenInfo = null;
+        try {
+            userTokenInfo = DyConfigUtils.getAgentTokenService().getUserTokenInfo(webClient.tenantId, webClient.clientKey, openId);
+        }catch (AuthTokenNotFoundException e){
+            e.printStackTrace();
+        }
+        if (userTokenInfo == null){
+            System.out.println(JSON.toJSONString(webClient.accessToken(code)));
+        }
+        return webClient;
+    }
 
     /**
      * 获取用户视频情况
      */
     @Test
     public void externalUserItem(){
-        DyWebClient webClient = new DyWebClient();
-        DyResult<AccessTokenVo> accessToken = webClient.accessToken(code);
-        System.out.println(JSON.toJSONString(accessToken));
+        DyWebClient webClient = getAccessToken();
+        
         System.out.println(JSON.toJSONString(webClient.externalUserItem(1L,openId)));
     }
 
@@ -45,9 +73,8 @@ public class DataExternalTest {
      */
     @Test
     public void externalUserFans(){
-        DyWebClient webClient = new DyWebClient();
-        DyResult<AccessTokenVo> accessToken = webClient.accessToken(code);
-        System.out.println(JSON.toJSONString(accessToken));
+        DyWebClient webClient = getAccessToken();
+        
         System.out.println(JSON.toJSONString(webClient.externalUserFans(1L,openId)));
     }
 
@@ -56,9 +83,8 @@ public class DataExternalTest {
      */
     @Test
     public void externalUserLike(){
-        DyWebClient webClient = new DyWebClient();
-        DyResult<AccessTokenVo> accessToken = webClient.accessToken(code);
-        System.out.println(JSON.toJSONString(accessToken));
+        DyWebClient webClient = getAccessToken();
+        
         System.out.println(JSON.toJSONString(webClient.externalUserLike(1L,openId)));
     }
 
@@ -67,9 +93,8 @@ public class DataExternalTest {
      */
     @Test
     public void externalUserComment(){
-        DyWebClient webClient = new DyWebClient();
-        DyResult<AccessTokenVo> accessToken = webClient.accessToken(code);
-        System.out.println(JSON.toJSONString(accessToken));
+        DyWebClient webClient = getAccessToken();
+        
         System.out.println(JSON.toJSONString(webClient.externalUserComment(1L,openId)));
     }
 
@@ -78,9 +103,8 @@ public class DataExternalTest {
      */
     @Test
     public void externalUserShare(){
-        DyWebClient webClient = new DyWebClient();
-        DyResult<AccessTokenVo> accessToken = webClient.accessToken(code);
-        System.out.println(JSON.toJSONString(accessToken));
+        DyWebClient webClient = getAccessToken();
+        
         System.out.println(JSON.toJSONString(webClient.externalUserShare(1L,openId)));
     }
 
@@ -89,9 +113,8 @@ public class DataExternalTest {
      */
     @Test
     public void externalUserProfile(){
-        DyWebClient webClient = new DyWebClient();
-        DyResult<AccessTokenVo> accessToken = webClient.accessToken(code);
-        System.out.println(JSON.toJSONString(accessToken));
+        DyWebClient webClient = getAccessToken();
+        
         System.out.println(JSON.toJSONString(webClient.externalUserProfile(1L,openId)));
     }
 
@@ -100,9 +123,8 @@ public class DataExternalTest {
      */
     @Test
     public void externalItemBase(){
-        DyWebClient webClient = new DyWebClient();
-        DyResult<AccessTokenVo> accessToken = webClient.accessToken(code);
-        System.out.println(JSON.toJSONString(accessToken));
+        DyWebClient webClient = getAccessToken();
+        
         System.out.println(JSON.toJSONString(webClient.externalItemBase("",openId)));
     }
 
@@ -111,9 +133,8 @@ public class DataExternalTest {
      */
     @Test
     public void externalItemLike(){
-        DyWebClient webClient = new DyWebClient();
-        DyResult<AccessTokenVo> accessToken = webClient.accessToken(code);
-        System.out.println(JSON.toJSONString(accessToken));
+        DyWebClient webClient = getAccessToken();
+        
         System.out.println(JSON.toJSONString(webClient.externalItemLike(1L,"",openId)));
     }
 
@@ -122,9 +143,8 @@ public class DataExternalTest {
      */
     @Test
     public void externalItemComment(){
-        DyWebClient webClient = new DyWebClient();
-        DyResult<AccessTokenVo> accessToken = webClient.accessToken(code);
-        System.out.println(JSON.toJSONString(accessToken));
+        DyWebClient webClient = getAccessToken();
+        
         System.out.println(JSON.toJSONString(webClient.externalItemComment(1L,"",openId)));
     }
 
@@ -133,9 +153,8 @@ public class DataExternalTest {
      */
     @Test
     public void externalItemPlay(){
-        DyWebClient webClient = new DyWebClient();
-        DyResult<AccessTokenVo> accessToken = webClient.accessToken(code);
-        System.out.println(JSON.toJSONString(accessToken));
+        DyWebClient webClient = getAccessToken();
+        
         System.out.println(JSON.toJSONString(webClient.externalItemPlay(1L,"",openId)));
     }
 
@@ -144,9 +163,8 @@ public class DataExternalTest {
      */
     @Test
     public void externalItemShare(){
-        DyWebClient webClient = new DyWebClient();
-        DyResult<AccessTokenVo> accessToken = webClient.accessToken(code);
-        System.out.println(JSON.toJSONString(accessToken));
+        DyWebClient webClient = getAccessToken();
+        
         System.out.println(JSON.toJSONString(webClient.externalItemShare(1L,"",openId)));
     }
 
@@ -155,9 +173,8 @@ public class DataExternalTest {
      */
     @Test
     public void getRoomIdList(){
-        DyWebClient webClient = new DyWebClient();
-        DyResult<AccessTokenVo> accessToken = webClient.accessToken(code);
-        System.out.println(JSON.toJSONString(accessToken));
+        DyWebClient webClient = getAccessToken();
+        
         System.out.println(JSON.toJSONString(webClient.getRoomIdList(1L, openId,1L)));
     }
 
@@ -166,9 +183,8 @@ public class DataExternalTest {
      */
     @Test
     public void getRoomInteractiveData(){
-        DyWebClient webClient = new DyWebClient();
-        DyResult<AccessTokenVo> accessToken = webClient.accessToken(code);
-        System.out.println(JSON.toJSONString(accessToken));
+        DyWebClient webClient = getAccessToken();
+        
         System.out.println(JSON.toJSONString(webClient.getRoomInteractiveData(1L, openId,1L)));
     }
 
@@ -177,9 +193,8 @@ public class DataExternalTest {
      */
     @Test
     public void getRoomAudienceData(){
-        DyWebClient webClient = new DyWebClient();
-        DyResult<AccessTokenVo> accessToken = webClient.accessToken(code);
-        System.out.println(JSON.toJSONString(accessToken));
+        DyWebClient webClient = getAccessToken();
+        
         System.out.println(JSON.toJSONString(webClient.getRoomAudienceData(1L, openId,1L)));
     }
 
@@ -188,9 +203,8 @@ public class DataExternalTest {
      */
     @Test
     public void getRoomBaseData(){
-        DyWebClient webClient = new DyWebClient();
-        DyResult<AccessTokenVo> accessToken = webClient.accessToken(code);
-        System.out.println(JSON.toJSONString(accessToken));
+        DyWebClient webClient = getAccessToken();
+        
         System.out.println(JSON.toJSONString(webClient.getRoomBaseData(1L, openId,1L)));
     }
 
@@ -199,9 +213,8 @@ public class DataExternalTest {
      */
     @Test
     public void apiFansDataBind(){
-        DyWebClient webClient = new DyWebClient();
-        DyResult<AccessTokenVo> accessToken = webClient.accessToken(code);
-        System.out.println(JSON.toJSONString(accessToken));
+        DyWebClient webClient = getAccessToken();
+        
         System.out.println(JSON.toJSONString(webClient.apiFansDataBind(openId)));
     }
 
@@ -210,9 +223,8 @@ public class DataExternalTest {
      */
     @Test
     public void getFansSource(){
-        DyWebClient webClient = new DyWebClient();
-        DyResult<AccessTokenVo> accessToken = webClient.accessToken(code);
-        System.out.println(JSON.toJSONString(accessToken));
+        DyWebClient webClient = getAccessToken();
+        
         System.out.println(JSON.toJSONString(webClient.getFansSource(openId)));
     }
 
@@ -221,9 +233,8 @@ public class DataExternalTest {
      */
     @Test
     public void getFansFavourite(){
-        DyWebClient webClient = new DyWebClient();
-        DyResult<AccessTokenVo> accessToken = webClient.accessToken(code);
-        System.out.println(JSON.toJSONString(accessToken));
+        DyWebClient webClient = getAccessToken();
+        
         System.out.println(JSON.toJSONString(webClient.getFansFavourite(openId)));
     }
 
@@ -232,9 +243,8 @@ public class DataExternalTest {
      */
     @Test
     public void getFansComment(){
-        DyWebClient webClient = new DyWebClient();
-        DyResult<AccessTokenVo> accessToken = webClient.accessToken(code);
-        System.out.println(JSON.toJSONString(accessToken));
+        DyWebClient webClient = getAccessToken();
+        
         System.out.println(JSON.toJSONString(webClient.getFansComment(openId)));
     }
 
@@ -243,7 +253,7 @@ public class DataExternalTest {
      */
     @Test
     public void hotSentences(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.hotSentences()));
     }
 
@@ -252,7 +262,7 @@ public class DataExternalTest {
      */
     @Test
     public void trendingSentences(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.trendingSentences(1,null)));
     }
 
@@ -261,7 +271,7 @@ public class DataExternalTest {
      */
     @Test
     public void hotVideoList(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.hotVideoList("")));
     }
 
@@ -270,7 +280,7 @@ public class DataExternalTest {
      */
     @Test
     public void starHotlist(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.starHotlist(1L)));
     }
 
@@ -279,9 +289,8 @@ public class DataExternalTest {
      */
     @Test
     public void starAuthorScore(){
-        DyWebClient webClient = new DyWebClient();
-        DyResult<AccessTokenVo> accessToken = webClient.accessToken(code);
-        System.out.println(JSON.toJSONString(accessToken));
+        DyWebClient webClient = getAccessToken();
+        
         System.out.println(JSON.toJSONString(webClient.starAuthorScore(openId)));
     }
 
@@ -290,7 +299,7 @@ public class DataExternalTest {
      */
     @Test
     public void starAuthorScoreV2(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.starAuthorScoreV2("")));
     }
 
@@ -299,7 +308,7 @@ public class DataExternalTest {
      */
     @Test
     public void discoveryEntRankItem(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.discoveryEntRankItem(1L,1L)));
     }
     
@@ -308,7 +317,7 @@ public class DataExternalTest {
      */
     @Test
     public void discoveryEntRankVersion(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.discoveryEntRankVersion(1L,null,1L)));
     }
 
@@ -317,7 +326,7 @@ public class DataExternalTest {
      */
     @Test
     public void getHotVideoBillboard(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.getHotVideoBillboard()));
     }
 
@@ -326,7 +335,7 @@ public class DataExternalTest {
      */
     @Test
     public void sportOverallBillboard(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.sportOverallBillboard()));
     }
 
@@ -335,7 +344,7 @@ public class DataExternalTest {
      */
     @Test
     public void sportBasketballBillboard(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.sportBasketballBillboard()));
     }
 
@@ -344,7 +353,7 @@ public class DataExternalTest {
      */
     @Test
     public void sportSoccerBillboard(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.sportSoccerBillboard()));
     }
 
@@ -353,7 +362,7 @@ public class DataExternalTest {
      */
     @Test
     public void sportComprehensiveBillboard(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.sportComprehensiveBillboard()));
     }
 
@@ -362,7 +371,7 @@ public class DataExternalTest {
      */
     @Test
     public void sportFitnessBillboard(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.sportFitnessBillboard()));
     }
 
@@ -371,7 +380,7 @@ public class DataExternalTest {
      */
     @Test
     public void sportOutdoorsBillboard(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.sportOutdoorsBillboard()));
     }
 
@@ -380,7 +389,7 @@ public class DataExternalTest {
      */
     @Test
     public void sportTableTennisBillboard(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.sportTableTennisBillboard()));
     }
 
@@ -389,7 +398,7 @@ public class DataExternalTest {
      */
     @Test
     public void sportCultureEBillboard(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.sportCultureEBillboard()));
     }
 
@@ -398,7 +407,7 @@ public class DataExternalTest {
      */
     @Test
     public void amusementOverallBillboard(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.amusementOverallBillboard()));
     }
 
@@ -407,7 +416,7 @@ public class DataExternalTest {
      */
     @Test
     public void amusementNewBillboard(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.amusementNewBillboard()));
     }
 
@@ -416,7 +425,7 @@ public class DataExternalTest {
      */
     @Test
     public void gameConsoleBillboard(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.gameConsoleBillboard()));
     }
 
@@ -425,7 +434,7 @@ public class DataExternalTest {
      */
     @Test
     public void gameInfBillboard(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.gameInfBillboard()));
     }
 
@@ -434,7 +443,7 @@ public class DataExternalTest {
      */
     @Test
     public void foodOverallBillboard(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.foodOverallBillboard()));
     }
 
@@ -443,7 +452,7 @@ public class DataExternalTest {
      */
     @Test
     public void foodTutorialBillboard(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.foodTutorialBillboard()));
     }
 
@@ -452,7 +461,7 @@ public class DataExternalTest {
      */
     @Test
     public void foodShopBillboard(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.foodShopBillboard()));
     }
 
@@ -461,7 +470,7 @@ public class DataExternalTest {
      */
     @Test
     public void dramaOverallBillboard(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.dramaOverallBillboard()));
     }
 
@@ -470,7 +479,7 @@ public class DataExternalTest {
      */
     @Test
     public void carOverallBillboard(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.carOverallBillboard()));
     }
 
@@ -479,7 +488,7 @@ public class DataExternalTest {
      */
     @Test
     public void carCommentBillboard(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.carCommentBillboard()));
     }
 
@@ -488,7 +497,7 @@ public class DataExternalTest {
      */
     @Test
     public void carPlayBillboard(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.carPlayBillboard()));
     }
 
@@ -497,7 +506,7 @@ public class DataExternalTest {
      */
     @Test
     public void carUseBillboard(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.carUseBillboard()));
     }
     /**
@@ -505,7 +514,7 @@ public class DataExternalTest {
      */
     @Test
     public void carDriverBillboard(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.carDriverBillboard()));
     }
 
@@ -514,7 +523,7 @@ public class DataExternalTest {
      */
     @Test
     public void travelOverallBillboard(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.travelOverallBillboard()));
     }
     /**
@@ -522,7 +531,7 @@ public class DataExternalTest {
      */
     @Test
     public void travelNewBillboard(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.travelNewBillboard()));
     }
 
@@ -531,7 +540,7 @@ public class DataExternalTest {
      */
     @Test
     public void cospaOverallBillboard(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.cospaOverallBillboard()));
     }
 
@@ -540,7 +549,7 @@ public class DataExternalTest {
      */
     @Test
     public void cospaQingManBillboard(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.cospaQingManBillboard()));
     }
 
@@ -549,7 +558,7 @@ public class DataExternalTest {
      */
     @Test
     public void cospaOutShotBillboard(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.cospaOutShotBillboard()));
     }
 
@@ -558,7 +567,7 @@ public class DataExternalTest {
      */
     @Test
     public void cospaPaintingBillboard(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.cospaPaintingBillboard()));
     }
 
@@ -567,7 +576,7 @@ public class DataExternalTest {
      */
     @Test
     public void cospaVoiceControlBillboard(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.cospaVoiceControlBillboard()));
     }
 
@@ -576,7 +585,7 @@ public class DataExternalTest {
      */
     @Test
     public void cospaBrainCavityBillboard(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.cospaBrainCavityBillboard()));
     }
 
@@ -585,7 +594,7 @@ public class DataExternalTest {
      */
     @Test
     public void cospaNewBillboard(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.cospaNewBillboard()));
     }
 
@@ -594,7 +603,7 @@ public class DataExternalTest {
      */
     @Test
     public void getStarsBillboard(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.getStarsBillboard()));
     }
 
@@ -603,7 +612,7 @@ public class DataExternalTest {
      */
     @Test
     public void getLiveBillboard(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.getLiveBillboard()));
     }
 
@@ -612,8 +621,45 @@ public class DataExternalTest {
      */
     @Test
     public void getHotMusicBillboard(){
-        DyWebClient webClient = new DyWebClient();
+        DyWebClient webClient = getAccessToken();
         System.out.println(JSON.toJSONString(webClient.getHotMusicBillboard()));
     }
+
+    /**
+     * 飙升榜
+     */
+    @Test
+    public void getSoarMusicBillboard(){
+        DyWebClient webClient = getAccessToken();
+        System.out.println(JSON.toJSONString(webClient.getSoarMusicBillboard()));
+    }
+
+    /**
+     * 原创榜
+     */
+    @Test
+    public void getOriginalMusicBillboard(){
+        DyWebClient webClient = getAccessToken();
+        System.out.println(JSON.toJSONString(webClient.getOriginalMusicBillboard()));
+    }
+
+    /**
+     * 话题榜
+     */
+    @Test
+    public void getTopicBillboard(){
+        DyWebClient webClient = getAccessToken();
+        System.out.println(JSON.toJSONString(webClient.getTopicBillboard()));
+    }
+
+    /**
+     * 道具榜
+     */
+    @Test
+    public void getPropBillboard(){
+        DyWebClient webClient = getAccessToken();
+        System.out.println(JSON.toJSONString(webClient.getPropBillboard()));
+    }
+
 
 }

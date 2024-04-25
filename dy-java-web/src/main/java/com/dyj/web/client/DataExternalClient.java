@@ -486,4 +486,33 @@ public interface DataExternalClient {
      */
     @Get(value = "${getHotMusicBillboard}", interceptor = ClientTokenInterceptor.class)
     DyResult<ListVo<MusicBillboard>> getHotMusicBillboard();
+
+    /**
+     * 飙升榜
+     * @return
+     */
+    @Get(value = "${getSoarMusicBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<MusicBillboard>> getSoarMusicBillboard();
+
+    /**
+     * 原创榜
+     * @return
+     */
+    @Get(value = "${getOriginalMusicBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<MusicBillboard>> getOriginalMusicBillboard();
+
+
+    /**
+     * 话题榜
+     * @return
+     */
+    @Get(value = "${getTopicBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<TopicBillboard>> getTopicBillboard();
+
+    /**
+     * 道具榜
+     * @return
+     */
+    @Get(value = "${getPropBillboard}", interceptor = ClientTokenInterceptor.class)
+    DyResult<ListVo<PropBillboard>> getPropBillboard();
 }
