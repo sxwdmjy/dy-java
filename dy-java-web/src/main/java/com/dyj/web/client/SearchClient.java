@@ -3,6 +3,7 @@ package com.dyj.web.client;
 import com.dtflys.forest.annotation.*;
 import com.dtflys.forest.backend.ContentType;
 import com.dyj.common.domain.DyResult;
+import com.dyj.common.interceptor.ClientTokenInterceptor;
 import com.dyj.web.domain.VideoSearchCommentReplyV2Result;
 import com.dyj.common.domain.query.UserInfoQuery;
 import com.dyj.web.domain.query.VideoSearchCommentReplyV2Query;
@@ -36,7 +37,7 @@ public interface SearchClient {
      * @param cursor 分页游标, 第一页请求cursor是0, response中会返回下一页请求用到的cursor, 同时response还会返回has_more来表明是否有更多的数据。 选填
      * @return
      */
-    @Get(value = "${videoSearchCommentListV2}", interceptor = TokenHeaderInterceptor.class,contentType = ContentType.APPLICATION_JSON)
+    @Get(value = "${videoSearchCommentListV2}", interceptor = ClientTokenInterceptor.class,contentType = ContentType.APPLICATION_JSON)
     DyResult<VideoSearchCommentListV2ListVo> videoSearchCommentListV2(@Query("count") Integer count, @Query("sec_item_id") String secItemId, @Query("cursor") Long cursor);
 
 
@@ -56,6 +57,6 @@ public interface SearchClient {
      * @param commentId 评论id
      * @return
      */
-    @Get(value = "${videoSearchCommentReplyListV2}", interceptor = TokenHeaderInterceptor.class)
+    @Get(value = "${videoSearchCommentReplyListV2}", interceptor = ClientTokenInterceptor.class)
     DyResult<VideoSearchCommentListV2ListVo> videoSearchCommentReplyListV2(@Query("cursor") Long cursor,@Query("count") Integer count,@Query("sec_item_id") String secItemId,@Query("comment_id") String commentId);
 }
